@@ -34,6 +34,9 @@
             this.altaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Campass = new System.Windows.Forms.ToolStripButton();
+            this.aBMRubroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMVisibilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +45,10 @@
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaClienteToolStripMenuItem,
-            this.altaEmpresaToolStripMenuItem});
+            this.altaEmpresaToolStripMenuItem,
+            this.aBMRubroToolStripMenuItem,
+            this.aBMVisibilidadToolStripMenuItem,
+            this.aBMRolToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -52,15 +58,15 @@
             // altaClienteToolStripMenuItem
             // 
             this.altaClienteToolStripMenuItem.Name = "altaClienteToolStripMenuItem";
-            this.altaClienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaClienteToolStripMenuItem.Text = "Alta Cliente";
+            this.altaClienteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.altaClienteToolStripMenuItem.Text = "ABM Cliente";
             this.altaClienteToolStripMenuItem.Click += new System.EventHandler(this.altaClienteToolStripMenuItem_Click);
             // 
             // altaEmpresaToolStripMenuItem
             // 
             this.altaEmpresaToolStripMenuItem.Name = "altaEmpresaToolStripMenuItem";
-            this.altaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaEmpresaToolStripMenuItem.Text = "Alta Empresa";
+            this.altaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.altaEmpresaToolStripMenuItem.Text = "ABM Empresa";
             this.altaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.altaEmpresaToolStripMenuItem_Click);
             // 
             // toolStrip1
@@ -84,13 +90,34 @@
             this.Campass.Text = "Cambiar Contraseña";
             this.Campass.Click += new System.EventHandler(this.Campass_Click);
             // 
-            // funciones
+            // aBMRubroToolStripMenuItem
+            // 
+            this.aBMRubroToolStripMenuItem.Name = "aBMRubroToolStripMenuItem";
+            this.aBMRubroToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aBMRubroToolStripMenuItem.Text = "ABM Rubro";
+            this.aBMRubroToolStripMenuItem.Click += new System.EventHandler(this.aBMRubroToolStripMenuItem_Click);
+            // 
+            // aBMVisibilidadToolStripMenuItem
+            // 
+            this.aBMVisibilidadToolStripMenuItem.Name = "aBMVisibilidadToolStripMenuItem";
+            this.aBMVisibilidadToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aBMVisibilidadToolStripMenuItem.Text = "ABM Visibilidad";
+            this.aBMVisibilidadToolStripMenuItem.Click += new System.EventHandler(this.aBMVisibilidadToolStripMenuItem_Click);
+            // 
+            // aBMRolToolStripMenuItem
+            // 
+            this.aBMRolToolStripMenuItem.Name = "aBMRolToolStripMenuItem";
+            this.aBMRolToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aBMRolToolStripMenuItem.Text = "ABM  Rol";
+            this.aBMRolToolStripMenuItem.Click += new System.EventHandler(this.aBMRolToolStripMenuItem_Click);
+            // 
+            // Commerce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "funciones";
+            this.Name = "Commerce";
             this.Text = "Funcionalidades";
             this.Load += new System.EventHandler(this.funciones_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -107,6 +134,9 @@
         private System.Windows.Forms.ToolStripMenuItem altaEmpresaToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton Campass;
+        private System.Windows.Forms.ToolStripMenuItem aBMRubroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMVisibilidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMRolToolStripMenuItem;
 
 
     }

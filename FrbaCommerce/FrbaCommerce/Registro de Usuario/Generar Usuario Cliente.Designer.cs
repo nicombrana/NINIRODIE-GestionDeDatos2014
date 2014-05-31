@@ -91,28 +91,28 @@
             // 
             this.Id_usuario.Location = new System.Drawing.Point(134, 13);
             this.Id_usuario.Name = "Id_usuario";
-            this.Id_usuario.Size = new System.Drawing.Size(117, 20);
+            this.Id_usuario.Size = new System.Drawing.Size(135, 20);
             this.Id_usuario.TabIndex = 2;
             // 
             // Password
             // 
             this.Password.Location = new System.Drawing.Point(134, 39);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(117, 20);
+            this.Password.Size = new System.Drawing.Size(135, 20);
             this.Password.TabIndex = 3;
             // 
             // repetir
             // 
             this.repetir.Location = new System.Drawing.Point(134, 65);
             this.repetir.Name = "repetir";
-            this.repetir.Size = new System.Drawing.Size(117, 20);
+            this.repetir.Size = new System.Drawing.Size(135, 20);
             this.repetir.TabIndex = 4;
             // 
             // documento
             // 
             this.documento.Location = new System.Drawing.Point(134, 114);
             this.documento.Name = "documento";
-            this.documento.Size = new System.Drawing.Size(117, 20);
+            this.documento.Size = new System.Drawing.Size(135, 20);
             this.documento.TabIndex = 5;
             this.documento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.documento_KeyPress);
             // 
@@ -120,7 +120,7 @@
             // 
             this.nombre.Location = new System.Drawing.Point(134, 140);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(117, 20);
+            this.nombre.Size = new System.Drawing.Size(135, 20);
             this.nombre.TabIndex = 6;
             this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombre_KeyPress);
             // 
@@ -128,7 +128,7 @@
             // 
             this.apellido.Location = new System.Drawing.Point(134, 166);
             this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(117, 20);
+            this.apellido.Size = new System.Drawing.Size(135, 20);
             this.apellido.TabIndex = 7;
             this.apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apellido_KeyPress);
             // 
@@ -136,7 +136,7 @@
             // 
             this.telefono.Location = new System.Drawing.Point(134, 192);
             this.telefono.Name = "telefono";
-            this.telefono.Size = new System.Drawing.Size(117, 20);
+            this.telefono.Size = new System.Drawing.Size(135, 20);
             this.telefono.TabIndex = 8;
             this.telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefono_KeyPress);
             // 
@@ -144,14 +144,14 @@
             // 
             this.mail.Location = new System.Drawing.Point(134, 219);
             this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(117, 20);
+            this.mail.Size = new System.Drawing.Size(135, 20);
             this.mail.TabIndex = 10;
             // 
             // ciudad
             // 
             this.ciudad.Location = new System.Drawing.Point(134, 298);
             this.ciudad.Name = "ciudad";
-            this.ciudad.Size = new System.Drawing.Size(117, 20);
+            this.ciudad.Size = new System.Drawing.Size(135, 20);
             this.ciudad.TabIndex = 12;
             this.ciudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ciudad_KeyPress);
             // 
@@ -163,7 +163,7 @@
             "F"});
             this.Sexo.Location = new System.Drawing.Point(134, 271);
             this.Sexo.Name = "Sexo";
-            this.Sexo.Size = new System.Drawing.Size(117, 21);
+            this.Sexo.Size = new System.Drawing.Size(135, 21);
             this.Sexo.TabIndex = 13;
             // 
             // tipo_doc
@@ -176,14 +176,14 @@
             "Cedula"});
             this.tipo_doc.Location = new System.Drawing.Point(134, 92);
             this.tipo_doc.Name = "tipo_doc";
-            this.tipo_doc.Size = new System.Drawing.Size(117, 21);
+            this.tipo_doc.Size = new System.Drawing.Size(135, 21);
             this.tipo_doc.TabIndex = 14;
             // 
             // localidad
             // 
             this.localidad.Location = new System.Drawing.Point(134, 324);
             this.localidad.Name = "localidad";
-            this.localidad.Size = new System.Drawing.Size(117, 20);
+            this.localidad.Size = new System.Drawing.Size(135, 20);
             this.localidad.TabIndex = 15;
             this.localidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.localidad_KeyPress);
             // 
@@ -392,7 +392,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(134, 245);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(117, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker1.TabIndex = 39;
             // 
             // Cliente
