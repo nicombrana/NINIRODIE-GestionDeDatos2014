@@ -11,6 +11,7 @@ using FrbaCommerce.Abm_Empresa;
 using FrbaCommerce.ABM_Rol;
 using FrbaCommerce.Abm_Rubro;
 using FrbaCommerce.Abm_Visibilidad;
+using FrbaCommerce.Generar_Publicacion;
 
 namespace FrbaCommerce
 {
@@ -60,6 +61,17 @@ namespace FrbaCommerce
         private void aBMVisibilidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ABMVisibilidad().ShowDialog(this);
+        }
+
+        private void generarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Genepub().ShowDialog(this);
+        }
+
+        private void editarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            new Genepub().ShowDialog(this);
         }
     }          
 }
