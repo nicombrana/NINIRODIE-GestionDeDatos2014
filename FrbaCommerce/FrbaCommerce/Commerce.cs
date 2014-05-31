@@ -12,6 +12,8 @@ using FrbaCommerce.ABM_Rol;
 using FrbaCommerce.Abm_Rubro;
 using FrbaCommerce.Abm_Visibilidad;
 using FrbaCommerce.Generar_Publicacion;
+using FrbaCommerce.Gestion_de_Preguntas;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce
 {
@@ -22,10 +24,12 @@ namespace FrbaCommerce
             InitializeComponent();
             LogIn login = new LogIn();
             login.ShowDialog(this);
+            if (login.id == null && login.pass == null)
+            {
+                new bypass().ShowDialog(this);
+                this.Close();
+            }
 
-
-            
-            
         }
 
         private void altaClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +76,16 @@ namespace FrbaCommerce
         {
 
             new Genepub().ShowDialog(this);
+        }
+
+        private void verRespuestasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new preguntas().ShowDialog(this);
+        }
+
+        private void responderPreguntasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Responder().ShowDialog(this);
         }
     }          
 }

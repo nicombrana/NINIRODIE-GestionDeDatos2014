@@ -40,6 +40,9 @@
             this.publicacion = new System.Windows.Forms.ToolStripDropDownButton();
             this.editarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preguntas = new System.Windows.Forms.ToolStripDropDownButton();
+            this.verRespuestasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.responderPreguntasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +101,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.Campass,
-            this.publicacion});
+            this.publicacion,
+            this.preguntas});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(669, 25);
@@ -141,6 +145,32 @@
             this.generarPublicacionesToolStripMenuItem.Text = "Generar Publicaciones";
             this.generarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.generarPublicacionesToolStripMenuItem_Click);
             // 
+            // preguntas
+            // 
+            this.preguntas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.preguntas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verRespuestasToolStripMenuItem,
+            this.responderPreguntasToolStripMenuItem});
+            this.preguntas.Image = ((System.Drawing.Image)(resources.GetObject("preguntas.Image")));
+            this.preguntas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.preguntas.Name = "preguntas";
+            this.preguntas.Size = new System.Drawing.Size(132, 22);
+            this.preguntas.Text = "Gestion de Preguntas";
+            // 
+            // verRespuestasToolStripMenuItem
+            // 
+            this.verRespuestasToolStripMenuItem.Name = "verRespuestasToolStripMenuItem";
+            this.verRespuestasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.verRespuestasToolStripMenuItem.Text = "Ver Respuestas";
+            this.verRespuestasToolStripMenuItem.Click += new System.EventHandler(this.verRespuestasToolStripMenuItem_Click);
+            // 
+            // responderPreguntasToolStripMenuItem
+            // 
+            this.responderPreguntasToolStripMenuItem.Name = "responderPreguntasToolStripMenuItem";
+            this.responderPreguntasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.responderPreguntasToolStripMenuItem.Text = "Responder Preguntas";
+            this.responderPreguntasToolStripMenuItem.Click += new System.EventHandler(this.responderPreguntasToolStripMenuItem_Click);
+            // 
             // Commerce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +200,9 @@
         private System.Windows.Forms.ToolStripDropDownButton publicacion;
         private System.Windows.Forms.ToolStripMenuItem editarPublicacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generarPublicacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton preguntas;
+        private System.Windows.Forms.ToolStripMenuItem verRespuestasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem responderPreguntasToolStripMenuItem;
 
 
     }

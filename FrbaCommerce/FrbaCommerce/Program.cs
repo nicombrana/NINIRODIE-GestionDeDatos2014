@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce
 {
@@ -15,7 +16,15 @@ namespace FrbaCommerce
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Commerce());
+            try
+            {
+                Application.Run(new Commerce());
+
+            }
+            catch (Exception e)
+            {
+                
+            }
         }
     }
 }
