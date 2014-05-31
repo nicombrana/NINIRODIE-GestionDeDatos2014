@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.NINIRODIE
 {
@@ -191,7 +192,7 @@ namespace FrbaCommerce.NINIRODIE
             string set = "";
             for (int i = 0; i < campos.Length; i++)
             {
-                if (!Validacion.estaVacio(valores[i].ToString()))
+                if (!Validador.estaVacio(valores[i].ToString()))
                 {
                     set += campos[i] + "=" + detectarSetearTipo(valores[i]) + ", ";
                 }
@@ -483,4 +484,4 @@ namespace FrbaCommerce.NINIRODIE
         #endregion
     }
     }
-}
+
