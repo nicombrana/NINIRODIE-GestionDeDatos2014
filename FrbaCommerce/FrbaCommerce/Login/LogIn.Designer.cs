@@ -32,8 +32,6 @@
             this.Pass_usuario = new System.Windows.Forms.TextBox();
             this.aceptar = new System.Windows.Forms.Button();
             this.cancelar = new System.Windows.Forms.Button();
-            this.cliente = new System.Windows.Forms.Button();
-            this.empresa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -52,6 +50,8 @@
             this.Pass_usuario.Name = "Pass_usuario";
             this.Pass_usuario.Size = new System.Drawing.Size(98, 20);
             this.Pass_usuario.TabIndex = 1;
+            this.Pass_usuario.UseSystemPasswordChar = true;
+            this.Pass_usuario.TextChanged += new System.EventHandler(this.Pass_usuario_TextChanged);
             // 
             // aceptar
             // 
@@ -61,6 +61,7 @@
             this.aceptar.TabIndex = 2;
             this.aceptar.Text = "Aceptar";
             this.aceptar.UseVisualStyleBackColor = true;
+            this.aceptar.Click += new System.EventHandler(this.aceptar_onClick);
             // 
             // cancelar
             // 
@@ -71,26 +72,6 @@
             this.cancelar.Text = "Cancelar";
             this.cancelar.UseVisualStyleBackColor = true;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
-            // 
-            // cliente
-            // 
-            this.cliente.Location = new System.Drawing.Point(26, 170);
-            this.cliente.Name = "cliente";
-            this.cliente.Size = new System.Drawing.Size(97, 23);
-            this.cliente.TabIndex = 4;
-            this.cliente.Text = "Generar Cliente";
-            this.cliente.UseVisualStyleBackColor = true;
-            this.cliente.Click += new System.EventHandler(this.generar_Click);
-            // 
-            // empresa
-            // 
-            this.empresa.Location = new System.Drawing.Point(165, 170);
-            this.empresa.Name = "empresa";
-            this.empresa.Size = new System.Drawing.Size(97, 23);
-            this.empresa.TabIndex = 5;
-            this.empresa.Text = "Generar Empresa";
-            this.empresa.UseVisualStyleBackColor = true;
-            this.empresa.Click += new System.EventHandler(this.empresa_Click);
             // 
             // label1
             // 
@@ -114,17 +95,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 215);
+            this.ClientSize = new System.Drawing.Size(284, 172);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.empresa);
-            this.Controls.Add(this.cliente);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.aceptar);
             this.Controls.Add(this.Pass_usuario);
             this.Controls.Add(this.ID_Usuario);
             this.Name = "LogIn";
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,8 +116,6 @@
         private System.Windows.Forms.TextBox Pass_usuario;
         private System.Windows.Forms.Button aceptar;
         private System.Windows.Forms.Button cancelar;
-        private System.Windows.Forms.Button cliente;
-        private System.Windows.Forms.Button empresa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

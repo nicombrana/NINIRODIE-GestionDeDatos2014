@@ -7,10 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace FrbaCommerce
 {
     public partial class LogIn : Form
     {
+        String id, pass;
+        
         public LogIn()
         {
             InitializeComponent();
@@ -44,7 +47,29 @@ namespace FrbaCommerce
 
         private void ID_Usuario_TextChanged(object sender, EventArgs e)
         {
-            
+         id = this.ID_Usuario.Text;   
+        }
+
+        private void Pass_usuario_TextChanged(object sender, EventArgs e)
+        {
+            pass = this.Pass_usuario.Text;
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aceptar_onClick(object sender, EventArgs e)
+        {
+            if ( id == "diego" && pass == "123")
+            {
+                new Form1().Show();
+            }
+            else
+            {
+            }
+                    
         }
     }
 }

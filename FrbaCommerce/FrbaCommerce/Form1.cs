@@ -15,5 +15,15 @@ namespace FrbaCommerce
         {
             InitializeComponent();
         }
-    }
+
+        private void altaClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Cliente().Show();
+        }
+
+        private void altaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new empresa().Show();
+        }
+    }          
 }
