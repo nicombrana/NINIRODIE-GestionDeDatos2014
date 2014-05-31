@@ -34,6 +34,8 @@
             this.cancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.gencli = new System.Windows.Forms.Button();
+            this.genemp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ID_Usuario
@@ -91,11 +93,33 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Password";
             // 
+            // gencli
+            // 
+            this.gencli.Location = new System.Drawing.Point(25, 171);
+            this.gencli.Name = "gencli";
+            this.gencli.Size = new System.Drawing.Size(98, 23);
+            this.gencli.TabIndex = 8;
+            this.gencli.Text = "Generar Cliente";
+            this.gencli.UseVisualStyleBackColor = true;
+            this.gencli.Click += new System.EventHandler(this.gencli_Click);
+            // 
+            // genemp
+            // 
+            this.genemp.Location = new System.Drawing.Point(165, 171);
+            this.genemp.Name = "genemp";
+            this.genemp.Size = new System.Drawing.Size(98, 23);
+            this.genemp.TabIndex = 9;
+            this.genemp.Text = "Generar Empresa";
+            this.genemp.UseVisualStyleBackColor = true;
+            this.genemp.Click += new System.EventHandler(this.genemp_Click);
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 172);
+            this.ClientSize = new System.Drawing.Size(284, 212);
+            this.Controls.Add(this.genemp);
+            this.Controls.Add(this.gencli);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelar);
@@ -118,5 +142,7 @@
         private System.Windows.Forms.Button cancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button gencli;
+        private System.Windows.Forms.Button genemp;
     }
 }

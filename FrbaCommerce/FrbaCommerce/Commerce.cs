@@ -6,14 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.Abm_Cliente;
 
 namespace FrbaCommerce
 {
-    public partial class Form1 : Form
+    public partial class Commerce : Form
     {
-        public Form1()
+        public Commerce()
         {
             InitializeComponent();
+            LogIn login = new LogIn();
+            login.ShowDialog(this);
+
+
+            
+            
         }
 
         private void altaClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,6 +31,16 @@ namespace FrbaCommerce
         private void altaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new empresa().Show();
+        }
+
+        private void Campass_Click(object sender, EventArgs e)
+        {
+            new CambiarContrasenia().Show();
+        }
+
+        private void funciones_Load(object sender, EventArgs e)
+        {
+
         }
     }          
 }

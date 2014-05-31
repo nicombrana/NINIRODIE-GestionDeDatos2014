@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Cliente\CambiarContrasenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abm Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,12 +81,23 @@
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Alerta_Idpass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Alerta_Idpass.Designer.cs">
+      <DependentUpon>Alerta_Idpass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Calificar Vendedor\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClasesNINIRODIE\ConsultorABase.cs" />
+    <Compile Include="ClasesNINIRODIE\SHA256.cs" />
+    <Compile Include="ClasesNINIRODIE\SqlHelper.cs" />
+    <Compile Include="ClasesNINIRODIE\Usuario.cs" />
+    <Compile Include="ClasesNINIRODIE\Validador.cs" />
     <Compile Include="Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,11 +116,11 @@
     <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Commerce.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Commerce.Designer.cs">
+      <DependentUpon>Commerce.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicacion\Form1.cs">
       <SubType>Form</SubType>
@@ -138,17 +152,43 @@
     <Compile Include="Login\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Abm Cliente\CambiarContrasenia.resx">
+      <DependentUpon>CambiarContrasenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Alerta_Idpass.resx">
+      <DependentUpon>Alerta_Idpass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commerce.resx">
+      <DependentUpon>Commerce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registro de Usuario\Generar Usuario Cliente.resx">
+      <DependentUpon>Generar Usuario Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro de Usuario\Generar Usuario Empresa.resx">
+      <DependentUpon>Generar Usuario Empresa.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Login\LogIn" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +203,18 @@
     </Compile>
     <Compile Include="Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro de Usuario\Generar Usuario Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro de Usuario\Generar Usuario Cliente.Designer.cs">
+      <DependentUpon>Generar Usuario Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro de Usuario\Generar Usuario Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro de Usuario\Generar Usuario Empresa.Designer.cs">
+      <DependentUpon>Generar Usuario Empresa.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

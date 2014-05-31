@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.Alertas;
 
 
 namespace FrbaCommerce
@@ -13,7 +14,7 @@ namespace FrbaCommerce
     public partial class LogIn : Form
     {
         String id, pass;
-        
+
         public LogIn()
         {
             InitializeComponent();
@@ -64,12 +65,27 @@ namespace FrbaCommerce
         {
             if ( id == "diego" && pass == "123")
             {
-                new Form1().Show();
+                //Ver el roll del usuario
+                //para avisar que funcionalidades mostrar
+                // usando principal
+                this.Close();
+               
             }
             else
             {
+                new Alerid().Show();
             }
                     
+        }
+
+        private void gencli_Click(object sender, EventArgs e)
+        {
+            new Cliente().Show();
+        }
+
+        private void genemp_Click(object sender, EventArgs e)
+        {
+            new empresa().Show();
         }
     }
 }
