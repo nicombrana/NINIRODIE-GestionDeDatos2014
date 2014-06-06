@@ -67,7 +67,7 @@ namespace FrbaCommerce
             
             user = log.EsCorrecto(id,pass);
             
-            if ( user.id == id && user.pass == pass)
+            if ( user.id == id && user.pass == pass && user.habilitado == true)
             {
                 logeo = true;
 

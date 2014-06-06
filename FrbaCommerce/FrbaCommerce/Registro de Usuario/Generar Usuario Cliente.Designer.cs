@@ -396,7 +396,7 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
             this.dateTimePicker1.TabIndex = 39;
             // 
-            // Cliente
+            // GenerarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -439,7 +439,7 @@
             this.Controls.Add(this.Id_usuario);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Aceptar);
-            this.Name = "Cliente";
+            this.Name = "GenerarCliente";
             this.Text = "Generar Usuario Cliente";
             this.Load += new System.EventHandler(this.Cliente_Load);
             this.ResumeLayout(false);

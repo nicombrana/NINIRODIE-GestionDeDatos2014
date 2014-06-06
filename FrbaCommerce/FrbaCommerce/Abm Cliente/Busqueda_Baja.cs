@@ -9,12 +9,32 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.Abm_Cliente
 {
     public partial class Busqueda_Baja : Form
     {
-        string nombre;
+        String nombre_usuario;
+        String clave;
+        String clave_rep;
+        String nombre;
+        String ape;
+        String tipo_docu;
+        Decimal nro_doc;
+        Decimal telef;
+        String meil;
+        DateTime f_nac;
+        Char sex;
+        String ciud;
+        String loc;
+        String call;
+        Decimal altu;
+        Decimal pis;
+        Decimal codpos;
+        Char puert;
+
+
         public Busqueda_Baja()
         {
             InitializeComponent();
@@ -27,17 +47,21 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            Buscador buscar = new Buscador();
-            if (buscar.BuscarBajaCli(nombre))
-            {
-                new BajaCli().ShowDialog();
-            }
-            else { new NoExisteUsuario().ShowDialog(); }
-        }
-
-        private void BM_TextChanged(object sender, EventArgs e)
-        {
+            ape = textBox2.Text;
             nombre = BM.Text;
+            nro_doc = Decimal.Parse(NDoc.Text);
+            meil = Email.Text;
+            tipo_docu = comboBox1.SelectedText;
+
+            Cliente cliente = new Cliente();
+
+            cliente = RepositorioCliente.Instance.BuscarClienteBaja(ape, nombre, nro_doc,
+                                                            meil, tipo_docu);
+
+            cliente.codigo = RepositorioCliente.Instance.BuscarClaveCliente(cliente); 
+            
+
+            new BajaCli(cliente.codigo).ShowDialog(this);
         }
 
         private void BM_KeyPress(object sender, KeyPressEventArgs e)

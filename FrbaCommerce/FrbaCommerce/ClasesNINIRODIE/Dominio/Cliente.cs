@@ -16,6 +16,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public String nombre_usuario { get; set; }
         public String clave { get; set; }
 
+        public Cliente(){
+        }
+
         public Cliente(String tipo_docu, Decimal numero_doc, String nombr, String apellid,
             DateTime fechan, Char se, String nusu, String cl, String mal, Decimal Telefon, 
             String ciu, String lodad, String cal, Decimal al, Decimal pi, Decimal cp, 

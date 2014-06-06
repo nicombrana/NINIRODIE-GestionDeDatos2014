@@ -60,7 +60,7 @@
             this.BAceptar.TabIndex = 2;
             this.BAceptar.Text = "Aceptar";
             this.BAceptar.UseVisualStyleBackColor = true;
-            this.BAceptar.Click += new System.EventHandler(this.button1_Click);
+            this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
             // 
             // BCancelar
             // 
@@ -83,6 +83,7 @@
             this.Controls.Add(this.deshabilitar);
             this.Name = "BajaCli";
             this.Text = "Baja Cliente";
+            this.Load += new System.EventHandler(this.BajaCli_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

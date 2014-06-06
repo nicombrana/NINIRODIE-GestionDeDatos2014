@@ -43,6 +43,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return usuarios.First();
         }
 
+        public void BajarUsuario(Decimal codigo, bool habilitado)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
+                "'{0}' WHERE USU_CLIENTE_ID = '{1}'", habilitado, codigo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
         public void InsertarUsuario(Cliente cliente)
         {
             var query = String.Format(@"INSERT INTO NINIRODIE.USUARIO " +

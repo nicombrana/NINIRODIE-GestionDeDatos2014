@@ -24,6 +24,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public Cliente BuscarClienteBaja(String apellido, String nombre,
+                                            Decimal nroDoc, String mail, String tipoDoc)
+        {
+          
+              var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE");
+
+              Cliente cli = new Cliente();
+              return cli;
+        }
+
         public void InsertarCliente(Cliente cliente) 
         {
 

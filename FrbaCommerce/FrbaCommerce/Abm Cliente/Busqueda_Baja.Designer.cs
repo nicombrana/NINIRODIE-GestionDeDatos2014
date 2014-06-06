@@ -77,7 +77,6 @@
             this.BM.Name = "BM";
             this.BM.Size = new System.Drawing.Size(100, 20);
             this.BM.TabIndex = 4;
-            this.BM.TextChanged += new System.EventHandler(this.BM_TextChanged);
             this.BM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BM_KeyPress);
             // 
             // TDoc
