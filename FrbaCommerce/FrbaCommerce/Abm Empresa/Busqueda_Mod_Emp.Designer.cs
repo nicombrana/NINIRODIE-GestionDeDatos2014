@@ -89,6 +89,7 @@
             this.TextCuit.Name = "TextCuit";
             this.TextCuit.Size = new System.Drawing.Size(100, 20);
             this.TextCuit.TabIndex = 18;
+            this.TextCuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextCuit_KeyPress);
             // 
             // label1
             // 
@@ -122,6 +123,7 @@
             this.Name = "Busqueda_Mod_Emp";
             this.Text = "Busqueda";
             this.Load += new System.EventHandler(this.Busqueda_Mod_Emp_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Busqueda_Mod_Emp_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

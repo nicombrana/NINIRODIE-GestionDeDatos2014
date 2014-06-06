@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Abm_Cliente
 {
@@ -50,5 +51,22 @@ namespace FrbaCommerce.Abm_Cliente
         {
 
         }
+
+        private void BM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void NDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+
     }
 }

@@ -140,7 +140,7 @@ namespace FrbaCommerce.NINIRODIE
             Roles = new List<string>();
 
             DataSet dataset;
-
+            
             //Obtengo el id de los roles del usuario
             string Consulta = " select r.IdRol from NINIRODIE.Usuarios u " +
                               " join NINIROE.Rol_Usuario r on r.IdUsuario = u.IdUsuario " +

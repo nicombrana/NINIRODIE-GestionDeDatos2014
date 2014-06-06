@@ -78,6 +78,7 @@
             this.BM.Size = new System.Drawing.Size(100, 20);
             this.BM.TabIndex = 4;
             this.BM.TextChanged += new System.EventHandler(this.BM_TextChanged);
+            this.BM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BM_KeyPress);
             // 
             // TDoc
             // 
@@ -103,6 +104,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 10;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // Mail
             // 
@@ -135,6 +137,7 @@
             this.NDoc.Name = "NDoc";
             this.NDoc.Size = new System.Drawing.Size(100, 20);
             this.NDoc.TabIndex = 14;
+            this.NDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NDoc_KeyPress);
             // 
             // comboBox1
             // 
@@ -168,6 +171,7 @@
             this.Controls.Add(this.BM);
             this.Name = "Busqueda_Baja";
             this.Text = "Busqueda";
+            this.Load += new System.EventHandler(this.Busqueda_Baja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.NINIRODIE;
 
 
 namespace FrbaCommerce
@@ -15,6 +16,7 @@ namespace FrbaCommerce
     public partial class LogIn : Form
     {
         public String id = null, pass = null, usuario = null;
+        public bool logeo = false;
 
         public LogIn()
         {
@@ -70,6 +72,7 @@ namespace FrbaCommerce
             
             if ( log.EsCorrecto(id,pass))
             {
+                logeo = true;
                 usuario = "admin";
                 //Ver el roll del usuario
                 //para avisar que funcionalidades mostrar

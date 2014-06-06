@@ -14,6 +14,7 @@ namespace FrbaCommerce.Alertas
         public bypass()
         {
             InitializeComponent();
+           
         }
 
         private void putos_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Abm_Empresa
 {
@@ -42,6 +43,16 @@ namespace FrbaCommerce.Abm_Empresa
         }
 
         private void Busqueda_Mod_Emp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextCuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void Busqueda_Mod_Emp_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

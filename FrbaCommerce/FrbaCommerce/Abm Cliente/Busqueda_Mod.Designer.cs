@@ -106,6 +106,7 @@
             this.NDoc.Name = "NDoc";
             this.NDoc.Size = new System.Drawing.Size(100, 20);
             this.NDoc.TabIndex = 24;
+            this.NDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NDoc_KeyPress);
             // 
             // TDoc
             // 
@@ -131,6 +132,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 21;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label2
             // 
@@ -148,6 +150,7 @@
             this.BM.Size = new System.Drawing.Size(100, 20);
             this.BM.TabIndex = 19;
             this.BM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.BM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BM_KeyPress);
             // 
             // Busqueda_Mod
             // 

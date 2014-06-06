@@ -65,11 +65,11 @@ namespace FrbaCommerce
                 publicacion.Visible = true;
                 preguntas.Visible = true;
             }
-
-            if (login.id == null && login.pass == null)
-            {
+ 
+            if(login.logeo == false){
                 new bypass().ShowDialog(this);
                 this.Close();
+            
             }
         }
 

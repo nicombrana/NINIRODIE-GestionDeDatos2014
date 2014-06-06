@@ -48,7 +48,7 @@
             this.putos.Name = "putos";
             this.putos.Size = new System.Drawing.Size(142, 33);
             this.putos.TabIndex = 1;
-            this.putos.Text = "Aceptar";
+            this.putos.Text = "Aceptar Que Sos Puto";
             this.putos.UseVisualStyleBackColor = true;
             this.putos.Click += new System.EventHandler(this.putos_Click);
             // 
@@ -61,6 +61,7 @@
             this.Controls.Add(this.pasear);
             this.Name = "bypass";
             this.Text = "bypass";
+          
             this.ResumeLayout(false);
             this.PerformLayout();
 
