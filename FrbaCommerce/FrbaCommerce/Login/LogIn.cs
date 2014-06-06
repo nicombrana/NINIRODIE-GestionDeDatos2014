@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 
 namespace FrbaCommerce
@@ -63,7 +64,11 @@ namespace FrbaCommerce
 
         private void aceptar_onClick(object sender, EventArgs e)
         {
-            if ( id == "diego" && pass == "123")
+            Logeador log = new Logeador();
+            log.id = id;
+            log.password = pass;
+
+            if ( log.EsCorrecto(id,pass))
             {
                 //Ver el roll del usuario
                 //para avisar que funcionalidades mostrar

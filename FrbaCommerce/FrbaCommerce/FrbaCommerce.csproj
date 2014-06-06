@@ -134,6 +134,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Ofertas.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
