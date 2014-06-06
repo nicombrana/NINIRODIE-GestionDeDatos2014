@@ -54,6 +54,24 @@
     <Compile Include="Abm Cliente\ABMCli.Designer.cs">
       <DependentUpon>ABMCli.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\BajaCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\BajaCli.Designer.cs">
+      <DependentUpon>BajaCli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Cliente\Busqueda_Baja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\Busqueda_Baja.Designer.cs">
+      <DependentUpon>Busqueda_Baja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Cliente\Busqueda_Mod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\Busqueda_Mod.Designer.cs">
+      <DependentUpon>Busqueda_Mod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Cliente\CambiarContrasenia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,17 +81,47 @@
     <Compile Include="Abm Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\ModificarCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\ModificarCli.Designer.cs">
+      <DependentUpon>ModificarCli.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Empresa\ABMEmp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Empresa\ABMEmp.Designer.cs">
       <DependentUpon>ABMEmp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Empresa\BajaEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\BajaEmp.Designer.cs">
+      <DependentUpon>BajaEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\Busqueda_Baja_Emp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\Busqueda_Baja_Emp.Designer.cs">
+      <DependentUpon>Busqueda_Baja_Emp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\Busqueda_Mod_Emp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\Busqueda_Mod_Emp.Designer.cs">
+      <DependentUpon>Busqueda_Mod_Emp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Empresa\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Empresa\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\ModificarEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\ModificarEmp.Designer.cs">
+      <DependentUpon>ModificarEmp.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\ABMRol.cs">
       <SubType>Form</SubType>
@@ -123,6 +171,12 @@
     <Compile Include="Alertas\bypass.Designer.cs">
       <DependentUpon>bypass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\NoExisteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\NoExisteUsuario.Designer.cs">
+      <DependentUpon>NoExisteUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +184,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesNINIRODIE\ConsultorABase.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Buscador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
@@ -185,10 +240,10 @@
     <Compile Include="Gestion de Preguntas\Responder.Designer.cs">
       <DependentUpon>Responder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.cs">
+    <Compile Include="Listado Estadistico\Historial Cliente\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial Cliente\Form1.Designer.cs">
+    <Compile Include="Listado Estadistico\Historial Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Listado Estadistico\Form1.cs">
@@ -214,11 +269,35 @@
     <EmbeddedResource Include="Abm Cliente\ABMCli.resx">
       <DependentUpon>ABMCli.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\BajaCli.resx">
+      <DependentUpon>BajaCli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\Busqueda_Baja.resx">
+      <DependentUpon>Busqueda_Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\Busqueda_Mod.resx">
+      <DependentUpon>Busqueda_Mod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Cliente\CambiarContrasenia.resx">
       <DependentUpon>CambiarContrasenia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\ModificarCli.resx">
+      <DependentUpon>ModificarCli.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\ABMEmp.resx">
       <DependentUpon>ABMEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\BajaEmp.resx">
+      <DependentUpon>BajaEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\Busqueda_Baja_Emp.resx">
+      <DependentUpon>Busqueda_Baja_Emp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\Busqueda_Mod_Emp.resx">
+      <DependentUpon>Busqueda_Mod_Emp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\ModificarEmp.resx">
+      <DependentUpon>ModificarEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
@@ -234,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\bypass.resx">
       <DependentUpon>bypass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\NoExisteUsuario.resx">
+      <DependentUpon>NoExisteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>

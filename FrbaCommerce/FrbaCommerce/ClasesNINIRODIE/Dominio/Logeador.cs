@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
@@ -12,9 +13,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public bool EsCorrecto(String id, String pass){
            //Aca se debería golpear a la base
+            
             if(id == "diego" && pass == "123"){
                 return true;
             }
+
             else { return false; }
         }
     }

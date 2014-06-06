@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Historial_Cliente
+namespace FrbaCommerce.Abm_Cliente
 {
-    public partial class Form1 : Form
+    public partial class ModificarCli : Form
     {
-        public Form1()
+        public ModificarCli()
         {
             InitializeComponent();
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

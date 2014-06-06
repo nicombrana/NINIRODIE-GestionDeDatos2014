@@ -23,12 +23,12 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void botonBaja_Click(object sender, EventArgs e)
         {
-
+            new Busqueda_Baja().ShowDialog();
         }
 
         private void botonModificacion_Click(object sender, EventArgs e)
         {
-
+            new Busqueda_Mod().ShowDialog();
         }
 
         private void ABMCli_Load(object sender, EventArgs e)

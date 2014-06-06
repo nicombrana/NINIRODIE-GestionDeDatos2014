@@ -20,5 +20,15 @@ namespace FrbaCommerce.Abm_Empresa
         {
             new empresa().ShowDialog(this);
         }
+
+        private void botonBaja_Click(object sender, EventArgs e)
+        {
+            new Busqueda_Baja_Emp().ShowDialog();
+        }
+
+        private void botonModificacion_Click(object sender, EventArgs e)
+        {
+            new Busqueda_Mod_Emp().ShowDialog();
+        }
     }
 }

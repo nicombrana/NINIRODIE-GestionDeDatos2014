@@ -41,6 +41,7 @@
             this.botonModificacion.TabIndex = 5;
             this.botonModificacion.Text = "Modificacion";
             this.botonModificacion.UseVisualStyleBackColor = true;
+            this.botonModificacion.Click += new System.EventHandler(this.botonModificacion_Click);
             // 
             // botonBaja
             // 
@@ -50,6 +51,7 @@
             this.botonBaja.TabIndex = 4;
             this.botonBaja.Text = "Baja";
             this.botonBaja.UseVisualStyleBackColor = true;
+            this.botonBaja.Click += new System.EventHandler(this.botonBaja_Click);
             // 
             // botonAlta
             // 
