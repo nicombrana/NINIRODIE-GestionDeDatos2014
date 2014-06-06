@@ -16,7 +16,8 @@ namespace FrbaCommerce
     public partial class LogIn : Form
     {
         public String id = null, pass = null, usuario = null;
-        public bool logeo = false;
+        public bool logeo = false, cerrar = false;
+        public Usuario user;
 
         public LogIn()
         {
@@ -25,21 +26,15 @@ namespace FrbaCommerce
 
         private void generar_Click(object sender, EventArgs e)
         {
-            Cliente form_cliente = new Cliente();
+            GenerarCliente form_cliente = new GenerarCliente();
 
             form_cliente.Show();
         }
 
         private void cancelar_Click(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox text = ctrl as TextBox;
-                    text.Clear();
-                }
-            }
+            cerrar = true;
+            this.Close();
         }
 
         private void empresa_Click(object sender, EventArgs e)
@@ -70,13 +65,12 @@ namespace FrbaCommerce
             log.id = id;
             log.password = pass;
             
-            if ( log.EsCorrecto(id,pass))
+            user = log.EsCorrecto(id,pass);
+            
+            if ( user.id == id && user.pass == pass)
             {
                 logeo = true;
-                usuario = "admin";
-                //Ver el roll del usuario
-                //para avisar que funcionalidades mostrar
-                //guardar el tipo de usuario en la variable usuario
+
                 this.Close();
                
             }
@@ -84,17 +78,17 @@ namespace FrbaCommerce
             {
                 new Alerid().Show();
             }
-                    
+                   
         }
 
         private void gencli_Click(object sender, EventArgs e)
         {
-            new Cliente().Show();
+            new GenerarCliente().ShowDialog();
         }
 
         private void genemp_Click(object sender, EventArgs e)
         {
-            new empresa().Show();
+            new empresa().ShowDialog();
         }
     }
 }

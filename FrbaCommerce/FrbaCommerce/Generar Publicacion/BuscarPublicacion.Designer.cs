@@ -63,6 +63,7 @@
             this.BAceptar.TabIndex = 18;
             this.BAceptar.Text = "Aceptar";
             this.BAceptar.UseVisualStyleBackColor = true;
+            this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
             // 
             // LDesc
             // 

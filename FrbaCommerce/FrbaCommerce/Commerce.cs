@@ -19,7 +19,6 @@ namespace FrbaCommerce
 {
     public partial class Commerce : Form
     {
-        string usuario = "admin";
 
         public Commerce()
         {
@@ -52,8 +51,8 @@ namespace FrbaCommerce
 
             LogIn login = new LogIn();
             login.ShowDialog(this);
-
-            if (login.usuario == "admin")
+            
+            if (login.user.tipo == "ADMINISTRADOR")
             {
                 toolStripDropDownButton1.Visible = true;
                 Campass.Visible = true;
@@ -65,7 +64,10 @@ namespace FrbaCommerce
                 publicacion.Visible = true;
                 preguntas.Visible = true;
             }
- 
+            if(login.cerrar == true){
+                this.Close();
+            }
+
             if(login.logeo == false){
                 new bypass().ShowDialog(this);
                 this.Close();

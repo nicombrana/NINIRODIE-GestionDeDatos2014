@@ -6,7 +6,7 @@ using System.Data;
 
 namespace FrbaCommerce.ClasesNINIRODIE.DBUtils
 {
-    class DataRowCollectionExtensions
+    static class DataRowCollectionExtensions
     {
         public static List<TResult> ToList<TResult>(this DataRowCollection dataRows, Func<DataRow, TResult> function)
         {

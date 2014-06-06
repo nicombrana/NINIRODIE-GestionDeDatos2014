@@ -8,10 +8,10 @@ using System.Configuration;
 
 namespace FrbaCommerce.ClasesNINIRODIE.DBUtils
 {
-    class SQLUtils
+    public class SQLUtils
     {
         private static SqlConnection connection = new SqlConnection(
-            ConfigurationManager.ConnectionStrings["GD1C2014"].ConnectionString);
+            "server=.\\SQLSERVER2008; user=gd; password=gd2014; database=gd1c2014;");
 
         public static DataRowCollection EjecutarConsultaSimple(String selectQuery, String table)
         {

@@ -18,7 +18,7 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void botonAlta_Click(object sender, EventArgs e)
         {
-            new Cliente().ShowDialog(this);
+            new GenerarCliente().ShowDialog(this);
         }
 
         private void botonBaja_Click(object sender, EventArgs e)

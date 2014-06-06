@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
-using FrbaCommerce.NINIRODIE;
+using System.Data;
+using FrbaCommerce.ClasesNINIRODIE.DBUtils;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
     class Logeador
     {
-        public string id = null, password = null;
+        public string id = null, password = null, tipo = null;
 
-        public bool EsCorrecto(String id, String pass){
-           //Aca se debería golpear a la base
+        public Usuario EsCorrecto(String id, String pass){
 
-            if(id == "diego" && pass == "123"){
-                return true;
-            }
+            Usuario user = RepositorioUsuario.Instance.BuscarUsuario(id,pass);
 
-            else { return false; }
+            return user;
         }
     }
 }

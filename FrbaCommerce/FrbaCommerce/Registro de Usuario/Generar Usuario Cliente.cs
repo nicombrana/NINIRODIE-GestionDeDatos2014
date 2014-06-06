@@ -7,12 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce
 {
-    public partial class Cliente : Form
+    public partial class GenerarCliente : Form
     {
-        public Cliente()
+        String nombre_usuario;
+        String clave;
+        String clave_rep;
+        String nomb;
+        String ape;
+        String tipo_docu;
+        Decimal nro_doc;
+        Decimal telef;
+        String meil;
+        DateTime f_nac;
+        Char sex;
+        String ciud;
+        String loc;
+        String call;
+        Decimal altu;
+        Decimal pis;
+        Decimal codpos;
+        Char puert;
+
+
+
+        public GenerarCliente()
         {
             InitializeComponent();
         }
@@ -75,6 +99,46 @@ namespace FrbaCommerce
         private void calle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeLetras(e);
+        }
+
+        private void Aceptar_Click(object sender, EventArgs e)
+        {
+            clave = Password.Text;
+            clave_rep = repetir.Text;
+
+            if( clave == clave_rep)
+            {
+                call = calle.Text;
+                telef = Decimal.Parse(telefono.Text);
+                nomb = nombre.Text;
+                ape = apellido.Text;
+                nro_doc = Decimal.Parse(documento.Text);
+                codpos = Decimal.Parse(cod_pos.Text);
+                pis = Decimal.Parse(piso.Text);
+                altu = Decimal.Parse(altura.Text);
+                loc = localidad.Text;
+                ciud = ciudad.Text;
+                nombre_usuario = Id_usuario.Text;
+                
+                meil = mail.Text;
+                sex = Char.Parse(Sexo.Text);
+                puert = Char.Parse(departamento.Text);
+                f_nac = dateTimePicker1.Value;
+                tipo_docu = tipo_doc.SelectedText;
+                
+                Cliente clie = new Cliente(tipo_docu, nro_doc, nomb,
+                                            ape,f_nac, sex ,nombre_usuario,
+                                            clave , meil, telef,ciud, loc, call,
+                                            altu, pis, codpos, puert);
+                
+                //encriptar password
+                RepositorioCliente.Instance.InsertarCliente(clie);
+            }
+            else
+            {
+                new AlertRep().ShowDialog();
+            }
+            this.Close();
         }
 
 

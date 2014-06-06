@@ -20,5 +20,10 @@ namespace FrbaCommerce.Generar_Publicacion
         {
             this.Close();
         }
+
+        private void BAceptar_Click(object sender, EventArgs e)
+        {
+            new Publicacion().ShowDialog(this);
+        }
     }
 }

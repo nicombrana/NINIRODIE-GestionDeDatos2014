@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -165,6 +166,12 @@
     <Compile Include="Alertas\Alerta_Idpass.Designer.cs">
       <DependentUpon>Alerta_Idpass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\AlertRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\AlertRep.Designer.cs">
+      <DependentUpon>AlertRep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\bypass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +191,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesNINIRODIE\ConsultorABase.cs" />
+    <Compile Include="ClasesNINIRODIE\DBUtils\DataRowCollectionExtensions.cs" />
+    <Compile Include="ClasesNINIRODIE\DBUtils\DBTypeConverter.cs" />
+    <Compile Include="ClasesNINIRODIE\DBUtils\SQLUtils.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Buscador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
@@ -194,9 +204,11 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
     <Compile Include="ClasesNINIRODIE\SqlHelper.cs" />
-    <Compile Include="ClasesNINIRODIE\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Validador.cs" />
     <Compile Include="Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
@@ -227,6 +239,12 @@
     </Compile>
     <Compile Include="Generar Publicacion\BuscarPublicacion.Designer.cs">
       <DependentUpon>BuscarPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Publicacion\Publicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Publicacion\Publicacion.Designer.cs">
+      <DependentUpon>Publicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Generar Publicacion\Generar Publicacion.cs">
       <SubType>Form</SubType>
@@ -317,6 +335,9 @@
     <EmbeddedResource Include="Alertas\Alerta_Idpass.resx">
       <DependentUpon>Alerta_Idpass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\AlertRep.resx">
+      <DependentUpon>AlertRep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\bypass.resx">
       <DependentUpon>bypass.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\Generar Publicacion.resx">
       <DependentUpon>Generar Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicacion\Publicacion.resx">
+      <DependentUpon>Publicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\Preguntas.resx">
       <DependentUpon>Preguntas.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce
 {
-    partial class Cliente
+    partial class GenerarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -76,6 +76,7 @@
             this.Aceptar.TabIndex = 0;
             this.Aceptar.Text = "Aceptar";
             this.Aceptar.UseVisualStyleBackColor = true;
+            this.Aceptar.Click += new System.EventHandler(this.Aceptar_Click);
             // 
             // Cancelar
             // 
