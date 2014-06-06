@@ -43,6 +43,23 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return usuarios.First();
         }
 
+        public void Bloquear(String nombre_usuario)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_BLOQUEADO = " +
+              "´{0}',  WHERE USU_NOMBRE_USUARIO = '{1}'", 1, nombre_usuario);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
+        public void CambiarPass(String nombre_usuario, String clave_nueva)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_CLAVE = " +
+                "´{0}', USU_CAMBIO_CLAVE = '{1}', WHERE USU_NOMBRE_USUARIO = '{2}'",
+                clave_nueva, 0 , nombre_usuario);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
         public void BajarUsuario(Decimal codigo, bool habilitado)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
@@ -69,11 +86,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var pass = row["USU_CLAVE"].ToString();
             var habilitado = bool.Parse(row["USU_HABILITADO"].ToString());
             var intentos = Decimal.Parse(row["USU_INTENTOS_FALLIDOS"].ToString());
-            var tipo = row["USU_TIPO"].ToString();/*
+            var tipo = row["USU_TIPO"].ToString();
+            var bloqueado = bool.Parse(row["USU_BLOQUEADO"].ToString());
+            var primer = bool.Parse(row["USU_CAMBIO_CLAVE"].ToString());
+            /*
             var id_cliente = Decimal.Parse(row["USU_CLIENTE_ID"].ToString());
             var id_empresa = Decimal.Parse(row["USU_EMPRESA_ID"].ToString());
             */
-            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo/*, id_cliente, id_empresa*/);
+            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo, bloqueado, primer/*, id_cliente, id_empresa*/);
 
             return usuario;
 

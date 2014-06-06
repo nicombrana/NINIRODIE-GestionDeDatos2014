@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.NINIRODIE;
+using FrbaCommerce.Abm_Cliente;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 
 namespace FrbaCommerce
@@ -18,6 +20,7 @@ namespace FrbaCommerce
         public String id = null, pass = null, usuario = null;
         public bool logeo = false, cerrar = false;
         public Usuario user;
+        public int intentos_fallidos = 0;
 
         public LogIn()
         {
@@ -67,12 +70,36 @@ namespace FrbaCommerce
             
             user = log.EsCorrecto(id,pass);
             
-            if ( user.id == id && user.pass == pass && user.habilitado == true)
-            {
-                logeo = true;
-
-                this.Close();
-               
+            if ( user.id == id){
+                if (user.pass == pass){
+                    if (user.bloque == false){
+                        if (user.prim == false){
+                            intentos_fallidos = 0;
+                            logeo = true;
+                            this.Close();
+                        }
+                        else { 
+                            new CambiarContrasenia().ShowDialog(this); 
+                        }
+                    }
+                    else
+                    {
+                        new Bloqueado().ShowDialog(this);
+                    }
+                }
+                else
+                {
+                    intentos_fallidos = intentos_fallidos + 1;
+                    if (intentos_fallidos == 3)
+                    {
+                        RepositorioUsuario.Instance.Bloquear(user.id);
+                        new Bloqueado().ShowDialog(this);
+                    }
+                    else
+                    {
+                        new Alerid().ShowDialog(this);
+                    }
+                }
             }
             else
             {

@@ -172,6 +172,12 @@
     <Compile Include="Alertas\AlertRep.Designer.cs">
       <DependentUpon>AlertRep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Bloqueado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Bloqueado.Designer.cs">
+      <DependentUpon>Bloqueado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\bypass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\AlertRep.resx">
       <DependentUpon>AlertRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Bloqueado.resx">
+      <DependentUpon>Bloqueado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\bypass.resx">
       <DependentUpon>bypass.cs</DependentUpon>

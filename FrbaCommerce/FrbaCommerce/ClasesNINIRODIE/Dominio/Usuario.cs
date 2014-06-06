@@ -13,6 +13,8 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public bool habilitado { get; set; }
         public Decimal intentos { get; set; }
         public String tipo { get; set; }
+        public bool bloque { get; set; }
+        public bool prim { get; set; }
         /*Decimal id_cliente { get; set; }
         Decimal id_empresa { get; set; }
         */
@@ -22,15 +24,17 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         }
 
         public Usuario(Decimal cod, String iD, String password, bool habili, Decimal intent,
-            String type/*, Decimal idClie, Decimal idEmpr*/)
+            String type, bool bloqueado, bool primer/*, Decimal idClie, Decimal idEmpr*/)
         {
             codigo = cod;
             id = iD;
             pass = password;
             habilitado = habili;
             intentos = intent;
-            tipo = type;/*
-            id_cliente = idClie;
+            tipo = type;
+            bloque = bloqueado;
+            prim = primer;
+            /*id_cliente = idClie;
             id_empresa = idEmpr;*/
         }
     }
