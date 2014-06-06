@@ -14,7 +14,7 @@ namespace FrbaCommerce
 {
     public partial class LogIn : Form
     {
-        public String id = null, pass = null;
+        public String id = null, pass = null, usuario = null;
 
         public LogIn()
         {
@@ -67,12 +67,13 @@ namespace FrbaCommerce
             Logeador log = new Logeador();
             log.id = id;
             log.password = pass;
-
+            
             if ( log.EsCorrecto(id,pass))
             {
+                usuario = "admin";
                 //Ver el roll del usuario
                 //para avisar que funcionalidades mostrar
-                // usando principal
+                //guardar el tipo de usuario en la variable usuario
                 this.Close();
                
             }

@@ -36,9 +36,14 @@ namespace FrbaCommerce.Abm_Empresa
 
             if (buscar.BuscarModEmp(razonsoc))
             {
-                new ModificarEmp().ShowDialog();
+                new ModificarEmp().ShowDialog(this);
             }
-            else { new NoExisteUsuario().ShowDialog(); }
+            else { new NoExisteUsuario().ShowDialog(this); }
+        }
+
+        private void Busqueda_Mod_Emp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

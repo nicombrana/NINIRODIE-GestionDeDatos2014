@@ -45,5 +45,10 @@ namespace FrbaCommerce.Abm_Cliente
             }
             else { new NoExisteUsuario().ShowDialog(); }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

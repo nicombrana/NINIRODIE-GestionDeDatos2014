@@ -43,6 +43,7 @@
             this.preguntas = new System.Windows.Forms.ToolStripDropDownButton();
             this.verRespuestasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.responderPreguntasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,7 +125,8 @@
             this.publicacion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.publicacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editarPublicacionesToolStripMenuItem,
-            this.generarPublicacionesToolStripMenuItem});
+            this.generarPublicacionesToolStripMenuItem,
+            this.buscarPublicacionesToolStripMenuItem});
             this.publicacion.Image = ((System.Drawing.Image)(resources.GetObject("publicacion.Image")));
             this.publicacion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.publicacion.Name = "publicacion";
@@ -171,6 +173,13 @@
             this.responderPreguntasToolStripMenuItem.Text = "Responder Preguntas";
             this.responderPreguntasToolStripMenuItem.Click += new System.EventHandler(this.responderPreguntasToolStripMenuItem_Click);
             // 
+            // buscarPublicacionesToolStripMenuItem
+            // 
+            this.buscarPublicacionesToolStripMenuItem.Name = "buscarPublicacionesToolStripMenuItem";
+            this.buscarPublicacionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.buscarPublicacionesToolStripMenuItem.Text = "Buscar Publicaciones";
+            this.buscarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.buscarPublicacionesToolStripMenuItem_Click);
+            // 
             // Commerce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +212,7 @@
         private System.Windows.Forms.ToolStripDropDownButton preguntas;
         private System.Windows.Forms.ToolStripMenuItem verRespuestasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem responderPreguntasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarPublicacionesToolStripMenuItem;
 
 
     }

@@ -19,17 +19,13 @@ namespace FrbaCommerce
 {
     public partial class Commerce : Form
     {
+        string usuario = "admin";
+
         public Commerce()
         {
             InitializeComponent();
-            LogIn login = new LogIn();
-            login.ShowDialog(this);
-            if (login.id == null && login.pass == null)
-            {
-                new bypass().ShowDialog(this);
-                this.Close();
-            }
 
+           
         }
 
         private void altaClienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,7 +45,32 @@ namespace FrbaCommerce
 
         private void funciones_Load(object sender, EventArgs e)
         {
+            toolStripDropDownButton1.Visible = false; ;
+            Campass.Visible = false;
+            publicacion.Visible = false;
+            preguntas.Visible = false;
 
+            LogIn login = new LogIn();
+            login.ShowDialog(this);
+
+            if (login.usuario == "admin")
+            {
+                toolStripDropDownButton1.Visible = true;
+                Campass.Visible = true;
+                publicacion.Visible = true;
+                preguntas.Visible = true;
+            }
+            else{
+                Campass.Visible = true;
+                publicacion.Visible = true;
+                preguntas.Visible = true;
+            }
+
+            if (login.id == null && login.pass == null)
+            {
+                new bypass().ShowDialog(this);
+                this.Close();
+            }
         }
 
         private void aBMRolToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +107,11 @@ namespace FrbaCommerce
         private void responderPreguntasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Responder().ShowDialog(this);
+        }
+
+        private void buscarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new BuscarPublicacion().ShowDialog(this);
         }
     }          
 }

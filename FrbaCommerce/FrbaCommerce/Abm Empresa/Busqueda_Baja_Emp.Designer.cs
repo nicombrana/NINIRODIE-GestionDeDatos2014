@@ -32,11 +32,15 @@
             this.BAceptar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BM = new System.Windows.Forms.TextBox();
+            this.Cuit = new System.Windows.Forms.Label();
+            this.TextCuit = new System.Windows.Forms.TextBox();
+            this.Email = new System.Windows.Forms.Label();
+            this.Textmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BCancelar
             // 
-            this.BCancelar.Location = new System.Drawing.Point(159, 76);
+            this.BCancelar.Location = new System.Drawing.Point(159, 125);
             this.BCancelar.Name = "BCancelar";
             this.BCancelar.Size = new System.Drawing.Size(75, 23);
             this.BCancelar.TabIndex = 11;
@@ -46,7 +50,7 @@
             // 
             // BAceptar
             // 
-            this.BAceptar.Location = new System.Drawing.Point(53, 76);
+            this.BAceptar.Location = new System.Drawing.Point(53, 125);
             this.BAceptar.Name = "BAceptar";
             this.BAceptar.Size = new System.Drawing.Size(75, 23);
             this.BAceptar.TabIndex = 10;
@@ -71,17 +75,54 @@
             this.BM.TabIndex = 8;
             this.BM.TextChanged += new System.EventHandler(this.BM_TextChanged);
             // 
+            // Cuit
+            // 
+            this.Cuit.AutoSize = true;
+            this.Cuit.Location = new System.Drawing.Point(50, 41);
+            this.Cuit.Name = "Cuit";
+            this.Cuit.Size = new System.Drawing.Size(32, 13);
+            this.Cuit.TabIndex = 13;
+            this.Cuit.Text = "CUIT";
+            // 
+            // TextCuit
+            // 
+            this.TextCuit.Location = new System.Drawing.Point(120, 38);
+            this.TextCuit.Name = "TextCuit";
+            this.TextCuit.Size = new System.Drawing.Size(100, 20);
+            this.TextCuit.TabIndex = 12;
+            // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Location = new System.Drawing.Point(50, 67);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(32, 13);
+            this.Email.TabIndex = 15;
+            this.Email.Text = "Email";
+            // 
+            // Textmail
+            // 
+            this.Textmail.Location = new System.Drawing.Point(120, 64);
+            this.Textmail.Name = "Textmail";
+            this.Textmail.Size = new System.Drawing.Size(100, 20);
+            this.Textmail.TabIndex = 14;
+            // 
             // Busqueda_Baja_Emp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 112);
+            this.ClientSize = new System.Drawing.Size(284, 170);
+            this.Controls.Add(this.Email);
+            this.Controls.Add(this.Textmail);
+            this.Controls.Add(this.Cuit);
+            this.Controls.Add(this.TextCuit);
             this.Controls.Add(this.BCancelar);
             this.Controls.Add(this.BAceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BM);
             this.Name = "Busqueda_Baja_Emp";
             this.Text = "Busqueda";
+            this.Load += new System.EventHandler(this.Busqueda_Baja_Emp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +134,9 @@
         private System.Windows.Forms.Button BAceptar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BM;
+        private System.Windows.Forms.Label Cuit;
+        private System.Windows.Forms.TextBox TextCuit;
+        private System.Windows.Forms.Label Email;
+        private System.Windows.Forms.TextBox Textmail;
     }
 }

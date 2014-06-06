@@ -36,9 +36,14 @@ namespace FrbaCommerce.Abm_Empresa
            
             if (buscar.BuscarBajaEmp(razonsoc))
             {
-                new BajaEmp().ShowDialog();
+                new BajaEmp().ShowDialog(this);
             }
-            else { new NoExisteUsuario().ShowDialog(); }
+            else { new NoExisteUsuario().ShowDialog(this); }
+        }
+
+        private void Busqueda_Baja_Emp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
