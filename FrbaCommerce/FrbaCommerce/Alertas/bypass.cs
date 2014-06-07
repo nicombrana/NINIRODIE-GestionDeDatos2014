@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Generar_Publicacion
+namespace FrbaCommerce.Alertas
 {
-    public partial class Form1 : Form
+    public partial class bypass : Form
     {
-        public Form1()
+        public bypass()
         {
             InitializeComponent();
+        }
+
+        private void putos_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

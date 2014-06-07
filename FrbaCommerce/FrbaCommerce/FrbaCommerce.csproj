@@ -117,6 +117,12 @@
     <Compile Include="Alertas\Alerta_Idpass.Designer.cs">
       <DependentUpon>Alerta_Idpass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\bypass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\bypass.Designer.cs">
+      <DependentUpon>bypass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesNINIRODIE\ConsultorABase.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Ofertas.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
     <Compile Include="ClasesNINIRODIE\SqlHelper.cs" />
     <Compile Include="ClasesNINIRODIE\Usuario.cs" />
@@ -152,17 +166,23 @@
     <Compile Include="Commerce.Designer.cs">
       <DependentUpon>Commerce.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.cs">
+    <Compile Include="Generar Publicacion\Generar Publicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Publicacion\Generar Publicacion.Designer.cs">
+      <DependentUpon>Generar Publicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.cs">
+    <Compile Include="Gestion de Preguntas\Preguntas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gestion de Preguntas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Gestion de Preguntas\Preguntas.Designer.cs">
+      <DependentUpon>Preguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Responder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Preguntas\Responder.Designer.cs">
+      <DependentUpon>Responder.cs</DependentUpon>
     </Compile>
     <Compile Include="Historial Cliente\Form1.cs">
       <SubType>Form</SubType>
@@ -211,8 +231,20 @@
     <EmbeddedResource Include="Alertas\Alerta_Idpass.resx">
       <DependentUpon>Alerta_Idpass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\bypass.resx">
+      <DependentUpon>bypass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Publicacion\Generar Publicacion.resx">
+      <DependentUpon>Generar Publicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Preguntas.resx">
+      <DependentUpon>Preguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Preguntas\Responder.resx">
+      <DependentUpon>Responder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>

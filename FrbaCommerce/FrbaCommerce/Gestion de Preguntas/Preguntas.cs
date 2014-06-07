@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Gestion_de_Preguntas
 {
-    public partial class Form1 : Form
+    public partial class preguntas : Form
     {
-        public Form1()
+        public preguntas()
         {
             InitializeComponent();
+        }
+
+        private void Pregaceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace FrbaCommerce
 {
     public partial class LogIn : Form
     {
-        String id, pass;
+        public String id = null, pass = null;
 
         public LogIn()
         {
