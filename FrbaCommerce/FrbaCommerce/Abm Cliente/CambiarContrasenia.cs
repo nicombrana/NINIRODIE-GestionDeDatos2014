@@ -104,7 +104,7 @@ namespace FrbaCommerce.Abm_Cliente
             this.CPcancelar.UseVisualStyleBackColor = true;
             this.CPcancelar.Click += new System.EventHandler(this.CPcancelar_Click);
             // 
-            // CambiarPassword
+            // CambiarContrasenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(284, 177);
@@ -116,7 +116,7 @@ namespace FrbaCommerce.Abm_Cliente
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CambiarPassword";
+            this.Name = "CambiarContrasenia";
             this.Text = "Cambiar Contraseña";
             this.Load += new System.EventHandler(this.CambiarPassword_Load);
             this.ResumeLayout(false);
