@@ -36,19 +36,19 @@
             // 
             this.pasear.AutoSize = true;
             this.pasear.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pasear.Location = new System.Drawing.Point(67, 42);
+            this.pasear.Location = new System.Drawing.Point(48, 28);
             this.pasear.Name = "pasear";
-            this.pasear.Size = new System.Drawing.Size(387, 31);
+            this.pasear.Size = new System.Drawing.Size(275, 31);
             this.pasear.TabIndex = 0;
-            this.pasear.Text = "Me Quisiste ByPassear PUTO!";
+            this.pasear.Text = "Adios. Vuelva Pronto.";
             // 
             // putos
             // 
-            this.putos.Location = new System.Drawing.Point(181, 96);
+            this.putos.Location = new System.Drawing.Point(103, 96);
             this.putos.Name = "putos";
             this.putos.Size = new System.Drawing.Size(142, 33);
             this.putos.TabIndex = 1;
-            this.putos.Text = "Aceptar Que Sos Puto";
+            this.putos.Text = "Aceptar";
             this.putos.UseVisualStyleBackColor = true;
             this.putos.Click += new System.EventHandler(this.putos_Click);
             // 
@@ -56,12 +56,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 141);
+            this.ClientSize = new System.Drawing.Size(381, 141);
             this.Controls.Add(this.putos);
             this.Controls.Add(this.pasear);
             this.Name = "bypass";
             this.Text = "bypass";
-          
             this.ResumeLayout(false);
             this.PerformLayout();
 
