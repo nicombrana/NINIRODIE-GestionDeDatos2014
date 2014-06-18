@@ -374,9 +374,6 @@
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Generar Publicacion\BuscarPublicacion.resx">
-      <DependentUpon>BuscarPublicacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\Generar Publicacion.resx">
       <DependentUpon>Generar Publicacion.cs</DependentUpon>
     </EmbeddedResource>

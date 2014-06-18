@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
             this.desc = new System.Windows.Forms.Label();
             this.stock = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxStock = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.fechaini = new System.Windows.Forms.Label();
             this.precio = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtBoxPrecio = new System.Windows.Forms.TextBox();
+            this.comboTipoPubli = new System.Windows.Forms.ComboBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.rubro = new System.Windows.Forms.Label();
             this.tipo = new System.Windows.Forms.Label();
@@ -50,12 +50,12 @@
             this.estado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtBoxDescripcion
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(698, 42);
+            this.txtBoxDescripcion.Name = "txtBoxDescripcion";
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxDescripcion.TabIndex = 0;
             // 
             // desc
             // 
@@ -75,12 +75,13 @@
             this.stock.TabIndex = 3;
             this.stock.Text = "Stock";
             // 
-            // textBox2
+            // txtBoxStock
             // 
-            this.textBox2.Location = new System.Drawing.Point(124, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtBoxStock.Location = new System.Drawing.Point(124, 39);
+            this.txtBoxStock.Name = "txtBoxStock";
+            this.txtBoxStock.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxStock.TabIndex = 2;
+            this.txtBoxStock.TextChanged += new System.EventHandler(this.txtBoxStock_TextChanged);
             // 
             // dateTimePicker1
             // 
@@ -107,23 +108,23 @@
             this.precio.TabIndex = 7;
             this.precio.Text = "Precio";
             // 
-            // textBox3
+            // txtBoxPrecio
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtBoxPrecio.Location = new System.Drawing.Point(124, 91);
+            this.txtBoxPrecio.Name = "txtBoxPrecio";
+            this.txtBoxPrecio.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxPrecio.TabIndex = 6;
             // 
-            // comboBox1
+            // comboTipoPubli
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboTipoPubli.FormattingEnabled = true;
+            this.comboTipoPubli.Items.AddRange(new object[] {
             "Inmediata",
             "Subasta"});
-            this.comboBox1.Location = new System.Drawing.Point(124, 118);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(134, 21);
-            this.comboBox1.TabIndex = 8;
+            this.comboTipoPubli.Location = new System.Drawing.Point(124, 118);
+            this.comboTipoPubli.Name = "comboTipoPubli";
+            this.comboTipoPubli.Size = new System.Drawing.Size(134, 21);
+            this.comboTipoPubli.TabIndex = 8;
             // 
             // checkedListBox1
             // 
@@ -243,15 +244,15 @@
             this.Controls.Add(this.rubro);
             this.Controls.Add(this.tipo);
             this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboTipoPubli);
             this.Controls.Add(this.precio);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBoxPrecio);
             this.Controls.Add(this.fechaini);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.stock);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoxStock);
             this.Controls.Add(this.desc);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxDescripcion);
             this.Name = "Genepub";
             this.Text = "Generar Publicacion";
             this.Load += new System.EventHandler(this.Genepub_Load);
@@ -262,15 +263,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxDescripcion;
         private System.Windows.Forms.Label desc;
         private System.Windows.Forms.Label stock;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxStock;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label fechaini;
         private System.Windows.Forms.Label precio;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtBoxPrecio;
+        private System.Windows.Forms.ComboBox comboTipoPubli;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label rubro;
         private System.Windows.Forms.Label tipo;

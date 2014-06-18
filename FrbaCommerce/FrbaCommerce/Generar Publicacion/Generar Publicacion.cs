@@ -12,6 +12,7 @@ namespace FrbaCommerce.Generar_Publicacion
     public partial class Genepub : Form
     {
         bool modificacion;
+        String cantStock;
  
         public Genepub()
         {
@@ -35,6 +36,11 @@ namespace FrbaCommerce.Generar_Publicacion
         private void Genepub_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBoxStock_TextChanged(object sender, EventArgs e)
+        {
+            cantStock = this.txtBoxStock.Text;
         }
 
 
