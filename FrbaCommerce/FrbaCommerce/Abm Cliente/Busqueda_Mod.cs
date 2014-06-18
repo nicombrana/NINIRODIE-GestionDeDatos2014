@@ -9,12 +9,28 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.Abm_Cliente
 {
     public partial class Busqueda_Mod : Form
     {
-        string nombre;
+
+        public String nombre;
+        public String ape;
+        public String tipo_docu;
+        public Decimal nro_doc;
+        public Decimal telef;
+        public String meil;
+        public DateTime f_nac;
+        public Char sex;
+        public String ciud;
+        public String loc;
+        public String call;
+        public Decimal altu;
+        public Decimal pis;
+        public Decimal codpos;
+        public Char puert;
 
         public Busqueda_Mod()
         {
@@ -38,13 +54,28 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            Buscador buscar = new Buscador();
+            ape = textBox2.Text;
+            nombre = BM.Text;
+            nro_doc = Decimal.Parse(NDoc.Text);
+            meil = Email.Text;
+            tipo_docu = comboBox1.SelectedText;
 
-            if (buscar.BuscarModCli(nombre))
+            Cliente cliente = new Cliente();
+
+            cliente.codigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
+                                                            meil, tipo_docu);
+            if (cliente.codigo == -1)
             {
-                new ModificarCli().ShowDialog();
+                new Muchos().ShowDialog(this);
             }
-            else { new NoExisteUsuario().ShowDialog(); }
+            else if (cliente.codigo == -2)
+            {
+                new NoExisteUsuario().ShowDialog(this);
+            }
+            else
+            {
+                new ModificarCli(cliente.codigo).ShowDialog(this);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

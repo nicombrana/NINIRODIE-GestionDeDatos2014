@@ -68,16 +68,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public void InsertarUsuario(Cliente cliente)
-        {
-            var query = String.Format(@"INSERT INTO NINIRODIE.USUARIO " +
-     "(USU_NOMBRE_USUARIO, USU_CLAVE, USU_HABILITADO, USU_INTENTOS_FALLIDOS, " +
-     "USU_EMPRESA_ID, USU_CLIENTE_ID, USU_TIPO)" +
-     "VALUES ('{0}', '{1}','{2}','{3}','{4}','{5}','{6}')",cliente.nombre_usuario, 
-     cliente.clave, 1, 0, null, cliente.codigo, "CLIENTE".ToString());
-            
-            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
-        }
 
         public Usuario DataRowToUsuario(DataRow row)
         {

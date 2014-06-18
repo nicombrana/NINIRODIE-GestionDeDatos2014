@@ -5,6 +5,7 @@ using System.Text;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.DBUtils;
 using System.Data;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 {
@@ -24,14 +25,30 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public Cliente BuscarClienteBaja(String apellido, String nombre,
+        public Decimal BuscarCliente(String apellido, String nombre,
                                             Decimal nroDoc, String mail, String tipoDoc)
         {
-          
-              var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE");
 
-              Cliente cli = new Cliente();
-              return cli;
+            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE" +
+                "(CLI_APELLIDO = '%busq1%' OR busq1 = '') AND (CLI_NOMBRE = '%busq2%' " +
+                "OR busq2 = '') AND ( CLI_TIPO_DOC = '%busq3%' OR busq3 = '') AND " +
+                "(CLI_NRO_DOC = '%busq4%' OR busq4 = '') AND (CLI_MAIL = '%busq5%' OR busq5 = '')",
+                apellido, nombre, tipoDoc, nroDoc, mail);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
+
+            if (dataRow.Count > 1)
+            {
+                return -1;
+            }
+            else if(dataRow.Count == 0)
+            {
+                return -2;
+            }
+            else
+            {
+                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["CLI_CODIGO"].ToString()))).First();
+            }
         }
 
         public void InsertarCliente(Cliente cliente) 
@@ -50,10 +67,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                  cliente.codpos);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
-
-            cliente.codigo = this.BuscarClaveCliente(cliente);
-            
-            RepositorioUsuario.Instance.InsertarUsuario(cliente);
 
         }
 

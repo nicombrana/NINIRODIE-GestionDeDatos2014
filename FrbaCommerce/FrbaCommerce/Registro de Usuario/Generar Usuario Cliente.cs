@@ -15,9 +15,6 @@ namespace FrbaCommerce
 {
     public partial class GenerarCliente : Form
     {
-        String nombre_usuario;
-        String clave;
-        String clave_rep;
         String nomb;
         String ape;
         String tipo_docu;
@@ -103,11 +100,7 @@ namespace FrbaCommerce
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            clave = Password.Text;
-            clave_rep = repetir.Text;
 
-            if( clave == clave_rep)
-            {
                 call = calle.Text;
                 telef = Decimal.Parse(telefono.Text);
                 nomb = nombre.Text;
@@ -118,7 +111,6 @@ namespace FrbaCommerce
                 altu = Decimal.Parse(altura.Text);
                 loc = localidad.Text;
                 ciud = ciudad.Text;
-                nombre_usuario = Id_usuario.Text;
                 
                 meil = mail.Text;
                 sex = Char.Parse(Sexo.Text);
@@ -127,17 +119,15 @@ namespace FrbaCommerce
                 tipo_docu = tipo_doc.SelectedText;
                 
                 Cliente clie = new Cliente(tipo_docu, nro_doc, nomb,
-                                            ape,f_nac, sex ,nombre_usuario,
-                                            clave , meil, telef,ciud, loc, call,
+                                            ape,f_nac, sex, meil, telef,ciud, loc, call,
                                             altu, pis, codpos, puert);
                 
                 //encriptar password
                 RepositorioCliente.Instance.InsertarCliente(clie);
-            }
-            else
-            {
-                new AlertRep().ShowDialog();
-            }
+
+
+                new UsuarioYPass(clie.nro_doc).ShowDialog(this);
+            
             this.Close();
         }
 

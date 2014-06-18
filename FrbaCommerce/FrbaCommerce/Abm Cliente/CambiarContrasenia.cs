@@ -27,7 +27,7 @@ namespace FrbaCommerce.Abm_Cliente
         private TextBox textBox1;
         private System.Windows.Forms.Label label1;
 
-        public CambiarContrasenia() 
+        public CambiarContrasenia()
         {
             InitializeComponent();
         }
@@ -184,5 +184,6 @@ namespace FrbaCommerce.Abm_Cliente
             }
 
             RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva);
+        }
     }
 }

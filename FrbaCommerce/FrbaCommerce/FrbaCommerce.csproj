@@ -184,11 +184,23 @@
     <Compile Include="Alertas\bypass.Designer.cs">
       <DependentUpon>bypass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Muchos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Muchos.Designer.cs">
+      <DependentUpon>Muchos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\NoExisteUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Alertas\NoExisteUsuario.Designer.cs">
       <DependentUpon>NoExisteUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\UsuarioYPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\UsuarioYPass.Designer.cs">
+      <DependentUpon>UsuarioYPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
@@ -350,8 +362,14 @@
     <EmbeddedResource Include="Alertas\bypass.resx">
       <DependentUpon>bypass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Muchos.resx">
+      <DependentUpon>Muchos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\NoExisteUsuario.resx">
       <DependentUpon>NoExisteUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\UsuarioYPass.resx">
+      <DependentUpon>UsuarioYPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>

@@ -13,14 +13,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public DateTime fecha_nac { get; set; }
         public Char sexo { get; set; }
 
-        public String nombre_usuario { get; set; }
-        public String clave { get; set; }
-
         public Cliente(){
         }
 
         public Cliente(String tipo_docu, Decimal numero_doc, String nombr, String apellid,
-            DateTime fechan, Char se, String nusu, String cl, String mal, Decimal Telefon, 
+            DateTime fechan, Char se, String mal, Decimal Telefon, 
             String ciu, String lodad, String cal, Decimal al, Decimal pi, Decimal cp, 
             Char purta)
         {
@@ -30,8 +27,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             apellido = apellid;
             fecha_nac = fechan;
             sexo = se;
-            nombre_usuario = nusu;
-            clave = cl;
             mail = mal;
             telefono = Telefon;
             ciud = ciu;

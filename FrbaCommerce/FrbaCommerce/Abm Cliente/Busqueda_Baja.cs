@@ -15,24 +15,22 @@ namespace FrbaCommerce.Abm_Cliente
 {
     public partial class Busqueda_Baja : Form
     {
-        String nombre_usuario;
-        String clave;
-        String clave_rep;
-        String nombre;
-        String ape;
-        String tipo_docu;
-        Decimal nro_doc;
-        Decimal telef;
-        String meil;
-        DateTime f_nac;
-        Char sex;
-        String ciud;
-        String loc;
-        String call;
-        Decimal altu;
-        Decimal pis;
-        Decimal codpos;
-        Char puert;
+
+        public String nombre;
+        public String ape;
+        public String tipo_docu;
+        public Decimal nro_doc;
+        public Decimal telef;
+        public String meil;
+        public DateTime f_nac;
+        public Char sex;
+        public String ciud;
+        public String loc;
+        public String call;
+        public Decimal altu;
+        public Decimal pis;
+        public Decimal codpos;
+        public Char puert;
 
 
         public Busqueda_Baja()
@@ -55,13 +53,20 @@ namespace FrbaCommerce.Abm_Cliente
 
             Cliente cliente = new Cliente();
 
-            cliente = RepositorioCliente.Instance.BuscarClienteBaja(ape, nombre, nro_doc,
+            cliente.codigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
                                                             meil, tipo_docu);
-
-            cliente.codigo = RepositorioCliente.Instance.BuscarClaveCliente(cliente); 
-            
-
-            new BajaCli(cliente.codigo).ShowDialog(this);
+            if (cliente.codigo == -1)
+            {
+                new Muchos().ShowDialog(this);
+            }
+            else if (cliente.codigo == -2)
+            {
+                new NoExisteUsuario().ShowDialog(this);
+            }
+            else
+            {
+                new BajaCli(cliente.codigo).ShowDialog(this);
+            }
         }
 
         private void BM_KeyPress(object sender, KeyPressEventArgs e)
