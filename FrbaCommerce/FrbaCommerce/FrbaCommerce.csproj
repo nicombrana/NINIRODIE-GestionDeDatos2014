@@ -208,7 +208,6 @@
     <Compile Include="Calificar Vendedor\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClasesNINIRODIE\ConsultorABase.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\DataRowCollectionExtensions.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\DBTypeConverter.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\SQLUtils.cs" />
@@ -226,7 +225,6 @@
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
-    <Compile Include="ClasesNINIRODIE\SqlHelper.cs" />
     <Compile Include="ClasesNINIRODIE\Validador.cs" />
     <Compile Include="Comprar-Ofertar\Form1.cs">
       <SubType>Form</SubType>
@@ -404,6 +402,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Application.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Login\LogIn" />
     <None Include="Properties\Settings.settings">
