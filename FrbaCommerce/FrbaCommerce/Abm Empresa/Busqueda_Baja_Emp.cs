@@ -9,12 +9,15 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.Abm_Empresa
 {
     public partial class Busqueda_Baja_Emp : Form
     {
-        string razonsoc;
+        public String razon;
+        public String mail;
+        public Decimal cuit;
 
         public Busqueda_Baja_Emp()
         {
@@ -26,35 +29,36 @@ namespace FrbaCommerce.Abm_Empresa
             this.Close();
         }
 
-        private void BM_TextChanged(object sender, EventArgs e)
-        {
-            razonsoc = BM.Text;
-        }
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            Buscador buscar = new Buscador();
-           
-            if (buscar.BuscarBajaEmp(razonsoc))
+            razon = BM.Text;
+            mail = Textmail.Text;
+            cuit = Decimal.Parse(TextCuit.Text);
+
+            Empresa empresa = new Empresa();
+
+            empresa.codigo = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
+
+            if (empresa.codigo == -1)
             {
-                new BajaEmp().ShowDialog(this);
+                new Muchos().ShowDialog(this);
             }
-            else { new NoExisteUsuario().ShowDialog(this); }
+            else if (empresa.codigo == -2)
+            {
+                new NoExisteUsuario().ShowDialog(this);
+            }
+            else
+            {
+                new BajaEmp(empresa.codigo).ShowDialog(this);
+            }
         }
 
-        private void Busqueda_Baja_Emp_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void TextCuit_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeNumeros(e);
         }
 
-        private void BM_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
     }
 }

@@ -73,8 +73,6 @@
             this.BM.Name = "BM";
             this.BM.Size = new System.Drawing.Size(100, 20);
             this.BM.TabIndex = 8;
-            this.BM.TextChanged += new System.EventHandler(this.BM_TextChanged);
-            this.BM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BM_KeyPress);
             // 
             // Cuit
             // 
@@ -124,7 +122,6 @@
             this.Controls.Add(this.BM);
             this.Name = "Busqueda_Baja_Emp";
             this.Text = "Busqueda";
-            this.Load += new System.EventHandler(this.Busqueda_Baja_Emp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

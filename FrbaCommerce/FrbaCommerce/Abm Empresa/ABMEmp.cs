@@ -18,7 +18,7 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void botonAlta_Click(object sender, EventArgs e)
         {
-            new empresa().ShowDialog(this);
+            new GenerarEmpresa().ShowDialog(this);
         }
 
         private void botonBaja_Click(object sender, EventArgs e)

@@ -9,12 +9,15 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.Abm_Empresa
 {
     public partial class Busqueda_Mod_Emp : Form
     {
-        string razonsoc;
+        public String razon;
+        public String mail;
+        public Decimal cuit;
 
         public Busqueda_Mod_Emp()
         {
@@ -26,20 +29,28 @@ namespace FrbaCommerce.Abm_Empresa
             this.Close();
         }
 
-        private void BM_TextChanged(object sender, EventArgs e)
-        {
-            razonsoc = BM.Text;
-        }
-
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            Buscador buscar = new Buscador();
+            razon = BM.Text;
+            mail = Textmail.Text;
+            cuit = Decimal.Parse(TextCuit.Text);
 
-            if (buscar.BuscarModEmp(razonsoc))
+            Empresa empresa = new Empresa();
+
+            empresa.codigo = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
+
+            if (empresa.codigo == -1)
             {
-                new ModificarEmp().ShowDialog(this);
+                new Muchos().ShowDialog(this);
             }
-            else { new NoExisteUsuario().ShowDialog(this); }
+            else if (empresa.codigo == -2)
+            {
+                new NoExisteUsuario().ShowDialog(this);
+            }
+            else
+            {
+                new ModificarEmp(empresa.codigo).ShowDialog(this);
+            }
         }
 
         private void Busqueda_Mod_Emp_Load(object sender, EventArgs e)

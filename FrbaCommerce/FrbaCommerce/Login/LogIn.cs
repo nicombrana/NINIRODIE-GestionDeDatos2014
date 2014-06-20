@@ -42,7 +42,7 @@ namespace FrbaCommerce
 
         private void empresa_Click(object sender, EventArgs e)
         {
-            empresa form_emp = new empresa();
+            GenerarEmpresa form_emp = new GenerarEmpresa();
 
             form_emp.Show();
         }
@@ -115,7 +115,7 @@ namespace FrbaCommerce
 
         private void genemp_Click(object sender, EventArgs e)
         {
-            new empresa().ShowDialog();
+            new GenerarEmpresa().ShowDialog();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace FrbaCommerce.Abm_Cliente
         {
             bool deshabili = deshabilitar.Checked;
 
-            RepositorioUsuario.Instance.BajarUsuario(clienteId, deshabili);
+            RepositorioUsuario.Instance.BajarCliente(clienteId, deshabili);
 
             this.Close();
         }

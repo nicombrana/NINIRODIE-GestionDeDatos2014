@@ -52,6 +52,7 @@
             this.BAceptar.TabIndex = 6;
             this.BAceptar.Text = "Aceptar";
             this.BAceptar.UseVisualStyleBackColor = true;
+            this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
             // 
             // Ldeshabilitar
             // 

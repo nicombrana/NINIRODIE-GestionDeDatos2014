@@ -25,6 +25,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
+
         public Usuario BuscarUsuario(string id, string pass)
         {
             //Aca se debería golpear a la base
@@ -60,10 +61,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public void BajarUsuario(Decimal codigo, bool habilitado)
+        public void BajarCliente(Decimal codigo, bool habilitado)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
                 "'{0}' WHERE USU_CLIENTE_ID = '{1}'", habilitado, codigo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
+        public void BajarEmpresa(Decimal codigo, bool habilitado)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
+                "'{0}' WHERE USU_EMPRESA_ID = '{1}'", habilitado, codigo);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
