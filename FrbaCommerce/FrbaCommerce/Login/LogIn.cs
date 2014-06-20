@@ -103,7 +103,7 @@ namespace FrbaCommerce
             }
             else
             {
-                new Alerid().Show();
+                new Alerid().ShowDialog(this);
             }
                    
         }
