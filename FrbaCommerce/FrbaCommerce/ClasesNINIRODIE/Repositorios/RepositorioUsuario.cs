@@ -47,7 +47,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public void Bloquear(String nombre_usuario)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_BLOQUEADO = " +
-              "´{0}',  WHERE USU_NOMBRE_USUARIO = '{1}'", 1, nombre_usuario);
+              "'{0}' WHERE USU_NOMBRE_USUARIO = '{1}'", 1, nombre_usuario);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
@@ -55,7 +55,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public void CambiarPass(String nombre_usuario, String clave_nueva)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_CLAVE = " +
-                "´{0}', USU_CAMBIO_CLAVE = '{1}', WHERE USU_NOMBRE_USUARIO = '{2}'",
+                "'{0}', USU_CAMBIO_CLAVE = '{1}' WHERE USU_NOMBRE_USUARIO = '{2}'",
                 clave_nueva, 0 , nombre_usuario);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);

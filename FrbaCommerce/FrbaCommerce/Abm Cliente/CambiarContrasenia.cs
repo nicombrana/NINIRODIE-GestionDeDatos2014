@@ -184,6 +184,7 @@ namespace FrbaCommerce.Abm_Cliente
             }
 
             RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva);
+            this.Close();
         }
     }
 }
