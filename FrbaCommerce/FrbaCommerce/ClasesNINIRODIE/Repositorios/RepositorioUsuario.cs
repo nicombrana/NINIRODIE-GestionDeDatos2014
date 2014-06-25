@@ -6,6 +6,7 @@ using FrbaCommerce.ClasesNINIRODIE.DBUtils;
 using System.Data;
 using FrbaCommerce.NINIRODIE;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.Alertas;
 
 
 namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
@@ -52,13 +53,25 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public void CambiarPass(String nombre_usuario, String clave_nueva)
+        public Decimal CambiarPass(String nombre_usuario, String clave_nueva, String clave_actual)
         {
+            var query2 = String.Format(@"select * from gd1c2014.NINIRODIE.USUARIO " +
+                           "where USU_NOMBRE_USUARIO = '{0}' and " +
+                           "USU_CLAVE = '{1}'", nombre_usuario, clave_actual);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query2, "NINIRODIE.USUARIO");
+
+            if (dataRow.Count == 0)
+            {
+                return 1;
+            }
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_CLAVE = " +
                 "'{0}', USU_CAMBIO_CLAVE = '{1}' WHERE USU_NOMBRE_USUARIO = '{2}'",
                 clave_nueva, 0 , nombre_usuario);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+
+            return 2;
         }
 
         public void BajarCliente(Decimal codigo, bool habilitado)

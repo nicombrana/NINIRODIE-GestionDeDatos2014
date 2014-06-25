@@ -183,7 +183,16 @@ namespace FrbaCommerce.Abm_Cliente
                 new AlertRep().ShowDialog(this);
             }
 
-            RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva);
+            Decimal codigo = RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva, pass_actual);
+
+            if (codigo == 1)
+            {
+                new Alerid().ShowDialog(this);
+            }
+            if (codigo == 2)
+            {
+                new Cambio_Pass_Exitoso().ShowDialog(this);
+            }
             this.Close();
         }
     }
