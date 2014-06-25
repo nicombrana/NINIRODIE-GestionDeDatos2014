@@ -30,9 +30,8 @@
         {
             this.pregunta = new System.Windows.Forms.Label();
             this.comboBoxPreg = new System.Windows.Forms.ComboBox();
-            this.DGWRes = new System.Windows.Forms.DataGridView();
             this.Pregaceptar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DGWRes)).BeginInit();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // pregunta
@@ -51,14 +50,7 @@
             this.comboBoxPreg.Name = "comboBoxPreg";
             this.comboBoxPreg.Size = new System.Drawing.Size(138, 21);
             this.comboBoxPreg.TabIndex = 1;
-            // 
-            // DGWRes
-            // 
-            this.DGWRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGWRes.Location = new System.Drawing.Point(32, 65);
-            this.DGWRes.Name = "DGWRes";
-            this.DGWRes.Size = new System.Drawing.Size(240, 90);
-            this.DGWRes.TabIndex = 2;
+            this.comboBoxPreg.SelectedIndexChanged += new System.EventHandler(this.comboBoxPreg_SelectedIndexChanged);
             // 
             // Pregaceptar
             // 
@@ -70,18 +62,27 @@
             this.Pregaceptar.UseVisualStyleBackColor = true;
             this.Pregaceptar.Click += new System.EventHandler(this.Pregaceptar_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(12, 84);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(260, 96);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            // 
             // preguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(307, 262);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Pregaceptar);
-            this.Controls.Add(this.DGWRes);
             this.Controls.Add(this.comboBoxPreg);
             this.Controls.Add(this.pregunta);
             this.Name = "preguntas";
             this.Text = "Ver Respuestas";
-            ((System.ComponentModel.ISupportInitialize)(this.DGWRes)).EndInit();
+            this.Load += new System.EventHandler(this.preguntas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,7 +92,7 @@
 
         private System.Windows.Forms.Label pregunta;
         private System.Windows.Forms.ComboBox comboBoxPreg;
-        private System.Windows.Forms.DataGridView DGWRes;
         private System.Windows.Forms.Button Pregaceptar;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

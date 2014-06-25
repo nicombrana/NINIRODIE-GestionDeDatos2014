@@ -19,6 +19,7 @@ namespace FrbaCommerce
 {
     public partial class Commerce : Form
     {
+        Decimal cod_conectado = 0;
 
         public Commerce()
         {
@@ -51,7 +52,9 @@ namespace FrbaCommerce
 
             LogIn login = new LogIn();
             login.ShowDialog(this);
-            
+
+            cod_conectado = login.user.codigo;
+
             if (login.user.tipo == "ADMINISTRADOR")
             {
                 toolStripDropDownButton1.Visible = true;
@@ -103,7 +106,7 @@ namespace FrbaCommerce
 
         private void verRespuestasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new preguntas().ShowDialog(this);
+            new preguntas(cod_conectado).ShowDialog(this);
         }
 
         private void responderPreguntasToolStripMenuItem_Click(object sender, EventArgs e)
