@@ -208,6 +208,12 @@
     <Compile Include="Alertas\PassYUsuario.Designer.cs">
       <DependentUpon>PassYUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Prueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Prueba.Designer.cs">
+      <DependentUpon>Prueba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\SinPreguntas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\PassYUsuario.resx">
       <DependentUpon>PassYUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Prueba.resx">
+      <DependentUpon>Prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\SinPreguntas.resx">
       <DependentUpon>SinPreguntas.cs</DependentUpon>

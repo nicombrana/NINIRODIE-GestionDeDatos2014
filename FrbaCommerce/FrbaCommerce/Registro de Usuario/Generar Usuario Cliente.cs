@@ -117,16 +117,17 @@ namespace FrbaCommerce
                 puert = Char.Parse(departamento.Text);
                 f_nac = dateTimePicker1.Value;
                 tipo_docu = tipo_doc.SelectedText;
-                
+
+
+
                 Cliente clie = new Cliente(tipo_docu, nro_doc, nomb,
                                             ape,f_nac, sex, meil, telef,ciud, loc, call,
                                             altu, pis, codpos, puert);
-                
+                           
                 //encriptar password
                 RepositorioCliente.Instance.InsertarCliente(clie);
-
-
-                new UsuarioYPass(clie.nro_doc).ShowDialog(this);
+                
+            new UsuarioYPass(clie.nro_doc).ShowDialog(this);
             
             this.Close();
         }

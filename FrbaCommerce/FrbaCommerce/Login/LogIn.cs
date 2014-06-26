@@ -68,8 +68,8 @@ namespace FrbaCommerce
             log.id = id;
             log.password = pass;
             
-            user = log.EsCorrecto(id,pass);
-            
+            user = log.EsCorrecto(id);
+
             if ( user.id == id){
                 if (user.pass == pass){
                     if (user.bloque == false){
@@ -90,6 +90,7 @@ namespace FrbaCommerce
                 else
                 {
                     intentos_fallidos = intentos_fallidos + 1;
+              
                     if (intentos_fallidos == 3)
                     {
                         RepositorioUsuario.Instance.Bloquear(user.id);
@@ -105,7 +106,7 @@ namespace FrbaCommerce
             {
                 new Alerid().ShowDialog(this);
             }
-                   
+                  
         }
 
         private void gencli_Click(object sender, EventArgs e)

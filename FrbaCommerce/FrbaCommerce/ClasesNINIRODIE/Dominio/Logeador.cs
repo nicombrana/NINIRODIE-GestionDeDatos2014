@@ -13,9 +13,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
     {
         public string id = null, password = null, tipo = null;
 
-        public Usuario EsCorrecto(String id, String pass){
+        public Usuario EsCorrecto(String id){
 
-            Usuario user = RepositorioUsuario.Instance.BuscarUsuario(id,pass);
+            Usuario user = RepositorioUsuario.Instance.BuscarUsuario(id);
 
             return user;
         }

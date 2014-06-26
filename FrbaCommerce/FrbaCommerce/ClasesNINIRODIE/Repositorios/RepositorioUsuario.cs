@@ -27,12 +27,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public Usuario BuscarUsuario(string id, string pass)
+        public Usuario BuscarUsuario(string id)
         {
             //Aca se debería golpear a la base
             var query = String.Format(@"select * from gd1c2014.NINIRODIE.USUARIO "+
-                                       "where USU_NOMBRE_USUARIO = '{0}' and "+
-                                       "USU_CLAVE = '{1}'",id,pass);
+                                       "where USU_NOMBRE_USUARIO = '{0}'",id);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.USUARIO");
             
