@@ -184,6 +184,12 @@
     <Compile Include="Alertas\bypass.Designer.cs">
       <DependentUpon>bypass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Cambio_Pass_Exitoso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Cambio_Pass_Exitoso.Designer.cs">
+      <DependentUpon>Cambio_Pass_Exitoso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\Muchos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,12 @@
     </Compile>
     <Compile Include="Alertas\PassYUsuario.Designer.cs">
       <DependentUpon>PassYUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\SinPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\SinPreguntas.Designer.cs">
+      <DependentUpon>SinPreguntas.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\UsuarioYPass.cs">
       <SubType>Form</SubType>
@@ -230,6 +242,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPreguntas.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
     <Compile Include="ClasesNINIRODIE\Validador.cs" />
@@ -367,6 +380,9 @@
     <EmbeddedResource Include="Alertas\bypass.resx">
       <DependentUpon>bypass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Cambio_Pass_Exitoso.resx">
+      <DependentUpon>Cambio_Pass_Exitoso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Muchos.resx">
       <DependentUpon>Muchos.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\PassYUsuario.resx">
       <DependentUpon>PassYUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\SinPreguntas.resx">
+      <DependentUpon>SinPreguntas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\UsuarioYPass.resx">
       <DependentUpon>UsuarioYPass.cs</DependentUpon>
@@ -413,6 +432,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Application.config" />
+    <None Include="bin\Debug\FrbaCommerce.vshost.exe.manifest" />
+    <None Include="bin\Release\FrbaCommerce.vshost.exe.manifest" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Login\LogIn" />
     <None Include="Properties\Settings.settings">
@@ -442,6 +463,14 @@
     <Compile Include="Registro de Usuario\Generar Usuario Empresa.Designer.cs">
       <DependentUpon>Generar Usuario Empresa.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\FrbaCommerce.exe" />
+    <Content Include="bin\Debug\FrbaCommerce.pdb" />
+    <Content Include="bin\Debug\FrbaCommerce.vshost.exe" />
+    <Content Include="bin\Release\FrbaCommerce.exe" />
+    <Content Include="bin\Release\FrbaCommerce.pdb" />
+    <Content Include="bin\Release\FrbaCommerce.vshost.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
