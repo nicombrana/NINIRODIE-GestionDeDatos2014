@@ -17,19 +17,19 @@ namespace FrbaCommerce
     {
         String nomb;
         String ape;
-        String tipo_docu;
-        Decimal nro_doc;
-        Decimal telef;
+        String tipo_docu = "nada";
+        int nro_doc;
+        int telef;
         String meil;
         DateTime f_nac;
         Char sex;
         String ciud;
         String loc;
         String call;
-        Decimal altu;
-        Decimal pis;
-        Decimal codpos;
-        Char puert;
+        int altu;
+        int pis;
+        int codpos;
+        String puert;
 
 
 
@@ -102,21 +102,20 @@ namespace FrbaCommerce
         {
 
                 call = calle.Text;
-                telef = Decimal.Parse(telefono.Text);
+                telef = int.Parse(telefono.Text);
                 nomb = nombre.Text;
                 ape = apellido.Text;
-                nro_doc = Decimal.Parse(documento.Text);
-                codpos = Decimal.Parse(cod_pos.Text);
-                pis = Decimal.Parse(piso.Text);
-                altu = Decimal.Parse(altura.Text);
+                nro_doc = int.Parse(documento.Text);
+                codpos = int.Parse(cod_pos.Text);
+                pis = int.Parse(piso.Text);
+                altu = int.Parse(altura.Text);
                 loc = localidad.Text;
                 ciud = ciudad.Text;
                 
                 meil = mail.Text;
                 sex = Char.Parse(Sexo.Text);
-                puert = Char.Parse(departamento.Text);
+                puert = departamento.Text;
                 f_nac = dateTimePicker1.Value;
-                tipo_docu = tipo_doc.SelectedText;
 
 
 
@@ -126,10 +125,44 @@ namespace FrbaCommerce
                            
                 //encriptar password
                 RepositorioCliente.Instance.InsertarCliente(clie);
+
                 
-            new UsuarioYPass(clie.nro_doc).ShowDialog(this);
+            new UsuarioYPassCliente().ShowDialog(this);
             
             this.Close();
+        }
+
+        private void CBdni_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBdni.Checked)
+            {
+                CBcedula.Enabled = false;
+                tipo_docu = "DNI";
+            }
+            else
+            {
+                CBcedula.Enabled = true;
+                tipo_docu = "nada";
+            }
+        }
+
+        private void CBcedula_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBcedula.Checked)
+            {
+                CBdni.Enabled = false;
+                tipo_docu = "Cedula";
+            }
+            else
+            {
+                CBdni.Enabled = true;
+                tipo_docu = "nada";
+            }
+        }
+
+        private void Sexo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.noEscribeNada(e);
         }
 
 

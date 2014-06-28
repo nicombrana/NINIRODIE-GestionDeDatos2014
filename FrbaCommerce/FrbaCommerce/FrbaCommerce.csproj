@@ -202,17 +202,11 @@
     <Compile Include="Alertas\NoExisteUsuario.Designer.cs">
       <DependentUpon>NoExisteUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alertas\PassYUsuario.cs">
+    <Compile Include="Alertas\Error.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alertas\PassYUsuario.Designer.cs">
-      <DependentUpon>PassYUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Alertas\Prueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Alertas\Prueba.Designer.cs">
-      <DependentUpon>Prueba.cs</DependentUpon>
+    <Compile Include="Alertas\Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\SinPreguntas.cs">
       <SubType>Form</SubType>
@@ -220,11 +214,17 @@
     <Compile Include="Alertas\SinPreguntas.Designer.cs">
       <DependentUpon>SinPreguntas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alertas\UsuarioYPass.cs">
+    <Compile Include="Alertas\UsuarioYPassCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alertas\UsuarioYPass.Designer.cs">
-      <DependentUpon>UsuarioYPass.cs</DependentUpon>
+    <Compile Include="Alertas\UsuarioYPassCliente.Designer.cs">
+      <DependentUpon>UsuarioYPassCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\UsuarioYPassEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\UsuarioYPassEmpresa.Designer.cs">
+      <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
@@ -395,17 +395,17 @@
     <EmbeddedResource Include="Alertas\NoExisteUsuario.resx">
       <DependentUpon>NoExisteUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Alertas\PassYUsuario.resx">
-      <DependentUpon>PassYUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Alertas\Prueba.resx">
-      <DependentUpon>Prueba.cs</DependentUpon>
+    <EmbeddedResource Include="Alertas\Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\SinPreguntas.resx">
       <DependentUpon>SinPreguntas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Alertas\UsuarioYPass.resx">
-      <DependentUpon>UsuarioYPass.cs</DependentUpon>
+    <EmbeddedResource Include="Alertas\UsuarioYPassCliente.resx">
+      <DependentUpon>UsuarioYPassCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\UsuarioYPassEmpresa.resx">
+      <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>

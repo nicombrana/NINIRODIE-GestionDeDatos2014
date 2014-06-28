@@ -217,6 +217,11 @@ namespace FrbaCommerce.ClasesNINIRODIE
                 e.Handled = true;
             }
         }
+
+        public static void noEscribeNada(KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
     }
 

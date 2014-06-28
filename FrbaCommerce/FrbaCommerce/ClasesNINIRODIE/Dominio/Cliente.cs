@@ -7,7 +7,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
     class Cliente : Persona
     {
         public String tipo_doc { get; set; }
-        public Decimal nro_doc { get; set; }
+        public int nro_doc { get; set; }
         public String nombre { get; set; }
         public String apellido { get; set; }
         public DateTime fecha_nac { get; set; }
@@ -16,10 +16,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Cliente(){
         }
 
-        public Cliente(String tipo_docu, Decimal numero_doc, String nombr, String apellid,
-            DateTime fechan, Char se, String mal, Decimal Telefon, 
-            String ciu, String lodad, String cal, Decimal al, Decimal pi, Decimal cp, 
-            Char purta)
+        public Cliente(String tipo_docu, int numero_doc, String nombr, String apellid,
+            DateTime fechan, Char se, String mal, int Telefon, 
+            String ciu, String lodad, String cal, int al, int pi, int cp, 
+            String purta)
         {
             tipo_doc = tipo_docu;
             nro_doc = numero_doc;

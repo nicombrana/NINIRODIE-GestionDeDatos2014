@@ -25,7 +25,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public Decimal BuscarCliente(String apellido, String nombre,
+        public int BuscarCliente(String apellido, String nombre,
                                             Decimal nroDoc, String mail, String tipoDoc)
         {
 
@@ -47,7 +47,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["CLI_CODIGO"].ToString()))).First();
+                return (dataRow.ToList<int>(row => int.Parse(row["CLI_CODIGO"].ToString()))).First();
             }
         }
 
@@ -115,18 +115,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         var nombre = row["CLI_NOMBRE"].ToString();
         var apellido = row["CLI_APELLIDO"].ToString();
         var tipo_docu = row["CLI_TIPO_DOC"].ToString();
-        var nro_doc = Decimal.Parse(row["CLI_NRO_DOC"].ToString());
-        var telef = Decimal.Parse(row["CLI_TELEFONO"].ToString());
+        var nro_doc = int.Parse(row["CLI_NRO_DOC"].ToString());
+        var telef = int.Parse(row["CLI_TELEFONO"].ToString());
         var meil = row["CLI_MAIL"].ToString();
         var f_nac = DateTime.Parse(row["CLI_FECHA_NAC"].ToString());
         var  sex = Char.Parse(row["CLI_SEXO"].ToString());
         var ciudad = row["CLI_CIUDAD"].ToString();
         var loc = row["CLI_LOCALIDAD"].ToString();
         var call = row["CLI_CALLE"].ToString();
-        var altu = Decimal.Parse(row["CLI_ALTURA"].ToString());
-        var pis = Decimal.Parse(row["CLI_PISO"].ToString());
-        var codpos = Decimal.Parse(row["CLI_CODIGO_POSTAL"].ToString());
-        var puert = Char.Parse(row["CLI_DEPARTAMENTO"].ToString());
+        var altu = int.Parse(row["CLI_ALTURA"].ToString());
+        var pis = int.Parse(row["CLI_PISO"].ToString());
+        var codpos = int.Parse(row["CLI_CODIGO_POSTAL"].ToString());
+        var puert = row["CLI_DEPARTAMENTO"].ToString();
 
         var cliente = new Cliente(tipo_docu, nro_doc, nombre, apellido,
             f_nac, sex, meil, telef, ciudad, loc, call, altu, pis, codpos, puert);

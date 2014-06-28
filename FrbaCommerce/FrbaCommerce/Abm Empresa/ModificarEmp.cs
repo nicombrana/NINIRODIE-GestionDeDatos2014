@@ -13,9 +13,9 @@ namespace FrbaCommerce.Abm_Empresa
 {
     public partial class ModificarEmp : Form
     {
-        public Decimal empresa_id;
+        public int empresa_id;
 
-        public ModificarEmp(Decimal idempresa)
+        public ModificarEmp(int idempresa)
         {
             empresa_id = idempresa;
             InitializeComponent();
@@ -31,18 +31,18 @@ namespace FrbaCommerce.Abm_Empresa
             Empresa empresa = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
 
             empresa.razon_social = nombre.Text;
-            empresa.telefono = Decimal.Parse(telefono.Text);
+            empresa.telefono = int.Parse(telefono.Text);
             empresa.mail = mail.Text;
             empresa.fecha_creacion = dateTimePicker1.Value;
-            empresa.cuit = Decimal.Parse(cuit.Text);
+            empresa.cuit = int.Parse(cuit.Text);
             empresa.contacto = contacto.Text;
             empresa.ciud = ciudad.Text;
             empresa.loc = localidad.Text;
             empresa.call = calle.Text;
-            empresa.puert = Char.Parse(departamento.Text);
-            empresa.pis = Decimal.Parse(piso.Text);
-            empresa.codpos = Decimal.Parse(cod_pos.Text);
-            empresa.altu = Decimal.Parse(altura.Text);
+            empresa.puert = departamento.Text;
+            empresa.pis = int.Parse(piso.Text);
+            empresa.codpos = int.Parse(cod_pos.Text);
+            empresa.altu = int.Parse(altura.Text);
             empresa.codigo = empresa_id;
 
             RepositorioEmpresa.Instance.ModificarEmpresa(empresa);

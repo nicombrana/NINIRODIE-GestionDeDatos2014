@@ -24,7 +24,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public Decimal BuscarEmpresa(String razon_soc, String mail,Decimal cuit)
+        public int BuscarEmpresa(String razon_soc, String mail,Decimal cuit)
         {
 
             var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA" +
@@ -44,7 +44,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["EMP_CODIGO"].ToString()))).First();
+                return (dataRow.ToList<int>(row => int.Parse(row["EMP_CODIGO"].ToString()))).First();
             }
         }
 
@@ -83,17 +83,17 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         {
             var razon = row["EMP_RAZON_SOCIAL"].ToString();
             var contacto = row["EMP_CONTACTO"].ToString();
-            var cuit = Decimal.Parse(row["EMP_CUIT"].ToString());
-            var telef = Decimal.Parse(row["EMP_TELEFONO"].ToString());
+            var cuit = int.Parse(row["EMP_CUIT"].ToString());
+            var telef = int.Parse(row["EMP_TELEFONO"].ToString());
             var meil = row["EMP_MAIL"].ToString();
             var f_crea = DateTime.Parse(row["CLI_FECHA_CREACION"].ToString());
             var ciudad = row["EMP_CIUDAD"].ToString();
             var loc = row["EMP_LOCALIDAD"].ToString();
             var call = row["CLI_CALLE"].ToString();
-            var altu = Decimal.Parse(row["EMP_ALTURA"].ToString());
-            var pis = Decimal.Parse(row["EMP_PISO"].ToString());
-            var codpos = Decimal.Parse(row["EMP_CODIGO_POSTAL"].ToString());
-            var puert = Char.Parse(row["EMP_DEPARTAMENTO"].ToString());
+            var altu = int.Parse(row["EMP_ALTURA"].ToString());
+            var pis = int.Parse(row["EMP_PISO"].ToString());
+            var codpos = int.Parse(row["EMP_CODIGO_POSTAL"].ToString());
+            var puert = row["EMP_DEPARTAMENTO"].ToString();
 
             var empresa = new Empresa(cuit, razon, contacto, f_crea, meil, telef,
             ciudad, loc, call, altu, pis, codpos, puert);

@@ -9,19 +9,11 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Alertas
 {
-    public partial class UsuarioYPass : Form
+    public partial class UsuarioYPassEmpresa : Form
     {
-        public UsuarioYPass(Decimal userpass)
+        public UsuarioYPassEmpresa()
         {
-            label3.Text = userpass.ToString();
-            label4.Text = userpass.ToString();
-
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

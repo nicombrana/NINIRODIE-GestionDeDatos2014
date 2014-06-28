@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Alertas
 {
-    public partial class Prueba : Form
+    public partial class Error : Form
     {
-        public Prueba()
+        public Error()
         {
             InitializeComponent();
         }

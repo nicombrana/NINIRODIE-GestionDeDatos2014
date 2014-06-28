@@ -18,19 +18,19 @@ namespace FrbaCommerce.Abm_Cliente
 
         public String nombre;
         public String ape;
-        public String tipo_docu;
-        public Decimal nro_doc;
-        public Decimal telef;
+        public String tipo_docu = "nada";
+        public int nro_doc;
+        public int telef;
         public String meil;
         public DateTime f_nac;
         public Char sex;
         public String ciud;
         public String loc;
         public String call;
-        public Decimal altu;
-        public Decimal pis;
-        public Decimal codpos;
-        public Char puert;
+        public int altu;
+        public int pis;
+        public int codpos;
+        public String puert;
 
 
         public Busqueda_Baja()
@@ -47,9 +47,11 @@ namespace FrbaCommerce.Abm_Cliente
         {
             ape = textBox2.Text;
             nombre = BM.Text;
-            nro_doc = Decimal.Parse(NDoc.Text);
+            if (NDoc.Text != "")
+            {
+              nro_doc = int.Parse(NDoc.Text);
+            } 
             meil = Email.Text;
-            tipo_docu = comboBox1.SelectedText;
 
             Cliente cliente = new Cliente();
 
@@ -87,6 +89,35 @@ namespace FrbaCommerce.Abm_Cliente
         private void Busqueda_Baja_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CBdni_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBdni.Checked)
+            {
+                tipo_docu = "dni";
+                CBcedula.Enabled = false;
+            }
+            else
+            {
+                tipo_docu = "nada";
+                CBcedula.Enabled = true;
+
+            }
+        }
+
+        private void CBcedula_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBcedula.Checked)
+            {
+                tipo_docu = "cedula";
+                CBdni.Enabled = false;
+            }
+            else
+            {
+                tipo_docu = "nada";
+                CBdni.Enabled = true;
+            }
         }
     }
 }

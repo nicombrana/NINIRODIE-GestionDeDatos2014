@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Alertas
 {
-    partial class Prueba
+    partial class Error
     {
         /// <summary>
         /// Required designer variable.
@@ -35,11 +35,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 35);
+            this.label1.Location = new System.Drawing.Point(70, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "LLEGO!";
+            this.label1.Text = "Se ha producido un Error!";
             // 
             // button1
             // 
@@ -51,15 +51,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Prueba
+            // Error
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 112);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Name = "Prueba";
-            this.Text = "Prueba";
+            this.Name = "Error";
+            this.Text = "ERROR";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -63,9 +63,16 @@ namespace FrbaCommerce
                 preguntas.Visible = true;
             }
             else{
-                Campass.Visible = true;
-                publicacion.Visible = true;
-                preguntas.Visible = true;
+                if (login.user.tipo == "CLIENTE" || login.user.tipo == "EMPRESA")
+                {
+                    Campass.Visible = true;
+                    publicacion.Visible = true;
+                    preguntas.Visible = true;
+                }
+                else
+                {
+                    this.Close();
+                }
             }
             if(login.cerrar == true){
                 this.Close();

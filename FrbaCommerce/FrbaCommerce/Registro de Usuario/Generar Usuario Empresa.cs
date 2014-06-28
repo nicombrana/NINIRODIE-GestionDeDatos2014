@@ -16,18 +16,18 @@ namespace FrbaCommerce
     public partial class GenerarEmpresa : Form
     {
         String razon_social;
-        Decimal nro_cuit;
-        Decimal telef;
+        int nro_cuit;
+        int telef;
         String meil;
         String contact;
         DateTime f_creacion;
         String ciud;
         String loc;
         String call;
-        Decimal altu;
-        Decimal pis;
-        Decimal codpos;
-        Char puert;
+        int altu;
+        int pis;
+        int codpos;
+        String puert;
 
         public GenerarEmpresa()
         {
@@ -99,16 +99,16 @@ namespace FrbaCommerce
 
             call = calle.Text;
             razon_social = nombre.Text;
-            telef = Decimal.Parse(telefono.Text);
+            telef = int.Parse(telefono.Text);
             contact = contacto.Text;
-            nro_cuit = Decimal.Parse(cuit.Text);
-            codpos = Decimal.Parse(cod_pos.Text);
-            pis = Decimal.Parse(piso.Text);
-            altu = Decimal.Parse(altura.Text);
+            nro_cuit = int.Parse(cuit.Text);
+            codpos = int.Parse(cod_pos.Text);
+            pis = int.Parse(piso.Text);
+            altu = int.Parse(altura.Text);
             loc = localidad.Text;
             ciud = ciudad.Text;
             meil = mail.Text;
-            puert = Char.Parse(departamento.Text);
+            puert = departamento.Text;
             f_creacion = dateTimePicker1.Value;
 
             Empresa empresa = new Empresa(nro_cuit, razon_social, contact, f_creacion,
@@ -116,7 +116,7 @@ namespace FrbaCommerce
 
             RepositorioEmpresa.Instance.InsertarEmpresa(empresa);
 
-            new PassYUsuario(empresa.razon_social).ShowDialog(this);
+            new UsuarioYPassEmpresa().ShowDialog(this);
 
             this.Close();
         }

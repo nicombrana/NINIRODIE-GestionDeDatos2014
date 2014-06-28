@@ -23,7 +23,7 @@ namespace FrbaCommerce
             }
             catch (Exception e)
             {
-                
+                new Error().Show();
             }
         }
     }

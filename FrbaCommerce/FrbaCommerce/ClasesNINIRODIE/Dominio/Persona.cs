@@ -6,16 +6,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
     abstract class Persona
     {
-        public Decimal codigo { get; set; }
+        public int codigo { get; set; }
         public String mail { get; set; }
-        public Decimal telefono { get; set; }
+        public int telefono { get; set; }
         public String ciud { get; set; }
         public String loc { get; set; }
         public String call { get; set; }
-        public Decimal altu { get; set; }
-        public Decimal pis { get; set; }
-        public Decimal codpos { get; set; }
-        public Char puert { get; set; }
+        public int altu { get; set; }
+        public int pis { get; set; }
+        public int codpos { get; set; }
+        public String puert { get; set; }
 
 
     }
