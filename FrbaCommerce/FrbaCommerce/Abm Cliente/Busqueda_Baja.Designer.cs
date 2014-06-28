@@ -39,12 +39,15 @@
             this.Email = new System.Windows.Forms.TextBox();
             this.Nrodoc = new System.Windows.Forms.Label();
             this.NDoc = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBcedula = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBdni = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // BCancelar
             // 
-            this.BCancelar.Location = new System.Drawing.Point(160, 162);
+            this.BCancelar.Location = new System.Drawing.Point(160, 219);
             this.BCancelar.Name = "BCancelar";
             this.BCancelar.Size = new System.Drawing.Size(75, 23);
             this.BCancelar.TabIndex = 7;
@@ -54,7 +57,7 @@
             // 
             // BAceptar
             // 
-            this.BAceptar.Location = new System.Drawing.Point(54, 162);
+            this.BAceptar.Location = new System.Drawing.Point(54, 219);
             this.BAceptar.Name = "BAceptar";
             this.BAceptar.Size = new System.Drawing.Size(75, 23);
             this.BAceptar.TabIndex = 6;
@@ -108,7 +111,7 @@
             // Mail
             // 
             this.Mail.AutoSize = true;
-            this.Mail.Location = new System.Drawing.Point(51, 124);
+            this.Mail.Location = new System.Drawing.Point(51, 181);
             this.Mail.Name = "Mail";
             this.Mail.Size = new System.Drawing.Size(32, 13);
             this.Mail.TabIndex = 17;
@@ -116,7 +119,7 @@
             // 
             // Email
             // 
-            this.Email.Location = new System.Drawing.Point(121, 121);
+            this.Email.Location = new System.Drawing.Point(121, 178);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(100, 20);
             this.Email.TabIndex = 16;
@@ -124,7 +127,7 @@
             // Nrodoc
             // 
             this.Nrodoc.AutoSize = true;
-            this.Nrodoc.Location = new System.Drawing.Point(51, 98);
+            this.Nrodoc.Location = new System.Drawing.Point(51, 155);
             this.Nrodoc.Name = "Nrodoc";
             this.Nrodoc.Size = new System.Drawing.Size(47, 13);
             this.Nrodoc.TabIndex = 15;
@@ -132,31 +135,59 @@
             // 
             // NDoc
             // 
-            this.NDoc.Location = new System.Drawing.Point(121, 95);
+            this.NDoc.Location = new System.Drawing.Point(121, 152);
             this.NDoc.Name = "NDoc";
             this.NDoc.Size = new System.Drawing.Size(100, 20);
             this.NDoc.TabIndex = 14;
             this.NDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NDoc_KeyPress);
             // 
-            // comboBox1
+            // CBcedula
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "DNI",
-            "Libreta Civica",
-            "Libreta Enrolamiento",
-            "Cedula"});
-            this.comboBox1.Location = new System.Drawing.Point(121, 70);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 18;
+            this.CBcedula.AutoSize = true;
+            this.CBcedula.Location = new System.Drawing.Point(203, 121);
+            this.CBcedula.Name = "CBcedula";
+            this.CBcedula.Size = new System.Drawing.Size(15, 14);
+            this.CBcedula.TabIndex = 52;
+            this.CBcedula.UseVisualStyleBackColor = true;
+            this.CBcedula.CheckedChanged += new System.EventHandler(this.CBcedula_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(76, 122);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.TabIndex = 51;
+            this.label20.Text = "Cedula";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(76, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "DNI";
+            // 
+            // CBdni
+            // 
+            this.CBdni.AutoSize = true;
+            this.CBdni.Location = new System.Drawing.Point(203, 94);
+            this.CBdni.Name = "CBdni";
+            this.CBdni.Size = new System.Drawing.Size(15, 14);
+            this.CBdni.TabIndex = 49;
+            this.CBdni.UseVisualStyleBackColor = true;
+            this.CBdni.CheckedChanged += new System.EventHandler(this.CBdni_CheckedChanged);
             // 
             // Busqueda_Baja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 210);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(284, 254);
+            this.Controls.Add(this.CBcedula);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CBdni);
             this.Controls.Add(this.Mail);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Nrodoc);
@@ -189,6 +220,9 @@
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label Nrodoc;
         private System.Windows.Forms.TextBox NDoc;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox CBcedula;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox CBdni;
     }
 }
