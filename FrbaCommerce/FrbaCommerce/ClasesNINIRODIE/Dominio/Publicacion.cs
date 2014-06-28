@@ -12,14 +12,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal visibilidad_codigo { get; set; }
         public Decimal vendedor { get; set; }
         public String estado { get; set; }
-        public int permite_pregunta { get; set; }
+        public bool permitePregunta { get; set; }
         public Decimal stock { get; set; }
         public DateTime fecha_vencimiento { get; set; }
         public DateTime fecha_inicio { get; set; }
         public Decimal precio { get; set; }
 
         public Publicacion(String desc, String tip, Decimal visibilidad, 
-            Decimal vended, String state, int permitePreg, Decimal stoc, 
+            Decimal vended, String state, bool permitePreg, Decimal stoc, 
             DateTime fechaVto, DateTime fechaInit, Decimal price)
         {
             this.descripcion = desc;
@@ -27,7 +27,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             this.visibilidad_codigo = visibilidad;
             this.vendedor = vended;
             this.estado = state;
-            this.permite_pregunta = permitePreg;
+            this.permitePregunta = permitePreg;
             this.stock = stoc;
             this.fecha_vencimiento = fechaVto;
             this.fecha_inicio = fechaInit;

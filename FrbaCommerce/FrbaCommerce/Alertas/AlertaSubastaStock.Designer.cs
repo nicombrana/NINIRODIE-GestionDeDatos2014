@@ -1,6 +1,6 @@
-﻿namespace FrbaCommerce.Generar_Publicacion
+﻿namespace FrbaCommerce.Alertas
 {
-    partial class GenerarPublicacion
+    partial class AlertaSubastaStock
     {
         /// <summary>
         /// Required designer variable.
@@ -29,24 +29,37 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.BotonAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(174, 31);
+            this.label1.Location = new System.Drawing.Point(21, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(271, 13);
             this.label1.TabIndex = 0;
+            this.label1.Text = "Las Subastas solo pueden tener 1 sola unidad en Stock";
             // 
-            // Publicacion
+            // BotonAceptar
+            // 
+            this.BotonAceptar.Location = new System.Drawing.Point(109, 72);
+            this.BotonAceptar.Name = "BotonAceptar";
+            this.BotonAceptar.Size = new System.Drawing.Size(98, 28);
+            this.BotonAceptar.TabIndex = 1;
+            this.BotonAceptar.Text = "Aceptar";
+            this.BotonAceptar.UseVisualStyleBackColor = true;
+            this.BotonAceptar.Click += new System.EventHandler(this.BotonAceptar_Click);
+            // 
+            // AlertaSubastaStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(321, 124);
+            this.Controls.Add(this.BotonAceptar);
             this.Controls.Add(this.label1);
-            this.Name = "Publicacion";
-            this.Text = "Publicación";
+            this.Name = "AlertaSubastaStock";
+            this.Text = "AlertaSubastaStock";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -55,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BotonAceptar;
     }
 }

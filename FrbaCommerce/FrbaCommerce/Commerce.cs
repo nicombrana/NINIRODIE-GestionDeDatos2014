@@ -20,6 +20,7 @@ namespace FrbaCommerce
     public partial class Commerce : Form
     {
         Decimal cod_conectado = 0;
+        LogIn login = new LogIn();
 
         public Commerce()
         {
@@ -50,7 +51,7 @@ namespace FrbaCommerce
             publicacion.Visible = false;
             preguntas.Visible = false;
 
-            LogIn login = new LogIn();
+            
             login.ShowDialog(this);
 
             cod_conectado = login.user.codigo;
@@ -102,7 +103,7 @@ namespace FrbaCommerce
 
         private void generarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Genepub().ShowDialog(this);
+            new Genepub(this.login.user.codigo).ShowDialog(this);
         }
 
         private void editarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)

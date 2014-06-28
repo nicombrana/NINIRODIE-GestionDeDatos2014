@@ -7,7 +7,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
     class Visibilidad
     {
-        private Decimal visibilidadCodigo { get; set; }
+        public Decimal visibilidadCodigo { get; set; }
         public String visibiDescripcion { get; set; }
         public Decimal precio { get; set; }
         public Decimal porcentajeVenta { get; set; }

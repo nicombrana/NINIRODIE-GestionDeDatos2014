@@ -8,20 +8,22 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
     public partial class Genepub : Form
     {
         bool modificacion;
-        String cantStock;
+        Decimal cantStock;
         Decimal precioPublicacion;
         private List<Rubro> rubros = new List<Rubro>();
         DateTime fechaInicio;
-        DateTime fechaFin;
         String descripcion;
-        bool preguntasHabilitadas;
         Visibilidad visibilidad;
+        String tipoPubli;
+        Decimal codigoUsuario;
  
         public Genepub()
         {
@@ -30,6 +32,13 @@ namespace FrbaCommerce.Generar_Publicacion
             this.popular();
             
         }
+
+        public Genepub(Decimal codigoUser)
+            : this()
+        {
+            codigoUsuario = codigoUser;
+        }
+
 
         private void popular()
         {
@@ -79,7 +88,8 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void txtBoxStock_TextChanged(object sender, EventArgs e)
         {
-            cantStock = this.txtBoxStock.Text;
+            Validador.soloNumeros(this.txtBoxStock.Text);
+            cantStock = Decimal.Parse(this.txtBoxStock.Text);
         }
 
         private void txtBoxPrecio_TextChanged(object sender, EventArgs e)
@@ -99,12 +109,43 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void preguntas_CheckedChanged(object sender, EventArgs e)
         {
-            preguntasHabilitadas = this.preguntas.Checked;
+            
         }
 
         private void visibilidades_SelectedIndexChanged(object sender, EventArgs e)
         {
             visibilidad = (Visibilidad)this.visibilidades.SelectedValue;
+        }
+
+        private void comboTipoPubli_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tipoPubli = this.comboTipoPubli.SelectedValue.ToString();
+        }
+
+        private void aceptar_Click(object sender, EventArgs e)
+        {
+            if (tipoPubli == "Subasta" && this.cantStock == 1 || tipoPubli == "Compra Inmediata")
+            {
+                this.GenerarPublicacion();
+                new GeneracionPublicacionCorrecta().ShowDialog(this);
+                this.Close();
+            }
+            else
+            {
+                new AlertaSubastaStock().ShowDialog(this);
+            }
+
+        }
+
+        private void GenerarPublicacion()
+        {
+            var publicacion = new Publicacion(this.descripcion, this.tipoPubli, this.visibilidad.visibilidadCodigo,
+                codigoUsuario, this.estado.SelectedValue.ToString(), this.preguntas.Checked, this.cantStock,
+                this.fechaInicio, this.fechaInicio, this.precioPublicacion);
+
+            RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);
+            //this.RubrosCheckList.
+              
         }
 
 

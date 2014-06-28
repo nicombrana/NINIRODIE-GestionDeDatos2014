@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Generar_Publicacion
+namespace FrbaCommerce.Alertas
 {
-    public partial class GenerarPublicacion : Form
+    public partial class GeneracionPublicacionCorrecta : Form
     {
-        public GenerarPublicacion()
+        public GeneracionPublicacionCorrecta()
         {
             InitializeComponent();
-            label1.Text = "Stock 5";
         }
 
+        private void BotonAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

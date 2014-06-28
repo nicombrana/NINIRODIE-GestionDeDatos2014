@@ -160,6 +160,12 @@
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\AlertaSubastaStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\AlertaSubastaStock.Designer.cs">
+      <DependentUpon>AlertaSubastaStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\Alerta_Idpass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     </Compile>
     <Compile Include="Alertas\Cambio_Pass_Exitoso.Designer.cs">
       <DependentUpon>Cambio_Pass_Exitoso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\GeneracionPublicacionCorrecta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\GeneracionPublicacionCorrecta.Designer.cs">
+      <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\Muchos.cs">
       <SubType>Form</SubType>
@@ -379,6 +391,9 @@
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\AlertaSubastaStock.resx">
+      <DependentUpon>AlertaSubastaStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Alerta_Idpass.resx">
       <DependentUpon>Alerta_Idpass.cs</DependentUpon>
     </EmbeddedResource>
@@ -393,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Cambio_Pass_Exitoso.resx">
       <DependentUpon>Cambio_Pass_Exitoso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\GeneracionPublicacionCorrecta.resx">
+      <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Muchos.resx">
       <DependentUpon>Muchos.cs</DependentUpon>
