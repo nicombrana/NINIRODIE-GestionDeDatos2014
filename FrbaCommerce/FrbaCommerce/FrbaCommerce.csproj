@@ -440,7 +440,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Application.config" />
+    <None Include="App.config" />
     <None Include="bin\Debug\FrbaCommerce.vshost.exe.manifest" />
     <None Include="bin\Release\FrbaCommerce.vshost.exe.manifest" />
     <None Include="ClassDiagram1.cd" />
@@ -480,6 +480,9 @@
     <Content Include="bin\Release\FrbaCommerce.exe" />
     <Content Include="bin\Release\FrbaCommerce.pdb" />
     <Content Include="bin\Release\FrbaCommerce.vshost.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
