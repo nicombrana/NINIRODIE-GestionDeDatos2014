@@ -245,11 +245,16 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Rubro.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPreguntas.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPublicacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioRubros.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioVisibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
     <Compile Include="ClasesNINIRODIE\Validador.cs" />
     <Compile Include="Comprar-Ofertar\Form1.cs">

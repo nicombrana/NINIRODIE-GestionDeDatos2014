@@ -37,7 +37,7 @@
             this.precio = new System.Windows.Forms.Label();
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
             this.comboTipoPubli = new System.Windows.Forms.ComboBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.RubrosCheckList = new System.Windows.Forms.CheckedListBox();
             this.rubro = new System.Windows.Forms.Label();
             this.tipo = new System.Windows.Forms.Label();
             this.preguntas = new System.Windows.Forms.CheckBox();
@@ -48,6 +48,7 @@
             this.visibilidades = new System.Windows.Forms.ComboBox();
             this.activado = new System.Windows.Forms.Label();
             this.estado = new System.Windows.Forms.ComboBox();
+            this.descripcionTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtBoxDescripcion
@@ -60,7 +61,7 @@
             // desc
             // 
             this.desc.AutoSize = true;
-            this.desc.Location = new System.Drawing.Point(22, 16);
+            this.desc.Location = new System.Drawing.Point(19, 152);
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(63, 13);
             this.desc.TabIndex = 1;
@@ -69,7 +70,7 @@
             // stock
             // 
             this.stock.AutoSize = true;
-            this.stock.Location = new System.Drawing.Point(22, 42);
+            this.stock.Location = new System.Drawing.Point(19, 61);
             this.stock.Name = "stock";
             this.stock.Size = new System.Drawing.Size(35, 13);
             this.stock.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // txtBoxStock
             // 
-            this.txtBoxStock.Location = new System.Drawing.Point(124, 39);
+            this.txtBoxStock.Location = new System.Drawing.Point(124, 57);
             this.txtBoxStock.Name = "txtBoxStock";
             this.txtBoxStock.Size = new System.Drawing.Size(134, 20);
             this.txtBoxStock.TabIndex = 2;
@@ -85,15 +86,16 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(124, 65);
+            this.dateTimePicker1.Location = new System.Drawing.Point(124, 89);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(134, 20);
             this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // fechaini
             // 
             this.fechaini.AutoSize = true;
-            this.fechaini.Location = new System.Drawing.Point(22, 71);
+            this.fechaini.Location = new System.Drawing.Point(19, 95);
             this.fechaini.Name = "fechaini";
             this.fechaini.Size = new System.Drawing.Size(65, 13);
             this.fechaini.TabIndex = 5;
@@ -102,7 +104,7 @@
             // precio
             // 
             this.precio.AutoSize = true;
-            this.precio.Location = new System.Drawing.Point(22, 94);
+            this.precio.Location = new System.Drawing.Point(19, 123);
             this.precio.Name = "precio";
             this.precio.Size = new System.Drawing.Size(37, 13);
             this.precio.TabIndex = 7;
@@ -110,10 +112,11 @@
             // 
             // txtBoxPrecio
             // 
-            this.txtBoxPrecio.Location = new System.Drawing.Point(124, 91);
+            this.txtBoxPrecio.Location = new System.Drawing.Point(124, 120);
             this.txtBoxPrecio.Name = "txtBoxPrecio";
             this.txtBoxPrecio.Size = new System.Drawing.Size(134, 20);
             this.txtBoxPrecio.TabIndex = 6;
+            this.txtBoxPrecio.TextChanged += new System.EventHandler(this.txtBoxPrecio_TextChanged);
             // 
             // comboTipoPubli
             // 
@@ -121,23 +124,23 @@
             this.comboTipoPubli.Items.AddRange(new object[] {
             "Inmediata",
             "Subasta"});
-            this.comboTipoPubli.Location = new System.Drawing.Point(124, 118);
+            this.comboTipoPubli.Location = new System.Drawing.Point(124, 21);
             this.comboTipoPubli.Name = "comboTipoPubli";
             this.comboTipoPubli.Size = new System.Drawing.Size(134, 21);
             this.comboTipoPubli.TabIndex = 8;
             // 
-            // checkedListBox1
+            // RubrosCheckList
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(124, 238);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(134, 64);
-            this.checkedListBox1.TabIndex = 9;
+            this.RubrosCheckList.FormattingEnabled = true;
+            this.RubrosCheckList.Location = new System.Drawing.Point(124, 251);
+            this.RubrosCheckList.Name = "RubrosCheckList";
+            this.RubrosCheckList.Size = new System.Drawing.Size(134, 64);
+            this.RubrosCheckList.TabIndex = 9;
             // 
             // rubro
             // 
             this.rubro.AutoSize = true;
-            this.rubro.Location = new System.Drawing.Point(22, 238);
+            this.rubro.Location = new System.Drawing.Point(19, 251);
             this.rubro.Name = "rubro";
             this.rubro.Size = new System.Drawing.Size(41, 13);
             this.rubro.TabIndex = 11;
@@ -146,7 +149,7 @@
             // tipo
             // 
             this.tipo.AutoSize = true;
-            this.tipo.Location = new System.Drawing.Point(22, 121);
+            this.tipo.Location = new System.Drawing.Point(19, 24);
             this.tipo.Name = "tipo";
             this.tipo.Size = new System.Drawing.Size(86, 13);
             this.tipo.TabIndex = 10;
@@ -155,15 +158,16 @@
             // preguntas
             // 
             this.preguntas.AutoSize = true;
-            this.preguntas.Location = new System.Drawing.Point(124, 156);
+            this.preguntas.Location = new System.Drawing.Point(124, 186);
             this.preguntas.Name = "preguntas";
             this.preguntas.Size = new System.Drawing.Size(15, 14);
             this.preguntas.TabIndex = 12;
             this.preguntas.UseVisualStyleBackColor = true;
+            this.preguntas.CheckedChanged += new System.EventHandler(this.preguntas_CheckedChanged);
             // 
             // aceptar
             // 
-            this.aceptar.Location = new System.Drawing.Point(33, 344);
+            this.aceptar.Location = new System.Drawing.Point(33, 377);
             this.aceptar.Name = "aceptar";
             this.aceptar.Size = new System.Drawing.Size(75, 23);
             this.aceptar.TabIndex = 13;
@@ -172,7 +176,7 @@
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(168, 344);
+            this.cancelar.Location = new System.Drawing.Point(171, 377);
             this.cancelar.Name = "cancelar";
             this.cancelar.Size = new System.Drawing.Size(75, 23);
             this.cancelar.TabIndex = 14;
@@ -183,7 +187,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 156);
+            this.label1.Location = new System.Drawing.Point(19, 186);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 15;
@@ -192,7 +196,7 @@
             // visi
             // 
             this.visi.AutoSize = true;
-            this.visi.Location = new System.Drawing.Point(22, 311);
+            this.visi.Location = new System.Drawing.Point(12, 329);
             this.visi.Name = "visi";
             this.visi.Size = new System.Drawing.Size(53, 13);
             this.visi.TabIndex = 16;
@@ -201,15 +205,16 @@
             // visibilidades
             // 
             this.visibilidades.FormattingEnabled = true;
-            this.visibilidades.Location = new System.Drawing.Point(124, 308);
+            this.visibilidades.Location = new System.Drawing.Point(124, 326);
             this.visibilidades.Name = "visibilidades";
             this.visibilidades.Size = new System.Drawing.Size(134, 21);
             this.visibilidades.TabIndex = 17;
+            this.visibilidades.SelectedIndexChanged += new System.EventHandler(this.visibilidades_SelectedIndexChanged);
             // 
             // activado
             // 
             this.activado.AutoSize = true;
-            this.activado.Location = new System.Drawing.Point(22, 189);
+            this.activado.Location = new System.Drawing.Point(19, 217);
             this.activado.Name = "activado";
             this.activado.Size = new System.Drawing.Size(40, 13);
             this.activado.TabIndex = 18;
@@ -223,16 +228,26 @@
             "Activada",
             "Pausada",
             "Finalizada"});
-            this.estado.Location = new System.Drawing.Point(124, 189);
+            this.estado.Location = new System.Drawing.Point(124, 214);
             this.estado.Name = "estado";
             this.estado.Size = new System.Drawing.Size(134, 21);
             this.estado.TabIndex = 19;
+            // 
+            // descripcionTextBox
+            // 
+            this.descripcionTextBox.Location = new System.Drawing.Point(125, 151);
+            this.descripcionTextBox.Name = "descripcionTextBox";
+            this.descripcionTextBox.Size = new System.Drawing.Size(132, 29);
+            this.descripcionTextBox.TabIndex = 20;
+            this.descripcionTextBox.Text = "";
+            this.descripcionTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Genepub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 393);
+            this.ClientSize = new System.Drawing.Size(284, 412);
+            this.Controls.Add(this.descripcionTextBox);
             this.Controls.Add(this.estado);
             this.Controls.Add(this.activado);
             this.Controls.Add(this.visibilidades);
@@ -243,7 +258,7 @@
             this.Controls.Add(this.preguntas);
             this.Controls.Add(this.rubro);
             this.Controls.Add(this.tipo);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.RubrosCheckList);
             this.Controls.Add(this.comboTipoPubli);
             this.Controls.Add(this.precio);
             this.Controls.Add(this.txtBoxPrecio);
@@ -272,7 +287,7 @@
         private System.Windows.Forms.Label precio;
         private System.Windows.Forms.TextBox txtBoxPrecio;
         private System.Windows.Forms.ComboBox comboTipoPubli;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox RubrosCheckList;
         private System.Windows.Forms.Label rubro;
         private System.Windows.Forms.Label tipo;
         private System.Windows.Forms.CheckBox preguntas;
@@ -283,5 +298,6 @@
         private System.Windows.Forms.ComboBox visibilidades;
         private System.Windows.Forms.Label activado;
         private System.Windows.Forms.ComboBox estado;
+        private System.Windows.Forms.RichTextBox descripcionTextBox;
     }
 }
