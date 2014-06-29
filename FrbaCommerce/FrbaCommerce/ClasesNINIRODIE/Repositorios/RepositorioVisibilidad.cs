@@ -24,6 +24,34 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public void InsertarVisibilidad(Visibilidad visi)
+        {
+            var query = String.Format(@"INSERT INTO NINIRODIE.VISIBILIDAD " +
+                "(VIS_VISIBILIDAD_CODIGO, VIS_DESCRIPCION, VIS_PRECIO, VIS_POCENTAJE_VENTA, " +
+                "VIS_CANT_DIAS, VIS_HABILITADA)" +
+                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", visi.visibilidadCodigo,
+                visi.visibiDescripcion, visi.precio, visi.porcentajeVenta, visi.cantDias, 1);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+
+
+        }
+
+        public Visibilidad BuscarVisibilidad(String nombre)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD "+
+                "WHERE VIS_DESCRIPCION = '{0}'", nombre);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
+            if (dataRow.Count == 0)
+            {
+                return new Visibilidad();
+            }
+
+            return (dataRow.ToList<Visibilidad>(this.DataRowToVisibilidad)).First();
+        }
+
         public List<Visibilidad> Buscar()
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD");
@@ -39,9 +67,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var descripcion = row["VIS_DESCRIPCION"].ToString();
             var precio = Decimal.Parse(row["VIS_PRECIO"].ToString());
             var porcentajeVenta = Decimal.Parse(row["VIS_POCENTAJE_VENTA"].ToString());
-            var cantDias = row["VIS_CANT_DIAS"].ToString();
+            var cantDias = Decimal.Parse(row["VIS_CANT_DIAS"].ToString());
+            var habili = Decimal.Parse(row["VIS_HABILITADA"].ToString());
 
-            return new Visibilidad(id, descripcion, precio, porcentajeVenta, cantDias);
+            return new Visibilidad(id, descripcion, precio, porcentajeVenta, cantDias, habili);
         }
 
     }

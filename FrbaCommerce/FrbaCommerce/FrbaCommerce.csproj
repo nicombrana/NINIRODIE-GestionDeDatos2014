@@ -154,11 +154,29 @@
     <Compile Include="Abm Visibilidad\ABMVisibilidad.Designer.cs">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Visibilidad\BajarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BajarVisibilidad.Designer.cs">
+      <DependentUpon>BajarVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVisibilidad.Designer.cs">
+      <DependentUpon>BuscarVisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Visibilidad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Visibilidad\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\GenerarVisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\GenerarVisibilidad.Designer.cs">
+      <DependentUpon>GenerarVisibilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\AlertaSubastaStock.cs">
       <SubType>Form</SubType>
@@ -232,6 +250,12 @@
     <Compile Include="Alertas\Error.Designer.cs">
       <DependentUpon>Error.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Noexistevisibilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Noexistevisibilidad.Designer.cs">
+      <DependentUpon>Noexistevisibilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\SinPreguntas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +273,12 @@
     </Compile>
     <Compile Include="Alertas\UsuarioYPassEmpresa.Designer.cs">
       <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\VisiGeneradaCorrectamente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\VisiGeneradaCorrectamente.Designer.cs">
+      <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>
     </Compile>
     <Compile Include="Calificar Vendedor\Form1.cs">
       <SubType>Form</SubType>
@@ -404,6 +434,15 @@
     <EmbeddedResource Include="Abm Visibilidad\ABMVisibilidad.resx">
       <DependentUpon>ABMVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\BajarVisibilidad.resx">
+      <DependentUpon>BajarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\BuscarVisibilidad.resx">
+      <DependentUpon>BuscarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\GenerarVisibilidad.resx">
+      <DependentUpon>GenerarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\AlertaSubastaStock.resx">
       <DependentUpon>AlertaSubastaStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +479,9 @@
     <EmbeddedResource Include="Alertas\Error.resx">
       <DependentUpon>Error.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Noexistevisibilidad.resx">
+      <DependentUpon>Noexistevisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\SinPreguntas.resx">
       <DependentUpon>SinPreguntas.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\UsuarioYPassEmpresa.resx">
       <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\VisiGeneradaCorrectamente.resx">
+      <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>
@@ -525,9 +570,13 @@
     <Content Include="bin\Release\FrbaCommerce.exe" />
     <Content Include="bin\Release\FrbaCommerce.pdb" />
     <Content Include="bin\Release\FrbaCommerce.vshost.exe" />
+    <Content Include="obj\Debug\FrbaCommerce.csproj.FileListAbsolute.txt" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

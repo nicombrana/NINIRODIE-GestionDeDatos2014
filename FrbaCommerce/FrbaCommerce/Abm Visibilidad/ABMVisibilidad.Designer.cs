@@ -50,6 +50,7 @@
             this.botonBaja.TabIndex = 7;
             this.botonBaja.Text = "Baja";
             this.botonBaja.UseVisualStyleBackColor = true;
+            this.botonBaja.Click += new System.EventHandler(this.botonBaja_Click);
             // 
             // botonAlta
             // 
@@ -59,6 +60,7 @@
             this.botonAlta.TabIndex = 6;
             this.botonAlta.Text = "Alta";
             this.botonAlta.UseVisualStyleBackColor = true;
+            this.botonAlta.Click += new System.EventHandler(this.botonAlta_Click);
             // 
             // ABMVisibilidad
             // 
