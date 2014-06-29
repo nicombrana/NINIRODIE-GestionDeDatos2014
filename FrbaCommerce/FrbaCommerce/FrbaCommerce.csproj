@@ -166,6 +166,12 @@
     <Compile Include="Abm Visibilidad\BuscarVisibilidad.Designer.cs">
       <DependentUpon>BuscarVisibilidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVisibilidadMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\BuscarVisibilidadMod.Designer.cs">
+      <DependentUpon>BuscarVisibilidadMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Visibilidad\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,12 @@
     </Compile>
     <Compile Include="Abm Visibilidad\GenerarVisibilidad.Designer.cs">
       <DependentUpon>GenerarVisibilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Visibilidad\ModificarVisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Visibilidad\ModificarVisi.Designer.cs">
+      <DependentUpon>ModificarVisi.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\AlertaSubastaStock.cs">
       <SubType>Form</SubType>
@@ -273,6 +285,18 @@
     </Compile>
     <Compile Include="Alertas\UsuarioYPassEmpresa.Designer.cs">
       <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\VisibilidadExisteCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\VisibilidadExisteCodigo.Designer.cs">
+      <DependentUpon>VisibilidadExisteCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\VisibilidadExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\VisibilidadExistente.Designer.cs">
+      <DependentUpon>VisibilidadExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\VisiGeneradaCorrectamente.cs">
       <SubType>Form</SubType>
@@ -440,8 +464,14 @@
     <EmbeddedResource Include="Abm Visibilidad\BuscarVisibilidad.resx">
       <DependentUpon>BuscarVisibilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\BuscarVisibilidadMod.resx">
+      <DependentUpon>BuscarVisibilidadMod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Visibilidad\GenerarVisibilidad.resx">
       <DependentUpon>GenerarVisibilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Visibilidad\ModificarVisi.resx">
+      <DependentUpon>ModificarVisi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\AlertaSubastaStock.resx">
       <DependentUpon>AlertaSubastaStock.cs</DependentUpon>
@@ -490,6 +520,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\UsuarioYPassEmpresa.resx">
       <DependentUpon>UsuarioYPassEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\VisibilidadExisteCodigo.resx">
+      <DependentUpon>VisibilidadExisteCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\VisibilidadExistente.resx">
+      <DependentUpon>VisibilidadExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\VisiGeneradaCorrectamente.resx">
       <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>

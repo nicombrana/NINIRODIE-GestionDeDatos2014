@@ -27,5 +27,10 @@ namespace FrbaCommerce.Abm_Visibilidad
             new BuscarVisibilidad().ShowDialog(this);
             this.Close();
         }
+
+        private void botonModificacion_Click(object sender, EventArgs e)
+        {
+            new BuscarVisibilidadMod().ShowDialog(this);
+        }
     }
 }

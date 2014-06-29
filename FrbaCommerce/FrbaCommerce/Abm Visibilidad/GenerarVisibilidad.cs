@@ -33,6 +33,7 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Decimal estado_nombre, estado_codigo;
 
             visibiDescripcion = desc.Text;
             visibilidadCodigo = Decimal.Parse(codigo.Text);
@@ -43,9 +44,27 @@ namespace FrbaCommerce.Abm_Visibilidad
             Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
                     precio, porcentajeVenta, cantDias, 1);
 
-            RepositorioVisibilidad.Instance.InsertarVisibilidad(visi);
+            estado_nombre = RepositorioVisibilidad.Instance.BuscarVisibilidadPorNombre(visi.visibiDescripcion);
 
-            new VisiGeneradaCorrectamente().ShowDialog(this);
+            if (estado_nombre == -1)
+            {
+                new VisibilidadExistente().ShowDialog(this);
+            }
+            else
+            {
+                estado_codigo = RepositorioVisibilidad.Instance.BuscarVisibilidadPorCodigo(visi.visibilidadCodigo);
+                if (estado_codigo == -1)
+                {
+                    new VisibilidadExisteCodigo().ShowDialog(this);
+                }
+                else
+                {
+                    RepositorioVisibilidad.Instance.InsertarVisibilidad(visi);
+
+                    new VisiGeneradaCorrectamente().ShowDialog(this);
+                }
+            }
+
         }
 
         private void codigo_KeyPress(object sender, KeyPressEventArgs e)

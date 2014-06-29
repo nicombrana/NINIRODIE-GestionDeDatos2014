@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Abm_Visibilidad
 {
-    partial class BuscarVisibilidad
+    partial class BuscarVisibilidadMod
     {
         /// <summary>
         /// Required designer variable.
@@ -45,15 +45,14 @@
             // 
             // nombre
             // 
-            this.nombre.Location = new System.Drawing.Point(152, 13);
+            this.nombre.Location = new System.Drawing.Point(146, 12);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(100, 20);
             this.nombre.TabIndex = 1;
-            this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Nombre_KeyPress);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(46, 56);
+            this.button1.Location = new System.Drawing.Point(46, 52);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -63,7 +62,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(152, 56);
+            this.button2.Location = new System.Drawing.Point(159, 52);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -71,7 +70,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // BuscarVisibilidad
+            // BuscarVisibilidadMod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,8 +79,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.nombre);
             this.Controls.Add(this.label1);
-            this.Name = "BuscarVisibilidad";
-            this.Text = "Buscar";
+            this.Name = "BuscarVisibilidadMod";
+            this.Text = "Buscar ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

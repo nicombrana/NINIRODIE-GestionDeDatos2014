@@ -41,6 +41,7 @@
             this.botonModificacion.TabIndex = 8;
             this.botonModificacion.Text = "Modificacion";
             this.botonModificacion.UseVisualStyleBackColor = true;
+            this.botonModificacion.Click += new System.EventHandler(this.botonModificacion_Click);
             // 
             // botonBaja
             // 

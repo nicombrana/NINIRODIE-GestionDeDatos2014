@@ -37,6 +37,40 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         }
 
+        public Decimal BuscarVisibilidadPorCodigo(Decimal codigo)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD " +
+        "WHERE VIS_VISIBILIDAD_CODIGO = '{0}'", codigo);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
+            if (dataRow.Count > 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public Decimal BuscarVisibilidadPorNombre(String nombre)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD " +
+            "WHERE VIS_DESCRIPCION = '{0}'", nombre);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
+            if (dataRow.Count > 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
         public Visibilidad BuscarVisibilidad(String nombre)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD "+
