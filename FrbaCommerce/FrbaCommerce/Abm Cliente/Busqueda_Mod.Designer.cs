@@ -30,21 +30,24 @@
         {
             this.BAceptar = new System.Windows.Forms.Button();
             this.BCancelar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Mail = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.TextBox();
             this.Nrodoc = new System.Windows.Forms.Label();
             this.NDoc = new System.Windows.Forms.TextBox();
-            this.TDoc = new System.Windows.Forms.Label();
             this.Apellido = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BM = new System.Windows.Forms.TextBox();
+            this.CBcedula = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CBdni = new System.Windows.Forms.CheckBox();
+            this.TDoc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BAceptar
             // 
-            this.BAceptar.Location = new System.Drawing.Point(46, 167);
+            this.BAceptar.Location = new System.Drawing.Point(46, 192);
             this.BAceptar.Name = "BAceptar";
             this.BAceptar.Size = new System.Drawing.Size(75, 23);
             this.BAceptar.TabIndex = 2;
@@ -54,7 +57,7 @@
             // 
             // BCancelar
             // 
-            this.BCancelar.Location = new System.Drawing.Point(152, 167);
+            this.BCancelar.Location = new System.Drawing.Point(152, 192);
             this.BCancelar.Name = "BCancelar";
             this.BCancelar.Size = new System.Drawing.Size(75, 23);
             this.BCancelar.TabIndex = 3;
@@ -62,23 +65,10 @@
             this.BCancelar.UseVisualStyleBackColor = true;
             this.BCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "DNI",
-            "Libreta Civica",
-            "Libreta Enrolamiento",
-            "Cedula"});
-            this.comboBox1.Location = new System.Drawing.Point(127, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 28;
-            // 
             // Mail
             // 
             this.Mail.AutoSize = true;
-            this.Mail.Location = new System.Drawing.Point(57, 119);
+            this.Mail.Location = new System.Drawing.Point(57, 168);
             this.Mail.Name = "Mail";
             this.Mail.Size = new System.Drawing.Size(32, 13);
             this.Mail.TabIndex = 27;
@@ -86,7 +76,7 @@
             // 
             // Email
             // 
-            this.Email.Location = new System.Drawing.Point(127, 116);
+            this.Email.Location = new System.Drawing.Point(127, 165);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(100, 20);
             this.Email.TabIndex = 26;
@@ -94,7 +84,7 @@
             // Nrodoc
             // 
             this.Nrodoc.AutoSize = true;
-            this.Nrodoc.Location = new System.Drawing.Point(57, 93);
+            this.Nrodoc.Location = new System.Drawing.Point(57, 142);
             this.Nrodoc.Name = "Nrodoc";
             this.Nrodoc.Size = new System.Drawing.Size(47, 13);
             this.Nrodoc.TabIndex = 25;
@@ -102,20 +92,11 @@
             // 
             // NDoc
             // 
-            this.NDoc.Location = new System.Drawing.Point(127, 90);
+            this.NDoc.Location = new System.Drawing.Point(127, 139);
             this.NDoc.Name = "NDoc";
             this.NDoc.Size = new System.Drawing.Size(100, 20);
             this.NDoc.TabIndex = 24;
             this.NDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NDoc_KeyPress);
-            // 
-            // TDoc
-            // 
-            this.TDoc.AutoSize = true;
-            this.TDoc.Location = new System.Drawing.Point(57, 67);
-            this.TDoc.Name = "TDoc";
-            this.TDoc.Size = new System.Drawing.Size(51, 13);
-            this.TDoc.TabIndex = 23;
-            this.TDoc.Text = "Tipo Doc";
             // 
             // Apellido
             // 
@@ -152,17 +133,67 @@
             this.BM.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.BM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BM_KeyPress);
             // 
+            // CBcedula
+            // 
+            this.CBcedula.AutoSize = true;
+            this.CBcedula.Location = new System.Drawing.Point(209, 113);
+            this.CBcedula.Name = "CBcedula";
+            this.CBcedula.Size = new System.Drawing.Size(15, 14);
+            this.CBcedula.TabIndex = 57;
+            this.CBcedula.UseVisualStyleBackColor = true;
+            this.CBcedula.CheckedChanged += new System.EventHandler(this.CBcedula_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(82, 114);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.TabIndex = 56;
+            this.label20.Text = "Cedula";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(82, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "DNI";
+            // 
+            // CBdni
+            // 
+            this.CBdni.AutoSize = true;
+            this.CBdni.Location = new System.Drawing.Point(209, 86);
+            this.CBdni.Name = "CBdni";
+            this.CBdni.Size = new System.Drawing.Size(15, 14);
+            this.CBdni.TabIndex = 54;
+            this.CBdni.UseVisualStyleBackColor = true;
+            this.CBdni.CheckedChanged += new System.EventHandler(this.CBdni_CheckedChanged);
+            // 
+            // TDoc
+            // 
+            this.TDoc.AutoSize = true;
+            this.TDoc.Location = new System.Drawing.Point(57, 64);
+            this.TDoc.Name = "TDoc";
+            this.TDoc.Size = new System.Drawing.Size(51, 13);
+            this.TDoc.TabIndex = 53;
+            this.TDoc.Text = "Tipo Doc";
+            // 
             // Busqueda_Mod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 208);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(284, 227);
+            this.Controls.Add(this.CBcedula);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CBdni);
+            this.Controls.Add(this.TDoc);
             this.Controls.Add(this.Mail);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Nrodoc);
             this.Controls.Add(this.NDoc);
-            this.Controls.Add(this.TDoc);
             this.Controls.Add(this.Apellido);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -181,15 +212,18 @@
 
         private System.Windows.Forms.Button BAceptar;
         private System.Windows.Forms.Button BCancelar;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label Mail;
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label Nrodoc;
         private System.Windows.Forms.TextBox NDoc;
-        private System.Windows.Forms.Label TDoc;
         private System.Windows.Forms.Label Apellido;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox BM;
+        private System.Windows.Forms.CheckBox CBcedula;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox CBdni;
+        private System.Windows.Forms.Label TDoc;
     }
 }

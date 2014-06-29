@@ -178,6 +178,12 @@
     <Compile Include="Alertas\AlertRep.Designer.cs">
       <DependentUpon>AlertRep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\BajaCorrecta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\BajaCorrecta.Designer.cs">
+      <DependentUpon>BajaCorrecta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\Bloqueado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,11 @@
     </Compile>
     <Compile Include="Alertas\GeneracionPublicacionCorrecta.Designer.cs">
       <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
+    <Compile Include="Alertas\ModificacionCorrecta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\ModificacionCorrecta.Designer.cs">
+      <DependentUpon>ModificacionCorrecta.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\Muchos.cs">
       <SubType>Form</SubType>
@@ -400,6 +411,9 @@
     <EmbeddedResource Include="Alertas\AlertRep.resx">
       <DependentUpon>AlertRep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\BajaCorrecta.resx">
+      <DependentUpon>BajaCorrecta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Bloqueado.resx">
       <DependentUpon>Bloqueado.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +425,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\GeneracionPublicacionCorrecta.resx">
       <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
+    <EmbeddedResource Include="Alertas\ModificacionCorrecta.resx">
+      <DependentUpon>ModificacionCorrecta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Muchos.resx">
       <DependentUpon>Muchos.cs</DependentUpon>

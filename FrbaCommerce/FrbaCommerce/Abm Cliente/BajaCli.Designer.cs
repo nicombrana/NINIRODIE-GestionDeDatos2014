@@ -32,6 +32,8 @@
             this.Ldeshabilitar = new System.Windows.Forms.Label();
             this.BAceptar = new System.Windows.Forms.Button();
             this.BCancelar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.habilitar = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // deshabilitar
@@ -54,7 +56,7 @@
             // 
             // BAceptar
             // 
-            this.BAceptar.Location = new System.Drawing.Point(31, 47);
+            this.BAceptar.Location = new System.Drawing.Point(32, 71);
             this.BAceptar.Name = "BAceptar";
             this.BAceptar.Size = new System.Drawing.Size(75, 23);
             this.BAceptar.TabIndex = 2;
@@ -64,7 +66,7 @@
             // 
             // BCancelar
             // 
-            this.BCancelar.Location = new System.Drawing.Point(126, 47);
+            this.BCancelar.Location = new System.Drawing.Point(126, 71);
             this.BCancelar.Name = "BCancelar";
             this.BCancelar.Size = new System.Drawing.Size(75, 23);
             this.BCancelar.TabIndex = 3;
@@ -72,11 +74,31 @@
             this.BCancelar.UseVisualStyleBackColor = true;
             this.BCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(57, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Habilitar";
+            // 
+            // habilitar
+            // 
+            this.habilitar.AutoSize = true;
+            this.habilitar.Location = new System.Drawing.Point(151, 38);
+            this.habilitar.Name = "habilitar";
+            this.habilitar.Size = new System.Drawing.Size(15, 14);
+            this.habilitar.TabIndex = 5;
+            this.habilitar.UseVisualStyleBackColor = true;
+            // 
             // BajaCli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(233, 85);
+            this.ClientSize = new System.Drawing.Size(233, 106);
+            this.Controls.Add(this.habilitar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BCancelar);
             this.Controls.Add(this.BAceptar);
             this.Controls.Add(this.Ldeshabilitar);
@@ -95,5 +117,7 @@
         private System.Windows.Forms.Label Ldeshabilitar;
         private System.Windows.Forms.Button BAceptar;
         private System.Windows.Forms.Button BCancelar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox habilitar;
     }
 }

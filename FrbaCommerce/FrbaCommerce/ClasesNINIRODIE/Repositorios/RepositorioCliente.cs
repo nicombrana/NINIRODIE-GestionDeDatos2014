@@ -26,14 +26,30 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         }
 
         public int BuscarCliente(String apellido, String nombre,
-                                            Decimal nroDoc, String mail, String tipoDoc)
+                                            int nroDoc, String mail, String tipoDoc)
         {
+            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
 
-            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE" +
-                "(CLI_APELLIDO = '%busq1%' OR busq1 = '') AND (CLI_NOMBRE = '%busq2%' " +
-                "OR busq2 = '') AND ( CLI_TIPO_DOC = '%busq3%' OR busq3 = '') AND " +
-                "(CLI_NRO_DOC = '%busq4%' OR busq4 = '') AND (CLI_MAIL = '%busq5%' OR busq5 = '')",
-                apellido, nombre, tipoDoc, nroDoc, mail);
+            if (apellido != "")
+            {
+                query = query + "AND CLI_APELLIDO = '" + apellido + "' ";
+            }
+            if (nombre != "")
+            {
+                query = query + "AND CLI_NOMBRE = '" + nombre + "' ";
+            }
+            if (tipoDoc != "nada")
+            {
+                query = query + "AND CLI_TIPO_DOC = '" + tipoDoc + "' ";
+            }
+            if (nroDoc != 0)
+            {
+                query = query + "AND CLI_NRO_DOC = " + nroDoc;
+            }
+            if (mail != "")
+            {
+                query = query + "AND CLI_MAIL = '" + mail + "' ";
+            }
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
 
@@ -54,7 +70,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public Cliente BuscarClientePorClave(Decimal idcliente)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.CLIENTE " +
-                "WHERE CLI_CODIGO = '{0}')", idcliente);
+                "WHERE CLI_CODIGO = '{0}'", idcliente);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
 
@@ -68,12 +84,12 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var query = String.Format(@"UPDATE NINIRODIE.CLIENTE SET " + 
                 " CLI_APELLIDO = '{0}', CLI_NOMBRE = '{1}', CLI_NRO_DOC = '{2}', " +
                 "CLI_TIPO_DOC = '{3}', CLI_TELEFONO = '{4}', CLI_MAIL = '{5}', " +
-                "CLI_FECHA_NAC = '{6}', CLI_CIUDAD = '{7}', CLI_LOCALDAD = '{8}', " +
+                "CLI_FECHA_NAC = '{6}', CLI_CIUDAD = '{7}', CLI_LOCALIDAD = '{8}', " +
                 "CLI_CALLE = '{9}', CLI_ALTURA = '{10}', CLI_PISO = '{11}', " +
-                "CLI_DEPARTAMENTO = '{12}', CLI_CODIGO_POSTAL = '{13}', " +
+                "CLI_DEPARTAMENTO = '{12}', CLI_CODIGO_POSTAL = '{13}' " +
                 "WHERE CLI_CODIGO = '{14}'", cliente.apellido, cliente.nombre, 
                 cliente.nro_doc, cliente.tipo_doc, cliente.telefono, cliente.mail,
-                cliente.fecha_nac, cliente.ciud, cliente.loc, cliente.call, 
+                DBTypeConverter.ToSQLDateTime(cliente.fecha_nac), cliente.ciud, cliente.loc, cliente.call, 
                 cliente.altu, cliente.pis, cliente.puert, cliente.codpos, cliente.codigo);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);

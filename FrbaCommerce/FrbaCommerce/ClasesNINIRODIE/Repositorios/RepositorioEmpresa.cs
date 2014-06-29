@@ -24,13 +24,22 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public int BuscarEmpresa(String razon_soc, String mail,Decimal cuit)
+        public int BuscarEmpresa(String razon_soc, String mail,int cuit)
         {
+            var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");
 
-            var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA" +
-                "(EMP_RAZON_SOCIAL = '%busq1%' OR busq1 = '') AND (EMP_MAIL = '%busq2%' " +
-                "OR busq2 = '') AND ( EMP_CUIT = '%busq3%' OR busq3 = '')",
-                razon_soc, mail, cuit);
+            if (razon_soc != "")
+            {
+                query = query + "AND EMP_RAZON_SOCIAL = '" + razon_soc + "' ";
+            }
+            if (cuit != 0)
+            {
+                query = query + "AND EMP_CUIT = " + cuit;
+            }
+            if (mail != "")
+            {
+                query = query + "AND EMP_MAIL = '" + mail + "' ";
+            }
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
 
@@ -67,12 +76,28 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         }
 
+        public void ModificarEmpresa(Empresa empresa)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.EMPRESA SET " +
+    " EMP_CONTACTO = '{0}', EMP_RAZON_SOCIAL = '{1}', EMP_CUIT = '{2}', " +
+    "EMP_TELEFONO = '{3}', EMP_MAIL = '{4}', " +
+    "EMP_FECHA_CREACION = '{5}', EMP_CIUDAD = '{6}', EMP_LOCALIDAD = '{7}', " +
+    "EMP_CALLE = '{8}', EMP_ALTURA = '{9}', EMP_PISO = '{10}', " +
+    "EMP_DEPARTAMENTO = '{11}', EMP_CODIGO_POSTAL = '{12}' " +
+    "WHERE EMP_CODIGO = '{13}'", empresa.contacto, empresa.razon_social,
+    empresa.cuit, empresa.telefono, empresa.mail,
+    DBTypeConverter.ToSQLDateTime(empresa.fecha_creacion), empresa.ciud, empresa.loc, empresa.call,
+    empresa.altu, empresa.pis, empresa.puert, empresa.codpos, empresa.codigo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
         public Empresa BuscarEmpresaPorClave(Decimal codigo)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.EMPRESA " +
-                "WHERE EMP_CODIGO = '{0}')", codigo);
+                "WHERE EMP_CODIGO = '{0}'", codigo);
 
-            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
 
             var empresas = dataRow.ToList<Empresa>(this.DataRowToEmpresa);
 
@@ -86,10 +111,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var cuit = int.Parse(row["EMP_CUIT"].ToString());
             var telef = int.Parse(row["EMP_TELEFONO"].ToString());
             var meil = row["EMP_MAIL"].ToString();
-            var f_crea = DateTime.Parse(row["CLI_FECHA_CREACION"].ToString());
+            var f_crea = DateTime.Parse(row["EMP_FECHA_CREACION"].ToString());
             var ciudad = row["EMP_CIUDAD"].ToString();
             var loc = row["EMP_LOCALIDAD"].ToString();
-            var call = row["CLI_CALLE"].ToString();
+            var call = row["EMP_CALLE"].ToString();
             var altu = int.Parse(row["EMP_ALTURA"].ToString());
             var pis = int.Parse(row["EMP_PISO"].ToString());
             var codpos = int.Parse(row["EMP_CODIGO_POSTAL"].ToString());
@@ -101,20 +126,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return empresa;
         }
 
-        public void ModificarEmpresa(Empresa empresa)
-        {
-            var query = String.Format(@"UPDATE NINIRODIE.CLIENTE SET " +
-    " EMP_CONTACTO = '{0}', EMP_RAZON_SOCIAL = '{1}', EMP_CUIT = '{2}', " +
-    "EMP_TELEFONO = '{3}', EMP_MAIL = '{4}', " +
-    "EMP_FECHA_CREACION = '{5}', EMP_CIUDAD = '{6}', EMP_LOCALDAD = '{7}', " +
-    "EMP_CALLE = '{8}', EMP_ALTURA = '{9}', EMP_PISO = '{10}', " +
-    "EMP_DEPARTAMENTO = '{11}', EMP_CODIGO_POSTAL = '{12}', " +
-    "WHERE EMP_CODIGO = '{13}'", empresa.contacto, empresa.razon_social,
-    empresa.cuit, empresa.telefono, empresa.mail,
-    empresa.fecha_creacion, empresa.ciud, empresa.loc, empresa.call,
-    empresa.altu, empresa.pis, empresa.puert, empresa.codpos, empresa.codigo);
 
-            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
-        }
     }
 }

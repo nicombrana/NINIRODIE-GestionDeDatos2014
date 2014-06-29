@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce.Abm_Empresa
 {
@@ -29,23 +30,63 @@ namespace FrbaCommerce.Abm_Empresa
         private void Aceptar_Click(object sender, EventArgs e)
         {
             Empresa empresa = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
-
-            empresa.razon_social = nombre.Text;
-            empresa.telefono = int.Parse(telefono.Text);
-            empresa.mail = mail.Text;
+            
+            if (nombre.Text != "")
+            {
+                empresa.razon_social = nombre.Text;
+            }
+            if (telefono.Text != "")
+            {
+                empresa.telefono = int.Parse(telefono.Text);
+            }
+            if (mail.Text != "")
+            {
+                empresa.mail = mail.Text;
+            }
             empresa.fecha_creacion = dateTimePicker1.Value;
-            empresa.cuit = int.Parse(cuit.Text);
-            empresa.contacto = contacto.Text;
-            empresa.ciud = ciudad.Text;
-            empresa.loc = localidad.Text;
-            empresa.call = calle.Text;
-            empresa.puert = departamento.Text;
-            empresa.pis = int.Parse(piso.Text);
-            empresa.codpos = int.Parse(cod_pos.Text);
-            empresa.altu = int.Parse(altura.Text);
+            if (cuit.Text != "")
+            {
+                empresa.cuit = int.Parse(cuit.Text);
+            }
+            if (contacto.Text != "")
+            {
+                empresa.contacto = contacto.Text;
+            }
+            if (ciudad.Text != "")
+            {
+                empresa.ciud = ciudad.Text;
+            }
+            if (localidad.Text != "")
+            {
+                empresa.loc = localidad.Text;
+            }
+            if (calle.Text != "")
+            {
+                empresa.call = calle.Text;
+            }
+            if (departamento.Text != "")
+            {
+                empresa.puert = departamento.Text;
+            }
+            if (piso.Text != "")
+            {
+                empresa.pis = int.Parse(piso.Text);
+            }
+            if (cod_pos.Text != "")
+            {
+                empresa.codpos = int.Parse(cod_pos.Text);
+            }
+            if (altura.Text != "")
+            {
+                empresa.altu = int.Parse(altura.Text);
+            }
             empresa.codigo = empresa_id;
 
             RepositorioEmpresa.Instance.ModificarEmpresa(empresa);
+
+            new ModificacionCorrecta().ShowDialog(this);
+
+            this.Close();
         }
     }
 }

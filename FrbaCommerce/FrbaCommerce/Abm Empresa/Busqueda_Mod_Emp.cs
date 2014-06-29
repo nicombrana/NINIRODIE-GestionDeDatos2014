@@ -17,7 +17,7 @@ namespace FrbaCommerce.Abm_Empresa
     {
         public String razon;
         public String mail;
-        public Decimal cuit;
+        public int cuit = 0;
 
         public Busqueda_Mod_Emp()
         {
@@ -33,8 +33,10 @@ namespace FrbaCommerce.Abm_Empresa
         {
             razon = BM.Text;
             mail = Textmail.Text;
-            cuit = Decimal.Parse(TextCuit.Text);
-
+            if (TextCuit.Text != "")
+            {
+                  cuit = int.Parse(TextCuit.Text);
+            }
             Empresa empresa = new Empresa();
 
             empresa.codigo = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
@@ -50,6 +52,7 @@ namespace FrbaCommerce.Abm_Empresa
             else
             {
                 new ModificarEmp(empresa.codigo).ShowDialog(this);
+                this.Close();
             }
         }
 

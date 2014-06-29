@@ -19,7 +19,7 @@ namespace FrbaCommerce.Abm_Cliente
         public String nombre;
         public String ape;
         public String tipo_docu = "nada";
-        public int nro_doc;
+        public int nro_doc = 0;
         public int telef;
         public String meil;
         public DateTime f_nac;
@@ -68,6 +68,7 @@ namespace FrbaCommerce.Abm_Cliente
             else
             {
                 new BajaCli(cliente.codigo).ShowDialog(this);
+                this.Close();
             }
         }
 

@@ -44,6 +44,38 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return usuarios.First();
         }
 
+        public Usuario BuscarCliente(Decimal id)
+        {
+            var query = String.Format(@"select * from gd1c2014.NINIRODIE.USUARIO " +
+                           "where USU_CLIENTE_ID = '{0}'", id);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.USUARIO");
+            
+            if (dataRow.Count == 0)
+            {
+                return new Usuario();   
+            }
+            var usuarios = dataRow.ToList<Usuario>(this.DataRowToUsuario);
+
+            return usuarios.First();
+        }
+
+        public Usuario BuscarEmpresa(Decimal id)
+        {
+            var query = String.Format(@"select * from gd1c2014.NINIRODIE.USUARIO " +
+                           "where USU_EMPRESA_ID = '{0}'", id);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.USUARIO");
+
+            if (dataRow.Count == 0)
+            {
+                return new Usuario();
+            }
+            var usuarios = dataRow.ToList<Usuario>(this.DataRowToUsuario);
+
+            return usuarios.First();
+        }
+
         public void Bloquear(String nombre_usuario)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_BLOQUEADO = " +
@@ -73,7 +105,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return 2;
         }
 
-        public void BajarCliente(Decimal codigo, bool habilitado)
+        public void BajarCliente(Decimal codigo, int habilitado)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
                 "'{0}' WHERE USU_CLIENTE_ID = '{1}'", habilitado, codigo);

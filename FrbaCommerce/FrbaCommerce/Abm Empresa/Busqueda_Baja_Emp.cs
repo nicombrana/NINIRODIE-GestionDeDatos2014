@@ -17,7 +17,7 @@ namespace FrbaCommerce.Abm_Empresa
     {
         public String razon;
         public String mail;
-        public Decimal cuit;
+        public int cuit = 0;
 
         public Busqueda_Baja_Emp()
         {
@@ -34,7 +34,10 @@ namespace FrbaCommerce.Abm_Empresa
         {
             razon = BM.Text;
             mail = Textmail.Text;
-            cuit = Decimal.Parse(TextCuit.Text);
+            if (TextCuit.Text != "")
+            {
+                cuit = int.Parse(TextCuit.Text);
+            }
 
             Empresa empresa = new Empresa();
 
@@ -51,6 +54,7 @@ namespace FrbaCommerce.Abm_Empresa
             else
             {
                 new BajaEmp(empresa.codigo).ShowDialog(this);
+                this.Close();
             }
         }
 
