@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Rubro = new System.Windows.Forms.Label();
             this.BCancelar = new System.Windows.Forms.Button();
             this.BAceptar = new System.Windows.Forms.Button();
-            this.LDesc = new System.Windows.Forms.Label();
-            this.BM = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.publicacionesComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Rubro
-            // 
-            this.Rubro.AutoSize = true;
-            this.Rubro.Location = new System.Drawing.Point(45, 41);
-            this.Rubro.Name = "Rubro";
-            this.Rubro.Size = new System.Drawing.Size(36, 13);
-            this.Rubro.TabIndex = 21;
-            this.Rubro.Text = "Rubro";
             // 
             // BCancelar
             // 
@@ -65,55 +55,44 @@
             this.BAceptar.UseVisualStyleBackColor = true;
             this.BAceptar.Click += new System.EventHandler(this.BAceptar_Click);
             // 
-            // LDesc
+            // publicacionesComboBox
             // 
-            this.LDesc.AutoSize = true;
-            this.LDesc.Location = new System.Drawing.Point(45, 15);
-            this.LDesc.Name = "LDesc";
-            this.LDesc.Size = new System.Drawing.Size(63, 13);
-            this.LDesc.TabIndex = 17;
-            this.LDesc.Text = "Descripcion";
+            this.publicacionesComboBox.FormattingEnabled = true;
+            this.publicacionesComboBox.Location = new System.Drawing.Point(17, 38);
+            this.publicacionesComboBox.Name = "publicacionesComboBox";
+            this.publicacionesComboBox.Size = new System.Drawing.Size(223, 21);
+            this.publicacionesComboBox.TabIndex = 21;
             // 
-            // BM
+            // groupBox1
             // 
-            this.BM.Location = new System.Drawing.Point(115, 12);
-            this.BM.Name = "BM";
-            this.BM.Size = new System.Drawing.Size(100, 20);
-            this.BM.TabIndex = 16;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(115, 38);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
-            this.checkedListBox1.TabIndex = 22;
+            this.groupBox1.Controls.Add(this.publicacionesComboBox);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(260, 91);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Publicaciones";
             // 
             // BuscarPublicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 179);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.Rubro);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BCancelar);
             this.Controls.Add(this.BAceptar);
-            this.Controls.Add(this.LDesc);
-            this.Controls.Add(this.BM);
             this.Name = "BuscarPublicacion";
             this.Text = "BuscarPublicacion";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label Rubro;
         private System.Windows.Forms.Button BCancelar;
         private System.Windows.Forms.Button BAceptar;
-        private System.Windows.Forms.Label LDesc;
-        private System.Windows.Forms.TextBox BM;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ComboBox publicacionesComboBox;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

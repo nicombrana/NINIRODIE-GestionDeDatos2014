@@ -124,7 +124,7 @@ namespace FrbaCommerce
 
         private void buscarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarPublicacion().ShowDialog(this);
+            new BuscarPublicacion(this.login.user.codigo).ShowDialog(this);
         }
     }          
 }

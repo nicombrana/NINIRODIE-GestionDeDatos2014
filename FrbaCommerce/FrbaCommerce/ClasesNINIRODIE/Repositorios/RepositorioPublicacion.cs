@@ -24,9 +24,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-
-
-
         public void AgregarPublicacion(Publicacion publicacion)
         {
             publicacion.publicacion_id = this.ProximoCodigo();
@@ -50,9 +47,42 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
 
-            return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["PUB_PUBLICACION_ID"].ToString()))).First() + 1;
+            return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["PUB_PUBLICACION_ID"].ToString()))).First() + 1; 
+
+        }
+
+        public List<Publicacion> BuscarPublicaciones(String query)
+        {
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
+
+            return dataRow.ToList<Publicacion>(this.DataRowToPublicacion);
  
- 
+        }
+
+        public List<Publicacion> BuscarPublicacionesDeVendedor(Decimal usuario)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{0}'", usuario);
+
+            return this.BuscarPublicaciones(query);
+        }
+
+        private Publicacion DataRowToPublicacion(DataRow row)
+        {
+            var publicacionID = Decimal.Parse(row["PUB_PUBLICACION_ID"].ToString());
+            var descripcion = row["PUB_DESCRIPCION"].ToString();
+            var tipo = row["PUB_TIPO"].ToString();
+            var visibilidad = Decimal.Parse(row["PUB_VISIBILIDAD_CODIGO"].ToString());
+            var vendedorCodigo = Decimal.Parse(row["PUB_VENDEDOR"].ToString());
+            var estado = row["PUB_ESTADO"].ToString();
+            var permitePregunta = bool.Parse(row["PUB_PERMITE_PREGUNTA"].ToString());
+            var stock = Decimal.Parse(row["PUB_STOCK"].ToString());
+            var fechaVto = DBTypeConverter.ToDateTime(row["PUB_FECHA_VENCIMIENTO"].ToString());
+            var fechaInit = DBTypeConverter.ToDateTime(row["PUB_FECHA_INICIO"].ToString());
+            var precio = Decimal.Parse(row["PUB_PRECIO"].ToString());
+
+
+            return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
+                fechaVto, fechaInit, precio);
         }
     }
 }

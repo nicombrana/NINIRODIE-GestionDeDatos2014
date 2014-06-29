@@ -34,6 +34,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             this.precio = price;
         }
 
+        public Publicacion(Decimal codigo, String desc, String tip, Decimal visibilidad,
+            Decimal vended, String state, bool permitePreg, Decimal stoc,
+            DateTime fechaVto, DateTime fechaInit, Decimal price)
+            : this(desc, tip, visibilidad, vended, state, permitePreg, stoc, fechaVto, fechaInit, price)
+        {
+            this.publicacion_id = codigo;
+        }
+
 
 
 
