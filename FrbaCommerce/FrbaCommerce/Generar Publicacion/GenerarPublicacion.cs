@@ -16,12 +16,7 @@ namespace FrbaCommerce.Generar_Publicacion
     public partial class Genepub : Form
     {
         bool modificacion;
-        Decimal cantStock;
-        Decimal precioPublicacion;
         private List<Rubro> rubros = new List<Rubro>();
-        DateTime fechaInicio;
-        String descripcion;
-        Visibilidad visibilidad;
         String tipoPubli;
         Decimal codigoUsuario;
  
@@ -86,37 +81,6 @@ namespace FrbaCommerce.Generar_Publicacion
 
         }
 
-        private void txtBoxStock_TextChanged(object sender, EventArgs e)
-        {
-            Validador.soloNumeros(this.txtBoxStock.Text);
-            cantStock = Decimal.Parse(this.txtBoxStock.Text);
-        }
-
-        private void txtBoxPrecio_TextChanged(object sender, EventArgs e)
-        {
-            precioPublicacion = Decimal.Parse(this.txtBoxPrecio.Text);
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            fechaInicio = this.dateTimePicker1.Value;
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            descripcion = this.descripcionTextBox.Text;
-        }
-
-        private void preguntas_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void visibilidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            visibilidad = (Visibilidad)this.visibilidades.SelectedValue;
-        }
-
         private void comboTipoPubli_SelectedIndexChanged(object sender, EventArgs e)
         {
             tipoPubli = this.comboTipoPubli.SelectedValue.ToString();
@@ -124,9 +88,9 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void aceptar_Click(object sender, EventArgs e)
         {
-            if (tipoPubli == "Subasta" && this.cantStock == 1 || tipoPubli == "Compra Inmediata")
+            if (tipoPubli == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 || tipoPubli == "Compra Inmediata")
             {
-                this.GenerarPublicacion();
+                this.generarPublicacion();
                 new GeneracionPublicacionCorrecta().ShowDialog(this);
                 this.Close();
             }
@@ -137,15 +101,30 @@ namespace FrbaCommerce.Generar_Publicacion
 
         }
 
-        private void GenerarPublicacion()
+        private void generarPublicacion()
         {
-            var publicacion = new Publicacion(this.descripcion, this.tipoPubli, this.visibilidad.visibilidadCodigo,
-                codigoUsuario, this.estado.SelectedValue.ToString(), this.preguntas.Checked, this.cantStock,
-                this.fechaInicio, this.fechaInicio, this.precioPublicacion);
+            var publicacion = new Publicacion(this.descripcionTextBox.Text, this.tipoPubli, 
+                ((Visibilidad)this.visibilidades.SelectedValue).visibilidadCodigo, codigoUsuario, 
+                this.estado.SelectedValue.ToString(), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
+                this.dateTimePicker1.Value, this.dateTimePicker1.Value, Decimal.Parse(this.txtBoxPrecio.Text));
 
             RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);
-            //this.RubrosCheckList.
+
+            foreach (Rubro rubroSeleccionado in this.RubrosCheckList.CheckedItems)
+            {
+                RepositorioPublicacionPorRubro.Instance.AgregarRubrosAPublicacion(publicacion, rubroSeleccionado);
+            }
               
+        }
+
+        private void txtBoxStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void txtBoxPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
         }
 
 

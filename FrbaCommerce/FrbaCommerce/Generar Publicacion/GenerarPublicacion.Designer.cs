@@ -82,7 +82,7 @@
             this.txtBoxStock.Name = "txtBoxStock";
             this.txtBoxStock.Size = new System.Drawing.Size(172, 20);
             this.txtBoxStock.TabIndex = 2;
-            this.txtBoxStock.TextChanged += new System.EventHandler(this.txtBoxStock_TextChanged);
+            this.txtBoxStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxStock_KeyPress);
             // 
             // dateTimePicker1
             // 
@@ -90,7 +90,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(213, 20);
             this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // fechaini
             // 
@@ -116,7 +115,7 @@
             this.txtBoxPrecio.Name = "txtBoxPrecio";
             this.txtBoxPrecio.Size = new System.Drawing.Size(172, 20);
             this.txtBoxPrecio.TabIndex = 6;
-            this.txtBoxPrecio.TextChanged += new System.EventHandler(this.txtBoxPrecio_TextChanged);
+            this.txtBoxPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPrecio_KeyPress);
             // 
             // comboTipoPubli
             // 
@@ -164,7 +163,6 @@
             this.preguntas.Size = new System.Drawing.Size(15, 14);
             this.preguntas.TabIndex = 12;
             this.preguntas.UseVisualStyleBackColor = true;
-            this.preguntas.CheckedChanged += new System.EventHandler(this.preguntas_CheckedChanged);
             // 
             // aceptar
             // 
@@ -211,7 +209,6 @@
             this.visibilidades.Name = "visibilidades";
             this.visibilidades.Size = new System.Drawing.Size(172, 21);
             this.visibilidades.TabIndex = 17;
-            this.visibilidades.SelectedIndexChanged += new System.EventHandler(this.visibilidades_SelectedIndexChanged);
             // 
             // activado
             // 
@@ -242,7 +239,6 @@
             this.descripcionTextBox.Size = new System.Drawing.Size(213, 93);
             this.descripcionTextBox.TabIndex = 20;
             this.descripcionTextBox.Text = "";
-            this.descripcionTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Genepub
             // 

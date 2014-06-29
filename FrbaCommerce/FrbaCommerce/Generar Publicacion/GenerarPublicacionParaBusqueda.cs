@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
-    public partial class GenerarPublicacion : Form
+    public partial class GenerarPublicacionParaBusqueda : Form
     {
-        public GenerarPublicacion()
+        public GenerarPublicacionParaBusqueda()
         {
             InitializeComponent();
             label1.Text = "Stock 5";

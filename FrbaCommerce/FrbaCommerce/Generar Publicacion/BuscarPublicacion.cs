@@ -23,7 +23,7 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            new GenerarPublicacion().ShowDialog(this);
+            new GenerarPublicacionParaBusqueda().ShowDialog(this);
         }
     }
 }
