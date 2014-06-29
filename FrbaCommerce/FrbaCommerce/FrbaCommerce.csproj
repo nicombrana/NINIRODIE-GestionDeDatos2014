@@ -207,6 +207,7 @@
     </Compile>
     <Compile Include="Alertas\GeneracionPublicacionCorrecta.Designer.cs">
       <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\ModificacionCorrecta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +426,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\GeneracionPublicacionCorrecta.resx">
       <DependentUpon>GeneracionPublicacionCorrecta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\ModificacionCorrecta.resx">
       <DependentUpon>ModificacionCorrecta.cs</DependentUpon>
     </EmbeddedResource>
