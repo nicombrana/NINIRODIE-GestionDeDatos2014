@@ -280,6 +280,12 @@
     <Compile Include="Alertas\NoHabilitado.Designer.cs">
       <DependentUpon>NoHabilitado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\RespuestaExitosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\RespuestaExitosa.Designer.cs">
+      <DependentUpon>RespuestaExitosa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\SinPreguntas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -552,6 +558,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\NoHabilitado.resx">
       <DependentUpon>NoHabilitado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\RespuestaExitosa.resx">
+      <DependentUpon>RespuestaExitosa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\SinPreguntas.resx">
       <DependentUpon>SinPreguntas.cs</DependentUpon>

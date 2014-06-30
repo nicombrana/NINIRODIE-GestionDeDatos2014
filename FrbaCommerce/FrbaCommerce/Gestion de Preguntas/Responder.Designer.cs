@@ -92,6 +92,7 @@
             this.Controls.Add(this.preguntas);
             this.Name = "Responder";
             this.Text = "Responder";
+            this.Load += new System.EventHandler(this.Responder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

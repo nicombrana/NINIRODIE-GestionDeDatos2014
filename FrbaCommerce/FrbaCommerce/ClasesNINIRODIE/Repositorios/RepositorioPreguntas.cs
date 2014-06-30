@@ -25,6 +25,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public void Responder(Decimal conectado, String pregunta, String respuesta)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.PREGUNTA SET " +
+                "PREG_RESPUESTA = '{0}' WHERE PREG_DESCRIPCION = '{1}'",
+                respuesta, pregunta);
+
+            SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PREGUNTA");
+
+        }
+
         public List<Pregunta> BuscarPregunta(Decimal Idusuario)
         {
             var query = String.Format(@"select * from gd1c2014.NINIRODIE.PREGUNTA " +
