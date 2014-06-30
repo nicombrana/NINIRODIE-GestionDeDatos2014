@@ -59,6 +59,7 @@ namespace FrbaCommerce.Abm_Cliente
                                                             meil, tipo_docu);
             if (cliente.codigo == -1)
             {
+            //    new MostrarCliBajas(ape, nombre, nro_doc, meil, tipo_docu).ShowDialog(this);
                 new Muchos().ShowDialog(this);
             }
             else if (cliente.codigo == -2)

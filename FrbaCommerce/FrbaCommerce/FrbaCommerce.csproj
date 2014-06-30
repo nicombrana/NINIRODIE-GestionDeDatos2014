@@ -88,6 +88,12 @@
     <Compile Include="Abm Cliente\ModificarCli.Designer.cs">
       <DependentUpon>ModificarCli.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\MostrarCliBajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\MostrarCliBajas.Designer.cs">
+      <DependentUpon>MostrarCliBajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Empresa\ABMEmp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Cliente\ModificarCli.resx">
       <DependentUpon>ModificarCli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\MostrarCliBajas.resx">
+      <DependentUpon>MostrarCliBajas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\ABMEmp.resx">
       <DependentUpon>ABMEmp.cs</DependentUpon>

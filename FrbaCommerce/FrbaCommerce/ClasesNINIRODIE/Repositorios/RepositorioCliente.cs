@@ -112,6 +112,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             return clientes;
         }
+
         public Cliente BuscarClientePorClave(Decimal idcliente)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.CLIENTE " +
