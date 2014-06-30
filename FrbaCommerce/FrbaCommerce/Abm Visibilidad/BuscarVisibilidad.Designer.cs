@@ -29,27 +29,19 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.nombre = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.nombreVisibilidadComoBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 13);
+            this.label1.Location = new System.Drawing.Point(28, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre Visibilidad";
-            // 
-            // nombre
-            // 
-            this.nombre.Location = new System.Drawing.Point(152, 13);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(100, 20);
-            this.nombre.TabIndex = 1;
-            this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Nombre_KeyPress);
             // 
             // button1
             // 
@@ -71,14 +63,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // nombreVisibilidadComoBox
+            // 
+            this.nombreVisibilidadComoBox.FormattingEnabled = true;
+            this.nombreVisibilidadComoBox.Location = new System.Drawing.Point(141, 13);
+            this.nombreVisibilidadComoBox.Name = "nombreVisibilidadComoBox";
+            this.nombreVisibilidadComoBox.Size = new System.Drawing.Size(122, 21);
+            this.nombreVisibilidadComoBox.TabIndex = 4;
+            // 
             // BuscarVisibilidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 96);
+            this.Controls.Add(this.nombreVisibilidadComoBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.nombre);
             this.Controls.Add(this.label1);
             this.Name = "BuscarVisibilidad";
             this.Text = "Buscar";
@@ -90,8 +90,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox nombreVisibilidadComoBox;
     }
 }

@@ -11,9 +11,9 @@ namespace FrbaCommerce.Abm_Visibilidad
 {
     public partial class BajarVisibilidad : Form
     {
-        Decimal est;
+        bool est;
 
-        public BajarVisibilidad(Decimal estado)
+        public BajarVisibilidad(bool estado)
         {
             est = estado;
 
@@ -27,12 +27,12 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void BajarVisibilidad_Load(object sender, EventArgs e)
         {
-            if (est == 0)
+            if (est)
             {
                 Habilitar.Enabled = true;
                 Deshabilitar.Enabled = false;
             }
-            if (est == 1)
+            if (est)
             {
                 Habilitar.Enabled = false;
                 Deshabilitar.Enabled = true;

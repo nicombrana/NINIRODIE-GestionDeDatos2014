@@ -102,7 +102,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var precio = Decimal.Parse(row["VIS_PRECIO"].ToString());
             var porcentajeVenta = Decimal.Parse(row["VIS_POCENTAJE_VENTA"].ToString());
             var cantDias = Decimal.Parse(row["VIS_CANT_DIAS"].ToString());
-            var habili = Decimal.Parse(row["VIS_HABILITADA"].ToString());
+            var habili = bool.Parse(row["VIS_HABILITADA"].ToString());
 
             return new Visibilidad(id, descripcion, precio, porcentajeVenta, cantDias, habili);
         }

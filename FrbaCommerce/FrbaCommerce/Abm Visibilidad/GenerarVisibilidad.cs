@@ -42,7 +42,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             cantDias = Decimal.Parse(dias.Text);
 
             Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
-                    precio, porcentajeVenta, cantDias, 1);
+                    precio, porcentajeVenta, cantDias, true);
 
             estado_nombre = RepositorioVisibilidad.Instance.BuscarVisibilidadPorNombre(visi.visibiDescripcion);
 

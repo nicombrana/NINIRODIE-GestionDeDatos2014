@@ -12,14 +12,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal precio { get; set; }
         public Decimal porcentajeVenta { get; set; }
         public Decimal cantDias { get; set; }
-        public Decimal habilitado { get; set; }
+        public bool habilitado { get; set; }
 
         public Visibilidad()
         {
             visibilidadCodigo = -1;
         }
 
-        public Visibilidad(Decimal cod, String descrip, Decimal price, Decimal porcentaje, Decimal diasCant, Decimal hab)
+        public Visibilidad(Decimal cod, String descrip, Decimal price, Decimal porcentaje, Decimal diasCant, bool hab)
         {
             visibilidadCodigo = cod;
             visibiDescripcion = descrip;

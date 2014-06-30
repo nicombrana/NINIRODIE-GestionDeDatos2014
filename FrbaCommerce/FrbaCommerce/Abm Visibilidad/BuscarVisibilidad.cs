@@ -15,11 +15,19 @@ namespace FrbaCommerce.Abm_Visibilidad
 {
     public partial class BuscarVisibilidad : Form
     {
-        String nomb;
-
         public BuscarVisibilidad()
         {
             InitializeComponent();
+            this.Popular();
+        }
+
+        private void Popular()
+        {
+            this.nombreVisibilidadComoBox.DataSource = new List<Visibilidad>();
+            this.nombreVisibilidadComoBox.Refresh();
+            this.nombreVisibilidadComoBox.DataSource = RepositorioVisibilidad.Instance.Buscar();
+            this.nombreVisibilidadComoBox.Refresh();
+            this.nombreVisibilidadComoBox.DisplayMember = "visibiDescripcion";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,17 +37,15 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nomb = nombre.Text;
-
-            Visibilidad visi = RepositorioVisibilidad.Instance.BuscarVisibilidad(nomb);
-
-            if (visi.visibilidadCodigo != -1)
+            if (((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).visibilidadCodigo != -1)
             {
-                new BajarVisibilidad(visi.habilitado).ShowDialog(this);
-                
-                this.Close();
+                new BajarVisibilidad(((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).habilitado).ShowDialog(this);
             }
-            new Noexistevisibilidad().ShowDialog(this);
+            else
+            {
+                new Noexistevisibilidad().ShowDialog(this);
+            }
+            
             this.Close();
 
         }
