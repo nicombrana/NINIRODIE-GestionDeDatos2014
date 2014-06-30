@@ -96,27 +96,93 @@ namespace FrbaCommerce
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            Decimal cerrar = 0;
+            
+            if(calle.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if(nombre.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (telefono.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (contacto.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (cuit.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (cod_pos.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (piso.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (altura.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (localidad.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (ciudad.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (mail.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (departamento.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
 
-            call = calle.Text;
-            razon_social = nombre.Text;
-            telef = int.Parse(telefono.Text);
-            contact = contacto.Text;
-            nro_cuit = int.Parse(cuit.Text);
-            codpos = int.Parse(cod_pos.Text);
-            pis = int.Parse(piso.Text);
-            altu = int.Parse(altura.Text);
-            loc = localidad.Text;
-            ciud = ciudad.Text;
-            meil = mail.Text;
-            puert = departamento.Text;
-            f_creacion = dateTimePicker1.Value;
+            if (cerrar == 0)
+            {
+                call = calle.Text;
+                razon_social = nombre.Text;
+                telef = int.Parse(telefono.Text);
+                contact = contacto.Text;
+                nro_cuit = int.Parse(cuit.Text);
+                codpos = int.Parse(cod_pos.Text);
+                pis = int.Parse(piso.Text);
+                altu = int.Parse(altura.Text);
+                loc = localidad.Text;
+                ciud = ciudad.Text;
+                meil = mail.Text;
+                puert = departamento.Text;
+                f_creacion = dateTimePicker1.Value;
 
-            Empresa empresa = new Empresa(nro_cuit, razon_social, contact, f_creacion,
-                meil, telef, ciud, loc, call, altu, pis, codpos, puert);
+                Empresa empresa = new Empresa(nro_cuit, razon_social, contact, f_creacion,
+                    meil, telef, ciud, loc, call, altu, pis, codpos, puert);
 
-            RepositorioEmpresa.Instance.InsertarEmpresa(empresa);
+                RepositorioEmpresa.Instance.InsertarEmpresa(empresa);
 
-            new UsuarioYPassEmpresa().ShowDialog(this);
+                new UsuarioYPassEmpresa().ShowDialog(this);
+                this.Close();
+            }
 
             this.Close();
         }

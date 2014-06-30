@@ -33,36 +33,70 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Decimal estado_nombre, estado_codigo;
-
-            visibiDescripcion = desc.Text;
-            visibilidadCodigo = Decimal.Parse(codigo.Text);
-            precio = Decimal.Parse(valor.Text);
-            porcentajeVenta = Decimal.Parse(porcentaje.Text);
-            cantDias = Decimal.Parse(dias.Text);
-
-            Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
-                    precio, porcentajeVenta, cantDias, true);
-
-            estado_nombre = RepositorioVisibilidad.Instance.BuscarVisibilidadPorNombre(visi.visibiDescripcion);
-
-            if (estado_nombre == -1)
+            Decimal estado_nombre, estado_codigo, cerrar = 0; ;
+            
+            if (desc.Text == "" && cerrar == 0)
             {
-                new VisibilidadExistente().ShowDialog(this);
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
             }
-            else
+            if (codigo.Text == "" && cerrar == 0)
             {
-                estado_codigo = RepositorioVisibilidad.Instance.BuscarVisibilidadPorCodigo(visi.visibilidadCodigo);
-                if (estado_codigo == -1)
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (valor.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (porcentaje.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (dias.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+
+            if (cerrar == 0)
+            {
+                visibiDescripcion = desc.Text;
+                visibilidadCodigo = Decimal.Parse(codigo.Text);
+                precio = Decimal.Parse(valor.Text);
+                porcentajeVenta = Decimal.Parse(porcentaje.Text);
+                cantDias = Decimal.Parse(dias.Text);
+
+                Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
+                        precio, porcentajeVenta, cantDias, true);
+
+                estado_nombre = RepositorioVisibilidad.Instance.BuscarVisibilidadPorNombre(visi.visibiDescripcion);
+
+                if (estado_nombre == -1)
                 {
-                    new VisibilidadExisteCodigo().ShowDialog(this);
+                    new VisibilidadExistente().ShowDialog(this);
                 }
                 else
                 {
-                    RepositorioVisibilidad.Instance.InsertarVisibilidad(visi);
+                    estado_codigo = RepositorioVisibilidad.Instance.BuscarVisibilidadPorCodigo(visi.visibilidadCodigo);
+                    if (estado_codigo == -1)
+                    {
+                        new VisibilidadExisteCodigo().ShowDialog(this);
+                    }
+                    else
+                    {
+                        RepositorioVisibilidad.Instance.InsertarVisibilidad(visi);
 
-                    new VisiGeneradaCorrectamente().ShowDialog(this);
+                        new VisiGeneradaCorrectamente().ShowDialog(this);
+                        this.Close();
+                    }
                 }
+            }
+            else
+            {
+                this.Close();
             }
 
         }

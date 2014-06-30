@@ -24,6 +24,26 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public void ModificarVisi(Visibilidad visi, Decimal codViejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+       "VIS_VISIBILIDAD_CODIGO = '{0}', VIS_DESCRIPCION = '{1}', VIS_PRECIO = '{2}', " +
+       "VIS_POCENTAJE_VENTA = '{3}', VIS_CANT_DIAS = '{4}' WHERE VIS_VISIBILIDAD_CODIGO = '{5}'",
+       visi.visibilidadCodigo, visi.visibiDescripcion, visi.precio, visi.porcentajeVenta, visi.cantDias, codViejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);   
+        }
+
+        public void BajarVisi(bool habilitada, Decimal codigo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET VIS_HABILITADA = " +
+                "'{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'", habilitada, codigo);
+
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+
+        }
+
         public void InsertarVisibilidad(Visibilidad visi)
         {
             var query = String.Format(@"INSERT INTO NINIRODIE.VISIBILIDAD " +

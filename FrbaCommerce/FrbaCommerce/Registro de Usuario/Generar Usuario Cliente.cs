@@ -100,7 +100,76 @@ namespace FrbaCommerce
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            Decimal cerrar = 0;
 
+            if (calle.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (telefono.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (nombre.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (apellido.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (documento.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (cod_pos.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (piso.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (altura.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (localidad.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (ciudad.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (mail.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (Sexo.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+            if (departamento.Text == "" && cerrar == 0)
+            {
+                cerrar = 1;
+                new TodosLosCampos().ShowDialog(this);
+            }
+
+            if (cerrar == 0)
+            {
                 call = calle.Text;
                 telef = int.Parse(telefono.Text);
                 nomb = nombre.Text;
@@ -111,7 +180,6 @@ namespace FrbaCommerce
                 altu = int.Parse(altura.Text);
                 loc = localidad.Text;
                 ciud = ciudad.Text;
-                
                 meil = mail.Text;
                 sex = Char.Parse(Sexo.Text);
                 puert = departamento.Text;
@@ -120,15 +188,16 @@ namespace FrbaCommerce
 
 
                 Cliente clie = new Cliente(tipo_docu, nro_doc, nomb,
-                                            ape,f_nac, sex, meil, telef,ciud, loc, call,
+                                            ape, f_nac, sex, meil, telef, ciud, loc, call,
                                             altu, pis, codpos, puert);
-                           
+
                 //encriptar password
                 RepositorioCliente.Instance.InsertarCliente(clie);
 
-                
-            new UsuarioYPassCliente().ShowDialog(this);
-            
+
+                new UsuarioYPassCliente().ShowDialog(this);
+                this.Close();
+            }
             this.Close();
         }
 

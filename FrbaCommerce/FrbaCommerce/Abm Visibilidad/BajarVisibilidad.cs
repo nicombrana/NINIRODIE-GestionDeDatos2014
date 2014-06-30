@@ -6,16 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.Alertas;
 
 namespace FrbaCommerce.Abm_Visibilidad
 {
     public partial class BajarVisibilidad : Form
     {
         bool est;
+        Decimal cod;
 
-        public BajarVisibilidad(bool estado)
+        public BajarVisibilidad(bool estado, Decimal codigo)
         {
             est = estado;
+            cod = codigo;
 
             InitializeComponent();
         }
@@ -37,6 +41,24 @@ namespace FrbaCommerce.Abm_Visibilidad
                 Habilitar.Enabled = false;
                 Deshabilitar.Enabled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool deshabili = false;
+
+            if (Deshabilitar.Checked)
+            {
+                deshabili = false;
+            }
+            if (Habilitar.Checked)
+            {
+                deshabili = true;
+            }
+
+            RepositorioVisibilidad.Instance.BajarVisi(deshabili, cod);
+
+            new BajaCorrecta().ShowDialog(this);
         }
     }
 }

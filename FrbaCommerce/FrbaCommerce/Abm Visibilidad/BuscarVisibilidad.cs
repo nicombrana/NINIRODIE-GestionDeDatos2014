@@ -39,7 +39,7 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
             if (((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).visibilidadCodigo != -1)
             {
-                new BajarVisibilidad(((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).habilitado).ShowDialog(this);
+                new BajarVisibilidad(((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).habilitado,((Visibilidad)this.nombreVisibilidadComoBox.SelectedItem).visibilidadCodigo ).ShowDialog(this);
             }
             else
             {
