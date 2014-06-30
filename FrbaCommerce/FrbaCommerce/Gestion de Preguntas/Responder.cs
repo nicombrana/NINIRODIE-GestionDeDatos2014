@@ -38,7 +38,6 @@ namespace FrbaCommerce.Gestion_de_Preguntas
                 new TodosLosCampos().ShowDialog(this);
                 this.Close();
             }
-
             RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp);
 
             new RespuestaExitosa().ShowDialog(this);

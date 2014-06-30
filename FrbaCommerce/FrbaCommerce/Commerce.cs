@@ -17,6 +17,7 @@ using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.Comprar_Ofertar;
+using FrbaCommerce.Calificar;
 
 namespace FrbaCommerce
 {
@@ -142,5 +143,12 @@ namespace FrbaCommerce
         {
             new BuscarComprarOfertar(2, this.login.user.codigo).ShowDialog(this);//Código de Subasta
         }
+
+        private void Calificar_Click(object sender, EventArgs e)
+        {
+            new MostrarCompras(cod_conectado).ShowDialog(this);
+        }
+
+
     }          
 }

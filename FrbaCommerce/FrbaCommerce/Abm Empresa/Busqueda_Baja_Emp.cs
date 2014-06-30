@@ -17,7 +17,7 @@ namespace FrbaCommerce.Abm_Empresa
     {
         public String razon;
         public String mail;
-        public int cuit = 0;
+        public String cuit;
 
         public Busqueda_Baja_Emp()
         {
@@ -36,7 +36,7 @@ namespace FrbaCommerce.Abm_Empresa
             mail = Textmail.Text;
             if (TextCuit.Text != "")
             {
-                cuit = int.Parse(TextCuit.Text);
+                cuit = TextCuit.Text;
             }
 
             Empresa empresa = new Empresa();
@@ -59,10 +59,6 @@ namespace FrbaCommerce.Abm_Empresa
         }
 
 
-        private void TextCuit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validador.soloEscribeNumeros(e);
-        }
 
     }
 }

@@ -25,6 +25,19 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public int InsertarClientePorDocumento(int nroDoc)
+        {
+            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE CLI_NRO_DOC = '{0}'", nroDoc);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
+
+            if (dataRow.Count > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
         public int BuscarCliente(String apellido, String nombre,
                                             int nroDoc, String mail, String tipoDoc)
         {
@@ -67,6 +80,38 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public List<Cliente> TomarClientes(String apellido, String nombre,
+                                            int nroDoc, String mail, String tipoDoc)
+        {
+            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
+
+            if (apellido != "")
+            {
+                query = query + "AND CLI_APELLIDO = '" + apellido + "' ";
+            }
+            if (nombre != "")
+            {
+                query = query + "AND CLI_NOMBRE = '" + nombre + "' ";
+            }
+            if (tipoDoc != "nada")
+            {
+                query = query + "AND CLI_TIPO_DOC = '" + tipoDoc + "' ";
+            }
+            if (nroDoc != 0)
+            {
+                query = query + "AND CLI_NRO_DOC = " + nroDoc;
+            }
+            if (mail != "")
+            {
+                query = query + "AND CLI_MAIL = '" + mail + "' ";
+            }
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
+
+            var clientes = dataRow.ToList<Cliente>(this.DataRowToCliente);
+
+            return clientes;
+        }
         public Cliente BuscarClientePorClave(Decimal idcliente)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.CLIENTE " +

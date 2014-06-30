@@ -19,24 +19,31 @@ namespace FrbaCommerce.Gestion_de_Preguntas
         public preguntas(Decimal id)
         {
             cod_usuario = id;
-            Decimal elementos = 0, indice = 0;
+            Decimal elementos = 0;
             
 
             List<Pregunta> preguntas = RepositorioPreguntas.Instance.BuscarPregunta(cod_usuario);
-
             elementos = preguntas.Count;
             if (elementos == 0)
             {
                 new SinPreguntas().ShowDialog(this);
-               
-            }else{
-                while (indice != elementos)
-                {
-                    comboBoxPreg.Items.Add(preguntas.First().descripcion);
-                    preguntas.RemoveAt(1);
-                    indice = indice + 1;
-                }
             }
+            else
+            {
+                this.PreguntasGrid.DataSource = preguntas;
+                this.PreguntasGrid.Refresh();
+                this.PreguntasGrid.Columns["pregunta_id"].Visible = false;
+                this.PreguntasGrid.Columns["publicacion_id"].Visible = false;
+                this.PreguntasGrid.Columns["cliente"].Visible = false;
+                this.PreguntasGrid.Columns["pregunta"].Visible = true;
+                this.PreguntasGrid.Columns["pregunta"].ReadOnly = true;
+                this.PreguntasGrid.Columns["respuesta"].Visible = true;
+                this.PreguntasGrid.Columns["respuesta"].ReadOnly = true;
+                this.PreguntasGrid.Columns["fecha"].Visible = false;
+                this.PreguntasGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            }
+            
             
             InitializeComponent();
             
@@ -47,14 +54,6 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             this.Close();
         }
 
-        private void comboBoxPreg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String preg = comboBoxPreg.SelectedText;
-
-            Pregunta pregunta = RepositorioPreguntas.Instance.BuscarPreguntaPorDescripcion(preg);
-
-            richTextBox1.Text = pregunta.respuesta;
-        }
 
         private void preguntas_Load(object sender, EventArgs e)
         {

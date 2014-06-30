@@ -89,7 +89,6 @@
             this.TextCuit.Name = "TextCuit";
             this.TextCuit.Size = new System.Drawing.Size(100, 20);
             this.TextCuit.TabIndex = 18;
-            this.TextCuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextCuit_KeyPress);
             // 
             // label1
             // 

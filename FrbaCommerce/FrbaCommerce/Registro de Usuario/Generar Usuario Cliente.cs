@@ -168,6 +168,8 @@ namespace FrbaCommerce
                 new TodosLosCampos().ShowDialog(this);
             }
 
+            cerrar = this.buscarDoc(documento.Text);
+
             if (cerrar == 0)
             {
                 call = calle.Text;
@@ -199,6 +201,18 @@ namespace FrbaCommerce
                 this.Close();
             }
             this.Close();
+        }
+
+        private int buscarDoc(String documento)
+        {
+            int doc = int.Parse(documento);
+
+            int valor = RepositorioCliente.Instance.InsertarClientePorDocumento(doc);
+            if (valor == 1)
+            {
+                MessageBox.Show("Documento Ya Existente","Atención", MessageBoxButtons.OK);
+            }
+            return valor;
         }
 
         private void CBdni_CheckedChanged(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace FrbaCommerce.Abm_Empresa
     {
         public String razon;
         public String mail;
-        public int cuit = 0;
+        public String cuit;
 
         public Busqueda_Mod_Emp()
         {
@@ -33,10 +33,8 @@ namespace FrbaCommerce.Abm_Empresa
         {
             razon = BM.Text;
             mail = Textmail.Text;
-            if (TextCuit.Text != "")
-            {
-                  cuit = int.Parse(TextCuit.Text);
-            }
+            cuit = TextCuit.Text;
+
             Empresa empresa = new Empresa();
 
             empresa.codigo = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
@@ -59,11 +57,6 @@ namespace FrbaCommerce.Abm_Empresa
         private void Busqueda_Mod_Emp_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void TextCuit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validador.soloEscribeNumeros(e);
         }
 
         private void Busqueda_Mod_Emp_KeyPress(object sender, KeyPressEventArgs e)

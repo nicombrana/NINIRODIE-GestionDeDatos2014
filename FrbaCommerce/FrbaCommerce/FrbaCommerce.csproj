@@ -328,11 +328,17 @@
     <Compile Include="Alertas\VisiGeneradaCorrectamente.Designer.cs">
       <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.cs">
+    <Compile Include="Calificar\Calificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificar Vendedor\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Calificar\Calificar.Designer.cs">
+      <DependentUpon>Calificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Calificar\MostrarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificar\MostrarCompras.Designer.cs">
+      <DependentUpon>MostrarCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="ClasesNINIRODIE\DBUtils\DataRowCollectionExtensions.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\DBTypeConverter.cs" />
@@ -341,6 +347,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Buscador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Compra.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\CompraInmediata.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
@@ -596,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\VisiGeneradaCorrectamente.resx">
       <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\MostrarCompras.resx">
+      <DependentUpon>MostrarCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>

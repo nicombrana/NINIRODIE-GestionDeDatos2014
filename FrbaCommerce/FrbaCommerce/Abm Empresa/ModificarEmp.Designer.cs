@@ -251,7 +251,6 @@
             this.cuit.Name = "cuit";
             this.cuit.Size = new System.Drawing.Size(146, 20);
             this.cuit.TabIndex = 75;
-            this.cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuit_KeyPress);
             // 
             // mail
             // 

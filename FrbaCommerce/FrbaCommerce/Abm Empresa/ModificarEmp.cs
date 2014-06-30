@@ -47,7 +47,7 @@ namespace FrbaCommerce.Abm_Empresa
             empresa.fecha_creacion = dateTimePicker1.Value;
             if (cuit.Text != "")
             {
-                empresa.cuit = cuit.Text.ToString();
+                empresa.cuit = cuit.Text;
             }
             if (contacto.Text != "")
             {
@@ -116,11 +116,6 @@ namespace FrbaCommerce.Abm_Empresa
         }
 
         private void telefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validador.soloEscribeNumeros(e);
-        }
-
-        private void cuit_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeNumeros(e);
         }

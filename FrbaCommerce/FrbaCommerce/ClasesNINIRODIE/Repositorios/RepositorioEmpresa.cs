@@ -24,7 +24,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
-        public int BuscarEmpresa(String razon_soc, String mail,int cuit)
+        public int BuscarEmpresa(String razon_soc, String mail,String cuit)
         {
             var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");
 
@@ -32,7 +32,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             {
                 query = query + "AND EMP_RAZON_SOCIAL = '" + razon_soc + "' ";
             }
-            if (cuit != 0)
+            if (cuit != "")
             {
                 query = query + "AND EMP_CUIT = " + cuit;
             }
