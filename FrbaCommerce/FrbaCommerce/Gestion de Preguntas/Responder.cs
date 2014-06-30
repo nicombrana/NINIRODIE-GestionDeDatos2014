@@ -38,7 +38,9 @@ namespace FrbaCommerce.Gestion_de_Preguntas
                 new TodosLosCampos().ShowDialog(this);
                 this.Close();
             }
-            RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp);
+            var fecha_hoy = FechaSistema.Instance.fecha;
+
+            RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp, fecha);
 
             new RespuestaExitosa().ShowDialog(this);
             this.Close();
