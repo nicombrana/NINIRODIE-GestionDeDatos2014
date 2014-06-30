@@ -57,6 +57,7 @@
             this.dias.Name = "dias";
             this.dias.Size = new System.Drawing.Size(100, 20);
             this.dias.TabIndex = 22;
+            this.dias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dias_KeyPress);
             // 
             // porcentaje
             // 
@@ -64,6 +65,7 @@
             this.porcentaje.Name = "porcentaje";
             this.porcentaje.Size = new System.Drawing.Size(100, 20);
             this.porcentaje.TabIndex = 21;
+            this.porcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.porcentaje_KeyPress);
             // 
             // valor
             // 
@@ -71,6 +73,7 @@
             this.valor.Name = "valor";
             this.valor.Size = new System.Drawing.Size(100, 20);
             this.valor.TabIndex = 20;
+            this.valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valor_KeyPress);
             // 
             // desc
             // 
@@ -78,6 +81,7 @@
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(100, 20);
             this.desc.TabIndex = 19;
+            this.desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.desc_KeyPress);
             // 
             // codigo
             // 
@@ -85,6 +89,7 @@
             this.codigo.Name = "codigo";
             this.codigo.Size = new System.Drawing.Size(100, 20);
             this.codigo.TabIndex = 18;
+            this.codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.codigo_KeyPress);
             // 
             // button2
             // 

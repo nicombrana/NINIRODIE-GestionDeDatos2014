@@ -29,9 +29,18 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            bool deshabili = deshabilitar.Checked;
+            bool habili = false; 
 
-            RepositorioUsuario.Instance.BajarEmpresa(id_empresa, deshabili);
+            if (deshabilitar.Checked)
+            {
+                habili = false;
+            }
+            if (habilitar.Checked)
+            {
+                habili = true;
+            }
+
+            RepositorioUsuario.Instance.BajarEmpresa(id_empresa, habili);
 
             new BajaCorrecta().ShowDialog(this);
 
@@ -47,7 +56,7 @@ namespace FrbaCommerce.Abm_Empresa
                 habilitar.Enabled = true;
                 deshabilitar.Enabled = false;
             }
-            else
+            if (user.habilitado == true)
             {
                 habilitar.Enabled = false;
                 deshabilitar.Enabled = true;

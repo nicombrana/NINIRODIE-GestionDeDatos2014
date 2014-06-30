@@ -31,12 +31,12 @@ namespace FrbaCommerce.Abm_Visibilidad
 
         private void BajarVisibilidad_Load(object sender, EventArgs e)
         {
-            if (est)
+            if (est == false)
             {
                 Habilitar.Enabled = true;
                 Deshabilitar.Enabled = false;
             }
-            if (est)
+            else
             {
                 Habilitar.Enabled = false;
                 Deshabilitar.Enabled = true;
@@ -59,6 +59,7 @@ namespace FrbaCommerce.Abm_Visibilidad
             RepositorioVisibilidad.Instance.BajarVisi(deshabili, cod);
 
             new BajaCorrecta().ShowDialog(this);
+            this.Close();
         }
     }
 }

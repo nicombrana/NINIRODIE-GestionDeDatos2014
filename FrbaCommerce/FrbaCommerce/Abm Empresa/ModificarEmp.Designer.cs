@@ -134,6 +134,7 @@
             this.cod_pos.Name = "cod_pos";
             this.cod_pos.Size = new System.Drawing.Size(146, 20);
             this.cod_pos.TabIndex = 92;
+            this.cod_pos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cod_pos_KeyPress);
             // 
             // departamento
             // 
@@ -148,6 +149,7 @@
             this.piso.Name = "piso";
             this.piso.Size = new System.Drawing.Size(73, 20);
             this.piso.TabIndex = 90;
+            this.piso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.piso_KeyPress);
             // 
             // altura
             // 
@@ -155,6 +157,7 @@
             this.altura.Name = "altura";
             this.altura.Size = new System.Drawing.Size(72, 20);
             this.altura.TabIndex = 89;
+            this.altura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.altura_KeyPress);
             // 
             // calle
             // 
@@ -162,6 +165,7 @@
             this.calle.Name = "calle";
             this.calle.Size = new System.Drawing.Size(73, 20);
             this.calle.TabIndex = 88;
+            this.calle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.calle_KeyPress);
             // 
             // localidad
             // 
@@ -169,6 +173,7 @@
             this.localidad.Name = "localidad";
             this.localidad.Size = new System.Drawing.Size(146, 20);
             this.localidad.TabIndex = 87;
+            this.localidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.localidad_KeyPress);
             // 
             // ciudad
             // 
@@ -176,6 +181,7 @@
             this.ciudad.Name = "ciudad";
             this.ciudad.Size = new System.Drawing.Size(146, 20);
             this.ciudad.TabIndex = 86;
+            this.ciudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ciudad_KeyPress);
             // 
             // label12
             // 
@@ -237,6 +243,7 @@
             this.contacto.Name = "contacto";
             this.contacto.Size = new System.Drawing.Size(146, 20);
             this.contacto.TabIndex = 76;
+            this.contacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contacto_KeyPress);
             // 
             // cuit
             // 
@@ -244,6 +251,7 @@
             this.cuit.Name = "cuit";
             this.cuit.Size = new System.Drawing.Size(146, 20);
             this.cuit.TabIndex = 75;
+            this.cuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cuit_KeyPress);
             // 
             // mail
             // 
@@ -258,6 +266,7 @@
             this.telefono.Name = "telefono";
             this.telefono.Size = new System.Drawing.Size(146, 20);
             this.telefono.TabIndex = 73;
+            this.telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefono_KeyPress);
             // 
             // nombre
             // 
@@ -265,6 +274,7 @@
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(146, 20);
             this.nombre.TabIndex = 72;
+            this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombre_KeyPress);
             // 
             // Cancelar
             // 

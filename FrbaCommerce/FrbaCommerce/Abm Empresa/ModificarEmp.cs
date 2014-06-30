@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Abm_Empresa
 {
@@ -87,6 +88,56 @@ namespace FrbaCommerce.Abm_Empresa
             new ModificacionCorrecta().ShowDialog(this);
 
             this.Close();
+        }
+
+        private void nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void contacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void ciudad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void localidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void calle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
+
+        private void telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void cuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void altura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void piso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void cod_pos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Abm_Visibilidad
 {
@@ -95,6 +96,31 @@ namespace FrbaCommerce.Abm_Visibilidad
             }
                 
             }
+
+        private void codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void valor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void porcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void dias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+        }
+
+        private void desc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeLetras(e);
+        }
         }
     }
 

@@ -72,19 +72,29 @@ namespace FrbaCommerce
 
             if ( user.id == id){
                 if (user.pass == pass){
-                    if (user.bloque == false){
-                        if (user.prim == false){
-                            intentos_fallidos = 0;
-                            logeo = true;
-                            this.Close();
+                    if (user.habilitado == true)
+                    {
+                        if (user.bloque == false)
+                        {
+                            if (user.prim == false)
+                            {
+                                intentos_fallidos = 0;
+                                logeo = true;
+                                this.Close();
+                            }
+                            else
+                            {
+                                new CambiarContrasenia().ShowDialog(this);
+                            }
                         }
-                        else { 
-                            new CambiarContrasenia().ShowDialog(this); 
+                        else
+                        {
+                            new Bloqueado().ShowDialog(this);
                         }
                     }
                     else
                     {
-                        new Bloqueado().ShowDialog(this);
+                        new NoHabilitado().ShowDialog(this);
                     }
                 }
                 else
