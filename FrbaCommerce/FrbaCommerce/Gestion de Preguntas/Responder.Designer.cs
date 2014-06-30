@@ -68,6 +68,7 @@
             this.resaceptar.TabIndex = 3;
             this.resaceptar.Text = "Aceptar";
             this.resaceptar.UseVisualStyleBackColor = true;
+            this.resaceptar.Click += new System.EventHandler(this.resaceptar_Click);
             // 
             // rescancelar
             // 

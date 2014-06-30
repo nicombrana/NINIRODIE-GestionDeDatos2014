@@ -28,7 +28,7 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             if (elementos == 0)
             {
                 new SinPreguntas().ShowDialog(this);
-                
+               
             }else{
                 while (indice != elementos)
                 {

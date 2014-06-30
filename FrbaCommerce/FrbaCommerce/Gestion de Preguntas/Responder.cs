@@ -11,14 +11,22 @@ namespace FrbaCommerce.Gestion_de_Preguntas
 {
     public partial class Responder : Form
     {
-        public Responder()
+        Decimal conectado = 0;
+
+        public Responder(Decimal codigo)
         {
+            conectado = codigo;
             InitializeComponent();
         }
 
         private void rescancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void resaceptar_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

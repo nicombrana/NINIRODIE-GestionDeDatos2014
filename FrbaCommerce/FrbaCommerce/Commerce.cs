@@ -14,6 +14,8 @@ using FrbaCommerce.Abm_Visibilidad;
 using FrbaCommerce.Generar_Publicacion;
 using FrbaCommerce.Gestion_de_Preguntas;
 using FrbaCommerce.Alertas;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce
 {
@@ -114,12 +116,21 @@ namespace FrbaCommerce
 
         private void verRespuestasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new preguntas(cod_conectado).ShowDialog(this);
+            List<Pregunta> preguntas = RepositorioPreguntas.Instance.BuscarPregunta(cod_conectado);
+
+            if (preguntas.Count == 0)
+            {
+                new SinPreguntas().ShowDialog(this);
+            }
+            else
+            {
+                new preguntas(cod_conectado).ShowDialog(this);
+            }
         }
 
         private void responderPreguntasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Responder().ShowDialog(this);
+            new Responder(cod_conectado).ShowDialog(this);
         }
 
         private void buscarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
