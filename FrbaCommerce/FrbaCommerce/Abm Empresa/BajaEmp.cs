@@ -14,11 +14,11 @@ namespace FrbaCommerce.Abm_Empresa
     public partial class BajaEmp : Form
     {
  
-        public Decimal id_empresa;
+        public Decimal id_user;
 
         public BajaEmp(Decimal empresaid)
         {
-            id_empresa = empresaid;
+            id_user = empresaid;
             InitializeComponent();
         }
 
@@ -40,7 +40,7 @@ namespace FrbaCommerce.Abm_Empresa
                 habili = true;
             }
 
-            RepositorioUsuario.Instance.BajarEmpresa(id_empresa, habili);
+            RepositorioUsuario.Instance.BajarEmpresa(id_user, habili);
 
             new BajaCorrecta().ShowDialog(this);
 
@@ -49,7 +49,7 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void BajaEmp_Load(object sender, EventArgs e)
         {
-            var user = RepositorioUsuario.Instance.BuscarEmpresa(id_empresa);
+            var user = RepositorioUsuario.Instance.BuscarEmpresa(id_user);
 
             if (user.habilitado == false)
             {

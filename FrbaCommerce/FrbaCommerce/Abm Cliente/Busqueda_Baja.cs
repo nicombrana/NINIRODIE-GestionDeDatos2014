@@ -54,21 +54,21 @@ namespace FrbaCommerce.Abm_Cliente
             meil = Email.Text;
 
             Cliente cliente = new Cliente();
-
-            cliente.codigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
+            
+            Decimal usuariocodigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
                                                             meil, tipo_docu);
-            if (cliente.codigo == -1)
+            if (usuariocodigo == -1)
             {
                 //new MostrarCliBajas(ape, nombre, nro_doc, meil, tipo_docu).ShowDialog(this);
                 new Muchos().ShowDialog(this);
             }
-            else if (cliente.codigo == -2)
+            else if (usuariocodigo == -2)
             {
                 new NoExisteUsuario().ShowDialog(this);
             }
             else
             {
-                new BajaCli(cliente.codigo).ShowDialog(this);
+                new BajaCli(usuariocodigo).ShowDialog(this);
                 this.Close();
             }
         }

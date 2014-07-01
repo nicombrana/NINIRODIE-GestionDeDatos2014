@@ -52,9 +52,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
 
-            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
-
-
         }
 
         public void InsertarVisibilidad(Visibilidad visi)

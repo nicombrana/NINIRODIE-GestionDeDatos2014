@@ -13,11 +13,11 @@ namespace FrbaCommerce.Abm_Cliente
 {
     public partial class BajaCli : Form
     {
-        Decimal clienteId;
+        Decimal userId;
 
         public BajaCli(Decimal id)
         {
-            clienteId = id;
+            userId = id;
             
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void BajaCli_Load(object sender, EventArgs e)
         {
-            var user = RepositorioUsuario.Instance.BuscarCliente(clienteId);
+            var user = RepositorioUsuario.Instance.BuscarCliente(userId);
 
             if (user.habilitado == false)
             {
@@ -57,7 +57,7 @@ namespace FrbaCommerce.Abm_Cliente
                 deshabili = 1;
             }
 
-            RepositorioUsuario.Instance.BajarCliente(clienteId, deshabili);
+            RepositorioUsuario.Instance.BajarCliente(userId, deshabili);
 
             new BajaCorrecta().ShowDialog(this);
 

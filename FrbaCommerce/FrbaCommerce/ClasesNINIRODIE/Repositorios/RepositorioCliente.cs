@@ -24,6 +24,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
+
         public int buscarClientePorTelefono(int telef)
         {
             var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE CLI_TELEFONO = '{0}'", telef);
@@ -88,7 +89,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<int>(row => int.Parse(row["CLI_CODIGO"].ToString()))).First();
+                return (dataRow.ToList<int>(row => int.Parse(row["CLI_USUARIO_ID"].ToString()))).First();
             }
         }
 
@@ -125,10 +126,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return clientes;
         }
 
-        public Cliente BuscarClientePorClave(Decimal idcliente)
+        public Cliente BuscarClientePorClave(Decimal iduser)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.CLIENTE " +
-                "WHERE CLI_CODIGO = '{0}'", idcliente);
+                "WHERE CLI_USUARIO_ID = '{0}'", iduser);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
 
@@ -145,10 +146,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 "CLI_FECHA_NAC = '{6}', CLI_CIUDAD = '{7}', CLI_LOCALIDAD = '{8}', " +
                 "CLI_CALLE = '{9}', CLI_ALTURA = '{10}', CLI_PISO = '{11}', " +
                 "CLI_DEPARTAMENTO = '{12}', CLI_CODIGO_POSTAL = '{13}' " +
-                "WHERE CLI_CODIGO = '{14}'", cliente.apellido, cliente.nombre, 
+                "WHERE CLI_USUARIO_ID = '{14}'", cliente.apellido, cliente.nombre, 
                 cliente.nro_doc, cliente.tipo_doc, cliente.telefono, cliente.mail,
                 DBTypeConverter.ToSQLDateTime(cliente.fecha_nac), cliente.ciud, cliente.loc, cliente.call, 
-                cliente.altu, cliente.pis, cliente.puert, cliente.codpos, cliente.codigo);
+                cliente.altu, cliente.pis, cliente.puert, cliente.codpos, cliente.usuario_id);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }

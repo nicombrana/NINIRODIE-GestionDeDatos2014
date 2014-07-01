@@ -15,14 +15,14 @@ namespace FrbaCommerce.Abm_Cliente
 {
     public partial class ModificarCli : Form
     {
-        Decimal clienteId;
+        Decimal userId;
         String docum, telefo;
 
         Cliente cliente;
 
         public ModificarCli(Decimal id)
         {
-            clienteId = id;
+            userId = id;
             InitializeComponent();
         }
 
@@ -43,7 +43,7 @@ namespace FrbaCommerce.Abm_Cliente
             {
                 cliente.tipo_doc = "dni";
             }
-            cliente.codigo = clienteId;
+            cliente.usuario_id = userId;
             if (apellido.Text != "")
             {
                 cliente.apellido = apellido.Text;
@@ -113,7 +113,7 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void ModificarCli_Load(object sender, EventArgs e)
         {
-            cliente = RepositorioCliente.Instance.BuscarClientePorClave(clienteId);
+            cliente = RepositorioCliente.Instance.BuscarClientePorClave(userId);
 
             if (cliente.tipo_doc == "dni")
             {

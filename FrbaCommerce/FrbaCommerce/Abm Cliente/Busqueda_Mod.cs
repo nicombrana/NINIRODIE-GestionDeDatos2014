@@ -64,19 +64,19 @@ namespace FrbaCommerce.Abm_Cliente
 
             Cliente cliente = new Cliente();
 
-            cliente.codigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
+            Decimal usuariocodigo = RepositorioCliente.Instance.BuscarCliente(ape, nombre, nro_doc,
                                                             meil, tipo_docu);
-            if (cliente.codigo == -1)
+            if (usuariocodigo == -1)
             {
                 new Muchos().ShowDialog(this);
             }
-            else if (cliente.codigo == -2)
+            else if (usuariocodigo == -2)
             {
                 new NoExisteUsuario().ShowDialog(this);
             }
             else
             {
-                new ModificarCli(cliente.codigo).ShowDialog(this);
+                new ModificarCli(usuariocodigo).ShowDialog(this);
                 this.Close();
             }
         }

@@ -84,11 +84,6 @@ namespace FrbaCommerce
             Validador.soloEscribeNumeros(e);
         }
 
-        private void cuit_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validador.soloEscribeNumeros(e);
-        }
-
         private void calle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeLetras(e);

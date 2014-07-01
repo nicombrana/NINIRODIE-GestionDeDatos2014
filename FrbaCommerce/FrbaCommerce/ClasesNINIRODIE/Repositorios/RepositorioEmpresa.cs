@@ -79,7 +79,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<int>(row => int.Parse(row["EMP_CODIGO"].ToString()))).First();
+                return (dataRow.ToList<int>(row => int.Parse(row["EMP_USUARIO_ID"].ToString()))).First();
             }
         }
 
@@ -110,10 +110,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
     "EMP_FECHA_CREACION = '{5}', EMP_CIUDAD = '{6}', EMP_LOCALIDAD = '{7}', " +
     "EMP_CALLE = '{8}', EMP_ALTURA = '{9}', EMP_PISO = '{10}', " +
     "EMP_DEPARTAMENTO = '{11}', EMP_CODIGO_POSTAL = '{12}' " +
-    "WHERE EMP_CODIGO = '{13}'", empresa.contacto, empresa.razon_social,
+    "WHERE EMP_USUARIO_ID = '{13}'", empresa.contacto, empresa.razon_social,
     empresa.cuit, empresa.telefono, empresa.mail,
     DBTypeConverter.ToSQLDateTime(empresa.fecha_creacion), empresa.ciud, empresa.loc, empresa.call,
-    empresa.altu, empresa.pis, empresa.puert, empresa.codpos, empresa.codigo);
+    empresa.altu, empresa.pis, empresa.puert, empresa.codpos, empresa.usuario_id);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
@@ -121,7 +121,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public Empresa BuscarEmpresaPorClave(Decimal codigo)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.EMPRESA " +
-                "WHERE EMP_CODIGO = '{0}'", codigo);
+                "WHERE EMP_USUARIO_ID = '{0}'", codigo);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
 

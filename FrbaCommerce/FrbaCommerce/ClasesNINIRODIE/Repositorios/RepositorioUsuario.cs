@@ -79,7 +79,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public Usuario BuscarCliente(Decimal id)
         {
             var query = String.Format(@"select * from gd1c2014.NINIRODIE.USUARIO " +
-                           "where USU_CLIENTE_ID = '{0}'", id);
+                           "where USU_CODIGO = '{0}'", id);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.USUARIO");
             
@@ -140,7 +140,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public void BajarCliente(Decimal codigo, int habilitado)
         {
             var query = String.Format(@"UPDATE NINIRODIE.USUARIO SET USU_HABILITADO = " +
-                "'{0}' WHERE USU_CLIENTE_ID = '{1}'", habilitado, codigo);
+                "'{0}' WHERE USU_CODIGO = '{1}'", habilitado, codigo);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
@@ -164,18 +164,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var tipo = row["USU_TIPO"].ToString();
             var bloqueado = bool.Parse(row["USU_BLOQUEADO"].ToString());
             var primer = bool.Parse(row["USU_CAMBIO_CLAVE"].ToString());
-            Decimal idClienteOEmpresa;
 
-            if (!row["USU_CLIENTE_ID"].Equals(DBNull.Value))
-                idClienteOEmpresa = Decimal.Parse(row["USU_CLIENTE_ID"].ToString());
-            else
-                if (!row["USU_EMPRESA_ID"].Equals(DBNull.Value))
-                    idClienteOEmpresa = Decimal.Parse(row["USU_EMPRESA_ID"].ToString());
-                else
-                    return new Usuario(codigo, id, pass, habilitado, intentos, tipo,
-                        bloqueado, primer);
-            
-            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo, bloqueado, primer, idClienteOEmpresa);
+
+            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo, bloqueado, primer);
 
             return usuario;
 

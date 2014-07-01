@@ -39,19 +39,19 @@ namespace FrbaCommerce.Abm_Empresa
 
             Empresa empresa = new Empresa();
 
-            empresa.codigo = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
+            Decimal userid = RepositorioEmpresa.Instance.BuscarEmpresa(razon, mail, cuit);
 
-            if (empresa.codigo == -1)
+            if (userid == -1)
             {
                 new Muchos().ShowDialog(this);
             }
-            else if (empresa.codigo == -2)
+            else if (userid == -2)
             {
                 new NoExisteUsuario().ShowDialog(this);
             }
             else
             {
-                new BajaEmp(empresa.codigo).ShowDialog(this);
+                new BajaEmp(userid).ShowDialog(this);
                 this.Close();
             }
         }

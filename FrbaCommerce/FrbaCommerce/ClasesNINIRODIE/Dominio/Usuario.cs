@@ -15,7 +15,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public String tipo { get; set; }
         public bool bloque { get; set; }
         public bool prim { get; set; }
-        public Decimal idClienteOEmpresa { get; set; }
         
 
         public Usuario()
@@ -35,11 +34,5 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             prim = primer;
         }
 
-        public Usuario(Decimal cod, String iD, String password, bool habili, Decimal intent,
-            String type, bool bloqueado, bool primer, Decimal idCliOEmp) : this(cod, iD, password, habili, intent,
-            type, bloqueado, primer)
-        {
-            idClienteOEmpresa = idCliOEmp;
-        }
     }
 }

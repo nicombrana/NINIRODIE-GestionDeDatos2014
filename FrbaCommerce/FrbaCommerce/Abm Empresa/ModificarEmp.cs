@@ -15,12 +15,12 @@ namespace FrbaCommerce.Abm_Empresa
 {
     public partial class ModificarEmp : Form
     {
-        public Decimal empresa_id;
+        public Decimal user_id;
         String telefo, cu;
 
         public ModificarEmp(Decimal idempresa)
         {
-            empresa_id = idempresa;
+            user_id = idempresa;
             InitializeComponent();
         }
 
@@ -33,7 +33,7 @@ namespace FrbaCommerce.Abm_Empresa
         {
             int cerrar = 0;
 
-            Empresa empresa = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
+            Empresa empresa = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(user_id);
             
             if (nombre.Text != "")
             {
@@ -84,7 +84,7 @@ namespace FrbaCommerce.Abm_Empresa
             {
                 empresa.altu = int.Parse(altura.Text);
             }
-            empresa.codigo = empresa_id;
+            empresa.usuario_id = user_id;
 
             if (cerrar == 0 && telefono.Text != telefo)
             {
@@ -152,7 +152,7 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void ModificarEmp_Load(object sender, EventArgs e)
         {
-            Empresa empre = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
+            Empresa empre = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(user_id);
             cod_pos.Text = empre.codpos.ToString();
             piso.Text = empre.pis.ToString();
             altura.Text = empre.altu.ToString();

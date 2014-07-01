@@ -55,8 +55,7 @@ namespace FrbaCommerce.Calificar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Decimal vendedor = RepositorioPublicacion.Instance.BuscarVendedor(compraSeleccionada.id_publicacion);
-            new Calificar(vendedor);
+            new Calificar(compraSeleccionada.id_comprador, compraSeleccionada.cod_compra);
             
         }
 

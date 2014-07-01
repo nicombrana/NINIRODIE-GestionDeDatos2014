@@ -8,16 +8,17 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE;
+using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 
 namespace FrbaCommerce.Calificar
 {
     public partial class Calificar : Form
     {
-        Decimal vendedor;
+        Decimal comprador, compra;
 
-        public Calificar(Decimal id)
+        public Calificar(Decimal id, Decimal compraID)
         {
-            vendedor = id;
+            comprador = id;
             InitializeComponent();
         }
 
@@ -38,7 +39,18 @@ namespace FrbaCommerce.Calificar
             {
                 MessageBox.Show("Ingrese Una Calificacion Entre 1 y 10", "Atención", MessageBoxButtons.OK);
             }
-            //Golpear Tabla Calificacion
+
+            if (comentario.Text == "")
+            {
+                MessageBox.Show("Ingrese Un Comentario", "Atención", MessageBoxButtons.OK);
+            }
+            String desc = comentario.Text;
+            
+            RepositorioCalificacion.Instance.InsertarCalificacion(comprador, desc, calificacion, compra);
+
+            MessageBox.Show("Gracias Por Su Calificacion", "Atención", MessageBoxButtons.OK);
+
+            this.Close();
         }
     }
 }
