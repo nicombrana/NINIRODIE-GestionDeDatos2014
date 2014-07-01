@@ -51,10 +51,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return 0;
         }
 
-        public int BuscarCliente(String apellido, String nombre,
+        public Decimal BuscarCliente(String apellido, String nombre,
                                             int nroDoc, String mail, String tipoDoc)
         {
-            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
+            var query = String.Format(@"Select CLI_USUARIO_ID FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
 
             if (apellido != "")
             {
@@ -89,7 +89,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<int>(row => int.Parse(row["CLI_USUARIO_ID"].ToString()))).First();
+                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["CLI_USUARIO_ID"].ToString()))).First();
             }
         }
 

@@ -24,6 +24,30 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public List<Empresa> TomarEmpresa(String razon, String mail, String cuit)
+        {
+            var query = String.Format(@"Select * FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");
+
+            if (razon != "")
+            {
+                query = query + "AND EMP_RAZON_SOCIAL = '" + razon + "' ";
+            }
+            if (cuit != "")
+            {
+                query = query + "AND EMP_CUIT = '" + cuit + "' ";
+            }
+            if (mail != "")
+            {
+                query = query + "AND EMP_MAIL = '" + mail + "' ";
+            }
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
+
+            var empresas = dataRow.ToList<Empresa>(this.DataRowToEmpresa);
+
+            return empresas;
+        }
+
         public int buscarEmpresaPorCuit(String cuit)
         {
             var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE EMP_CUIT = '{0}'", cuit);
@@ -50,9 +74,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return 0;
         }
 
-        public int BuscarEmpresa(String razon_soc, String mail,String cuit)
+        public Decimal BuscarEmpresa(String razon_soc, String mail,String cuit)
         {
-            var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");
+            var query = String.Format(@"Select * FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");
 
             if (razon_soc != "")
             {
@@ -79,7 +103,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<int>(row => int.Parse(row["EMP_USUARIO_ID"].ToString()))).First();
+                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["EMP_USUARIO_ID"].ToString()))).First();
             }
         }
 

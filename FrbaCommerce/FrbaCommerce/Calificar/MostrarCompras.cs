@@ -55,7 +55,7 @@ namespace FrbaCommerce.Calificar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Calificar(compraSeleccionada.id_comprador, compraSeleccionada.cod_compra);
+            new Calificar(compraSeleccionada.id_comprador, compraSeleccionada.cod_compra).ShowDialog(this);
             
         }
 

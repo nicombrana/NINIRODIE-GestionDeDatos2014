@@ -68,6 +68,7 @@ namespace FrbaCommerce.Abm_Cliente
                                                             meil, tipo_docu);
             if (usuariocodigo == -1)
             {
+                //new MostrarCliMod(ape, nombre, nro_doc, meil, tipo_docu).ShowDialog(this);
                 new Muchos().ShowDialog(this);
             }
             else if (usuariocodigo == -2)

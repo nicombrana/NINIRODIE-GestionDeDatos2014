@@ -41,6 +41,7 @@ namespace FrbaCommerce.Abm_Empresa
 
             if (userid == -1)
             {
+                //new MostrarEmpMod(razon, mail, cuit).ShowDialog(this);
                 new Muchos().ShowDialog(this);
             }
             else if (userid == -2)

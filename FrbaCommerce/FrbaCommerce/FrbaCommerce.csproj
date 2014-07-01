@@ -94,6 +94,12 @@
     <Compile Include="Abm Cliente\MostrarCliBajas.Designer.cs">
       <DependentUpon>MostrarCliBajas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\MostrarCliMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\MostrarCliMod.Designer.cs">
+      <DependentUpon>MostrarCliMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Empresa\ABMEmp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,18 @@
     </Compile>
     <Compile Include="Abm Empresa\ModificarEmp.Designer.cs">
       <DependentUpon>ModificarEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\MostrarEmpBajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\MostrarEmpBajas.Designer.cs">
+      <DependentUpon>MostrarEmpBajas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Empresa\MostrarEmpMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Empresa\MostrarEmpMod.Designer.cs">
+      <DependentUpon>MostrarEmpMod.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\ABMRol.cs">
       <SubType>Form</SubType>
@@ -539,6 +557,9 @@
     <EmbeddedResource Include="Abm Cliente\MostrarCliBajas.resx">
       <DependentUpon>MostrarCliBajas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\MostrarCliMod.resx">
+      <DependentUpon>MostrarCliMod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\ABMEmp.resx">
       <DependentUpon>ABMEmp.cs</DependentUpon>
     </EmbeddedResource>
@@ -553,6 +574,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Empresa\ModificarEmp.resx">
       <DependentUpon>ModificarEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\MostrarEmpBajas.resx">
+      <DependentUpon>MostrarEmpBajas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Empresa\MostrarEmpMod.resx">
+      <DependentUpon>MostrarEmpMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
