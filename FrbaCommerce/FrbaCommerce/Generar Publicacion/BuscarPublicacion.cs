@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
+using FrbaCommerce.Editar_Publicacion;
 
 namespace FrbaCommerce.Generar_Publicacion
 {
@@ -15,14 +16,9 @@ namespace FrbaCommerce.Generar_Publicacion
     {
         Decimal usuarioCodigo;
 
-        public BuscarPublicacion()
+        public BuscarPublicacion(Decimal codigoUser)
         {
             InitializeComponent();
-        }
-
-        public BuscarPublicacion(Decimal codigoUser)
-            : this()
-        {
             usuarioCodigo = codigoUser;
             popular();
         }
@@ -31,7 +27,14 @@ namespace FrbaCommerce.Generar_Publicacion
         {
             this.publicacionesComboBox.DataSource = new List<Publicacion>();
             this.publicacionesComboBox.Refresh();
-            this.publicacionesComboBox.DataSource = RepositorioPublicacion.Instance.BuscarPublicacionesDeVendedor(usuarioCodigo);
+            //if (usuarioCodigo == 1)
+            //{
+            //    this.publicacionesComboBox.DataSource = RepositorioPublicacion.Instance.Buscar();
+            //}
+            //else
+            //{
+                this.publicacionesComboBox.DataSource = RepositorioPublicacion.Instance.BuscarPublicacionesDeVendedor(usuarioCodigo);
+            //}
             this.publicacionesComboBox.Refresh();
             this.publicacionesComboBox.DisplayMember = "descripcion";
         }
@@ -43,7 +46,7 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            new GenerarPublicacionParaBusqueda().ShowDialog(this);
+            new EditarPublicacion().ShowDialog(this);
         }
     }
 }

@@ -33,8 +33,8 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                             "PUB_VENDEDOR, PUB_ESTADO, PUB_PERMITE_PREGUNTA, PUB_STOCK, " +
                             "PUB_FECHA_INICIO, PUB_PRECIO)" +
                             "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
-                            publicacion.publicacion_id, publicacion.descripcion, publicacion.tipo, publicacion.visibilidad_codigo,
-                            publicacion.vendedor, publicacion.estado, publicacion.permitePregunta,
+                            publicacion.publicacion_id, publicacion.descripcion, publicacion.tipo.id, publicacion.visibilidad_codigo,
+                            publicacion.vendedor, publicacion.estado.id, publicacion.permitePregunta,
                             publicacion.stock, DBTypeConverter.ToSQLDateTime(publicacion.fecha_inicio), publicacion.precio);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
@@ -66,23 +66,53 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return this.BuscarPublicaciones(query);
         }
 
+        public List<Publicacion> Buscar()
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION");
+
+            return this.BuscarPublicaciones(query);
+        }
+
         private Publicacion DataRowToPublicacion(DataRow row)
         {
             var publicacionID = Decimal.Parse(row["PUB_PUBLICACION_ID"].ToString());
             var descripcion = row["PUB_DESCRIPCION"].ToString();
-            var tipo = row["PUB_TIPO"].ToString();
+            var tipo = this.ObtenerTipoPublicacion(Decimal.Parse(row["PUB_TIPO"].ToString()));
             var visibilidad = Decimal.Parse(row["PUB_VISIBILIDAD_CODIGO"].ToString());
             var vendedorCodigo = Decimal.Parse(row["PUB_VENDEDOR"].ToString());
-            var estado = row["PUB_ESTADO"].ToString();
+            var estado = this.ObtenerEstadoPublicacion(Decimal.Parse(row["PUB_ESTADO"].ToString()));
             var permitePregunta = bool.Parse(row["PUB_PERMITE_PREGUNTA"].ToString());
             var stock = Decimal.Parse(row["PUB_STOCK"].ToString());
             var fechaVto = DBTypeConverter.ToDateTime(row["PUB_FECHA_VENCIMIENTO"].ToString());
             var fechaInit = DBTypeConverter.ToDateTime(row["PUB_FECHA_INICIO"].ToString());
             var precio = Decimal.Parse(row["PUB_PRECIO"].ToString());
-
-
-            return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
+            if (!row["PUB_FACTURA"].Equals(DBNull.Value))
+            {
+                var factura = Decimal.Parse(row["PUB_FACTURA"].ToString());
+                return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
+                fechaVto, fechaInit, precio, factura);
+            }
+            else
+            {
+                return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
                 fechaVto, fechaInit, precio);
+            }
+            
+        }
+
+        //private Factura ObtenerFactura(Decimal idFact)
+        //{
+        //    return RepositorioFactura.Instance.Buscar(idFact);
+        //}
+
+        private Estado ObtenerEstadoPublicacion(Decimal publiID)
+        {
+            return RepositorioEstado.Instance.Buscar(publiID);
+        }
+
+        private TipoPublicacion ObtenerTipoPublicacion(Decimal tipo)
+        {
+            return RepositorioTipoPublicacion.Instance.Buscar(tipo);
         }
     }
 }

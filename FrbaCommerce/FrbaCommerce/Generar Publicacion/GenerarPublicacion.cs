@@ -17,13 +17,12 @@ namespace FrbaCommerce.Generar_Publicacion
     {
         bool modificacion;
         private List<Rubro> rubros = new List<Rubro>();
-        String tipoPubli;
+        TipoPublicacion tipoPubli;
         Decimal codigoUsuario;
  
         public Genepub()
         {
             InitializeComponent();
-            this.rubros = RepositorioRubros.Instance.Rubros();
             this.popular();
             
         }
@@ -37,6 +36,7 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void popular()
         {
+            this.rubros = RepositorioRubros.Instance.Rubros();
             this.popularCheckList();
             this.popularListas();
         }
@@ -49,11 +49,17 @@ namespace FrbaCommerce.Generar_Publicacion
             this.visibilidades.Refresh();
             this.visibilidades.DisplayMember = "visibiDescripcion";
 
-            this.estado.DataSource = new List<String> { "Borrador", "Activa", "Pausada", "Finalizada" };
+            this.estado.DataSource = new List<String>();
             this.estado.Refresh();
+            this.estado.DataSource = RepositorioEstado.Instance.Buscar();
+            this.estado.Refresh();
+            this.estado.DisplayMember = "descripcion";
 
-            this.comboTipoPubli.DataSource = new List<String> {"Compra Inmediata", "Subasta"};
+            this.comboTipoPubli.DataSource = new List<String>();
             this.comboTipoPubli.Refresh();
+            this.comboTipoPubli.DataSource = RepositorioTipoPublicacion.Instance.Buscar();
+            this.comboTipoPubli.Refresh();
+            this.comboTipoPubli.DisplayMember = "descripcion";
         }
 
         private void popularCheckList()
@@ -83,29 +89,65 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void comboTipoPubli_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tipoPubli = this.comboTipoPubli.SelectedValue.ToString();
+            tipoPubli = (TipoPublicacion)this.comboTipoPubli.SelectedValue;
         }
 
         private void aceptar_Click(object sender, EventArgs e)
         {
-            if (tipoPubli == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 || tipoPubli == "Compra Inmediata")
+            if (!this.tieneCamposSinCompletar())
             {
-                this.generarPublicacion();
-                new GeneracionPublicacionCorrecta().ShowDialog(this);
-                this.Close();
+                if ((tipoPubli.descripcion == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 || 
+                    tipoPubli.descripcion == "Compra Inmediata"))
+                {
+                    this.generarPublicacion();
+                    new GeneracionPublicacionCorrecta().ShowDialog(this);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Las Subastas solo pueden tener 1 sola unidad en Stock", "Atención", MessageBoxButtons.OK);
+                    //new AlertaSubastaStock().ShowDialog(this);
+                }
             }
             else
             {
-                new AlertaSubastaStock().ShowDialog(this);
+                this.NoPuedeContinuar();
             }
 
+        }
+
+        private void NoPuedeContinuar()
+        {
+            if (Validador.estaVacio(this.txtBoxStock.Text))
+                MessageBox.Show("Debe ingresar una cantidad de Stock", "Atención", MessageBoxButtons.OK);
+           
+            if (Validador.estaVacio(this.txtBoxPrecio.Text))
+                MessageBox.Show("Debe ingresar un Precio", "Atención", MessageBoxButtons.OK);
+           
+            if (Validador.estaVacio(this.descripcionTextBox.Text))
+                MessageBox.Show("Debe ingresar una Descripción", "Atención", MessageBoxButtons.OK);
+           
+            if (this.RubrosCheckList.CheckedItems.Count == 0)
+                MessageBox.Show("Debe seleccionar al menos 1 rubro", "Atención", MessageBoxButtons.OK);
+        } 
+       
+        private bool tieneCamposSinCompletar()
+        {
+            return (Validador.estaVacio(this.txtBoxStock.Text) || Validador.estaVacio(this.txtBoxPrecio.Text) ||
+                Validador.estaVacio(this.descripcionTextBox.Text) || this.RubrosCheckList.CheckedItems.Count == 0);
+                
+        }
+
+        private bool debeAgregarDescripcion()
+        {
+            return this.descripcionTextBox.Text == "";
         }
 
         private void generarPublicacion()
         {
             var publicacion = new Publicacion(this.descripcionTextBox.Text, this.tipoPubli, 
                 ((Visibilidad)this.visibilidades.SelectedValue).visibilidadCodigo, codigoUsuario, 
-                this.estado.SelectedValue.ToString(), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
+                (Estado)(this.estado.SelectedValue), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
                 this.dateTimePicker1.Value, this.dateTimePicker1.Value, Decimal.Parse(this.txtBoxPrecio.Text));
 
             RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);

@@ -10,9 +10,22 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         Decimal publicacion_id { get; set; }
         Decimal cantidad_vendida { get; set; }
         String medios_de_pago { get; set; }
-        Char pagada { get; set; }
+        bool pagada { get; set; }
         DateTime fecha { get; set; }
         Decimal comprador { get; set; }
 
+        public Factura() { }
+
+        public Factura(Decimal id, Decimal publicacionID, Decimal cantVendida,
+            String medioPago, bool pagada, DateTime fecha, Decimal comprador) : this()
+        {
+            this.id_fatcura = id;
+            this.publicacion_id = publicacionID;
+            this.cantidad_vendida = cantVendida;
+            this.medios_de_pago = medioPago;
+            this.pagada = pagada;
+            this.fecha = fecha;
+            this.comprador = comprador;
+        }
     }
 }

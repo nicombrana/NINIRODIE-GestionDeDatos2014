@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Editar_Publicacion
 {
-    partial class Form1
+    partial class EditarPublicacion
     {
         /// <summary>
         /// Required designer variable.

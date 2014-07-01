@@ -190,6 +190,12 @@
     <Compile Include="Abm Visibilidad\ModificarVisi.Designer.cs">
       <DependentUpon>ModificarVisi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\AlertaDebeAgregarDescripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\AlertaDebeAgregarDescripcion.Designer.cs">
+      <DependentUpon>AlertaDebeAgregarDescripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\AlertaSubastaStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,7 +322,9 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Buscador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\CompraInmediata.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Ofertas.cs" />
@@ -324,14 +332,19 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Rubro.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Subasta.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEstado.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioFactura.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPreguntas.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPublicacionPorRubro.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioRubros.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioTipoPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioVisibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
@@ -342,11 +355,11 @@
     <Compile Include="Comprar-Ofertar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.cs">
+    <Compile Include="Editar Publicacion\EditarPublicacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editar Publicacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Editar Publicacion\EditarPublicacion.Designer.cs">
+      <DependentUpon>EditarPublicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
@@ -371,12 +384,6 @@
     </Compile>
     <Compile Include="Generar Publicacion\GenerarPublicacion.Designer.cs">
       <DependentUpon>GenerarPublicacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Generar Publicacion\GenerarPublicacionParaBusqueda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Generar Publicacion\GenerarPublicacionParaBusqueda.Designer.cs">
-      <DependentUpon>GenerarPublicacionParaBusqueda.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion de Preguntas\Preguntas.cs">
       <SubType>Form</SubType>
@@ -473,6 +480,9 @@
     <EmbeddedResource Include="Abm Visibilidad\ModificarVisi.resx">
       <DependentUpon>ModificarVisi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\AlertaDebeAgregarDescripcion.resx">
+      <DependentUpon>AlertaDebeAgregarDescripcion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alertas\AlertaSubastaStock.resx">
       <DependentUpon>AlertaSubastaStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,9 +548,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\GenerarPublicacion.resx">
       <DependentUpon>GenerarPublicacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Generar Publicacion\GenerarPublicacionParaBusqueda.resx">
-      <DependentUpon>GenerarPublicacionParaBusqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\Preguntas.resx">
       <DependentUpon>Preguntas.cs</DependentUpon>

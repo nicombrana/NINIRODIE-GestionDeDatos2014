@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Editar_Publicacion
+namespace FrbaCommerce.Alertas
 {
-    public partial class Form1 : Form
+    public partial class AlertaDebeAgregarDescripcion : Form
     {
-        public Form1()
+        public AlertaDebeAgregarDescripcion()
         {
             InitializeComponent();
+        }
+
+        private void botonAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

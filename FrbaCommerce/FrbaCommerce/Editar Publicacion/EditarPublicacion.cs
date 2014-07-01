@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaCommerce.Generar_Publicacion
+namespace FrbaCommerce.Editar_Publicacion
 {
-    public partial class GenerarPublicacionParaBusqueda : Form
+    public partial class EditarPublicacion : Form
     {
-        public GenerarPublicacionParaBusqueda()
+        public EditarPublicacion()
         {
             InitializeComponent();
-            label1.Text = "Stock 5";
         }
-
     }
 }
