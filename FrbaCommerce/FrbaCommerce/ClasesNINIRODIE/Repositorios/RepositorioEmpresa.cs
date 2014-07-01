@@ -34,7 +34,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             if (cuit != "")
             {
-                query = query + "AND EMP_CUIT = " + cuit;
+                query = query + "AND EMP_CUIT = '" + cuit + "' ";
             }
             if (mail != "")
             {

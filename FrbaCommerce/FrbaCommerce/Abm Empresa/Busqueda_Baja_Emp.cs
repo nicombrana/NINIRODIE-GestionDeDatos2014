@@ -34,10 +34,8 @@ namespace FrbaCommerce.Abm_Empresa
         {
             razon = BM.Text;
             mail = Textmail.Text;
-            if (TextCuit.Text != "")
-            {
-                cuit = TextCuit.Text;
-            }
+            cuit = TextCuit.Text;
+            
 
             Empresa empresa = new Empresa();
 

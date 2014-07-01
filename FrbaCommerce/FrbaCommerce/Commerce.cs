@@ -68,16 +68,26 @@ namespace FrbaCommerce
                 Campass.Visible = true;
                 publicacion.Visible = true;
                 preguntas.Visible = true;
+                listadoEstadistico.Visible = true;
             }
             else{
-                if (login.user.tipo == "CLIENTE" || login.user.tipo == "EMPRESA")
+                if (login.user.tipo == "CLIENTE")
                 {
+                    toolStripSplitButton1.Visible = true;
                     Campass.Visible = true;
                     publicacion.Visible = true;
                     preguntas.Visible = true;
+                    listadoEstadistico.Visible = false;
                 }
-                else
+                else if (login.user.tipo == "EMPRESA")
                 {
+                    toolStripSplitButton1.Visible = false;
+                    Campass.Visible = true;
+                    publicacion.Visible = true;
+                    preguntas.Visible = true;
+                    listadoEstadistico.Visible = false;
+                }
+                else {
                     this.Close();
                 }
             }
