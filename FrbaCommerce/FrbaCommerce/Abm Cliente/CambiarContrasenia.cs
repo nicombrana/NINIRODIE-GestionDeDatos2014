@@ -27,8 +27,11 @@ namespace FrbaCommerce.Abm_Cliente
         private TextBox textBox1;
         private System.Windows.Forms.Label label1;
 
-        public CambiarContrasenia()
+        Decimal conectado;
+
+        public CambiarContrasenia(Decimal id)
         {
+            conectado = id;
             InitializeComponent();
         }
 
@@ -177,23 +180,34 @@ namespace FrbaCommerce.Abm_Cliente
             pass_actual = passActual.Text;
             pass_nueva = PassNueva.Text;
             repetir_nueva = PassNueva2.Text;
+            int cerrar = 0;
 
-            if (pass_nueva != repetir_nueva)
+            Decimal cod_prueba = RepositorioUsuario.Instance.BuscarUsuarioPorId(nombre_usuario);
+            if (cod_prueba != conectado || cod_prueba == -1)
+            {
+                MessageBox.Show("Usuario Incorrecto", "Atención", MessageBoxButtons.OK);
+                cerrar = 1;
+            }else if (pass_nueva != repetir_nueva)
             {
                 new AlertRep().ShowDialog(this);
             }
 
-            Decimal codigo = RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva, pass_actual);
+            if (cerrar == 0)
+            {
+                Decimal codigo = RepositorioUsuario.Instance.CambiarPass(nombre_usuario, pass_nueva, pass_actual);
 
-            if (codigo == 1)
-            {
-                new Alerid().ShowDialog(this);
-            }
-            if (codigo == 2)
-            {
-                new Cambio_Pass_Exitoso().ShowDialog(this);
+                if (codigo == 1)
+                {
+                    new Alerid().ShowDialog(this);
+                }
+                if (codigo == 2)
+                {
+                    new Cambio_Pass_Exitoso().ShowDialog(this);
+                }
+                this.Close();
             }
             this.Close();
+
         }
     }
 }

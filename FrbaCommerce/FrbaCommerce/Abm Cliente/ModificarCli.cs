@@ -16,6 +16,7 @@ namespace FrbaCommerce.Abm_Cliente
     public partial class ModificarCli : Form
     {
         Decimal clienteId;
+        String docum, telefo;
 
         Cliente cliente;
 
@@ -32,6 +33,8 @@ namespace FrbaCommerce.Abm_Cliente
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            int cerrar = 0;
+
             if (CBcedula.Checked)
             {
                 cliente.tipo_doc = "cedula";
@@ -90,10 +93,22 @@ namespace FrbaCommerce.Abm_Cliente
             {
                 cliente.codpos = int.Parse(cod_pos.Text);
             }
+            if (cerrar == 0 && documento.Text != docum)
+            {
+                cerrar = this.buscarDoc(documento.Text);
+            }
+            if (cerrar == 0 && telefono.Text != telefo)
+            {
+                cerrar = this.buscarTel(telefono.Text);
+            }
 
-            RepositorioCliente.Instance.ModificarCliente(cliente);
+            if (cerrar == 0)
+            {
+                RepositorioCliente.Instance.ModificarCliente(cliente);
 
-            new ModificacionCorrecta().ShowDialog(this);
+                new ModificacionCorrecta().ShowDialog(this);
+                this.Close();
+            }
         }
 
         private void ModificarCli_Load(object sender, EventArgs e)
@@ -110,6 +125,22 @@ namespace FrbaCommerce.Abm_Cliente
                 CBcedula.Enabled = false;
                 CBdni.Enabled = true;
             }
+
+            documento.Text = cliente.nro_doc.ToString();
+            docum = cliente.nro_doc.ToString();
+            cod_pos.Text = cliente.codpos.ToString();
+            departamento.Text = cliente.puert;
+            piso.Text = cliente.pis.ToString();
+            altura.Text = cliente.altu.ToString();
+            calle.Text = cliente.call;
+            localidad.Text = cliente.loc;
+            ciudad.Text = cliente.ciud;
+            mail.Text = cliente.mail;
+            telefono.Text = cliente.telefono.ToString();
+            telefo = cliente.telefono.ToString();
+            apellido.Text = cliente.apellido;
+            nombre.Text = cliente.nombre;
+            
 
         }
 
@@ -161,6 +192,31 @@ namespace FrbaCommerce.Abm_Cliente
         private void piso_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeNumeros(e);
+        }
+
+        private int buscarTel(String telefono)
+        {
+            int tel = int.Parse(telefono);
+
+            int valor = RepositorioCliente.Instance.buscarClientePorTelefono(tel);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Telefono Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
+        }
+
+        private int buscarDoc(String documento)
+        {
+            int doc = int.Parse(documento);
+
+            int valor = RepositorioCliente.Instance.InsertarClientePorDocumento(doc);
+            if (valor == 1)
+            {
+                MessageBox.Show("Documento Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
         }
     }
 }

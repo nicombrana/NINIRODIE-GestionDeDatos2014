@@ -30,6 +30,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             fecha = DBTypeConverter.ToSQLDateTime(FechaSistema.Instance.fecha);
         }
 
+        public Decimal BuscarVendedor(Decimal id_publicacion)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
+                "WHERE PUB_PUBLICACION_ID = '{0}'", id_publicacion);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
+
+            return ((dataRow.ToList<Publicacion>(this.DataRowToPublicacion)).First()).vendedor;
+        }
+
         public void AgregarPublicacion(Publicacion publicacion)
         {
             this.AgregarPublicacionBorrador(publicacion);

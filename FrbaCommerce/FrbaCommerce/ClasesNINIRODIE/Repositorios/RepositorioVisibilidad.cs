@@ -24,6 +24,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public Visibilidad TraerVisi(Decimal codViejo)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD " +
+                "WHERE VIS_VISIBILIDAD_CODIGO = '{0}'", codViejo);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
+            return (dataRow.ToList<Visibilidad>(this.DataRowToVisibilidad)).First();
+        }
+
         public void ModificarVisi(Visibilidad visi, Decimal codViejo)
         {
             var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
@@ -41,6 +51,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
 
         }
 

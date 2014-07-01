@@ -84,7 +84,7 @@ namespace FrbaCommerce
                             }
                             else
                             {
-                                new CambiarContrasenia().ShowDialog(this);
+                                new CambiarContrasenia(user.codigo).ShowDialog(this);
                             }
                         }
                         else

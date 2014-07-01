@@ -41,6 +41,7 @@
             this.ComprasGrid.Name = "ComprasGrid";
             this.ComprasGrid.Size = new System.Drawing.Size(260, 150);
             this.ComprasGrid.TabIndex = 0;
+            this.ComprasGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ComprasGrid_CellClick_1);
             // 
             // button1
             // 
@@ -50,6 +51,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 

@@ -16,6 +16,7 @@ namespace FrbaCommerce.Abm_Empresa
     public partial class ModificarEmp : Form
     {
         public Decimal empresa_id;
+        String telefo, cu;
 
         public ModificarEmp(Decimal idempresa)
         {
@@ -30,6 +31,8 @@ namespace FrbaCommerce.Abm_Empresa
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
+            int cerrar = 0;
+
             Empresa empresa = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
             
             if (nombre.Text != "")
@@ -83,11 +86,23 @@ namespace FrbaCommerce.Abm_Empresa
             }
             empresa.codigo = empresa_id;
 
-            RepositorioEmpresa.Instance.ModificarEmpresa(empresa);
+            if (cerrar == 0 && telefono.Text != telefo)
+            {
+                cerrar = this.buscarTel(telefono.Text);
+            }
+            if (cerrar == 0 && cuit.Text != cu)
+            {
+                cerrar = this.buscarCuit(cuit.Text);
+            }
 
-            new ModificacionCorrecta().ShowDialog(this);
+            if (cerrar == 0)
+            {
+                RepositorioEmpresa.Instance.ModificarEmpresa(empresa);
 
-            this.Close();
+                new ModificacionCorrecta().ShowDialog(this);
+
+                this.Close();
+            }
         }
 
         private void nombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -133,6 +148,50 @@ namespace FrbaCommerce.Abm_Empresa
         private void cod_pos_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validador.soloEscribeNumeros(e);
+        }
+
+        private void ModificarEmp_Load(object sender, EventArgs e)
+        {
+            Empresa empre = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(empresa_id);
+            cod_pos.Text = empre.codpos.ToString();
+            piso.Text = empre.pis.ToString();
+            altura.Text = empre.altu.ToString();
+            telefono.Text = empre.telefono.ToString();
+            telefo = empre.telefono.ToString();
+            calle.Text = empre.call;
+            nombre.Text = empre.razon_social;
+            contacto.Text = empre.contacto;
+            ciudad.Text = empre.ciud;
+            localidad.Text = empre.loc;
+            mail.Text = empre.mail;
+            cuit.Text = empre.cuit;
+            cu = empre.cuit;
+            departamento.Text = empre.puert;
+        }
+
+        private int buscarCuit(String cuit)
+        {
+
+            int valor = RepositorioEmpresa.Instance.buscarEmpresaPorCuit(cuit);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Cuit Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
+        }
+
+        private int buscarTel(String telefono)
+        {
+            int tel = int.Parse(telefono);
+
+            int valor = RepositorioEmpresa.Instance.buscarEmpresaPorTelefono(tel);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Telefono Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
         }
     }
 }

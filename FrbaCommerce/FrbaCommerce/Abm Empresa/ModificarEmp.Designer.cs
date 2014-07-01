@@ -330,6 +330,7 @@
             this.Controls.Add(this.Aceptar);
             this.Name = "ModificarEmp";
             this.Text = "Modificar Empresa";
+            this.Load += new System.EventHandler(this.ModificarEmp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -59,6 +59,15 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return dataRow.ToList<Compra>(this.DataRowToCompra);
         }
 
+        public List<Compra> BuscarCompraCliente(Decimal codigoUsuario)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.COMPRA WHERE COMP_COMPRADOR = '{0}'", codigoUsuario);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.COMPRA");
+
+            return dataRow.ToList<Compra>(this.DataRowToCompra);
+        }
+
         public Compra DataRowToCompra(DataRow row)
         {
             var codigo = Decimal.Parse(row["COMP_ID_COMPRA"].ToString());

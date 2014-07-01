@@ -158,6 +158,14 @@ namespace FrbaCommerce
                 cerrar = 1;
                 new TodosLosCampos().ShowDialog(this);
             }
+            if (cerrar == 0)
+            {
+                cerrar = this.buscarTel(telefono.Text);
+            }
+            if (cerrar == 0)
+            {
+                cerrar = this.buscarCuit(cuit.Text);
+            }
 
             if (cerrar == 0)
             {
@@ -183,9 +191,31 @@ namespace FrbaCommerce
                 new UsuarioYPassEmpresa().ShowDialog(this);
                 this.Close();
             }
-
-            this.Close();
         }
 
+        private int buscarCuit(String cuit)
+        {
+
+            int valor = RepositorioEmpresa.Instance.buscarEmpresaPorCuit(cuit);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Cuit Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
+        }
+
+        private int buscarTel(String telefono)
+        {
+            int tel = int.Parse(telefono);
+
+            int valor = RepositorioEmpresa.Instance.buscarEmpresaPorTelefono(tel);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Telefono Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
+        }
     }
 }

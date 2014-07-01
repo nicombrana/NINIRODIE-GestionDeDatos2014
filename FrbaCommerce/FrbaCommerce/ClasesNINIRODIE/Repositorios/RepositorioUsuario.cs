@@ -27,6 +27,22 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public Decimal BuscarUsuarioPorId(String id)
+        {
+            var query = String.Format(@"select * from NINIRODIE.USUARIO " +
+                                       "where USU_NOMBRE_USUARIO = '{0}'", id);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NIINRODIE.USUARIO");
+
+            var usuarios = dataRow.ToList<Usuario>(this.DataRowToUsuario);
+
+            if (usuarios.Count == 0)
+            {
+                return -1;
+            }
+            return (usuarios.First()).codigo;
+        }
+
         public Usuario BuscarUsuarioPorCodigo(Decimal codigoUsuario)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.USUARIO " +

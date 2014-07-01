@@ -166,6 +166,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ModificarVisi";
             this.Text = "Modificar Visibilidad";
+            this.Load += new System.EventHandler(this.ModificarVisi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

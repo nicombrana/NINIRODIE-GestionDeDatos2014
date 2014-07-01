@@ -653,6 +653,9 @@
     <EmbeddedResource Include="Alertas\VisiGeneradaCorrectamente.resx">
       <DependentUpon>VisiGeneradaCorrectamente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calificar\Calificar.resx">
+      <DependentUpon>Calificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calificar\MostrarCompras.resx">
       <DependentUpon>MostrarCompras.cs</DependentUpon>
     </EmbeddedResource>

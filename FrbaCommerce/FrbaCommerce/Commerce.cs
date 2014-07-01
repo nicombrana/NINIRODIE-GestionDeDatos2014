@@ -47,7 +47,8 @@ namespace FrbaCommerce
 
         private void Campass_Click(object sender, EventArgs e)
         {
-            new CambiarContrasenia().Show();
+
+            new CambiarContrasenia(cod_conectado).Show();
         }
 
         private void funciones_Load(object sender, EventArgs e)

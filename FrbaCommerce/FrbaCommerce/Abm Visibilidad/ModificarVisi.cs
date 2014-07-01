@@ -121,6 +121,18 @@ namespace FrbaCommerce.Abm_Visibilidad
         {
             Validador.soloEscribeLetras(e);
         }
+
+        private void ModificarVisi_Load(object sender, EventArgs e)
+        {
+            Visibilidad visibi = RepositorioVisibilidad.Instance.TraerVisi(codViejo);
+
+            dias.Text = visibi.cantDias.ToString();
+            desc.Text = visibi.visibiDescripcion;
+            porcentaje.Text = visibi.porcentajeVenta.ToString();
+            valor.Text = visibi.precio.ToString();
+            codigo.Text = visibi.visibilidadCodigo.ToString();
+
+        }
         }
     }
 

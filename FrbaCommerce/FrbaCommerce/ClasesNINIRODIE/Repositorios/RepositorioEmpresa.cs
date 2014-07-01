@@ -24,6 +24,32 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public int buscarEmpresaPorCuit(String cuit)
+        {
+            var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE EMP_CUIT = '{0}'", cuit);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
+
+            if (dataRow.Count > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public int buscarEmpresaPorTelefono(int telef)
+        {
+            var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE EMP_TELEFONO = '{0}'", telef);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.EMPRESA");
+
+            if (dataRow.Count > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
         public int BuscarEmpresa(String razon_soc, String mail,String cuit)
         {
             var query = String.Format(@"Select EMP_CODIGO FROM NINIRODIE.EMPRESA WHERE 1 = 1 ");

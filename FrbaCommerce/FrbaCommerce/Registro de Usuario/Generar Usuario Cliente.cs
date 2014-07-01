@@ -167,8 +167,14 @@ namespace FrbaCommerce
                 cerrar = 1;
                 new TodosLosCampos().ShowDialog(this);
             }
-
-            cerrar = this.buscarDoc(documento.Text);
+            if (cerrar == 0)
+            {
+                cerrar = this.buscarDoc(documento.Text);
+            }
+            if (cerrar == 0)
+            {
+                cerrar = this.buscarTel(telefono.Text);
+            }
 
             if (cerrar == 0)
             {
@@ -200,7 +206,19 @@ namespace FrbaCommerce
                 new UsuarioYPassCliente().ShowDialog(this);
                 this.Close();
             }
-            this.Close();
+        }
+
+        private int buscarTel(String telefono)
+        {
+            int tel = int.Parse(telefono);
+
+            int valor = RepositorioCliente.Instance.buscarClientePorTelefono(tel);
+
+            if (valor == 1)
+            {
+                MessageBox.Show("Telefono Ya Existente", "Atención", MessageBoxButtons.OK);
+            }
+            return valor;
         }
 
         private int buscarDoc(String documento)

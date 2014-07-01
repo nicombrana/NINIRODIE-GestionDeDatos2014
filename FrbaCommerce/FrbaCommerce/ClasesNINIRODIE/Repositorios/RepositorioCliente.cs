@@ -24,6 +24,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
+        public int buscarClientePorTelefono(int telef)
+        {
+            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE CLI_TELEFONO = '{0}'", telef);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CLIENTE");
+
+            if (dataRow.Count > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
 
         public int InsertarClientePorDocumento(int nroDoc)
         {
@@ -83,7 +95,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public List<Cliente> TomarClientes(String apellido, String nombre,
                                             int nroDoc, String mail, String tipoDoc)
         {
-            var query = String.Format(@"Select CLI_CODIGO FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
+            var query = String.Format(@"Select CLI_CODIGO FROM gd1c2014.NINIRODIE.CLIENTE WHERE 1 = 1 ");
 
             if (apellido != "")
             {
@@ -194,7 +206,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             String loc = "";
             if(!row["CLI_LOCALIDAD"].Equals(DBNull.Value))
-                ciudad = row["CLI_LOCALIDAD"].ToString();
+                loc = row["CLI_LOCALIDAD"].ToString();
 
             var call = row["CLI_CALLE"].ToString();
             var altu = int.Parse(row["CLI_ALTURA"].ToString());
