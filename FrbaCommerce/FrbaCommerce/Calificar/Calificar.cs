@@ -19,6 +19,7 @@ namespace FrbaCommerce.Calificar
         public Calificar(Decimal id, Decimal compraID)
         {
             comprador = id;
+            compra = compraID;
             InitializeComponent();
         }
 

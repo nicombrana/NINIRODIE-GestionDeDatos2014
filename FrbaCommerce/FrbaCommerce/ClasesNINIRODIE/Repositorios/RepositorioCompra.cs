@@ -25,6 +25,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         }
 
 
+        public Decimal TraerCompraId(Decimal comprador, Decimal publicacion)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.COMPRA" +
+                "WHERE COMP_PUBLICACION_ID = '{0}' AND COMP_COMPRADOR = '{1}'",
+                publicacion, comprador);
+
+
+            return SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.COMPRA").ToList<Decimal>(row => Decimal.Parse(row["COMP_ID_COMPRA"].ToString())).First();
+        
+            //return dataRow.ToList<Decimal>(row => Decimal.Parse(row["COMP_ID_COMPRA"].ToString())).First();
+        
+        }
 
         public void Comprar(Compra compra)
         {

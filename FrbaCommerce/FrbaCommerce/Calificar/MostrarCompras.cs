@@ -55,7 +55,8 @@ namespace FrbaCommerce.Calificar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Calificar(compraSeleccionada.id_comprador, compraSeleccionada.cod_compra).ShowDialog(this);
+            Decimal compraid = RepositorioCompra.Instance.ObtenerCodigoCompra(compraSeleccionada);
+            new Calificar(compraSeleccionada.id_comprador, compraid).ShowDialog(this);
             
         }
 

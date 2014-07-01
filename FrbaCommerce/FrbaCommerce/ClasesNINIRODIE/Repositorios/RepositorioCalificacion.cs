@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FrbaCommerce.ClasesNINIRODIE.DBUtils;
+using System.Data;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 {
@@ -21,16 +22,45 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
-
+        
         public void InsertarCalificacion(Decimal comprador, String comentario, 
             Decimal calificacion, Decimal compra)
         {
+            Decimal n = 0;
+
+            n = this.buscarId();
+
             var query = String.Format(@"INSERT INTO NINIRODIE.CALIFICACIONES " +
-                "(CALI_COMPRADOR, CALI_DESCRIPCION, CALI_ESTRELLAS, CALI_COMPRA)" +
-                "VALUES ('{0}', '{1}', '{2}', '{3}')", comprador, comentario,
+                "(CALI_ID_CALIFICACION, CALI_COMPRADOR, CALI_DESCRIPCION, CALI_ESTRELLAS, CALI_COMPRA)" +
+                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", n, comprador, comentario,
                 calificacion, compra);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
+        public Decimal buscarId()
+        {
+            Decimal m = 0;
+            Decimal cerrar = 1;
+            while (cerrar == 1)
+            {
+                var query = String.Format(@"SELECT * FROM NINIRODIE.CALIFICACIONES WHERE CALI_ID_CALIFICACION = '{0}'", m);
+
+                DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CALIFICACIONES");
+
+                if (dataRow.Count > 0)
+                {
+                    m = m + 1;
+                }
+                else
+                {
+                    cerrar = 0;
+                }
+            }
+
+            return m;
+
+
         }
     }
 }
