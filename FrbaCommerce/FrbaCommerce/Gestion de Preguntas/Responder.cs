@@ -40,10 +40,9 @@ namespace FrbaCommerce.Gestion_de_Preguntas
             }
             var fecha_hoy = FechaSistema.Instance.fecha;
 
-            RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp, fecha);
+            RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp, fecha_hoy);
 
             new RespuestaExitosa().ShowDialog(this);
-            this.Close();
         }
 
         private void Responder_Load(object sender, EventArgs e)
