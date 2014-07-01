@@ -16,6 +16,7 @@ namespace FrbaCommerce.Abm_Visibilidad
     public partial class ModificarVisi : Form
     {
         Decimal codViejo;
+        String porcenViejo, precioViejo;
         String cod, nomb;
 
         Decimal visibilidadCodigo;
@@ -80,10 +81,22 @@ namespace FrbaCommerce.Abm_Visibilidad
 
             if (cerrar == 0)
             {
-                Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
-                        precio, porcentajeVenta, cantDias, true);
+            //    Visibilidad visi = new Visibilidad(visibilidadCodigo, visibiDescripcion,
+            //            precio, porcentajeVenta, cantDias, true);
 
-                RepositorioVisibilidad.Instance.ModificarVisi(visi, codViejo);
+                RepositorioVisibilidad.Instance.ModificarDesc(visibiDescripcion, codViejo);
+                RepositorioVisibilidad.Instance.ModificarDias(cantDias, codViejo);
+                if (porcentaje.Text != porcenViejo)
+                {
+                    RepositorioVisibilidad.Instance.ModificarPorcen(porcentajeVenta, codViejo);    
+                }
+                if (valor.Text != precioViejo)
+                {
+                    RepositorioVisibilidad.Instance.ModificarPrecio(precio, codViejo);
+                }
+
+                RepositorioVisibilidad.Instance.ModificarCodigo(visibilidadCodigo, codViejo);
+               // RepositorioVisibilidad.Instance.ModificarVisi(visi, codViejo);
 
                 new ModificacionCorrecta().ShowDialog(this);
                 this.Close();
@@ -127,8 +140,13 @@ namespace FrbaCommerce.Abm_Visibilidad
             dias.Text = visibi.cantDias.ToString();
             desc.Text = visibi.visibiDescripcion;
             nomb = visibi.visibiDescripcion;
+
             porcentaje.Text = visibi.porcentajeVenta.ToString();
+            porcenViejo = visibi.porcentajeVenta.ToString();
+
             valor.Text = visibi.precio.ToString();
+            precioViejo = visibi.precio.ToString();
+
             codigo.Text = visibi.visibilidadCodigo.ToString();
             cod = visibi.visibilidadCodigo.ToString();
 

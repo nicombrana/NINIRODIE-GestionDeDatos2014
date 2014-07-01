@@ -23,6 +23,50 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
+        public void ModificarDesc(String desc, Decimal codviejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+                "VIS_DESCRIPCION = '{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'",
+               desc, codviejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);   
+        }
+
+        public void ModificarCodigo(Decimal codnuevo, Decimal codviejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+                "VIS_VISIBILIDAD_CODIGO = '{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'",
+                codnuevo, codviejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);   
+        }
+
+        public void ModificarPrecio(Decimal precio, Decimal codviejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+                "VIS_PRECIO = '{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'",
+                precio, codviejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query); 
+        }
+
+        public void ModificarPorcen(Decimal porcentaje, Decimal codviejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+                "VIS_POCENTAJE_VENTA = '{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'",
+                porcentaje, codviejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query); 
+        }
+
+        public void ModificarDias(Decimal dias, Decimal codviejo)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.VISIBILIDAD SET " +
+                "VIS_CANT_DIAS = '{0}' WHERE VIS_VISIBILIDAD_CODIGO = '{1}'",
+                dias, codviejo);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query); 
+        }
 
         public Visibilidad TraerVisi(Decimal codViejo)
         {
