@@ -46,10 +46,17 @@ namespace FrbaCommerce.Calificar
                 MessageBox.Show("Ingrese Un Comentario", "Atención", MessageBoxButtons.OK);
             }
             String desc = comentario.Text;
-            
-            RepositorioCalificacion.Instance.InsertarCalificacion(comprador, desc, calificacion, compra);
+            int cerrar = RepositorioCalificacion.Instance.BuscarCalif(comprador, compra);
+            if (cerrar == -1)
+            {
+                MessageBox.Show("La Compra Seleccionada Ya Ha Sido Calificada", "Atención", MessageBoxButtons.OK);
+            }
+            if (cerrar == 0)
+            {
+                RepositorioCalificacion.Instance.InsertarCalificacion(comprador, desc, calificacion, compra);
 
-            MessageBox.Show("Gracias Por Su Calificacion", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("Gracias Por Su Calificacion", "Atención", MessageBoxButtons.OK);
+            }
 
             this.Close();
         }

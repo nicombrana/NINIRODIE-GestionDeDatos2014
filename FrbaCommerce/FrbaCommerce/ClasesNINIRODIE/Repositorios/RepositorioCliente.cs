@@ -54,7 +54,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public Decimal BuscarCliente(String apellido, String nombre,
                                             int nroDoc, String mail, String tipoDoc)
         {
-            var query = String.Format(@"Select CLI_USUARIO_ID FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
+            var query = String.Format(@"Select * FROM NINIRODIE.CLIENTE WHERE 1 = 1 ");
 
             if (apellido != "")
             {
@@ -89,7 +89,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
             else
             {
-                return (dataRow.ToList<Decimal>(row => Decimal.Parse(row["CLI_USUARIO_ID"].ToString()))).First();
+                var clientes = dataRow.ToList<Cliente>(this.DataRowToCliente);
+                return clientes.First().usuario_id;
+               // return dataRow.ToList<Decimal>(row => Decimal.Parse(row["CLI_USUARIO_ID"].ToString())).First();
             }
         }
 
@@ -188,6 +190,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public Cliente DataRowToCliente(DataRow row)
         {
             var codigo = Decimal.Parse(row["CLI_CODIGO"].ToString());
+            var usu = Decimal.Parse(row["CLI_USUARIO_ID"].ToString());
             var nombre = row["CLI_NOMBRE"].ToString();
             var apellido = row["CLI_APELLIDO"].ToString();
             var tipo_docu = row["CLI_TIPO_DOC"].ToString();
@@ -216,7 +219,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var puert = row["CLI_DEPARTAMENTO"].ToString();
 
             var cliente = new Cliente(codigo, tipo_docu, nro_doc, nombre, apellido,
-                f_nac, sex, meil, telef, ciudad, loc, call, altu, pis, codpos, puert);
+                f_nac, sex, meil, telef, ciudad, loc, call, altu, pis, codpos, puert, usu);
 
             return cliente;
         }

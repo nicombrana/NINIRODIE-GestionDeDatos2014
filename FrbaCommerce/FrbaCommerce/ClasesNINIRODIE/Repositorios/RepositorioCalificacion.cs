@@ -22,7 +22,22 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return _instance;
             }
         }
-        
+
+        public int BuscarCalif(Decimal comprador, Decimal compra)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.CALIFICACIONES " +
+                "WHERE CALI_COMPRADOR = '{0}' AND CALI_COMPRA = '{1}'",
+                comprador, compra);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.CALIFICACION");
+
+            if (dataRow.Count > 0)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
         public void InsertarCalificacion(Decimal comprador, String comentario, 
             Decimal calificacion, Decimal compra)
         {

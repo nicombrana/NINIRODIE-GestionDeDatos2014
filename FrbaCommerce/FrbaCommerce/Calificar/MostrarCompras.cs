@@ -56,7 +56,15 @@ namespace FrbaCommerce.Calificar
         private void button1_Click(object sender, EventArgs e)
         {
             Decimal compraid = RepositorioCompra.Instance.ObtenerCodigoCompra(compraSeleccionada);
-            new Calificar(compraSeleccionada.id_comprador, compraid).ShowDialog(this);
+            int cerrar = RepositorioCalificacion.Instance.BuscarCalif(compraSeleccionada.id_comprador, compraid);
+            if (cerrar == -1)
+            {
+                MessageBox.Show("La Compra Seleccionada Ya Ha Sido Calificada", "Atención", MessageBoxButtons.OK);
+            }
+            if (cerrar == 0)
+            {
+                new Calificar(compraSeleccionada.id_comprador, compraid).ShowDialog(this);
+            }
             
         }
 
