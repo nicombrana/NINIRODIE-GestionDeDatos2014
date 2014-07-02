@@ -33,7 +33,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                             "PUB_VENDEDOR, PUB_ESTADO, PUB_PERMITE_PREGUNTA, PUB_STOCK, " +
                             "PUB_FECHA_INICIO, PUB_PRECIO)" +
                             "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
-                            publicacion.publicacion_id, publicacion.descripcion, publicacion.tipo.id, publicacion.visibilidad_codigo,
+                            publicacion.publicacion_id, publicacion.descripcion.ToString(), publicacion.tipo.id, publicacion.visibilidad_codigo,
                             publicacion.vendedor, publicacion.estado.id, publicacion.permitePregunta,
                             publicacion.stock, DBTypeConverter.ToSQLDateTime(publicacion.fecha_inicio), publicacion.precio);
 
