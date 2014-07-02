@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FrbaCommerce.Generar_Publicacion;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
-    class Estado
+    public abstract class Estado
     {
         public Decimal id { get; set; }
         public String descripcion { get; set; }
 
-        public Estado(Decimal id, String descrip)
+
+        public virtual void editar(Publicacion publicacion, BuscarPublicacion ventanaBusqueda)
         {
-            this.id = id;
-            this.descripcion = descrip;
+            throw new NotImplementedException();
         }
-
-
     }
 }

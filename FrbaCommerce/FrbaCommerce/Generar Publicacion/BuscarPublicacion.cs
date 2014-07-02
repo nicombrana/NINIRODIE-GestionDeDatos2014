@@ -46,7 +46,14 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void BAceptar_Click(object sender, EventArgs e)
         {
-            new EditarPublicacion().ShowDialog(this);
+            ((Publicacion)this.publicacionesComboBox.SelectedItem).editar(this);
+
+            DialogResult resultado = MessageBox.Show("¿Desea editar otra Publicación?", 
+                "Acción a Tomar", MessageBoxButtons.YesNo);
+
+            if (resultado == DialogResult.No)
+                this.Close();
+
         }
     }
 }

@@ -49,8 +49,15 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         {
             var id = Decimal.Parse(row["EST_ID_ESTADO"].ToString());
             var descripcion = row["EST_DESCRIPCION"].ToString();
+            
+            if(descripcion == "Pausada")
+                return new Pausada(id, descripcion);
+            if(descripcion == "Publicada")
+                return new Publicada(id, descripcion);
+            if (descripcion == "Finalizada")
+                return new Finalizada(id, descripcion);
+            return new Borrador(id, descripcion);
 
-            return new Estado(id, descripcion);
         }
     }
 }

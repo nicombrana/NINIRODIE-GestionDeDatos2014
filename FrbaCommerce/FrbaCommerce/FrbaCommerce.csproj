@@ -325,6 +325,7 @@
     <Compile Include="ClasesNINIRODIE\DBUtils\DataRowCollectionExtensions.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\DBTypeConverter.cs" />
     <Compile Include="ClasesNINIRODIE\DBUtils\SQLUtils.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Borrador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Buscador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Calificaciones.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Cliente.cs" />
@@ -332,11 +333,14 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Ofertas.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Pausada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Publicada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Rubro.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Subasta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
@@ -361,11 +365,23 @@
     <Compile Include="Comprar-Ofertar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\EditarPublicacion.cs">
+    <Compile Include="Editar Publicacion\EditarPublicacionBorrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editar Publicacion\EditarPublicacion.Designer.cs">
-      <DependentUpon>EditarPublicacion.cs</DependentUpon>
+    <Compile Include="Editar Publicacion\EditarPublicacionBorrador.Designer.cs">
+      <DependentUpon>EditarPublicacionBorrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editar Publicacion\EditarPublicacionPausada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar Publicacion\EditarPublicacionPausada.Designer.cs">
+      <DependentUpon>EditarPublicacionPausada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editar Publicacion\EditarPublicacionPublicada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar Publicacion\EditarPublicacionPublicada.Designer.cs">
+      <DependentUpon>EditarPublicacionPublicada.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\Form1.cs">
       <SubType>Form</SubType>
@@ -551,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Commerce.resx">
       <DependentUpon>Commerce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editar Publicacion\EditarPublicacionPublicada.resx">
+      <DependentUpon>EditarPublicacionPublicada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\BuscarPublicacion.resx">
       <DependentUpon>BuscarPublicacion.cs</DependentUpon>

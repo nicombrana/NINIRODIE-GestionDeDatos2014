@@ -110,8 +110,7 @@ namespace FrbaCommerce
 
         private void editarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            new Genepub().ShowDialog(this);
+            new BuscarPublicacion(this.login.user.codigo).ShowDialog(this);
         }
 
         private void verRespuestasToolStripMenuItem_Click(object sender, EventArgs e)

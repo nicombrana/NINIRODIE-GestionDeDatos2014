@@ -26,6 +26,19 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         public void AgregarPublicacion(Publicacion publicacion)
         {
+            this.AgregarPublicacionBorrador(publicacion);
+            
+            if (publicacion.estado.id != 2)
+            {
+                var query = String.Format(@"UPDATE NINIRODIE.PUBLICACION SET PUB_ESTADO = '{0}'" +
+                                            "WHERE PUB_PUBLICACION_ID = '{1}'", publicacion.estado.id, publicacion.publicacion_id);
+
+                SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+            }
+        }
+
+        public void AgregarPublicacionBorrador(Publicacion publicacion)
+        {
             publicacion.publicacion_id = this.ProximoCodigo();
 
             var query = String.Format(@"INSERT INTO NINIRODIE.PUBLICACION " + 
@@ -34,7 +47,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                             "PUB_FECHA_INICIO, PUB_PRECIO)" +
                             "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
                             publicacion.publicacion_id, publicacion.descripcion.ToString(), publicacion.tipo.id, publicacion.visibilidad_codigo,
-                            publicacion.vendedor, publicacion.estado.id, publicacion.permitePregunta,
+                            publicacion.vendedor, "2", publicacion.permitePregunta,
                             publicacion.stock, DBTypeConverter.ToSQLDateTime(publicacion.fecha_inicio), publicacion.precio);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
@@ -113,6 +126,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         private TipoPublicacion ObtenerTipoPublicacion(Decimal tipo)
         {
             return RepositorioTipoPublicacion.Instance.Buscar(tipo);
+        }
+
+        public void UpdateEstado(Publicacion publiAEditar)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.PUBLICACION SET PUB_ESTADO = '{0}' " +
+                "WHERE PUB_PUBLICACION_ID = '{1}'", publiAEditar.estado.id, publiAEditar.publicacion_id);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
     }
 }

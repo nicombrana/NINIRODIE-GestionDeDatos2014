@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 namespace FrbaCommerce.Editar_Publicacion
 {
-    public partial class EditarPublicacion : Form
+    public partial class EditarPublicacionBorrador : Form
     {
-        public EditarPublicacion()
+        public EditarPublicacionBorrador(Publicacion publicacionAEditar)
         {
             InitializeComponent();
         }

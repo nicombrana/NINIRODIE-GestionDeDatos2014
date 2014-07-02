@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using FrbaCommerce.Generar_Publicacion;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
-    class Publicacion
+    public class Publicacion
     {
         public Decimal publicacion_id { get; set; }
         public String descripcion { get; set; }
@@ -55,9 +56,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
 
 
-
-
-
-
+        public void editar(BuscarPublicacion buscarPublicacion)
+        {
+            this.estado.editar(this, buscarPublicacion);
+        }
     }
 }
