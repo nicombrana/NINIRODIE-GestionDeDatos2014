@@ -18,7 +18,28 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public override void editar(Publicacion publicacion, BuscarPublicacion ventanaBusqueda)
         {
-            new EditarPublicacionPausada(publicacion).ShowDialog(ventanaBusqueda);
+            MessageBox.Show(this.ArmarMensaje(publicacion), "Atención", MessageBoxButtons.OK);
+
+            var estados = new List<Estado>();
+            estados.Add(this);
+            estados.Add(new Publicada(1, "Publicada"));
+
+            new EditarPublicacion(publicacion, estados).ShowDialog(ventanaBusqueda);
         }
+
+        private String ArmarMensaje(Publicacion publi)
+        {
+            String mensaje = "Esta Publicación se encuentra en Estado Pausado\n" +
+                "Podrá cambiar el Estado a Publicada " + publi.mensajeParaPausada();
+
+            return mensaje;
+        }
+
+        //public override bool visibilidadStockParaEdicion()
+        //{
+        //    return true;
+        //}
+
+
     }
 }

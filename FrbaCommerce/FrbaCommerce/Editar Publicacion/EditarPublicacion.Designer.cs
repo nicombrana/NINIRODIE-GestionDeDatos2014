@@ -1,6 +1,6 @@
 ﻿namespace FrbaCommerce.Editar_Publicacion
 {
-    partial class EditarPublicacionPublicada
+    partial class EditarPublicacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.estadoPublicacionLabel = new System.Windows.Forms.Label();
             this.botonAceptar = new System.Windows.Forms.Button();
             this.botonCancelar = new System.Windows.Forms.Button();
             this.estadosComboBox = new System.Windows.Forms.ComboBox();
+            this.stockLabel = new System.Windows.Forms.Label();
+            this.stockTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // estadoPublicacionLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Estado Publicación";
+            this.estadoPublicacionLabel.AutoSize = true;
+            this.estadoPublicacionLabel.Location = new System.Drawing.Point(12, 31);
+            this.estadoPublicacionLabel.Name = "estadoPublicacionLabel";
+            this.estadoPublicacionLabel.Size = new System.Drawing.Size(98, 13);
+            this.estadoPublicacionLabel.TabIndex = 0;
+            this.estadoPublicacionLabel.Text = "Estado Publicación";
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(53, 70);
+            this.botonAceptar.Location = new System.Drawing.Point(54, 110);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(68, 28);
             this.botonAceptar.TabIndex = 1;
@@ -55,7 +57,7 @@
             // 
             // botonCancelar
             // 
-            this.botonCancelar.Location = new System.Drawing.Point(159, 70);
+            this.botonCancelar.Location = new System.Drawing.Point(152, 110);
             this.botonCancelar.Name = "botonCancelar";
             this.botonCancelar.Size = new System.Drawing.Size(68, 28);
             this.botonCancelar.TabIndex = 2;
@@ -71,17 +73,36 @@
             this.estadosComboBox.Size = new System.Drawing.Size(142, 21);
             this.estadosComboBox.TabIndex = 3;
             // 
+            // stockLabel
+            // 
+            this.stockLabel.AutoSize = true;
+            this.stockLabel.Location = new System.Drawing.Point(12, 69);
+            this.stockLabel.Name = "stockLabel";
+            this.stockLabel.Size = new System.Drawing.Size(35, 13);
+            this.stockLabel.TabIndex = 4;
+            this.stockLabel.Text = "Stock";
+            // 
+            // stockTextBox
+            // 
+            this.stockTextBox.Location = new System.Drawing.Point(130, 66);
+            this.stockTextBox.Name = "stockTextBox";
+            this.stockTextBox.Size = new System.Drawing.Size(142, 20);
+            this.stockTextBox.TabIndex = 5;
+            this.stockTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stockTextBox_KeyPress);
+            // 
             // EditarPublicacionPublicada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 129);
+            this.ClientSize = new System.Drawing.Size(284, 150);
+            this.Controls.Add(this.stockTextBox);
+            this.Controls.Add(this.stockLabel);
             this.Controls.Add(this.estadosComboBox);
             this.Controls.Add(this.botonCancelar);
             this.Controls.Add(this.botonAceptar);
-            this.Controls.Add(this.label1);
-            this.Name = "EditarPublicacionPublicada";
-            this.Text = "EditarPublicacionPausada";
+            this.Controls.Add(this.estadoPublicacionLabel);
+            this.Name = "EditarPublicacion";
+            this.Text = "EditarPublicacion";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,9 +110,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label estadoPublicacionLabel;
         private System.Windows.Forms.Button botonAceptar;
         private System.Windows.Forms.Button botonCancelar;
         private System.Windows.Forms.ComboBox estadosComboBox;
+        private System.Windows.Forms.Label stockLabel;
+        private System.Windows.Forms.TextBox stockTextBox;
     }
 }

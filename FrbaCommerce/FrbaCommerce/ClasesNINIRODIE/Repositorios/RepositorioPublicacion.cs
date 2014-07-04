@@ -96,8 +96,8 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var estado = this.ObtenerEstadoPublicacion(Decimal.Parse(row["PUB_ESTADO"].ToString()));
             var permitePregunta = bool.Parse(row["PUB_PERMITE_PREGUNTA"].ToString());
             var stock = Decimal.Parse(row["PUB_STOCK"].ToString());
-            var fechaVto = DBTypeConverter.ToDateTime(row["PUB_FECHA_VENCIMIENTO"].ToString());
-            var fechaInit = DBTypeConverter.ToDateTime(row["PUB_FECHA_INICIO"].ToString());
+            var fechaVto = DateTime.Parse(row["PUB_FECHA_VENCIMIENTO"].ToString());
+            var fechaInit = DateTime.Parse(row["PUB_FECHA_INICIO"].ToString());
             var precio = Decimal.Parse(row["PUB_PRECIO"].ToString());
             if (!row["PUB_FACTURA"].Equals(DBNull.Value))
             {
@@ -130,10 +130,25 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         public void UpdateEstado(Publicacion publiAEditar)
         {
-            var query = String.Format(@"UPDATE NINIRODIE.PUBLICACION SET PUB_ESTADO = '{0}' " +
-                "WHERE PUB_PUBLICACION_ID = '{1}'", publiAEditar.estado.id, publiAEditar.publicacion_id);
+            var query = String.Format(@"UPDATE NINIRODIE.PUBLICACION SET PUB_ESTADO = '{0}', " +
+                "PUB_STOCK = '{1}' WHERE PUB_PUBLICACION_ID = '{2}'", 
+                publiAEditar.estado.id, publiAEditar.stock, publiAEditar.publicacion_id);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
+
+        public void Update(Publicacion publicacion)
+        {
+            var query = String.Format(@"UPDATE NINIRODIE.PUBLICACION SET " +
+                "PUB_DESCRIPCION = '{0}', PUB_TIPO = '{1}', PUB_VISIBILIDAD_CODIGO = '{2}', " +
+                "PUB_VENDEDOR = '{3}', PUB_ESTADO = '{4}', PUB_PERMITE_PREGUNTA = '{5}', PUB_STOCK = '{6}', " +
+                "PUB_FECHA_INICIO = '{7}', PUB_PRECIO = '{8}' WHERE PUB_PUBLICACION_ID = '{9}'", publicacion.descripcion.ToString(),
+                publicacion.tipo.id, publicacion.visibilidad_codigo, publicacion.vendedor, publicacion.estado.id,
+                publicacion.permitePregunta, publicacion.stock, DBTypeConverter.ToSQLDateTime(publicacion.fecha_inicio), Decimal.Truncate(publicacion.precio), publicacion.publicacion_id);
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
     }
 }
+
+                            

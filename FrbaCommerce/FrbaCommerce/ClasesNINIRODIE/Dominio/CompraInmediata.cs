@@ -13,5 +13,24 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             this.id = id;
             this.descripcion = descrip;
         }
+
+        public override bool VisibilidadStockParaEditar()
+        {
+            return true;
+        }
+
+        public override string mensajeParaPausada()
+        {
+            return "y aumentar el stock";
+        }
+
+        public override List<Estado> estadosParaEditarPublicada()
+        {
+            var estados = new List<Estado>();
+            estados.Add(new Pausada(3, "Pausada"));
+            estados.Add(new Finalizada(4, "Finalizada"));
+
+            return estados;
+        }
     }
 }

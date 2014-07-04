@@ -18,13 +18,21 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public override void editar(Publicacion publicacion, BuscarPublicacion ventanaBusqueda)
         {
-            DialogResult resultadoDialogo = MessageBox.Show("Esta publicación se encuentra en estado Activo \n" +
-                                            "Solo podrá cambiar el Estado de la publicación a \n" +
-                                            "Pausada o Finalizada \n" +
+            DialogResult resultadoDialogo = MessageBox.Show("Esta publicación se encuentra en estado Activo \n" +                                           
                                             "¿Esta seguro que deseada modificarla?", "Atención", MessageBoxButtons.YesNo);
 
             if (resultadoDialogo == DialogResult.Yes)
-                new EditarPublicacionPublicada(publicacion).ShowDialog(ventanaBusqueda);
+            {
+                var estados = new List<Estado>();
+                estados.Add(this);
+                var states = publicacion.tipo.estadosParaEditarPublicada();
+
+                states.ForEach(state => estados.Add(state));
+
+                new EditarPublicacion(publicacion, estados).ShowDialog(ventanaBusqueda);
+            }
         }
+
+
     }
 }

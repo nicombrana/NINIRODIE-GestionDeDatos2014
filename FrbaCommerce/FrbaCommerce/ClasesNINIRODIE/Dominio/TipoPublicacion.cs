@@ -10,6 +10,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal id { get; set; }
         public String descripcion { get; set; }
 
+        public abstract bool VisibilidadStockParaEditar();
 
+
+        public abstract String mensajeParaPausada();
+
+        public abstract List<Estado> estadosParaEditarPublicada();
     }
 }

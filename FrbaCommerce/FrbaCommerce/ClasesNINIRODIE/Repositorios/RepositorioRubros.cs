@@ -28,6 +28,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.RUBRO");
 
+            return this.Rubro(query);
+        }
+
+        public List<Rubro> Rubro(String query)
+        {
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.RUBRO");
 
             return dataRow.ToList<Rubro>(this.DataRowToRubro);
@@ -41,6 +46,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var descripcion = row["RUB_DESCRIPCION"].ToString();
 
             return new Rubro(id, descripcion);
+        }
+
+        public List<Rubro> ObtenerRubrosPorPublicacion(Publicacion publicacionAEditar)
+        {
+            var query = String.Format(@"SELECT RUB_RUBRO_ID, RUB_DESCRIPCION " +
+                                       "FROM NINIRODIE.RUBRO, NINIRODIE.PUBLICACION_RUBRO " +
+                                       "WHERE PR_RUBRO_ID = RUB_RUBRO_ID AND PR_PUBLICACION_ID = '{0}'",
+                                       publicacionAEditar.publicacion_id);
+
+            return this.Rubro(query);
         }
     }
 }

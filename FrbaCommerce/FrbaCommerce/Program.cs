@@ -23,7 +23,8 @@ namespace FrbaCommerce
             }
             catch (Exception e)
             {
-                new Error().Show();
+                MessageBox.Show("Se ha producido un error.\n La aplicación se cerrará",
+                    "Atención", MessageBoxButtons.OK);
             }
         }
     }

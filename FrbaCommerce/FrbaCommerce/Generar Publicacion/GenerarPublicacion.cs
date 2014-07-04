@@ -26,20 +26,6 @@ namespace FrbaCommerce.Generar_Publicacion
             this.popular();
             
         }
-
-        public Genepub(Publicacion publicacionAEditar)
-        {
-            InitializeComponent();
-            this.popular();
-            codigoUsuario = publicacionAEditar.vendedor;
-
-            //this.RubrosCheckList.SelectedItem = this.RubrosPublicacionAEditar();
-            //this.visibilidades.SelectedItem = this.ObtenerVisibilidad();
-            //this.pre
-
-
-        }
-
         public Genepub(Decimal codigoUser)
             : this()
         {
@@ -62,13 +48,13 @@ namespace FrbaCommerce.Generar_Publicacion
             this.visibilidades.Refresh();
             this.visibilidades.DisplayMember = "visibiDescripcion";
 
-            this.estado.DataSource = new List<String>();
+            this.estado.DataSource = new List<Estado>();
             this.estado.Refresh();
             this.estado.DataSource = RepositorioEstado.Instance.Buscar();
             this.estado.Refresh();
             this.estado.DisplayMember = "descripcion";
 
-            this.comboTipoPubli.DataSource = new List<String>();
+            this.comboTipoPubli.DataSource = new List<TipoPublicacion>();
             this.comboTipoPubli.Refresh();
             this.comboTipoPubli.DataSource = RepositorioTipoPublicacion.Instance.Buscar();
             this.comboTipoPubli.Refresh();

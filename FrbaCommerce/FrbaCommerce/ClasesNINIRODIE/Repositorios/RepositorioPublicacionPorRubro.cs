@@ -34,5 +34,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         }
 
 
+
+        public void Quitar(Publicacion publicacion, Rubro rubroCheckeadoAnterior)
+        {
+            var query = String.Format(@"DELETE FROM NINIRODIE.PUBLICACION_RUBRO " +
+                "WHERE PR_PUBLICACION_ID = '{0}' AND PR_RUBRO_ID = '{1}'", publicacion.publicacion_id,
+                rubroCheckeadoAnterior.rubro_id);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
     }
 }

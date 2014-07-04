@@ -14,7 +14,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public virtual void editar(Publicacion publicacion, BuscarPublicacion ventanaBusqueda)
         {
-            throw new NotImplementedException();
+        }
+
+        public virtual bool visibilidadStockParaEdicion()
+        {
+            return true;
         }
     }
 }

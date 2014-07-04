@@ -127,5 +127,15 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return new Visibilidad(id, descripcion, precio, porcentajeVenta, cantDias, habili);
         }
 
+
+        public Visibilidad BuscarVisibilidad(decimal codigoVisibilidad)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.VISIBILIDAD " +
+                "WHERE VIS_VISIBILIDAD_CODIGO = '{0}'", codigoVisibilidad);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.VISIBILIDAD");
+
+            return (dataRow.ToList<Visibilidad>(this.DataRowToVisibilidad)).First();
+        }
     }
 }
