@@ -17,7 +17,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public override void editar(Publicacion publicacion, BuscarPublicacion ventanaBusqueda)
         {
-            new EditarPublicacionBorrador(publicacion).ShowDialog(ventanaBusqueda);
+            new Genepub(publicacion).ShowDialog(ventanaBusqueda);
         }
     }
 }

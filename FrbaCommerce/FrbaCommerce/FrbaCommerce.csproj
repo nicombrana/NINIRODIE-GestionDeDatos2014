@@ -377,12 +377,6 @@
     <Compile Include="Comprar-Ofertar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editar Publicacion\EditarPublicacionBorrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editar Publicacion\EditarPublicacionBorrador.Designer.cs">
-      <DependentUpon>EditarPublicacionBorrador.cs</DependentUpon>
-    </Compile>
     <Compile Include="Editar Publicacion\EditarPublicacionPausada.cs">
       <SubType>Form</SubType>
     </Compile>

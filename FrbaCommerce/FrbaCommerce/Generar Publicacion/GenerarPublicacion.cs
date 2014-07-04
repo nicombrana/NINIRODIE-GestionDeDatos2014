@@ -27,6 +27,19 @@ namespace FrbaCommerce.Generar_Publicacion
             
         }
 
+        public Genepub(Publicacion publicacionAEditar)
+        {
+            InitializeComponent();
+            this.popular();
+            codigoUsuario = publicacionAEditar.vendedor;
+
+            //this.RubrosCheckList.SelectedItem = this.RubrosPublicacionAEditar();
+            //this.visibilidades.SelectedItem = this.ObtenerVisibilidad();
+            //this.pre
+
+
+        }
+
         public Genepub(Decimal codigoUser)
             : this()
         {
