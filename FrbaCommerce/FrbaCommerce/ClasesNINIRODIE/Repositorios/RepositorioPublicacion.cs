@@ -149,18 +149,23 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public List<Publicacion> BuscarPublicadasComprar()
+        public List<Publicacion> BuscarPublicadasComprar(Decimal tipo, Decimal estado)
         {
-            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
-                "WHERE PUB_ESTADO = '1'  AND PUB_TIPO = '1'");
+            var query = this.QueryPublicacion(tipo, estado);
 
             return this.BuscarPublicaciones(query);
+        }
+
+        private String QueryPublicacion(Decimal tipo, Decimal estado)
+        {
+            return String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
+                "WHERE PUB_ESTADO = '{0}' AND PUB_TIPO = '{1}' AND PUB_STOCK > 0", estado, tipo);
         }
 
         public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE " +
-                "PUB_TIPO = '{1}' AND PUB_DESCRIPCION LIKE '%{0}%' " +
+                "PUB_TIPO = '{1}' AND PUB_STOCK > 0 AND PUB_DESCRIPCION LIKE '%{0}%' " +
                 this.ArmarSubquery(rubrosCheck), descripcionAContener, tipo);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");

@@ -15,14 +15,14 @@ namespace FrbaCommerce.Comprar_Ofertar
     {
         List<Rubro> rubros = new List<Rubro>();
         List<Publicacion> publicaciones = new List<Publicacion>();
-        Publicacion publicacionSeleccionada;
+        Publicacion publicacionSeleccionada = new Publicacion();
 
         public BuscarPublicacionCompra()
         {
             InitializeComponent();
             MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
             rubros = RepositorioRubros.Instance.Rubros();
-            publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar();
+            publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar(1, 1);
             this.popular();
         }
 
@@ -70,6 +70,9 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void buscarBoton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Se iniciará la búsqueda con los parámetros indicados",
+                "Atención", MessageBoxButtons.OK);
+
             var publi = RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
                     this.descripcionTextBox.Text, 1); // EL 1 es porque es una Compra, hardcodeado... :(
 
@@ -99,7 +102,14 @@ namespace FrbaCommerce.Comprar_Ofertar
             }
 
             this.descripcionTextBox.Text = "";
-            this.publicacionSeleccionada = null;
+            this.publicacionSeleccionada = new Publicacion();
+        }
+
+        private void comprarBoton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Se iniciará la compra", "Atención", MessageBoxButtons.OK);
+
+            new Comprar(publicacionSeleccionada).ShowDialog(this);
         }
 
         //private bool FiltrarPublicacion(Publicacion publicacion)

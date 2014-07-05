@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.publicacionesGrid = new System.Windows.Forms.DataGridView();
-            this.aceptarBoton = new System.Windows.Forms.Button();
+            this.comprarBoton = new System.Windows.Forms.Button();
             this.cancelarBoton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.borrarBoton = new System.Windows.Forms.Button();
             this.buscarBoton = new System.Windows.Forms.Button();
             this.descripcionTextBox = new System.Windows.Forms.RichTextBox();
             this.rubrosCheckList = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.borrarBoton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.publicacionesGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -54,14 +54,15 @@
             this.publicacionesGrid.TabIndex = 1;
             this.publicacionesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.publicacionesGrid_CellClick);
             // 
-            // aceptarBoton
+            // comprarBoton
             // 
-            this.aceptarBoton.Location = new System.Drawing.Point(155, 415);
-            this.aceptarBoton.Name = "aceptarBoton";
-            this.aceptarBoton.Size = new System.Drawing.Size(88, 33);
-            this.aceptarBoton.TabIndex = 3;
-            this.aceptarBoton.Text = "Aceptar";
-            this.aceptarBoton.UseVisualStyleBackColor = true;
+            this.comprarBoton.Location = new System.Drawing.Point(155, 415);
+            this.comprarBoton.Name = "comprarBoton";
+            this.comprarBoton.Size = new System.Drawing.Size(88, 33);
+            this.comprarBoton.TabIndex = 3;
+            this.comprarBoton.Text = "Comprar";
+            this.comprarBoton.UseVisualStyleBackColor = true;
+            this.comprarBoton.Click += new System.EventHandler(this.comprarBoton_Click);
             // 
             // cancelarBoton
             // 
@@ -69,7 +70,7 @@
             this.cancelarBoton.Name = "cancelarBoton";
             this.cancelarBoton.Size = new System.Drawing.Size(88, 33);
             this.cancelarBoton.TabIndex = 4;
-            this.cancelarBoton.Text = "Cancelar";
+            this.cancelarBoton.Text = "Salir";
             this.cancelarBoton.UseVisualStyleBackColor = true;
             this.cancelarBoton.Click += new System.EventHandler(this.cancelarBoton_Click);
             // 
@@ -87,6 +88,16 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar";
+            // 
+            // borrarBoton
+            // 
+            this.borrarBoton.Location = new System.Drawing.Point(146, 148);
+            this.borrarBoton.Name = "borrarBoton";
+            this.borrarBoton.Size = new System.Drawing.Size(88, 33);
+            this.borrarBoton.TabIndex = 6;
+            this.borrarBoton.Text = "Borrar";
+            this.borrarBoton.UseVisualStyleBackColor = true;
+            this.borrarBoton.Click += new System.EventHandler(this.borrarBoton_Click);
             // 
             // buscarBoton
             // 
@@ -142,16 +153,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Publicaciones";
             // 
-            // borrarBoton
-            // 
-            this.borrarBoton.Location = new System.Drawing.Point(146, 148);
-            this.borrarBoton.Name = "borrarBoton";
-            this.borrarBoton.Size = new System.Drawing.Size(88, 33);
-            this.borrarBoton.TabIndex = 6;
-            this.borrarBoton.Text = "Borrar";
-            this.borrarBoton.UseVisualStyleBackColor = true;
-            this.borrarBoton.Click += new System.EventHandler(this.borrarBoton_Click);
-            // 
             // BuscarPublicacionCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,7 +161,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cancelarBoton);
-            this.Controls.Add(this.aceptarBoton);
+            this.Controls.Add(this.comprarBoton);
             this.Name = "BuscarPublicacionCompra";
             this.Text = "BuscarPublicacionCompra";
             ((System.ComponentModel.ISupportInitialize)(this.publicacionesGrid)).EndInit();
@@ -174,7 +175,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView publicacionesGrid;
-        private System.Windows.Forms.Button aceptarBoton;
+        private System.Windows.Forms.Button comprarBoton;
         private System.Windows.Forms.Button cancelarBoton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckedListBox rubrosCheckList;
