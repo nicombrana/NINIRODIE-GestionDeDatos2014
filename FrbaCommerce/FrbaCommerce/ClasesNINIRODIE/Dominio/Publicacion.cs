@@ -16,9 +16,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Estado estado { get; set; }
         public bool permitePregunta { get; set; }
         public Decimal stock { get; set; }
-        public DateTime fecha_vencimiento { get; set; }
-        public DateTime fecha_inicio { get; set; }
         public Decimal precio { get; set; }
+        public DateTime fecha_inicio { get; set; }
+        public DateTime fecha_vencimiento{ get; set; }
         public Decimal factura { get; set; }
 
         public Publicacion()

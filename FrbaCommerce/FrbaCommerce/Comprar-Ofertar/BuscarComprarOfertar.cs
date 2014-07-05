@@ -18,7 +18,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         Publicacion publicacionSeleccionada;
         Decimal tipo;
 
-        public BuscarComprarOfertar(Decimal type)
+        public BuscarComprarOfertar(Decimal type, Decimal codigoUsuario)
         {
             InitializeComponent();
             MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);

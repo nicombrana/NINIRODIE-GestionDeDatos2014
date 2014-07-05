@@ -135,12 +135,12 @@ namespace FrbaCommerce
 
         private void comprarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarComprarOfertar(1).ShowDialog(this);//Código de Inmediata
+            new BuscarComprarOfertar(1, this.login.user.id).ShowDialog(this);//Código de Inmediata
         }
 
         private void ofertarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarComprarOfertar(2).ShowDialog(this);//Código de Subasta
+            new BuscarComprarOfertar(2, this.login.user.id).ShowDialog(this);//Código de Subasta
         }
     }          
 }

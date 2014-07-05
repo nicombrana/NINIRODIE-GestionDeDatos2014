@@ -347,7 +347,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
-    <Compile Include="ClasesNINIRODIE\Dominio\Ofertas.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Oferta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pausada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
@@ -358,6 +358,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioOferta.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEstado.cs" />
