@@ -6,23 +6,23 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
-    public partial class BuscarPublicacionCompra : Form
+    public partial class BuscarPublicacionOferta : Form
     {
-        List<Rubro> rubros = new List<Rubro>();
-        List<Publicacion> publicaciones = new List<Publicacion>();
-        Publicacion publicacionSeleccionada = new Publicacion();
+        List<Publicacion> publicaciones;
+        List<Rubro> rubros;
+        Publicacion publicacionSeleccionada;
 
-        public BuscarPublicacionCompra()
+        public BuscarPublicacionOferta()
         {
             InitializeComponent();
             MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
             rubros = RepositorioRubros.Instance.Rubros();
-            publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar(1, 1);
+            publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar(2, 1);
             this.popular();
         }
 
@@ -34,8 +34,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.Refresh();
             this.publicacionesGrid.DataSource = publicaciones;
             this.publicacionesGrid.Refresh();
-            this.publicacionesGrid.Columns["publicacion_id"].Visible= false;
-            this.publicacionesGrid.Columns["tipo"].Visible = false; 
+            this.publicacionesGrid.Columns["publicacion_id"].Visible = false;
+            this.publicacionesGrid.Columns["tipo"].Visible = false;
             this.publicacionesGrid.Columns["visibilidad_codigo"].Visible = false;
             this.publicacionesGrid.Columns["vendedor"].Visible = false;
             this.publicacionesGrid.Columns["estado"].Visible = false;
@@ -59,32 +59,18 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubrosCheckList.CheckOnClick = true;
         }
 
-        private void cancelarBoton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buscarBoton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Se iniciará la búsqueda con los parámetros indicados",
                 "Atención", MessageBoxButtons.OK);
 
             var publi = RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
-                    this.descripcionTextBox.Text, 1); // EL 1 es porque es una Compra, hardcodeado... :(
+                    this.descripcionTextBox.Text, 2); // EL 2 es porque es una Compra, hardcodeado... :(
 
             this.publicacionesGrid.DataSource = publi;
 
             this.publicacionesGrid.Refresh();
 
-            //var result = publicaciones.FindAll(publicacion => this.FiltrarPublicacion(publicacion));
-
-            //this.publicacionesGrid.DataSource = result;
-            //this.publicacionesGrid.Refresh();
-        }
-
-        private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
         }
 
         private void borrarBoton_Click(object sender, EventArgs e)
@@ -92,7 +78,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.DataSource = publicaciones;
             this.publicacionesGrid.Refresh();
 
-            foreach(int index in this.rubrosCheckList.CheckedIndices)
+            foreach (int index in this.rubrosCheckList.CheckedIndices)
             {
                 this.rubrosCheckList.SetItemCheckState(index, CheckState.Unchecked);
             }
@@ -101,41 +87,23 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionSeleccionada = new Publicacion();
         }
 
-        private void comprarBoton_Click(object sender, EventArgs e)
+        private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("Se iniciará la compra", "Atención", MessageBoxButtons.OK);
-
-            new Comprar(publicacionSeleccionada).ShowDialog(this);
+            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
         }
 
-        //private bool FiltrarPublicacion(Publicacion publicacion)
-        //{
-        //    var contieneDescripcion = publicacion.descripcion.Contains(this.descripcionTextBox.Text.ToString());
-        //    bool tieneRubros = true;
-           
-        //    if (this.rubrosCheckList.CheckedItems.Count != 0)
-        //    {
-        //        var rubrosABuscar = RepositorioRubros.Instance.ObtenerRubrosPorPublicacion(publicacion);
+        private void cancelarBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-        //        tieneRubros = this.tieneRubros(publicacion, rubrosABuscar);
-        //    }
+        private void ofertarBoton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Se iniciará la oferta", "Atención", MessageBoxButtons.OK);
 
-        //    return contieneDescripcion && tieneRubros;
-        //}
-
-        //private bool tieneRubros(Publicacion publicacion, List<Rubro> rubrosABuscar)
-        //{
-        //    foreach (Rubro rubro in this.rubrosCheckList.CheckedItems)
-        //    {
-        //        if (rubrosABuscar.Any(rub => rub.rubro_id == rubro.rubro_id))
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
+            new Ofertar(publicacionSeleccionada).ShowDialog(this);
+        }
 
 
-       
     }
 }

@@ -6,14 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
     public partial class Ofertar : Form
     {
-        public Ofertar()
+        Publicacion publicacionAOfertar;
+
+        public Ofertar(Publicacion publicacion)
         {
             InitializeComponent();
+            publicacionAOfertar = publicacion;
         }
     }
 }

@@ -371,11 +371,23 @@
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioVisibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\SHA256.cs" />
     <Compile Include="ClasesNINIRODIE\Validador.cs" />
+    <Compile Include="Comprar-Ofertar\BuscarPublicacionCompraOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\BuscarPublicacionCompraOferta.Designer.cs">
+      <DependentUpon>BuscarPublicacionCompraOferta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comprar-Ofertar\BuscarPublicacionCompra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comprar-Ofertar\BuscarPublicacionCompra.Designer.cs">
       <DependentUpon>BuscarPublicacionCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\BuscarPublicacionOferta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comprar-Ofertar\BuscarPublicacionOferta.Designer.cs">
+      <DependentUpon>BuscarPublicacionOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="Comprar-Ofertar\Comprar.cs">
       <SubType>Form</SubType>
@@ -600,6 +612,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comprar-Ofertar\BuscarPublicacionCompra.resx">
       <DependentUpon>BuscarPublicacionCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\BuscarPublicacionOferta.resx">
+      <DependentUpon>BuscarPublicacionOferta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editar Publicacion\EditarPublicacionBorrador.resx">
       <DependentUpon>EditarPublicacionBorrador.cs</DependentUpon>

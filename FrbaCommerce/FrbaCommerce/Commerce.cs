@@ -137,5 +137,10 @@ namespace FrbaCommerce
         {
             new BuscarPublicacionCompra().ShowDialog(this);
         }
+
+        private void ofertarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new BuscarPublicacionOferta().ShowDialog(this);
+        }
     }          
 }
