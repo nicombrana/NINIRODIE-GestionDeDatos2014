@@ -159,14 +159,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         private String QueryPublicacion(Decimal tipo, Decimal estado)
         {
             return String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
-                "WHERE PUB_ESTADO = '{0}' AND PUB_TIPO = '{1}' AND PUB_STOCK > 0", estado, tipo);
+                "WHERE PUB_ESTADO = '{0}' AND PUB_TIPO = '{1}' AND PUB_STOCK > 0 " +
+                "AND PUB_FECHA_VENCIMIENTO > GETDATE() " +
+                "ORDER BY PUB_VISIBILIDAD_CODIGO ASC", estado, tipo);
         }
 
         public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE " +
-                "PUB_TIPO = '{1}' AND PUB_STOCK > 0 AND PUB_DESCRIPCION LIKE '%{0}%' " +
-                this.ArmarSubquery(rubrosCheck), descripcionAContener, tipo);
+                "AND PUB_FECHA_VENCIMIENTO > GETDATE() PUB_TIPO = '{1}' AND " + 
+                "PUB_STOCK > 0 AND PUB_DESCRIPCION LIKE '%{0}%' " +
+                this.ArmarSubquery(rubrosCheck) + 
+                " ORDER BY PUB_VISIBILIDAD_CODIGO ASC", descripcionAContener, tipo);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
 

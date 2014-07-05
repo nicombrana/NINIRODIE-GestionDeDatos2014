@@ -81,8 +81,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.publicacionesGrid.Columns["descripcion"].ReadOnly = true;
             this.publicacionesGrid.Columns["stock"].ReadOnly = true;
-            this.publicacionesGrid.Columns["fecha_inicio"].ReadOnly = true;
             this.publicacionesGrid.Columns["precio"].ReadOnly = true;
+            this.publicacionesGrid.Columns["fecha_inicio"].ReadOnly = true;
             this.publicacionesGrid.Columns["fecha_vencimiento"].ReadOnly = true;
 
         }
