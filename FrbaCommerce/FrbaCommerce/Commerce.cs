@@ -16,6 +16,7 @@ using FrbaCommerce.Gestion_de_Preguntas;
 using FrbaCommerce.Alertas;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.Comprar_Ofertar;
 
 namespace FrbaCommerce
 {
@@ -132,9 +133,9 @@ namespace FrbaCommerce
             new Responder(cod_conectado).ShowDialog(this);
         }
 
-        private void buscarPublicacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void comprarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarPublicacion(this.login.user.codigo).ShowDialog(this);
+            new BuscarPublicacionCompra().ShowDialog(this);
         }
     }          
 }

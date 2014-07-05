@@ -148,6 +148,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
+
+        public List<Publicacion> BuscarPublicadasComprar()
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
+                "WHERE PUB_ESTADO = '1'  AND PUB_TIPO = '1'");
+
+            return this.BuscarPublicaciones(query);
+        }
     }
 }
 

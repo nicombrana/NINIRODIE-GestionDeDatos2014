@@ -38,12 +38,14 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Campass = new System.Windows.Forms.ToolStripButton();
             this.publicacion = new System.Windows.Forms.ToolStripDropDownButton();
-            this.editarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preguntas = new System.Windows.Forms.ToolStripDropDownButton();
             this.verRespuestasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.responderPreguntasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarPublicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.comprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,7 +105,8 @@
             this.toolStripDropDownButton1,
             this.Campass,
             this.publicacion,
-            this.preguntas});
+            this.preguntas,
+            this.toolStripSplitButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(669, 25);
@@ -124,21 +127,13 @@
             // 
             this.publicacion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.publicacion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarPublicacionesToolStripMenuItem,
             this.generarPublicacionesToolStripMenuItem,
-            this.buscarPublicacionesToolStripMenuItem});
+            this.editarPublicacionesToolStripMenuItem});
             this.publicacion.Image = ((System.Drawing.Image)(resources.GetObject("publicacion.Image")));
             this.publicacion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.publicacion.Name = "publicacion";
             this.publicacion.Size = new System.Drawing.Size(93, 22);
             this.publicacion.Text = "Publicaciones";
-            // 
-            // editarPublicacionesToolStripMenuItem
-            // 
-            this.editarPublicacionesToolStripMenuItem.Name = "editarPublicacionesToolStripMenuItem";
-            this.editarPublicacionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.editarPublicacionesToolStripMenuItem.Text = "Editar Publicaciones";
-            this.editarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.editarPublicacionesToolStripMenuItem_Click);
             // 
             // generarPublicacionesToolStripMenuItem
             // 
@@ -146,6 +141,13 @@
             this.generarPublicacionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.generarPublicacionesToolStripMenuItem.Text = "Generar Publicaciones";
             this.generarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.generarPublicacionesToolStripMenuItem_Click);
+            // 
+            // editarPublicacionesToolStripMenuItem
+            // 
+            this.editarPublicacionesToolStripMenuItem.Name = "editarPublicacionesToolStripMenuItem";
+            this.editarPublicacionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.editarPublicacionesToolStripMenuItem.Text = "Editar Publicaciones";
+            this.editarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.editarPublicacionesToolStripMenuItem_Click);
             // 
             // preguntas
             // 
@@ -173,12 +175,30 @@
             this.responderPreguntasToolStripMenuItem.Text = "Responder Preguntas";
             this.responderPreguntasToolStripMenuItem.Click += new System.EventHandler(this.responderPreguntasToolStripMenuItem_Click);
             // 
-            // buscarPublicacionesToolStripMenuItem
+            // toolStripSplitButton1
             // 
-            this.buscarPublicacionesToolStripMenuItem.Name = "buscarPublicacionesToolStripMenuItem";
-            this.buscarPublicacionesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.buscarPublicacionesToolStripMenuItem.Text = "Buscar Publicaciones";
-            this.buscarPublicacionesToolStripMenuItem.Click += new System.EventHandler(this.buscarPublicacionesToolStripMenuItem_Click);
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comprarToolStripMenuItem,
+            this.ofertarToolStripMenuItem});
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(112, 22);
+            this.toolStripSplitButton1.Text = "Comprar/Ofertar";
+            // 
+            // comprarToolStripMenuItem
+            // 
+            this.comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
+            this.comprarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.comprarToolStripMenuItem.Text = "Comprar";
+            this.comprarToolStripMenuItem.Click += new System.EventHandler(this.comprarToolStripMenuItem_Click);
+            // 
+            // ofertarToolStripMenuItem
+            // 
+            this.ofertarToolStripMenuItem.Name = "ofertarToolStripMenuItem";
+            this.ofertarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ofertarToolStripMenuItem.Text = "Ofertar";
             // 
             // Commerce
             // 
@@ -212,7 +232,9 @@
         private System.Windows.Forms.ToolStripDropDownButton preguntas;
         private System.Windows.Forms.ToolStripMenuItem verRespuestasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem responderPreguntasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarPublicacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ofertarToolStripMenuItem;
 
 
     }
