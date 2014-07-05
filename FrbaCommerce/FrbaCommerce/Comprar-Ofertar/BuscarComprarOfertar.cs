@@ -6,24 +6,60 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
-    public partial class BuscarPublicacionCompra : Form
+    public partial class BuscarComprarOfertar : Form
     {
-        List<Rubro> rubros = new List<Rubro>();
-        List<Publicacion> publicaciones = new List<Publicacion>();
-        Publicacion publicacionSeleccionada = new Publicacion();
+        List<Publicacion> publicaciones;
+        List<Rubro> rubros;
+        Publicacion publicacionSeleccionada;
+        Decimal tipo;
 
-        public BuscarPublicacionCompra()
+        public BuscarComprarOfertar(Decimal type)
         {
             InitializeComponent();
             MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
+            tipo = type;
             rubros = RepositorioRubros.Instance.Rubros();
-            publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar(1, 1);
+            publicaciones = this.ObtenerPublicaciones();
             this.popular();
+            this.CrearBotonAceptarOfertar();
+        }
+
+        private void CrearBotonAceptarOfertar()
+        {
+            if (tipo == 1)
+            {
+                this.aceptarBoton.Text = "Comprar";
+                this.aceptarBoton.Click += new EventHandler(comprarBoton_Click);
+            }
+            else
+            {
+                this.aceptarBoton.Text = "Ofertar";
+                this.aceptarBoton.Click += new EventHandler(ofertarBoton_Click);
+            }
+        }
+
+        private void AvisarUsuario(String mensaje)
+        {
+            MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
+        }
+
+        void ofertarBoton_Click(object sender, EventArgs e)
+        {
+            this.AvisarUsuario("Se iniciará la Oferta");
+
+            new Ofertar(publicacionSeleccionada).ShowDialog(this);
+        }
+
+        void comprarBoton_Click(object sender, EventArgs e)
+        {
+            this.AvisarUsuario("Se iniciará la compra");
+
+            new Comprar(publicacionSeleccionada).ShowDialog(this);
         }
 
         private void popular()
@@ -34,8 +70,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.Refresh();
             this.publicacionesGrid.DataSource = publicaciones;
             this.publicacionesGrid.Refresh();
-            this.publicacionesGrid.Columns["publicacion_id"].Visible= false;
-            this.publicacionesGrid.Columns["tipo"].Visible = false; 
+            this.publicacionesGrid.Columns["publicacion_id"].Visible = false;
+            this.publicacionesGrid.Columns["tipo"].Visible = false;
             this.publicacionesGrid.Columns["visibilidad_codigo"].Visible = false;
             this.publicacionesGrid.Columns["vendedor"].Visible = false;
             this.publicacionesGrid.Columns["estado"].Visible = false;
@@ -59,9 +95,9 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubrosCheckList.CheckOnClick = true;
         }
 
-        private void cancelarBoton_Click(object sender, EventArgs e)
+        private List<Publicacion> ObtenerPublicaciones()
         {
-            this.Close();
+            return RepositorioPublicacion.Instance.BuscarPublicadasComprar(tipo, 1);
         }
 
         private void buscarBoton_Click(object sender, EventArgs e)
@@ -69,22 +105,17 @@ namespace FrbaCommerce.Comprar_Ofertar
             MessageBox.Show("Se iniciará la búsqueda con los parámetros indicados",
                 "Atención", MessageBoxButtons.OK);
 
-            var publi = RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
-                    this.descripcionTextBox.Text, 1); // EL 1 es porque es una Compra, hardcodeado... :(
+            var publi = this.FiltrarPublicaciones();
 
             this.publicacionesGrid.DataSource = publi;
 
             this.publicacionesGrid.Refresh();
-
-            //var result = publicaciones.FindAll(publicacion => this.FiltrarPublicacion(publicacion));
-
-            //this.publicacionesGrid.DataSource = result;
-            //this.publicacionesGrid.Refresh();
         }
 
-        private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private List<Publicacion> FiltrarPublicaciones()
         {
-            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
+            return RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
+                    this.descripcionTextBox.Text, tipo);
         }
 
         private void borrarBoton_Click(object sender, EventArgs e)
@@ -92,7 +123,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.DataSource = publicaciones;
             this.publicacionesGrid.Refresh();
 
-            foreach(int index in this.rubrosCheckList.CheckedIndices)
+            foreach (int index in this.rubrosCheckList.CheckedIndices)
             {
                 this.rubrosCheckList.SetItemCheckState(index, CheckState.Unchecked);
             }
@@ -101,41 +132,14 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionSeleccionada = new Publicacion();
         }
 
-        private void comprarBoton_Click(object sender, EventArgs e)
+        private void cancelarBoton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se iniciará la compra", "Atención", MessageBoxButtons.OK);
-
-            new Comprar(publicacionSeleccionada).ShowDialog(this);
+            this.Close();
         }
 
-        //private bool FiltrarPublicacion(Publicacion publicacion)
-        //{
-        //    var contieneDescripcion = publicacion.descripcion.Contains(this.descripcionTextBox.Text.ToString());
-        //    bool tieneRubros = true;
-           
-        //    if (this.rubrosCheckList.CheckedItems.Count != 0)
-        //    {
-        //        var rubrosABuscar = RepositorioRubros.Instance.ObtenerRubrosPorPublicacion(publicacion);
-
-        //        tieneRubros = this.tieneRubros(publicacion, rubrosABuscar);
-        //    }
-
-        //    return contieneDescripcion && tieneRubros;
-        //}
-
-        //private bool tieneRubros(Publicacion publicacion, List<Rubro> rubrosABuscar)
-        //{
-        //    foreach (Rubro rubro in this.rubrosCheckList.CheckedItems)
-        //    {
-        //        if (rubrosABuscar.Any(rub => rub.rubro_id == rubro.rubro_id))
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
-
-
-       
+        private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
+        }
     }
 }
