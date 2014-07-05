@@ -156,6 +156,40 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             return this.BuscarPublicaciones(query);
         }
+
+        public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE " +
+                "PUB_TIPO = '{1}' AND PUB_DESCRIPCION LIKE '%{0}%' " +
+                this.ArmarSubquery(rubrosCheck), descripcionAContener, tipo);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
+
+            return dataRow.ToList<Publicacion>(this.DataRowToPublicacion);
+        }
+
+        private String ArmarSubquery(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck)
+        {
+            if(rubrosCheck.Count > 0)
+                return String.Format(@"AND PUB_PUBLICACION_ID IN (SELECT PR_PUBLICACION_ID FROM NINIRODIE.PUBLICACION_RUBRO " +
+                    " WHERE PR_RUBRO_ID IN (" + this.ArmarQueryParaRubros(rubrosCheck) + "))");
+            return "";
+        }
+
+        private String ArmarQueryParaRubros(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck)
+        {
+            String restoQuery = "";
+            String query = "";
+
+            foreach (Rubro rubro in rubrosCheck)
+            {
+                query = String.Format(@" '{0}',", rubro.rubro_id);
+                restoQuery = String.Concat(restoQuery, query);
+            }
+            if(restoQuery != "")
+                return restoQuery.Substring(0, restoQuery.LastIndexOf(","));
+            return restoQuery;
+        }
     }
 }
 

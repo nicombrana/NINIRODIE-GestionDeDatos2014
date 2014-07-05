@@ -72,6 +72,7 @@ namespace FrbaCommerce.Editar_Publicacion
             rubrosTotales.ForEach(rubro => this.RubrosCheckList.Items.Add(rubro));
             this.RubrosCheckList.Refresh();
             RubrosCheckList.DisplayMember = "rub_descripcion";
+            RubrosCheckList.CheckOnClick = true;
         }
 
         private void SeEncontroElValorAInicializar(Decimal idBuscado, Decimal idCorrespondienteALaPublicacion,

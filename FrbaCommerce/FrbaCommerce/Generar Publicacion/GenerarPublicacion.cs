@@ -67,6 +67,7 @@ namespace FrbaCommerce.Generar_Publicacion
             rubros.ForEach(rubro => this.RubrosCheckList.Items.Add(rubro));
             this.RubrosCheckList.Refresh();
             RubrosCheckList.DisplayMember = "rub_descripcion";
+            RubrosCheckList.CheckOnClick = true;
         }
 
         public Genepub(bool modificando) :this()

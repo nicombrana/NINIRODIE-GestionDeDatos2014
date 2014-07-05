@@ -15,10 +15,12 @@ namespace FrbaCommerce.Comprar_Ofertar
     {
         List<Rubro> rubros = new List<Rubro>();
         List<Publicacion> publicaciones = new List<Publicacion>();
+        Publicacion publicacionSeleccionada;
 
         public BuscarPublicacionCompra()
         {
             InitializeComponent();
+            MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
             rubros = RepositorioRubros.Instance.Rubros();
             publicaciones = RepositorioPublicacion.Instance.BuscarPublicadasComprar();
             this.popular();
@@ -40,6 +42,12 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.Columns["permitePregunta"].Visible = false;
             this.publicacionesGrid.Columns["factura"].Visible = false;
 
+            this.publicacionesGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.publicacionesGrid.Columns["descripcion"].ReadOnly = true;
+            this.publicacionesGrid.Columns["stock"].ReadOnly = true;
+            this.publicacionesGrid.Columns["fecha_inicio"].ReadOnly = true;
+            this.publicacionesGrid.Columns["precio"].ReadOnly = true;
+            this.publicacionesGrid.Columns["fecha_vencimiento"].ReadOnly = true;
 
         }
 
@@ -48,6 +56,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             rubros.ForEach(rubro => this.rubrosCheckList.Items.Add(rubro));
             this.rubrosCheckList.Refresh();
             rubrosCheckList.DisplayMember = "rub_descripcion";
+            rubrosCheckList.CheckOnClick = true;
         }
 
         private void cancelarBoton_Click(object sender, EventArgs e)
@@ -61,20 +70,64 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void buscarBoton_Click(object sender, EventArgs e)
         {
-            var result = publicaciones.FindAll(publicacion => this.FiltrarPublicacion(publicacion));
+            var publi = RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
+                    this.descripcionTextBox.Text, 1); // EL 1 es porque es una Compra, hardcodeado... :(
 
-            this.publicacionesGrid.DataSource = result;
+            this.publicacionesGrid.DataSource = publi;
+
             this.publicacionesGrid.Refresh();
+
+            //var result = publicaciones.FindAll(publicacion => this.FiltrarPublicacion(publicacion));
+
+            //this.publicacionesGrid.DataSource = result;
+            //this.publicacionesGrid.Refresh();
         }
 
-        private bool FiltrarPublicacion(Publicacion publicacion)
+        private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var resultDescripcion = publicacion.descripcion.Contains(this.descripcionTextBox.Text.ToString());
-
-
-
-            return resultDescripcion;
+            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
         }
+
+        private void borrarBoton_Click(object sender, EventArgs e)
+        {
+            this.publicacionesGrid.DataSource = publicaciones;
+            this.publicacionesGrid.Refresh();
+
+            foreach(int index in this.rubrosCheckList.CheckedIndices)
+            {
+                this.rubrosCheckList.SetItemCheckState(index, CheckState.Unchecked);
+            }
+
+            this.descripcionTextBox.Text = "";
+            this.publicacionSeleccionada = null;
+        }
+
+        //private bool FiltrarPublicacion(Publicacion publicacion)
+        //{
+        //    var contieneDescripcion = publicacion.descripcion.Contains(this.descripcionTextBox.Text.ToString());
+        //    bool tieneRubros = true;
+           
+        //    if (this.rubrosCheckList.CheckedItems.Count != 0)
+        //    {
+        //        var rubrosABuscar = RepositorioRubros.Instance.ObtenerRubrosPorPublicacion(publicacion);
+
+        //        tieneRubros = this.tieneRubros(publicacion, rubrosABuscar);
+        //    }
+
+        //    return contieneDescripcion && tieneRubros;
+        //}
+
+        //private bool tieneRubros(Publicacion publicacion, List<Rubro> rubrosABuscar)
+        //{
+        //    foreach (Rubro rubro in this.rubrosCheckList.CheckedItems)
+        //    {
+        //        if (rubrosABuscar.Any(rub => rub.rubro_id == rubro.rubro_id))
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
 
 
        

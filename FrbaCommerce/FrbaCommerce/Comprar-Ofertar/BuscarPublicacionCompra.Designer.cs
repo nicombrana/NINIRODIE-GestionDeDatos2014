@@ -32,12 +32,13 @@
             this.aceptarBoton = new System.Windows.Forms.Button();
             this.cancelarBoton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rubrosCheckList = new System.Windows.Forms.CheckedListBox();
-            this.descripcionTextBox = new System.Windows.Forms.RichTextBox();
             this.buscarBoton = new System.Windows.Forms.Button();
+            this.descripcionTextBox = new System.Windows.Forms.RichTextBox();
+            this.rubrosCheckList = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.borrarBoton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.publicacionesGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -51,6 +52,7 @@
             this.publicacionesGrid.Name = "publicacionesGrid";
             this.publicacionesGrid.Size = new System.Drawing.Size(503, 171);
             this.publicacionesGrid.TabIndex = 1;
+            this.publicacionesGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.publicacionesGrid_CellClick);
             // 
             // aceptarBoton
             // 
@@ -73,6 +75,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.borrarBoton);
             this.groupBox1.Controls.Add(this.buscarBoton);
             this.groupBox1.Controls.Add(this.descripcionTextBox);
             this.groupBox1.Controls.Add(this.rubrosCheckList);
@@ -85,24 +88,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar";
             // 
-            // groupBox2
+            // buscarBoton
             // 
-            this.groupBox2.Controls.Add(this.publicacionesGrid);
-            this.groupBox2.Location = new System.Drawing.Point(9, 213);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(518, 196);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Publicaciones";
+            this.buscarBoton.Location = new System.Drawing.Point(290, 148);
+            this.buscarBoton.Name = "buscarBoton";
+            this.buscarBoton.Size = new System.Drawing.Size(88, 33);
+            this.buscarBoton.TabIndex = 5;
+            this.buscarBoton.Text = "Buscar";
+            this.buscarBoton.UseVisualStyleBackColor = true;
+            this.buscarBoton.Click += new System.EventHandler(this.buscarBoton_Click);
             // 
-            // label1
+            // descripcionTextBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rubros";
+            this.descripcionTextBox.Location = new System.Drawing.Point(246, 48);
+            this.descripcionTextBox.Name = "descripcionTextBox";
+            this.descripcionTextBox.Size = new System.Drawing.Size(266, 94);
+            this.descripcionTextBox.TabIndex = 4;
+            this.descripcionTextBox.Text = "";
+            // 
+            // rubrosCheckList
+            // 
+            this.rubrosCheckList.FormattingEnabled = true;
+            this.rubrosCheckList.Location = new System.Drawing.Point(9, 48);
+            this.rubrosCheckList.Name = "rubrosCheckList";
+            this.rubrosCheckList.Size = new System.Drawing.Size(215, 94);
+            this.rubrosCheckList.TabIndex = 3;
             // 
             // label2
             // 
@@ -113,32 +123,34 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Descripción";
             // 
-            // rubrosCheckList
+            // label1
             // 
-            this.rubrosCheckList.FormattingEnabled = true;
-            this.rubrosCheckList.Location = new System.Drawing.Point(9, 48);
-            this.rubrosCheckList.Name = "rubrosCheckList";
-            this.rubrosCheckList.Size = new System.Drawing.Size(215, 94);
-            this.rubrosCheckList.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Rubros";
             // 
-            // descripcionTextBox
+            // groupBox2
             // 
-            this.descripcionTextBox.Location = new System.Drawing.Point(246, 48);
-            this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(266, 94);
-            this.descripcionTextBox.TabIndex = 4;
-            this.descripcionTextBox.Text = "";
-            this.descripcionTextBox.TextChanged += new System.EventHandler(this.descripcionTextBox_TextChanged);
+            this.groupBox2.Controls.Add(this.publicacionesGrid);
+            this.groupBox2.Location = new System.Drawing.Point(9, 213);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(518, 196);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Publicaciones";
             // 
-            // buscarBoton
+            // borrarBoton
             // 
-            this.buscarBoton.Location = new System.Drawing.Point(421, 146);
-            this.buscarBoton.Name = "buscarBoton";
-            this.buscarBoton.Size = new System.Drawing.Size(88, 33);
-            this.buscarBoton.TabIndex = 5;
-            this.buscarBoton.Text = "Buscar";
-            this.buscarBoton.UseVisualStyleBackColor = true;
-            this.buscarBoton.Click += new System.EventHandler(this.buscarBoton_Click);
+            this.borrarBoton.Location = new System.Drawing.Point(146, 148);
+            this.borrarBoton.Name = "borrarBoton";
+            this.borrarBoton.Size = new System.Drawing.Size(88, 33);
+            this.borrarBoton.TabIndex = 6;
+            this.borrarBoton.Text = "Borrar";
+            this.borrarBoton.UseVisualStyleBackColor = true;
+            this.borrarBoton.Click += new System.EventHandler(this.borrarBoton_Click);
             // 
             // BuscarPublicacionCompra
             // 
@@ -171,6 +183,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox descripcionTextBox;
         private System.Windows.Forms.Button buscarBoton;
+        private System.Windows.Forms.Button borrarBoton;
 
     }
 }
