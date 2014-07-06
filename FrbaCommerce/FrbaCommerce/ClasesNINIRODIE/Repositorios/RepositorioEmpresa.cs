@@ -106,21 +106,40 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         public Empresa DataRowToEmpresa(DataRow row)
         {
+            var codigo = Decimal.Parse(row["EMP_CODIGO"].ToString());
+
             var razon = row["EMP_RAZON_SOCIAL"].ToString();
-            var contacto = row["EMP_CONTACTO"].ToString();
-            var cuit = int.Parse(row["EMP_CUIT"].ToString());
-            var telef = int.Parse(row["EMP_TELEFONO"].ToString());
+            
+            String contacto = "";
+            if (!row["EMP_CONTACTO"].Equals(DBNull.Value))
+                contacto = row["EMP_CONTACTO"].ToString();
+            
+            var cuit = (row["EMP_CUIT"].ToString());
+            
+            int telef = 0;
+            if (!row["EMP_TELEFONO"].Equals(DBNull.Value))
+                telef = int.Parse(row["EMP_TELEFONO"].ToString());
+
             var meil = row["EMP_MAIL"].ToString();
-            var f_crea = DateTime.Parse(row["EMP_FECHA_CREACION"].ToString());
-            var ciudad = row["EMP_CIUDAD"].ToString();
-            var loc = row["EMP_LOCALIDAD"].ToString();
+            DateTime f_crea = new DateTime();
+            if (!row["EMP_FECHA_CREACION"].Equals(DBNull.Value))
+                f_crea = DateTime.Parse(row["EMP_FECHA_CREACION"].ToString());
+            
+            String ciudad = "";
+            if(!row["EMP_CIUDAD"].Equals(DBNull.Value))
+                ciudad = row["EMP_CIUDAD"].ToString();
+
+            String loc = "";
+            if(!row["EMP_LOCALIDAD"].Equals(DBNull.Value))
+                loc = row["EMP_LOCALIDAD"].ToString();
+            
             var call = row["EMP_CALLE"].ToString();
             var altu = int.Parse(row["EMP_ALTURA"].ToString());
             var pis = int.Parse(row["EMP_PISO"].ToString());
             var codpos = int.Parse(row["EMP_CODIGO_POSTAL"].ToString());
             var puert = row["EMP_DEPARTAMENTO"].ToString();
 
-            var empresa = new Empresa(cuit, razon, contacto, f_crea, meil, telef,
+            var empresa = new Empresa(codigo, cuit, razon, contacto, f_crea, meil, telef,
             ciudad, loc, call, altu, pis, codpos, puert);
 
             return empresa;

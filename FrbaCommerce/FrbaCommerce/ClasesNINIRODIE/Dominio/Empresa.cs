@@ -7,7 +7,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
     class Empresa : Persona
     {
         public String razon_social { get; set; }
-        public int cuit { get; set; }
+        public String cuit { get; set; }
         public String contacto { get; set; }
         public DateTime fecha_creacion { get; set; }
         public Char habilitado { get; set; }
@@ -15,7 +15,17 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Empresa(){
         }
 
-        public Empresa(int nro_cuit, String razon, String contact,
+        public Empresa(Decimal codigo, String nro_cuit, String razon, String contact,
+            DateTime fechac, String mal, int Telefon,
+            String ciu, String lodad, String cal, int al, int pi, int cp,
+            String purta)
+            : this(nro_cuit, razon, contact, fechac, mal, Telefon, ciu, lodad, cal, al,
+                pi, cp, purta)
+        {
+            this.codigo = codigo;
+        }
+
+        public Empresa(String nro_cuit, String razon, String contact,
             DateTime fechac, String mal, int Telefon, 
             String ciu, String lodad, String cal, int al, int pi, int cp, 
             String purta)

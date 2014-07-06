@@ -15,6 +15,13 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 
         public Cliente(){
         }
+        public Cliente(Decimal codigo, String tipo_docu, int numero_doc, String nombr, String apellid,
+            DateTime fechan, Char se, String mal, int Telefon, String ciu, String lodad, String cal,
+            int al, int pi, int cp, String purta) : this(tipo_docu, numero_doc, nombr, apellid, 
+            fechan, se, mal, Telefon, ciu, lodad, cal, al, pi, cp, purta)
+        {
+            this.codigo = codigo;
+        }
 
         public Cliente(String tipo_docu, int numero_doc, String nombr, String apellid,
             DateTime fechan, Char se, String mal, int Telefon, 

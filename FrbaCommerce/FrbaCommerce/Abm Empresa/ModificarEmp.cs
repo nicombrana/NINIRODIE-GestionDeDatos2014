@@ -15,9 +15,9 @@ namespace FrbaCommerce.Abm_Empresa
 {
     public partial class ModificarEmp : Form
     {
-        public int empresa_id;
+        public Decimal empresa_id;
 
-        public ModificarEmp(int idempresa)
+        public ModificarEmp(Decimal idempresa)
         {
             empresa_id = idempresa;
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace FrbaCommerce.Abm_Empresa
             empresa.fecha_creacion = dateTimePicker1.Value;
             if (cuit.Text != "")
             {
-                empresa.cuit = int.Parse(cuit.Text);
+                empresa.cuit = cuit.Text.ToString();
             }
             if (contacto.Text != "")
             {

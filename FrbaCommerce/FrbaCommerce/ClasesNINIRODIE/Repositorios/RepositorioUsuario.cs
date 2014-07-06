@@ -27,6 +27,22 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             }
         }
 
+        public Usuario BuscarUsuarioPorCodigo(Decimal codigoUsuario)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.USUARIO " +
+                "WHERE USU_CODIGO = '{0}'", codigoUsuario);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NIINRODIE.USUARIO");
+
+            var usuarios = dataRow.ToList<Usuario>(this.DataRowToUsuario);
+
+            if (usuarios.Count > 0)
+                return usuarios.First();
+            else
+                return new Usuario();
+        }
+
+
         public Usuario BuscarUsuario(string id)
         {
             //Aca se debería golpear a la base
@@ -132,11 +148,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var tipo = row["USU_TIPO"].ToString();
             var bloqueado = bool.Parse(row["USU_BLOQUEADO"].ToString());
             var primer = bool.Parse(row["USU_CAMBIO_CLAVE"].ToString());
-            /*
-            var id_cliente = Decimal.Parse(row["USU_CLIENTE_ID"].ToString());
-            var id_empresa = Decimal.Parse(row["USU_EMPRESA_ID"].ToString());
-            */
-            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo, bloqueado, primer/*, id_cliente, id_empresa*/);
+            Decimal idClienteOEmpresa;
+
+            if (!row["USU_CLIENTE_ID"].Equals(DBNull.Value))
+                idClienteOEmpresa = Decimal.Parse(row["USU_CLIENTE_ID"].ToString());
+            else
+                if (!row["USU_EMPRESA_ID"].Equals(DBNull.Value))
+                    idClienteOEmpresa = Decimal.Parse(row["USU_EMPRESA_ID"].ToString());
+                else
+                    return new Usuario(codigo, id, pass, habilitado, intentos, tipo,
+                        bloqueado, primer);
+            
+            var usuario = new Usuario(codigo, id, pass, habilitado, intentos, tipo, bloqueado, primer, idClienteOEmpresa);
 
             return usuario;
 

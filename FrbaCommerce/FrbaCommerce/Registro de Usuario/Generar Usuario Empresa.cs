@@ -16,7 +16,7 @@ namespace FrbaCommerce
     public partial class GenerarEmpresa : Form
     {
         String razon_social;
-        int nro_cuit;
+        String nro_cuit;
         int telef;
         String meil;
         String contact;
@@ -165,7 +165,7 @@ namespace FrbaCommerce
                 razon_social = nombre.Text;
                 telef = int.Parse(telefono.Text);
                 contact = contacto.Text;
-                nro_cuit = int.Parse(cuit.Text);
+                nro_cuit = cuit.Text.ToString();
                 codpos = int.Parse(cod_pos.Text);
                 pis = int.Parse(piso.Text);
                 altu = int.Parse(altura.Text);

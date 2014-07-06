@@ -122,6 +122,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.DataSource = publi;
 
             this.publicacionesGrid.Refresh();
+
+            this.seleccionarPublicacion();
         }
 
         private List<Publicacion> FiltrarPublicaciones()
@@ -156,7 +158,11 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void seleccionarPublicacion()
         {
-            publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
+            if (this.publicacionesGrid.SelectedRows.Count > 0)
+                publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
+            else
+                MessageBox.Show("No se encontró ninguna publicaciones\n" +
+                    "con los parámetros indicados", "Atención", MessageBoxButtons.OK);
         }
     }
 }

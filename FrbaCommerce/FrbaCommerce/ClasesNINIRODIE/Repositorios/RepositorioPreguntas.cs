@@ -72,5 +72,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                                         respuesta, fecha_respuesta);
             return pregunta;
         }
+
+        public void GenerarPregunta(String pregunta, Decimal codigoCliente, Decimal codigoPublicacion)
+        {
+            var query = String.Format(@"INSERT INTO NINIRODIE.PREGUNTA " +
+                "(PREG_PUBLICACION_ID, PREG_CLIENTE, PREG_DESCRIPCION) " +
+                "VALUES ('{0}', '{1}', '{2}')", codigoPublicacion, codigoCliente, pregunta);
+
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
+        }
     }
 }

@@ -111,5 +111,10 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             return new Oferta(publicacionAOfertar.publicacion_id, monto, fecha, this.codigoUsuario);
         }
+
+        private void preguntarBoton_Click(object sender, EventArgs e)
+        {
+            new Preguntas(codigoUsuario, publicacionAOfertar.publicacion_id).ShowDialog(this);
+        }
     }
 }

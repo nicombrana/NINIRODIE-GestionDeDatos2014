@@ -15,11 +15,11 @@ namespace FrbaCommerce.Abm_Cliente
 {
     public partial class ModificarCli : Form
     {
-        int clienteId;
+        Decimal clienteId;
 
         Cliente cliente;
 
-        public ModificarCli(int id)
+        public ModificarCli(Decimal id)
         {
             clienteId = id;
             InitializeComponent();
