@@ -29,7 +29,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void aceptarBoton_Click(object sender, EventArgs e)
         {
-            RepositorioPreguntas.Instance.GenerarPregunta(this.preguntaRichTextBox.ToString(),
+            RepositorioPreguntas.Instance.GenerarPregunta(this.preguntaRichTextBox.Text.ToString(),
                 this.CodigoCliente, this.CodigoPublicacion);
 
             MessageBox.Show("Se ha generado la pregunta exitosamente",

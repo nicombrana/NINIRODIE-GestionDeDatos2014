@@ -48,6 +48,7 @@
             this.CodigoPostal = new System.Windows.Forms.Label();
             this.Piso = new System.Windows.Forms.Label();
             this.preguntaraBoton = new System.Windows.Forms.Button();
+            this.cancelarBoton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // identificador
@@ -79,7 +80,7 @@
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(175, 241);
+            this.botonAceptar.Location = new System.Drawing.Point(106, 241);
             this.botonAceptar.Name = "botonAceptar";
             this.botonAceptar.Size = new System.Drawing.Size(90, 35);
             this.botonAceptar.TabIndex = 6;
@@ -215,7 +216,7 @@
             // 
             // preguntaraBoton
             // 
-            this.preguntaraBoton.Location = new System.Drawing.Point(287, 241);
+            this.preguntaraBoton.Location = new System.Drawing.Point(357, 241);
             this.preguntaraBoton.Name = "preguntaraBoton";
             this.preguntaraBoton.Size = new System.Drawing.Size(90, 35);
             this.preguntaraBoton.TabIndex = 24;
@@ -223,11 +224,22 @@
             this.preguntaraBoton.UseVisualStyleBackColor = true;
             this.preguntaraBoton.Click += new System.EventHandler(this.preguntaraBoton_Click);
             // 
+            // cancelarBoton
+            // 
+            this.cancelarBoton.Location = new System.Drawing.Point(230, 241);
+            this.cancelarBoton.Name = "cancelarBoton";
+            this.cancelarBoton.Size = new System.Drawing.Size(93, 33);
+            this.cancelarBoton.TabIndex = 25;
+            this.cancelarBoton.Text = "Cancelar";
+            this.cancelarBoton.UseVisualStyleBackColor = true;
+            this.cancelarBoton.Click += new System.EventHandler(this.cancelarBoton_Click);
+            // 
             // Comprar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 297);
+            this.Controls.Add(this.cancelarBoton);
             this.Controls.Add(this.preguntaraBoton);
             this.Controls.Add(this.deptoTextBox);
             this.Controls.Add(this.codPostalTextBox);
@@ -277,5 +289,6 @@
         private System.Windows.Forms.Label CodigoPostal;
         private System.Windows.Forms.Label Piso;
         private System.Windows.Forms.Button preguntaraBoton;
+        private System.Windows.Forms.Button cancelarBoton;
     }
 }

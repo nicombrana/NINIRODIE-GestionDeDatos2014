@@ -77,7 +77,15 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void preguntaraBoton_Click(object sender, EventArgs e)
         {
-            new Preguntas(codigoUser ,this.publicacionAComprar.publicacion_id).ShowDialog(this);
+            if (publicacionAComprar.permitePregunta)
+                new Preguntas(codigoUser ,this.publicacionAComprar.publicacion_id).ShowDialog(this);
+            else
+                MessageBox.Show("El vendedor no permite preguntas", "Atención", MessageBoxButtons.OK);
+        }
+
+        private void cancelarBoton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
