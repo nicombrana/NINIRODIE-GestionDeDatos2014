@@ -32,7 +32,7 @@
             this.desc = new System.Windows.Forms.Label();
             this.stock = new System.Windows.Forms.Label();
             this.txtBoxStock = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.fechaini = new System.Windows.Forms.Label();
             this.precio = new System.Windows.Forms.Label();
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
@@ -84,12 +84,12 @@
             this.txtBoxStock.TabIndex = 2;
             this.txtBoxStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxStock_KeyPress);
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(408, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(213, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker.Location = new System.Drawing.Point(408, 21);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(213, 20);
+            this.dateTimePicker.TabIndex = 4;
             // 
             // fechaini
             // 
@@ -261,7 +261,7 @@
             this.Controls.Add(this.precio);
             this.Controls.Add(this.txtBoxPrecio);
             this.Controls.Add(this.fechaini);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.stock);
             this.Controls.Add(this.txtBoxStock);
             this.Controls.Add(this.desc);
@@ -280,7 +280,7 @@
         private System.Windows.Forms.Label desc;
         private System.Windows.Forms.Label stock;
         private System.Windows.Forms.TextBox txtBoxStock;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label fechaini;
         private System.Windows.Forms.Label precio;
         private System.Windows.Forms.TextBox txtBoxPrecio;

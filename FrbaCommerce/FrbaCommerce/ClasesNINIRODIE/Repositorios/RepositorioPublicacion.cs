@@ -11,6 +11,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
     class RepositorioPublicacion
     {
         private static RepositorioPublicacion _instance;
+        private String fecha;
 
         public static RepositorioPublicacion Instance
         {
@@ -22,6 +23,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 }
                 return _instance;
             }
+        }
+
+        public RepositorioPublicacion()
+        {
+            fecha = DBTypeConverter.ToSQLDateTime(FechaSistema.Instance.fecha);
         }
 
         public void AgregarPublicacion(Publicacion publicacion)
@@ -155,23 +161,24 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             return this.BuscarPublicaciones(query);
         }
-
         private String QueryPublicacion(Decimal tipo, Decimal estado)
         {
             return String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION " +
                 "WHERE PUB_ESTADO = '{0}' AND PUB_TIPO = '{1}' AND PUB_STOCK > 0 " +
-                "AND PUB_FECHA_VENCIMIENTO > GETDATE() " +
-                "ORDER BY PUB_VISIBILIDAD_CODIGO ASC", estado, tipo);
+                "AND PUB_FECHA_VENCIMIENTO > '{2}' " +
+                "ORDER BY PUB_VISIBILIDAD_CODIGO ASC", estado, tipo,
+                fecha);
         }
-
+        
         public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo, Decimal estado)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE " +
-                "PUB_FECHA_VENCIMIENTO > GETDATE() AND PUB_TIPO = '{1}' " +
+                "PUB_FECHA_VENCIMIENTO > '{3}' AND PUB_TIPO = '{1}' " +
                 "AND PUB_ESTADO = '{2}' AND PUB_STOCK > 0 AND " + 
                 "PUB_DESCRIPCION LIKE '%{0}%' " +
                 this.ArmarSubquery(rubrosCheck) + 
-                " ORDER BY PUB_VISIBILIDAD_CODIGO ASC", descripcionAContener, tipo, estado);
+                " ORDER BY PUB_VISIBILIDAD_CODIGO ASC", descripcionAContener, tipo, estado,
+                fecha);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
 

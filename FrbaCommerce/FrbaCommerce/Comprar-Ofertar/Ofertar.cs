@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using System.Configuration;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
@@ -17,15 +18,16 @@ namespace FrbaCommerce.Comprar_Ofertar
         Publicacion publicacionAOfertar;
         Oferta ofertaActual;
         Decimal codigoUsuario;
+        DateTime fecha;
 
         public Ofertar(Publicacion publicacion, Decimal codigoComprador)
         {
             InitializeComponent();
             publicacionAOfertar = publicacion;
             codigoUsuario = codigoComprador;
+            fecha = FechaSistema.Instance.fecha;
             this.ObtenerOfertaActual();
             this.popular();
-            
         }
 
         private void ObtenerOfertaActual()
@@ -109,7 +111,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private Oferta GenerarOferta(Decimal monto)
         {
-            return new Oferta(publicacionAOfertar.publicacion_id, monto, DateTime.Today, this.codigoUsuario);
+            return new Oferta(publicacionAOfertar.publicacion_id, monto, fecha, this.codigoUsuario);
         }
     }
 }

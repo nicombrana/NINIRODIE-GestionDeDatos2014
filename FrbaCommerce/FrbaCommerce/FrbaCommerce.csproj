@@ -345,6 +345,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\FechaSistema.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Oferta.cs" />

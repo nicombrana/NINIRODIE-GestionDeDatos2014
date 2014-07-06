@@ -59,6 +59,8 @@ namespace FrbaCommerce.Generar_Publicacion
             this.comboTipoPubli.DataSource = RepositorioTipoPublicacion.Instance.Buscar();
             this.comboTipoPubli.Refresh();
             this.comboTipoPubli.DisplayMember = "descripcion";
+
+            this.dateTimePicker.Value = FechaSistema.Instance.fecha;
         }
 
         private void popularCheckList()
@@ -148,7 +150,7 @@ namespace FrbaCommerce.Generar_Publicacion
             var publicacion = new Publicacion(this.descripcionTextBox.Text, this.tipoPubli, 
                 ((Visibilidad)this.visibilidades.SelectedValue).visibilidadCodigo, codigoUsuario, 
                 (Estado)(this.estado.SelectedValue), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
-                this.dateTimePicker1.Value, this.dateTimePicker1.Value, Decimal.Parse(this.txtBoxPrecio.Text));
+                this.dateTimePicker.Value, this.dateTimePicker.Value, Decimal.Parse(this.txtBoxPrecio.Text));
 
             RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);
 
