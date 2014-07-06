@@ -602,6 +602,9 @@
     <EmbeddedResource Include="Comprar-Ofertar\BuscarComprarOfertar.resx">
       <DependentUpon>BuscarComprarOfertar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comprar-Ofertar\Ofertar.resx">
+      <DependentUpon>Ofertar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editar Publicacion\EditarPublicacionBorrador.resx">
       <DependentUpon>EditarPublicacionBorrador.cs</DependentUpon>
     </EmbeddedResource>

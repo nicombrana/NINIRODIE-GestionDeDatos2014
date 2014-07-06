@@ -164,13 +164,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 "ORDER BY PUB_VISIBILIDAD_CODIGO ASC", estado, tipo);
         }
 
-        public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo)
+        public List<Publicacion> FiltrarPublicacionesPorDescripcionYRubro(System.Windows.Forms.CheckedListBox.CheckedItemCollection rubrosCheck, string descripcionAContener, Decimal tipo, Decimal estado)
         {
             var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE " +
-                "AND PUB_FECHA_VENCIMIENTO > GETDATE() PUB_TIPO = '{1}' AND " + 
-                "PUB_STOCK > 0 AND PUB_DESCRIPCION LIKE '%{0}%' " +
+                "PUB_FECHA_VENCIMIENTO > GETDATE() AND PUB_TIPO = '{1}' " +
+                "AND PUB_ESTADO = '{2}' AND PUB_STOCK > 0 AND " + 
+                "PUB_DESCRIPCION LIKE '%{0}%' " +
                 this.ArmarSubquery(rubrosCheck) + 
-                " ORDER BY PUB_VISIBILIDAD_CODIGO ASC", descripcionAContener, tipo);
+                " ORDER BY PUB_VISIBILIDAD_CODIGO ASC", descripcionAContener, tipo, estado);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PUBLICACION");
 

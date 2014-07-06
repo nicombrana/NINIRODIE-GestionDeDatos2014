@@ -13,11 +13,13 @@ namespace FrbaCommerce.Comprar_Ofertar
     public partial class Comprar : Form
     {
         Publicacion publicacionAComprar;
+        Decimal codigoUser;
 
-        public Comprar(Publicacion publicacion)
+        public Comprar(Publicacion publicacion, Decimal codigoUsuario)
         {
             InitializeComponent();
             publicacionAComprar = publicacion;
+            codigoUser = codigoUsuario;
         }
     }
 }

@@ -17,12 +17,14 @@ namespace FrbaCommerce.Comprar_Ofertar
         List<Rubro> rubros;
         Publicacion publicacionSeleccionada;
         Decimal tipo;
+        Decimal codigoUser;
 
         public BuscarComprarOfertar(Decimal type, Decimal codigoUsuario)
         {
             InitializeComponent();
             MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
             tipo = type;
+            codigoUser = codigoUsuario;
             rubros = RepositorioRubros.Instance.Rubros();
             publicaciones = this.ObtenerPublicaciones();
             this.popular();
@@ -52,14 +54,24 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             this.AvisarUsuario("Se iniciará la Oferta");
 
-            new Ofertar(publicacionSeleccionada).ShowDialog(this);
+            SeleccionarSiNull();
+
+            new Ofertar(publicacionSeleccionada, codigoUser).ShowDialog(this);
+        }
+
+        private void SeleccionarSiNull()
+        {
+            if (publicacionSeleccionada == null)
+                this.seleccionarPublicacion();
         }
 
         void comprarBoton_Click(object sender, EventArgs e)
         {
             this.AvisarUsuario("Se iniciará la compra");
 
-            new Comprar(publicacionSeleccionada).ShowDialog(this);
+            SeleccionarSiNull();
+
+            new Comprar(publicacionSeleccionada, codigoUser).ShowDialog(this);
         }
 
         private void popular()
@@ -115,7 +127,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         private List<Publicacion> FiltrarPublicaciones()
         {
             return RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
-                    this.descripcionTextBox.Text, tipo);
+                    this.descripcionTextBox.Text, tipo, 1);
         }
 
         private void borrarBoton_Click(object sender, EventArgs e)
@@ -138,6 +150,11 @@ namespace FrbaCommerce.Comprar_Ofertar
         }
 
         private void publicacionesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.seleccionarPublicacion();
+        }
+
+        private void seleccionarPublicacion()
         {
             publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
         }
