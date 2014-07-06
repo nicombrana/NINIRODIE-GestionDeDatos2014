@@ -45,7 +45,7 @@
             // 
             // Pregaceptar
             // 
-            this.Pregaceptar.Location = new System.Drawing.Point(104, 205);
+            this.Pregaceptar.Location = new System.Drawing.Point(179, 205);
             this.Pregaceptar.Name = "Pregaceptar";
             this.Pregaceptar.Size = new System.Drawing.Size(75, 23);
             this.Pregaceptar.TabIndex = 3;
@@ -56,16 +56,16 @@
             // PreguntasGrid
             // 
             this.PreguntasGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PreguntasGrid.Location = new System.Drawing.Point(15, 34);
+            this.PreguntasGrid.Location = new System.Drawing.Point(14, 34);
             this.PreguntasGrid.Name = "PreguntasGrid";
-            this.PreguntasGrid.Size = new System.Drawing.Size(280, 150);
+            this.PreguntasGrid.Size = new System.Drawing.Size(404, 150);
             this.PreguntasGrid.TabIndex = 4;
             // 
             // preguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 262);
+            this.ClientSize = new System.Drawing.Size(432, 253);
             this.Controls.Add(this.PreguntasGrid);
             this.Controls.Add(this.Pregaceptar);
             this.Controls.Add(this.pregunta);

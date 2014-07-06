@@ -15,38 +15,42 @@ namespace FrbaCommerce.Gestion_de_Preguntas
     public partial class preguntas : Form
     {
         Decimal cod_usuario;
+        List<Pregunta> preguntasAVisualizar;
 
         public preguntas(Decimal id)
         {
+            InitializeComponent();
             cod_usuario = id;
-            Decimal elementos = 0;
+            preguntasAVisualizar = RepositorioPreguntas.Instance.BuscarPregunta(cod_usuario);
             
-
-            List<Pregunta> preguntas = RepositorioPreguntas.Instance.BuscarPregunta(cod_usuario);
-            elementos = preguntas.Count;
-            if (elementos == 0)
+            if (preguntasAVisualizar.Count == 0)
             {
                 new SinPreguntas().ShowDialog(this);
             }
             else
             {
-                this.PreguntasGrid.DataSource = preguntas;
-                this.PreguntasGrid.Refresh();
-                this.PreguntasGrid.Columns["pregunta_id"].Visible = false;
-                this.PreguntasGrid.Columns["publicacion_id"].Visible = false;
-                this.PreguntasGrid.Columns["cliente"].Visible = false;
-                this.PreguntasGrid.Columns["pregunta"].Visible = true;
-                this.PreguntasGrid.Columns["pregunta"].ReadOnly = true;
-                this.PreguntasGrid.Columns["respuesta"].Visible = true;
-                this.PreguntasGrid.Columns["respuesta"].ReadOnly = true;
-                this.PreguntasGrid.Columns["fecha"].Visible = false;
-                this.PreguntasGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                Popular();
 
             }
             
             
-            InitializeComponent();
             
+            
+        }
+
+        private void Popular()
+        {
+            this.PreguntasGrid.DataSource = preguntasAVisualizar;
+            this.PreguntasGrid.Refresh();
+            this.PreguntasGrid.Columns["pregunta_id"].Visible = false;
+            this.PreguntasGrid.Columns["publicacion_id"].Visible = false;
+            this.PreguntasGrid.Columns["cliente"].Visible = false;
+            this.PreguntasGrid.Columns["descripcion"].Visible = true;
+            this.PreguntasGrid.Columns["descripcion"].ReadOnly = true;
+            this.PreguntasGrid.Columns["respuesta"].Visible = true;
+            this.PreguntasGrid.Columns["respuesta"].ReadOnly = true;
+            this.PreguntasGrid.Columns["fecha_respuesta"].Visible = true;
+            this.PreguntasGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Pregaceptar_Click(object sender, EventArgs e)

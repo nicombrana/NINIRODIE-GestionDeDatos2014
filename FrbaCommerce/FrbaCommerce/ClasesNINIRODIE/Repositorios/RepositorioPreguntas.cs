@@ -38,7 +38,8 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public List<Pregunta> BuscarPregunta(Decimal Idusuario)
         {
             var query = String.Format(@"select * from gd1c2014.NINIRODIE.PREGUNTA " +
-                                       "where PREG_CLIENTE = '{0}'", Idusuario);
+                                       "where PREG_CLIENTE = '{0}' AND " +
+                                       "PREG_RESPUESTA IS NOT NULL", Idusuario);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PREGUNTA");
 

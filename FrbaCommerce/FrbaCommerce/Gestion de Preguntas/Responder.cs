@@ -48,7 +48,8 @@ namespace FrbaCommerce.Gestion_de_Preguntas
         private void Responder_Load(object sender, EventArgs e)
         {
             var query = String.Format(@"select PREG_DESCRIPCION FROM NINIRODIE.PREGUNTA, NINIRODIE.PUBLICACION " +
-                                     "where PUB_VENDEDOR = '{0}' AND PREG_PUBLICACION_ID = PUB_PUBLICACION_ID", conectado);
+                                     "where PUB_VENDEDOR = '{0}' AND PREG_PUBLICACION_ID = PUB_PUBLICACION_ID" +
+                                     " AND PREG_RESPUESTA IS NULL", conectado);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PREGUNTA");
 
