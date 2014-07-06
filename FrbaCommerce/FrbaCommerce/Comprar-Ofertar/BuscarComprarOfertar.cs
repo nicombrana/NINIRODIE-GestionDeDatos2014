@@ -109,7 +109,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private List<Publicacion> ObtenerPublicaciones()
         {
-            return RepositorioPublicacion.Instance.BuscarPublicadasComprar(tipo, 1);
+            return RepositorioPublicacion.Instance.BuscarPublicadasComprarOfertar(tipo, 1, codigoUser);
         }
 
         private void buscarBoton_Click(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         private List<Publicacion> FiltrarPublicaciones()
         {
             return RepositorioPublicacion.Instance.FiltrarPublicacionesPorDescripcionYRubro(this.rubrosCheckList.CheckedItems,
-                    this.descripcionTextBox.Text, tipo, 1);
+                    this.descripcionTextBox.Text, tipo, 1, codigoUser);
         }
 
         private void borrarBoton_Click(object sender, EventArgs e)

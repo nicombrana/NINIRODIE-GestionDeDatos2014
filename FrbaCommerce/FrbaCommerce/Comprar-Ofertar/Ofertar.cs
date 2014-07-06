@@ -33,8 +33,6 @@ namespace FrbaCommerce.Comprar_Ofertar
         private void ObtenerOfertaActual()
         {
             ofertaActual = RepositorioOferta.Instance.BuscarOferta(publicacionAOfertar.publicacion_id);
-            if (ofertaActual.monto == null)
-                ofertaActual.monto = 0;
         }
 
         private void popular()
