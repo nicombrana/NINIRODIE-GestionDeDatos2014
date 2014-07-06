@@ -13,13 +13,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal id_publicacion { get; set; }
         public Decimal id_comprador { get; set; }
 
-        public Compra(Decimal cod, Decimal cant, DateTime fec, Decimal pub, Decimal comp)
+        public Compra(Decimal cant, DateTime fec, Decimal pub, Decimal comp)
         {
-            cod_compra = cod;
             cantidad = cant;
             fecha = fec;
             id_publicacion = pub;
             id_comprador = comp;
+        }
+
+        public Compra(Decimal cod, Decimal cant, DateTime fec, Decimal pub, Decimal comp)
+            : this(cant, fec, pub, comp)
+        {
+            cod_compra = cod;
         }
     }
 }

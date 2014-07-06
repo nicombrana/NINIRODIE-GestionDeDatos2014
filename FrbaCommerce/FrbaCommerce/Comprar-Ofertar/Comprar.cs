@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
+using FrbaCommerce.ClasesNINIRODIE;
 
 namespace FrbaCommerce.Comprar_Ofertar
 {
@@ -17,6 +18,8 @@ namespace FrbaCommerce.Comprar_Ofertar
         Decimal codigoUser;
         Persona vendedor;
         Usuario usuario;
+        Compra compra;
+
 
         public Comprar(Publicacion publicacion, Decimal codigoUsuario)
         {
@@ -68,11 +71,49 @@ namespace FrbaCommerce.Comprar_Ofertar
                 deptoTextBox.Text = empresa.puert.ToString();
                 codPostalTextBox.Text = empresa.codpos.ToString();
             }
+
+            stockTextBox.Text = publicacionAComprar.stock.ToString();
         }
 
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.cantidadTextBox.Text.ToString() != "")
+            {
+                Decimal cantidad = Decimal.Parse(this.cantidadTextBox.Text.ToString());
+
+                if (cantidad < publicacionAComprar.stock)
+                {
+                    this.GenerarCompra(cantidad);
+
+                    compra.cod_compra = RepositorioCompra.Instance.ObtenerCodigoCompra(compra);
+
+                    MessageBox.Show("Su compra ha sido llevada a cabo satisfactoriamente.\n" +
+                        "Su código de compra es el " + compra.cod_compra.ToString() + "." +
+                        "\nContactese con el vendedor para arreglar los\n" +
+                        "terminos de envío.", "Informe", MessageBoxButtons.OK);
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar una cantidad menor al Stock del proucto.",
+                        "Atención", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar una canitdad\n" + "para poder realizar una compra.",
+                    "Atención", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void GenerarCompra(Decimal cantidad)
+        {
+            compra = new Compra(cantidad, FechaSistema.Instance.fecha, 
+                publicacionAComprar.publicacion_id, this.codigoUser);
+
+            RepositorioCompra.Instance.Comprar(compra);
         }
 
         private void preguntaraBoton_Click(object sender, EventArgs e)
@@ -80,12 +121,20 @@ namespace FrbaCommerce.Comprar_Ofertar
             if (publicacionAComprar.permitePregunta)
                 new Preguntas(codigoUser ,this.publicacionAComprar.publicacion_id).ShowDialog(this);
             else
-                MessageBox.Show("El vendedor no permite preguntas", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("El vendedor no permite preguntas.", "Atención", MessageBoxButtons.OK);
         }
 
         private void cancelarBoton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validador.soloEscribeNumeros(e);
+
+            if(!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                MessageBox.Show("Solo puede ingresar números.", "Atención", MessageBoxButtons.OK);
         }
     }
 }

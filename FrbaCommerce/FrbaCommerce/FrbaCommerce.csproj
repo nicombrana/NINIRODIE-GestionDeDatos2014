@@ -366,6 +366,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCompra.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioOferta.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />

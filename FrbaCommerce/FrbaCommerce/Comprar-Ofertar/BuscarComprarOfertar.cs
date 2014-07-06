@@ -22,7 +22,7 @@ namespace FrbaCommerce.Comprar_Ofertar
         public BuscarComprarOfertar(Decimal type, Decimal codigoUsuario)
         {
             InitializeComponent();
-            MessageBox.Show("Esta operación puede tardar algunos segundos", "Atención", MessageBoxButtons.OK);
+            MessageBox.Show("Esta operación puede tardar algunos segundos.", "Atención", MessageBoxButtons.OK);
             tipo = type;
             codigoUser = codigoUsuario;
             rubros = RepositorioRubros.Instance.Rubros();
@@ -52,7 +52,7 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         void ofertarBoton_Click(object sender, EventArgs e)
         {
-            this.AvisarUsuario("Se iniciará la Oferta");
+            this.AvisarUsuario("Se iniciará la Oferta.");
 
             SeleccionarSiNull();
 
@@ -67,11 +67,13 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         void comprarBoton_Click(object sender, EventArgs e)
         {
-            this.AvisarUsuario("Se iniciará la compra");
+            this.AvisarUsuario("Se iniciará la Compra.");
 
             SeleccionarSiNull();
 
             new Comprar(publicacionSeleccionada, codigoUser).ShowDialog(this);
+
+            ActualizarGrilla();
         }
 
         private void popular()
@@ -114,9 +116,14 @@ namespace FrbaCommerce.Comprar_Ofertar
 
         private void buscarBoton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se iniciará la búsqueda con los parámetros indicados",
+            MessageBox.Show("Se iniciará la búsqueda con los parámetros indicados.",
                 "Atención", MessageBoxButtons.OK);
 
+            ActualizarGrilla();
+        }
+
+        private void ActualizarGrilla()
+        {
             var publi = this.FiltrarPublicaciones();
 
             this.publicacionesGrid.DataSource = publi;
@@ -161,8 +168,8 @@ namespace FrbaCommerce.Comprar_Ofertar
             if (this.publicacionesGrid.SelectedRows.Count > 0)
                 publicacionSeleccionada = (Publicacion)this.publicacionesGrid.SelectedRows[0].DataBoundItem;
             else
-                MessageBox.Show("No se encontró ninguna publicaciones\n" +
-                    "con los parámetros indicados", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("No se encontró ninguna publicación\n" +
+                    "con los parámetros indicados.", "Atención", MessageBoxButtons.OK);
         }
     }
 }
