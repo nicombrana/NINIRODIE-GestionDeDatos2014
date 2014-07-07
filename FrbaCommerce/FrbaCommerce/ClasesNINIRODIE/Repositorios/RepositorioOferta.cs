@@ -66,5 +66,16 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
+
+        public List<Oferta> BuscarOfertasCliente(Decimal codigoUsuario)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.OFERTAS WHERE " + 
+                "OF_SUBASTA_ID IN (SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE " +
+                "PUB_VENDEDOR = '{0}') ORDER BY OF_FECHA ASC", codigoUsuario);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.OFERTAS");
+
+            return dataRow.ToList<Oferta>(this.DataRowToOferta);
+        }
     }
 }

@@ -19,6 +19,7 @@ using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.Comprar_Ofertar;
 using FrbaCommerce.Calificar;
 using FrbaCommerce.Listado_Estadistico;
+using FrbaCommerce.Facturar_Publicaciones;
 
 namespace FrbaCommerce
 {
@@ -153,6 +154,11 @@ namespace FrbaCommerce
         private void listadoEstadistico_Click(object sender, EventArgs e)
         {
             new ListadoEstadistico().ShowDialog(this);
+        }
+
+        private void facturarBoton_Click(object sender, EventArgs e)
+        {
+            new Facturacion(this.login.user.codigo).ShowDialog(this);
         }
 
 
