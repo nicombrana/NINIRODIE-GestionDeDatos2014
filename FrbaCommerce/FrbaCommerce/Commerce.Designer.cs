@@ -47,6 +47,7 @@
             this.comprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ofertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Calificar = new System.Windows.Forms.ToolStripButton();
+            this.listadoEstadistico = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,10 +109,11 @@
             this.publicacion,
             this.preguntas,
             this.toolStripSplitButton1,
-            this.Calificar});
+            this.Calificar,
+            this.listadoEstadistico});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(669, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(731, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -192,14 +194,14 @@
             // comprarToolStripMenuItem
             // 
             this.comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
-            this.comprarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.comprarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.comprarToolStripMenuItem.Text = "Comprar";
             this.comprarToolStripMenuItem.Click += new System.EventHandler(this.comprarToolStripMenuItem_Click);
             // 
             // ofertarToolStripMenuItem
             // 
             this.ofertarToolStripMenuItem.Name = "ofertarToolStripMenuItem";
-            this.ofertarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ofertarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ofertarToolStripMenuItem.Text = "Ofertar";
             this.ofertarToolStripMenuItem.Click += new System.EventHandler(this.ofertarToolStripMenuItem_Click);
             // 
@@ -213,11 +215,21 @@
             this.Calificar.Text = "Calificar";
             this.Calificar.Click += new System.EventHandler(this.Calificar_Click);
             // 
+            // listadoEstadistico
+            // 
+            this.listadoEstadistico.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.listadoEstadistico.Image = ((System.Drawing.Image)(resources.GetObject("listadoEstadistico.Image")));
+            this.listadoEstadistico.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.listadoEstadistico.Name = "listadoEstadistico";
+            this.listadoEstadistico.Size = new System.Drawing.Size(71, 22);
+            this.listadoEstadistico.Text = "Estadísticas";
+            this.listadoEstadistico.Click += new System.EventHandler(this.listadoEstadistico_Click);
+            // 
             // Commerce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 262);
+            this.ClientSize = new System.Drawing.Size(731, 262);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Commerce";
             this.Text = "Funcionalidades";
@@ -249,6 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ofertarToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton Calificar;
+        private System.Windows.Forms.ToolStripButton listadoEstadistico;
 
 
     }

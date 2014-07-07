@@ -38,5 +38,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.DBUtils
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static DataRowCollection EjecutarConsultaListado(String selectQuery, DataTable resultTable)
+        {
+            SqlCommand command = RealizarQuery(selectQuery);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            adapter.Fill(resultTable);
+            connection.Close();
+            return resultTable.Rows;
+        }
     }
 }

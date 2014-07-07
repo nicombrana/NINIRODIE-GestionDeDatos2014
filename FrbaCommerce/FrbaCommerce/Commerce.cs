@@ -18,6 +18,7 @@ using FrbaCommerce.ClasesNINIRODIE.Dominio;
 using FrbaCommerce.ClasesNINIRODIE.Repositorios;
 using FrbaCommerce.Comprar_Ofertar;
 using FrbaCommerce.Calificar;
+using FrbaCommerce.Listado_Estadistico;
 
 namespace FrbaCommerce
 {
@@ -147,6 +148,11 @@ namespace FrbaCommerce
         private void Calificar_Click(object sender, EventArgs e)
         {
             new MostrarCompras(cod_conectado).ShowDialog(this);
+        }
+
+        private void listadoEstadistico_Click(object sender, EventArgs e)
+        {
+            new ListadoEstadistico().ShowDialog(this);
         }
 
 

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace FrbaCommerce.Facturar_Publicaciones
 {
-    public partial class Form1 : Form
+    public partial class Facturar : Form
     {
-        public Form1()
+        public Facturar()
         {
             InitializeComponent();
         }

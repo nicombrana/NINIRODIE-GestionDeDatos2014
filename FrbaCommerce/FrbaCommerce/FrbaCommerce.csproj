@@ -356,6 +356,9 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Compra.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\CompraInmediata.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\ClienteMayorCantidadPublicacionesSinCalificar.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedorMayorCalificacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedorMayorFacturacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\FechaSistema.cs" />
@@ -370,9 +373,11 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Rubro.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Subasta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\TipoReporte.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCompra.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioListado.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioOferta.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioEmpresa.cs" />
@@ -423,11 +428,11 @@
     <Compile Include="Editar Publicacion\EditarPublicacion.Designer.cs">
       <DependentUpon>EditarPublicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.cs">
+    <Compile Include="Facturar Publicaciones\Facturar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturar Publicaciones\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturar Publicaciones\Facturar.Designer.cs">
+      <DependentUpon>Facturar.cs</DependentUpon>
     </Compile>
     <Compile Include="Commerce.cs">
       <SubType>Form</SubType>
@@ -465,11 +470,11 @@
     <Compile Include="Listado Estadistico\Historial Cliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.cs">
+    <Compile Include="Listado Estadistico\ListadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listado Estadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listado Estadistico\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\Form1.cs">
       <SubType>Form</SubType>
@@ -649,6 +654,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Preguntas\Responder.resx">
       <DependentUpon>Responder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listado Estadistico\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
