@@ -67,11 +67,15 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public List<Oferta> BuscarOfertasCliente(Decimal codigoUsuario)
+        public List<Oferta> BuscarOfertasCliente(Decimal codigoUsuario, int cantidad)
         {
-            var query = String.Format(@"SELECT * FROM NINIRODIE.OFERTAS WHERE " + 
-                "OF_SUBASTA_ID IN (SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE " +
-                "PUB_VENDEDOR = '{0}') ORDER BY OF_FECHA ASC", codigoUsuario);
+            var query = String.Format(@"SELECT TOP {0} * FROM "+
+                "(SELECT OF_SUBASTA_ID, OF_MONTO, OF_FECHA, OF_COMPRADOR, OF_OFERTA_ID " +
+                "FROM NINIRODIE.OFERTAS WHERE OF_SUBASTA_ID IN " +
+                "(SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{1}' " +
+                "AND PUB_FACTURA IS NULL) GROUP BY OF_SUBASTA_ID, OF_MONTO, OF_FECHA, OF_COMPRADOR, " +
+                "OF_OFERTA_ID) OFERTA1 WHERE OFERTA1.OF_MONTO = (SELECT MAX(OF_MONTO) FROM NINIRODIE.OFERTAS " +
+                "WHERE OF_SUBASTA_ID = OFERTA1.OF_SUBASTA_ID) ORDER BY OF_FECHA ASC", cantidad, codigoUsuario);
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.OFERTAS");
 
