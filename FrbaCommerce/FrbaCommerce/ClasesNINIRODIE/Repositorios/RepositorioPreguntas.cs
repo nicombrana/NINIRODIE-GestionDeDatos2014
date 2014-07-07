@@ -31,7 +31,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 "PREG_RESPUESTA = '{0}', PREG_FECHA_RESPUESTA = '{1}' WHERE PREG_DESCRIPCION = '{2}'",
                 respuesta, DBTypeConverter.ToSQLDateTime(fecha), pregunta);
 
-            SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.PREGUNTA");
+            SQLUtils.EjecutarConsultaConEfectoDeLado(query);
 
         }
 

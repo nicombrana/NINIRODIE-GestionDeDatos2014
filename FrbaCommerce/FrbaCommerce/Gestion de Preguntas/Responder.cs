@@ -19,8 +19,8 @@ namespace FrbaCommerce.Gestion_de_Preguntas
 
         public Responder(Decimal codigo)
         {
-            conectado = codigo;
             InitializeComponent();
+            conectado = codigo;
         }
 
         private void rescancelar_Click(object sender, EventArgs e)
@@ -35,14 +35,22 @@ namespace FrbaCommerce.Gestion_de_Preguntas
 
             if (resp == "" || pregunt == "")
             {
-                new TodosLosCampos().ShowDialog(this);
-                this.Close();
+                MessageBox.Show("Debe ingresar una respuesta", "Atención", MessageBoxButtons.OK);
             }
-            var fecha_hoy = FechaSistema.Instance.fecha;
+            else
+            {
+                var fecha_hoy = FechaSistema.Instance.fecha;
 
-            RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp, fecha_hoy);
+                RepositorioPreguntas.Instance.Responder(conectado, pregunt, resp, fecha_hoy);
 
-            new RespuestaExitosa().ShowDialog(this);
+                DialogResult resultado = MessageBox.Show("Se ha registrado su respuesta con éxito" +
+                    "¿Desea responder otra pregunta?", "Informe", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.No)
+                    this.Close();
+                else
+                    Responder_Load(sender, e);
+            }
+
         }
 
         private void Responder_Load(object sender, EventArgs e)
@@ -68,6 +76,8 @@ namespace FrbaCommerce.Gestion_de_Preguntas
                 this.comboBoxPreg.Refresh();
                 this.comboBoxPreg.DisplayMember = "Preguntas";
             }
+
+            this.respuesta.Text = "";
 
         }
 

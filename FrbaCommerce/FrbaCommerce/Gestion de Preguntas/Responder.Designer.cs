@@ -38,7 +38,7 @@
             // preguntas
             // 
             this.preguntas.AutoSize = true;
-            this.preguntas.Location = new System.Drawing.Point(26, 26);
+            this.preguntas.Location = new System.Drawing.Point(19, 26);
             this.preguntas.Name = "preguntas";
             this.preguntas.Size = new System.Drawing.Size(55, 13);
             this.preguntas.TabIndex = 0;
@@ -47,22 +47,22 @@
             // comboBoxPreg
             // 
             this.comboBoxPreg.FormattingEnabled = true;
-            this.comboBoxPreg.Location = new System.Drawing.Point(132, 23);
+            this.comboBoxPreg.Location = new System.Drawing.Point(125, 23);
             this.comboBoxPreg.Name = "comboBoxPreg";
             this.comboBoxPreg.Size = new System.Drawing.Size(140, 21);
             this.comboBoxPreg.TabIndex = 1;
             // 
             // respuesta
             // 
-            this.respuesta.Location = new System.Drawing.Point(29, 70);
+            this.respuesta.Location = new System.Drawing.Point(21, 70);
             this.respuesta.Multiline = true;
             this.respuesta.Name = "respuesta";
-            this.respuesta.Size = new System.Drawing.Size(243, 100);
+            this.respuesta.Size = new System.Drawing.Size(243, 107);
             this.respuesta.TabIndex = 2;
             // 
             // resaceptar
             // 
-            this.resaceptar.Location = new System.Drawing.Point(29, 218);
+            this.resaceptar.Location = new System.Drawing.Point(55, 202);
             this.resaceptar.Name = "resaceptar";
             this.resaceptar.Size = new System.Drawing.Size(75, 23);
             this.resaceptar.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // rescancelar
             // 
-            this.rescancelar.Location = new System.Drawing.Point(197, 218);
+            this.rescancelar.Location = new System.Drawing.Point(154, 202);
             this.rescancelar.Name = "rescancelar";
             this.rescancelar.Size = new System.Drawing.Size(75, 23);
             this.rescancelar.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(284, 237);
             this.Controls.Add(this.rescancelar);
             this.Controls.Add(this.resaceptar);
             this.Controls.Add(this.respuesta);
