@@ -52,7 +52,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         private DataGridView ClientesConMayorCantidadPublicacionesSinCalificar(int anio, int semestre)
         {
-            var query = String.Format(@"", anio.ToString());
+            var query = String.Format(@"SELECT TOP 5 USU_NOMBRE_USUARIO, " +
+                    "COUNT(*) AS CANTIDAD_DE_COMPRAS_SIN_CALIFICAR FROM NINIRODIE.COMPRA, " + 
+                    "NINIRODIE.USUARIO WHERE NOT EXISTS " + 
+                    "(SELECT * FROM  NINIRODIE.CALIFICACIONES WHERE " + 
+                    "CALIFICACIONES.CALI_COMPRA = COMPRA.COMP_ID_COMPRA) " + 
+                    "AND COMP_COMPRADOR = USU_CODIGO AND YEAR(COMPRA.COMP_FECHA) = '{0}' " +
+                    "AND MONTH(COMPRA.COMP_FECHA) " + this.CalcularSemetre(semestre) +
+                    "GROUP BY USU_NOMBRE_USUARIO ORDER BY CANTIDAD_DE_COMPRAS_SIN_CALIFICAR DESC", anio.ToString());
 
             DataRowCollection dataRow = EjecutarConsulta(query);
 
@@ -66,8 +73,8 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
         private ClienteMayorCantidadPublicacionesSinCalificar DataRowToClienteMayorCantidadPublicacionesSinCalificar(DataRow row)
         {
-            var nombre = row[""].ToString();
-            var cant = Decimal.Parse(row[""].ToString());
+            var nombre = row["USU_NOMBRE_USUARIO"].ToString();
+            var cant = Decimal.Parse(row["CANTIDAD_DE_COMPRAS_SIN_CALIFICAR"].ToString());
 
             return new ClienteMayorCantidadPublicacionesSinCalificar(nombre, cant);
         }
