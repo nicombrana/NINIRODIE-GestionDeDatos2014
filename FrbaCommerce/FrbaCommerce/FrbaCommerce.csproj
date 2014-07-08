@@ -136,11 +136,23 @@
     <Compile Include="ABM Rol\ABMRol.Designer.cs">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\Form1.cs">
+    <Compile Include="ABM Rol\Alta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ABM Rol\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\BajaModificacionRolWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\BajaModificacionRolWindow.Designer.cs">
+      <DependentUpon>BajaModificacionRolWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Rol\RolWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Rol\RolWindow.Designer.cs">
+      <DependentUpon>RolWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rubro\ABMRubro.cs">
       <SubType>Form</SubType>
@@ -364,13 +376,16 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\FechaSistema.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Funcionalidad.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\ModoApertura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Oferta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pausada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Persona.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pregunta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Publicada.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Rol.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Rubro.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Subasta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\TipoPublicacion.cs" />
@@ -378,6 +393,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Usuario.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Visibilidad.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCompra.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioFuncionalidad.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioListado.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioOferta.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioCliente.cs" />
@@ -387,6 +403,7 @@
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPreguntas.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioPublicacionPorRubro.cs" />
+    <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioRol.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioRubros.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioTipoPublicacion.cs" />
     <Compile Include="ClasesNINIRODIE\Repositorios\RepositorioUsuario.cs" />
@@ -536,6 +553,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\BajaModificacionRolWindow.resx">
+      <DependentUpon>BajaModificacionRolWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Rol\RolWindow.resx">
+      <DependentUpon>RolWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rubro\ABMRubro.resx">
       <DependentUpon>ABMRubro.cs</DependentUpon>

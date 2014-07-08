@@ -45,13 +45,17 @@
             // 
             // compraOfertaGrilla
             // 
+            this.compraOfertaGrilla.AllowUserToAddRows = false;
             this.compraOfertaGrilla.AllowUserToDeleteRows = false;
             this.compraOfertaGrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.compraOfertaGrilla.Enabled = false;
             this.compraOfertaGrilla.Location = new System.Drawing.Point(14, 19);
+            this.compraOfertaGrilla.MultiSelect = false;
             this.compraOfertaGrilla.Name = "compraOfertaGrilla";
             this.compraOfertaGrilla.ReadOnly = true;
             this.compraOfertaGrilla.Size = new System.Drawing.Size(546, 217);
             this.compraOfertaGrilla.TabIndex = 0;
+            this.compraOfertaGrilla.TabStop = false;
             // 
             // facturarBoton
             // 

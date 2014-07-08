@@ -25,6 +25,7 @@ namespace FrbaCommerce
             {
                 MessageBox.Show("Se ha producido un error.\n La aplicación se cerrará",
                     "Atención", MessageBoxButtons.OK);
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK);
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaCommerce.ClasesNINIRODIE.Dominio;
 
 namespace FrbaCommerce.ABM_Rol
 {
@@ -18,17 +19,17 @@ namespace FrbaCommerce.ABM_Rol
 
         private void botonModificacion_Click(object sender, EventArgs e)
         {
-
+            new BajaModificacionRolWindow(ModoApertura.MODIFICACION).ShowDialog(this);
         }
 
         private void botonBaja_Click(object sender, EventArgs e)
         {
-
+            new BajaModificacionRolWindow(ModoApertura.BAJA).ShowDialog(this);
         }
 
         private void botonAlta_Click(object sender, EventArgs e)
         {
-
+            new Alta().ShowDialog(this);
         }
 
         private void ABMRol_Load(object sender, EventArgs e)

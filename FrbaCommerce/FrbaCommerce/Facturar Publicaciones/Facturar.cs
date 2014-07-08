@@ -43,6 +43,10 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 this.PopularGrillaCompras();
             else
                 this.PopularGrillaOfertas();
+
+            MessageBox.Show("Recuerde que facturará todas los" +
+                "Items aquí presentes.\n Por lo que no podrá seleccionar ninguno de los mismos."
+                , "Atención", MessageBoxButtons.OK);
         }
 
         private void PopularFormaPago()
