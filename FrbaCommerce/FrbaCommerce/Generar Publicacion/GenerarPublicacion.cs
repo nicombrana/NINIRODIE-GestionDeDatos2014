@@ -101,9 +101,18 @@ namespace FrbaCommerce.Generar_Publicacion
                 if ((tipoPubli.descripcion == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 || 
                     tipoPubli.descripcion == "Compra Inmediata"))
                 {
-                    this.generarPublicacion();
-                    new GeneracionPublicacionCorrecta().ShowDialog(this);
-                    this.Close();
+                    if (3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(codigoUsuario) &&
+                        ((Visibilidad)this.visibilidades.SelectedItem).visibiDescripcion == "Gratis")
+                    {
+                        this.generarPublicacion();
+                        new GeneracionPublicacionCorrecta().ShowDialog(this);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
+                            "Momentaneamente, no podrá publicar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
@@ -147,18 +156,18 @@ namespace FrbaCommerce.Generar_Publicacion
 
         private void generarPublicacion()
         {
-            var publicacion = new Publicacion(this.descripcionTextBox.Text, this.tipoPubli, 
-                ((Visibilidad)this.visibilidades.SelectedValue).visibilidadCodigo, codigoUsuario, 
-                (Estado)(this.estado.SelectedValue), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
-                this.dateTimePicker.Value, this.dateTimePicker.Value, Decimal.Parse(this.txtBoxPrecio.Text));
+            var publicacion = new Publicacion(this.descripcionTextBox.Text, this.tipoPubli,
+                    ((Visibilidad)this.visibilidades.SelectedValue).visibilidadCodigo, codigoUsuario,
+                    (Estado)(this.estado.SelectedValue), this.preguntas.Checked, Decimal.Parse(this.txtBoxStock.Text),
+                    this.dateTimePicker.Value, this.dateTimePicker.Value, Decimal.Parse(this.txtBoxPrecio.Text));
 
-            RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);
+                RepositorioPublicacion.Instance.AgregarPublicacion(publicacion);
 
-            foreach (Rubro rubroSeleccionado in this.RubrosCheckList.CheckedItems)
-            {
-                RepositorioPublicacionPorRubro.Instance.AgregarRubrosAPublicacion(publicacion, rubroSeleccionado);
-            }
-              
+                foreach (Rubro rubroSeleccionado in this.RubrosCheckList.CheckedItems)
+                {
+                    RepositorioPublicacionPorRubro.Instance.AgregarRubrosAPublicacion(publicacion, rubroSeleccionado);
+                }
+  
         }
 
         private void txtBoxStock_KeyPress(object sender, KeyPressEventArgs e)

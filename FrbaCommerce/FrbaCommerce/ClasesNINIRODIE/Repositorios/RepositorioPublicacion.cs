@@ -218,6 +218,18 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 return restoQuery.Substring(0, restoQuery.LastIndexOf(","));
             return restoQuery;
         }
+
+        public int CantidadPublicacionesGratuitasDelUsuario(Decimal codigoUsuario)
+        {
+            var query = String.Format(@"SELECT COUNT(*) AS CANTIDAD_GRATUITAS FROM NINIRODIE.PUBLICACION " +
+                "WHERE PUB_VENDEDOR = '{0}' AND PUB_ESTADO = 1 AND PUB_VISIBILIDAD_CODIGO IN " +
+                "(SELECT VIS_VISIBILIDAD_CODIGO FROM NINIRODIE.VISIBILIDAD WHERE VIS_DESCRIPCION = 'Gratis')"
+                , codigoUsuario);
+
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaListado(query, new DataTable());
+
+            return (dataRow.ToList<int>(row => int.Parse(row["CANTIDAD_GRATUITAS"].ToString()))).First();
+        }
     }
 }
 

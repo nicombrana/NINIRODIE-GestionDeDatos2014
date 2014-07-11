@@ -81,7 +81,7 @@ namespace FrbaCommerce.Comprar_Ofertar
             {
                 Decimal cantidad = Decimal.Parse(this.cantidadTextBox.Text.ToString());
 
-                if (cantidad < publicacionAComprar.stock)
+                if (cantidad <= publicacionAComprar.stock)
                 {
                     this.GenerarCompra(cantidad);
 
@@ -96,13 +96,13 @@ namespace FrbaCommerce.Comprar_Ofertar
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar una cantidad menor al Stock del proucto.",
+                    MessageBox.Show("No puede ingresar una cantidad mayor al Stock del producto.",
                         "Atención", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("Debe ingresar una canitdad\n" + "para poder realizar una compra.",
+                MessageBox.Show("Debe ingresar una cantidad\n" + "para poder realizar una compra.",
                     "Atención", MessageBoxButtons.OK);
             }
 

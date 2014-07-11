@@ -187,10 +187,20 @@ namespace FrbaCommerce.Editar_Publicacion
                 if ((this.tipoPublicacion.descripcion == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 ||
                     this.tipoPublicacion.descripcion == "Compra Inmediata"))
                 {
-                    this.editarPublicacion();
-                    MessageBox.Show("Se ha editado la Publicación exitosamente",
-                        "Informe", MessageBoxButtons.OK);
-                    this.Close();
+
+                    if (3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(publicacion.vendedor) &&
+                        ((Visibilidad)this.visibilidades.SelectedValue).visibiDescripcion == "Gratis")
+                    {
+                        this.editarPublicacion();
+                        MessageBox.Show("Se ha editado la Publicación exitosamente",
+                            "Informe", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
+                            "Momentaneamente, no podrá editar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
