@@ -34,15 +34,22 @@ namespace FrbaCommerce.Comprar_Ofertar
         {
             usuario = RepositorioUsuario.Instance.BuscarUsuarioPorCodigo(publicacionAComprar.vendedor);
 
-            if (usuario.idClienteOEmpresa % 2 != 0)
-                vendedor = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(usuario.idClienteOEmpresa);
+            if (usuario.tipo == "CLIENTE")
+            {
+                vendedor = RepositorioCliente.Instance.BuscarClientePorClave(usuario.codigo);
+            }
             else
-                vendedor = RepositorioCliente.Instance.BuscarClientePorClave(usuario.idClienteOEmpresa);
+            {
+                if (usuario.tipo == "EMPRESA")
+                {
+                    vendedor = RepositorioEmpresa.Instance.BuscarEmpresaPorClave(usuario.codigo);
+                }
+            }
         }
 
         private void popular()
         {
-            if (usuario.idClienteOEmpresa % 2 == 0)
+            if (usuario.tipo == "CLIENTE")
             {
                 var cliente = (Cliente)vendedor;
                 identificador.Text = "Nombre";
@@ -60,16 +67,23 @@ namespace FrbaCommerce.Comprar_Ofertar
             }
             else
             {
-                var empresa = (Empresa)vendedor;
-                idTextBox.Text = empresa.razon_social;
-                dniTextBox.Text = empresa.cuit.ToString();
-                mailTextBox.Text = empresa.mail;
-                fechaCreacionTextBox.Text = empresa.fecha_creacion.ToString();
-                calleTextBox.Text = empresa.call;
-                alturaTextBox.Text = empresa.altu.ToString();
-                pisoTextBox.Text = empresa.pis.ToString();
-                deptoTextBox.Text = empresa.puert.ToString();
-                codPostalTextBox.Text = empresa.codpos.ToString();
+                if (usuario.tipo == "EMPRESA")
+                {
+                    var empresa = (Empresa)vendedor;
+                    idTextBox.Text = empresa.razon_social;
+                    dniTextBox.Text = empresa.cuit.ToString();
+                    mailTextBox.Text = empresa.mail;
+                    fechaCreacionTextBox.Text = empresa.fecha_creacion.ToString();
+                    calleTextBox.Text = empresa.call;
+                    alturaTextBox.Text = empresa.altu.ToString();
+                    pisoTextBox.Text = empresa.pis.ToString();
+                    deptoTextBox.Text = empresa.puert.ToString();
+                    codPostalTextBox.Text = empresa.codpos.ToString();
+                }
+                else
+                {
+                    idTextBox.Text = usuario.id;
+                }
             }
 
             stockTextBox.Text = publicacionAComprar.stock.ToString();

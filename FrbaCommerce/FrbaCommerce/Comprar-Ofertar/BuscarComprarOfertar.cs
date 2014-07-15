@@ -90,7 +90,6 @@ namespace FrbaCommerce.Comprar_Ofertar
             this.publicacionesGrid.Columns["vendedor"].Visible = false;
             this.publicacionesGrid.Columns["estado"].Visible = false;
             this.publicacionesGrid.Columns["permitePregunta"].Visible = false;
-            this.publicacionesGrid.Columns["factura"].Visible = false;
 
             this.publicacionesGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.publicacionesGrid.Columns["descripcion"].ReadOnly = true;
