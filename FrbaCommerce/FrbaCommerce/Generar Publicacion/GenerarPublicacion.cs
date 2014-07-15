@@ -110,8 +110,12 @@ namespace FrbaCommerce.Generar_Publicacion
                     }
                     else
                     {
-                        MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
-                            "Momentaneamente, no podrá publicar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                        if (!(3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(codigoUsuario)) &&
+                        ((Visibilidad)this.visibilidades.SelectedValue).visibiDescripcion == "Gratis")
+                        {
+                            MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
+                                "Momentaneamente, no podrá publicar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                        }
                     }
                 }
                 else

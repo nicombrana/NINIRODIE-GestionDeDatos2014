@@ -198,8 +198,12 @@ namespace FrbaCommerce.Editar_Publicacion
                     }
                     else
                     {
-                        MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
-                            "Momentaneamente, no podrá editar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                        if (!(3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(publicacion.vendedor)) &&
+                        ((Visibilidad)this.visibilidades.SelectedValue).visibiDescripcion == "Gratis")
+                        {
+                            MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
+                                "Momentaneamente, no podrá editar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                        }
                     }
                 }
                 else

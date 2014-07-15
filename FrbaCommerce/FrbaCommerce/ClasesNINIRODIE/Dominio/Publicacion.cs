@@ -19,7 +19,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal precio { get; set; }
         public DateTime fecha_inicio { get; set; }
         public DateTime fecha_vencimiento{ get; set; }
-        public Decimal factura { get; set; }
 
         public Publicacion()
         {}
@@ -46,15 +45,6 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             this(desc, tip, visibilidad, vended, state, permitePreg, stoc, fechaVto, fechaInit, price)
         {
             this.publicacion_id = codigo;
-        }
-
-        public Publicacion(Decimal codigo, String desc, TipoPublicacion tip, Decimal visibilidad,
-            Decimal vended, Estado state, bool permitePreg, Decimal stoc,
-            DateTime fechaVto, DateTime fechaInit, Decimal price, Decimal fact)
-            : this(desc, tip, visibilidad, vended, state, permitePreg, stoc, fechaVto, fechaInit, price)
-        {
-            this.publicacion_id = codigo;
-            this.factura = fact;
         }
 
 

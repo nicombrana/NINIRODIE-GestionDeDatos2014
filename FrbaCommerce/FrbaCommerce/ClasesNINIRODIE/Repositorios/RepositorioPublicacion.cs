@@ -115,24 +115,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             var fechaVto = DateTime.Parse(row["PUB_FECHA_VENCIMIENTO"].ToString());
             var fechaInit = DateTime.Parse(row["PUB_FECHA_INICIO"].ToString());
             var precio = Decimal.Parse(row["PUB_PRECIO"].ToString());
-            if (!row["PUB_FACTURA"].Equals(DBNull.Value))
-            {
-                var factura = Decimal.Parse(row["PUB_FACTURA"].ToString());
-                return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
-                fechaVto, fechaInit, precio, factura);
-            }
-            else
-            {
+           
                 return new Publicacion(publicacionID, descripcion, tipo, visibilidad, vendedorCodigo, estado, permitePregunta, stock,
                 fechaVto, fechaInit, precio);
-            }
             
         }
-
-        //private Factura ObtenerFactura(Decimal idFact)
-        //{
-        //    return RepositorioFactura.Instance.Buscar(idFact);
-        //}
 
         private Estado ObtenerEstadoPublicacion(Decimal publiID)
         {
