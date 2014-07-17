@@ -149,12 +149,20 @@ namespace FrbaCommerce
 
         private void comprarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarComprarOfertar(1, this.login.user.codigo).ShowDialog(this);//Código de Inmediata
+            if (this.login.user.habilitado)
+                new BuscarComprarOfertar(1, this.login.user.codigo).ShowDialog(this);//Código de Inmediata
+            else
+                MessageBox.Show("Usted se encuentra inhabilitado.\n" +
+                    "Para continuar deberá regularizar su situación.", "Atención", MessageBoxButtons.OK);
         }
 
         private void ofertarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new BuscarComprarOfertar(2, this.login.user.codigo).ShowDialog(this);//Código de Subasta
+            if (this.login.user.habilitado)
+                new BuscarComprarOfertar(2, this.login.user.codigo).ShowDialog(this);//Código de Subasta
+            else
+                MessageBox.Show("Usted se encuentra inhabilitado.\n" +
+                    "Para continuar deberá regularizar su situación.", "Atención", MessageBoxButtons.OK);
         }
 
         private void Calificar_Click(object sender, EventArgs e)

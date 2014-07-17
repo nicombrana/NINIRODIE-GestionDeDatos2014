@@ -29,13 +29,13 @@ namespace FrbaCommerce.Calificar
             this.ComprasGrid.DataSource = compras;
             this.ComprasGrid.Refresh();
             this.ComprasGrid.Columns["fecha"].Visible = false;
-            this.ComprasGrid.Columns["comprador_id"].Visible = false;
+            this.ComprasGrid.Columns["id_comprador"].Visible = false;
 
             this.ComprasGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            this.ComprasGrid.Columns["compra_id"].ReadOnly = true;
+            this.ComprasGrid.Columns["cod_compra"].ReadOnly = true;
             this.ComprasGrid.Columns["cantidad"].ReadOnly = true;
-            this.ComprasGrid.Columns["publicacion_id"].ReadOnly = true;
+            this.ComprasGrid.Columns["id_publicacion"].ReadOnly = true;
 
         }
 

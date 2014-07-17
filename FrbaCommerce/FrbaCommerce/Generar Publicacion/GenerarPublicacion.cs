@@ -101,22 +101,19 @@ namespace FrbaCommerce.Generar_Publicacion
                 if ((tipoPubli.descripcion == "Subasta" && Decimal.Parse(this.txtBoxStock.Text) == 1 || 
                     tipoPubli.descripcion == "Compra Inmediata"))
                 {
-                    if (3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(codigoUsuario) &&
-                        ((Visibilidad)this.visibilidades.SelectedItem).visibiDescripcion == "Gratis")
+                    if (3 <= RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(codigoUsuario) &&
+                        ((Visibilidad)this.visibilidades.SelectedValue).visibiDescripcion == "Gratis")
+                    {
+                        MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
+                            "Momentaneamente, no podrá publicar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
+                    }
+                    else
                     {
                         this.generarPublicacion();
                         new GeneracionPublicacionCorrecta().ShowDialog(this);
                         this.Close();
                     }
-                    else
-                    {
-                        if (!(3 > RepositorioPublicacion.Instance.CantidadPublicacionesGratuitasDelUsuario(codigoUsuario)) &&
-                        ((Visibilidad)this.visibilidades.SelectedValue).visibiDescripcion == "Gratis")
-                        {
-                            MessageBox.Show("Usted ya tiene posee mas de 3 publicaciones gratuitas activas.\n" +
-                                "Momentaneamente, no podrá publicar con esta visibilidad.", "Atención", MessageBoxButtons.OK);
-                        }
-                    }
+                    
                 }
                 else
                 {
