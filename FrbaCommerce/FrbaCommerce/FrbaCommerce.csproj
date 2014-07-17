@@ -377,6 +377,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\FechaSistema.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Funcionalidad.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\ItemFactura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\ModoApertura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Oferta.cs" />
