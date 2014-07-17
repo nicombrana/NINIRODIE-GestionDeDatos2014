@@ -4,28 +4,26 @@ using System.Text;
 
 namespace FrbaCommerce.ClasesNINIRODIE.Dominio
 {
-    class Factura
+    public class Factura
     {
-        Decimal id_fatcura { get; set; }
-        Decimal publicacion_id { get; set; }
-        Decimal cantidad_vendida { get; set; }
-        String medios_de_pago { get; set; }
-        bool pagada { get; set; }
-        DateTime fecha { get; set; }
-        Decimal comprador { get; set; }
+        public Decimal id_fatcura { get; set; }
+        public Decimal comprador { get; set; }
+        public String medios_de_pago { get; set; }
+        public bool pagada { get; set; }
+        public DateTime fecha { get; set; }
+        public Decimal total { get; set; }
 
         public Factura() { }
 
-        public Factura(Decimal id, Decimal publicacionID, Decimal cantVendida,
-            String medioPago, bool pagada, DateTime fecha, Decimal comprador) : this()
+        public Factura(Decimal id, Decimal compradorId, String medios_Pago, 
+            bool estaPaga, DateTime date, Decimal totall) : this()
         {
             this.id_fatcura = id;
-            this.publicacion_id = publicacionID;
-            this.cantidad_vendida = cantVendida;
-            this.medios_de_pago = medioPago;
-            this.pagada = pagada;
-            this.fecha = fecha;
-            this.comprador = comprador;
+            this.comprador = compradorId;
+            this.medios_de_pago = medios_Pago;
+            this.pagada = estaPaga;
+            this.fecha = date;
+            this.total = totall;
         }
     }
 }

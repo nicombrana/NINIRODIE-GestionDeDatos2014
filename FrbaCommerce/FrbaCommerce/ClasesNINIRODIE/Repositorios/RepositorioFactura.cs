@@ -51,13 +51,19 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         {
             var id = Decimal.Parse(row["FAC_ID_FACTURA"].ToString());
             var comprador = Decimal.Parse(row["FAC_COMPRADOR"].ToString());
-            var cantVendida = Decimal.Parse(row["FAC_CANTIDAD_VENDIDA"].ToString());
-            var mediosPago = Decimal.Parse(row["FAC_MEDIOS_DE_PAGO"].ToString());
+            Decimal mediosPago = Decimal.Parse(row["FAC_MEDIOS_DE_PAGO"].ToString());
             var pagada = bool.Parse(row["FAC_PAGADA"].ToString());
             var fechaFactura = DBTypeConverter.ToDateTime(row["FAC_FECHA"].ToString());
             var factTotal = Decimal.Parse(row["FAC_TOTAL"].ToString());
+            
+            var query = String.Format(@"SELECT PAGO_DESCRIPCION FROM NINIRODIE.MEDIO_PAGO " +
+                "WHERE PAGO_ID = '{0}'", mediosPago);
 
-            return new Factura();
+            DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.MEDIO_PAGO");
+
+            var pagoDescripcion = (dataRow.ToList<String>(lambdaRow => lambdaRow["PAGO_DESCRIPCION"].ToString())).First();
+
+            return new Factura(id, comprador, pagoDescripcion, pagada, fechaFactura, factTotal);
         }
 
     }
