@@ -374,6 +374,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedorMayorFacturacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Estado.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Factura.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\Facturable.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\FechaSistema.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Finalizada.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Funcionalidad.cs" />

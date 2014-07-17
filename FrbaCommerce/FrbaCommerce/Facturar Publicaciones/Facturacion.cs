@@ -20,9 +20,9 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
         private void facturarCompraBoton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Si iniciará la facturación de Compras", "Atención", MessageBoxButtons.OK);
+            MessageBox.Show("Si iniciará la facturación de Compras y Subastas", "Atención", MessageBoxButtons.OK);
 
-            new Facturar(codigoUsuario, TipoFactura.FacturarCompra).ShowDialog(this);
+            new Facturar(codigoUsuario, TipoFactura.FacturarCompraOferta).ShowDialog(this);
 
             SeguirFacturandoPregunta();
         }
@@ -38,9 +38,9 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
         private void facturarOfertasBoton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se iniciará la facturación de Ofertas", "Atención", MessageBoxButtons.OK);
+            MessageBox.Show("Se iniciará la facturación de Publicaciones", "Atención", MessageBoxButtons.OK);
 
-            new Facturar(codigoUsuario, TipoFactura.FacturarOferta).ShowDialog(this);
+            new Facturar(codigoUsuario, TipoFactura.FacturarPublicacion).ShowDialog(this);
 
             SeguirFacturandoPregunta();
         }

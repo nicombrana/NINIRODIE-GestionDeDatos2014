@@ -48,7 +48,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             return dataRow.ToList<Decimal>(row => Decimal.Parse(row["COMP_ID_COMPRA"].ToString())).First();
         }
 
-        public List<Compra> BuscarComprasCliente(Decimal codigoUsuario, int cantidad)
+        public List<Compra> BuscarComprasHechasAlUsuario(Decimal codigoUsuario, int cantidad)
         {
             var query = String.Format(@"SELECT TOP {1} * FROM NINIRODIE.COMPRA WHERE COMP_PUBLICACION_ID " +
                 "IN (SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{0}') " +

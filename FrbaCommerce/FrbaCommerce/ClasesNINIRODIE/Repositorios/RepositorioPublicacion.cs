@@ -217,6 +217,37 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             return (dataRow.ToList<int>(row => int.Parse(row["CANTIDAD_GRATUITAS"].ToString()))).First();
         }
+
+        public List<Facturable> BuscarPublicacionesParaFacturar(Decimal codigoUsuario, int cantidad)
+        {
+            var query = String.Format(@"SELECT TOP {1} * FROM NINIRODIE.PUBLICACION " +
+                "WHERE PUB_VENDEDOR = '{0}' AND PUB_PUBLICACION_ID NOT IN " +
+                "(SELECT ITEM_PUBLICACION_ID FROM NINIRODIE.ITEM WHERE ITEM_FACTURA_ID = NULL)",
+                codigoUsuario, cantidad);
+
+            var publicaciones = this.BuscarPublicaciones(query);
+
+            var facturables = new List<Facturable>();
+
+            foreach (Publicacion publicacion in publicaciones)
+            {
+                Visibilidad visibilidad = RepositorioVisibilidad.Instance.BuscarVisibilidad(publicacion.visibilidad_codigo);
+
+                Facturable facturable = new Facturable(publicacion.publicacion_id, publicacion.vendedor,
+                    visibilidad.precio, 1, FechaSistema.Instance.fecha);
+                
+                facturables.Add(facturable);
+            }
+
+            return facturables;
+        }
+
+        public Publicacion BuscarPublicaciones(Decimal codigo)
+        {
+            var query = String.Format(@"SELECT * FROM NINIRODIE.PUBLICACION WHERE PUB_PUBLICACION_ID = '{0}'", codigo);
+
+            return (this.BuscarPublicaciones(query)).First();
+        }
     }
 }
 

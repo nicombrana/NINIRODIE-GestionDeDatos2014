@@ -67,7 +67,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
             SQLUtils.EjecutarConsultaConEfectoDeLado(query);
         }
 
-        public List<Oferta> BuscarOfertasCliente(Decimal codigoUsuario, int cantidad)
+        public List<Oferta> BuscarOfertasHechasAlUsuario(Decimal codigoUsuario, int cantidad)
         {
             var query = String.Format(@"SELECT TOP {0} * FROM "+
                 "(SELECT OF_SUBASTA_ID, OF_MONTO, OF_FECHA, OF_COMPRADOR, OF_OFERTA_ID " +

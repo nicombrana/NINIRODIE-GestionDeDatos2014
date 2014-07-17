@@ -191,5 +191,12 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
 
             return (dataRow.ToList<Visibilidad>(this.DataRowToVisibilidad)).First();
         }
+
+        public Decimal ObtenerMontoAPagarParaPublicacion(Decimal codigoVisibilidad)
+        {
+            var visibilidad = this.BuscarVisibilidad(codigoVisibilidad);
+
+            return visibilidad.porcentajeVenta;
+        }
     }
 }
