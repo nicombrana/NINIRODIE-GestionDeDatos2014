@@ -387,6 +387,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\CompraInmediata.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Empresa.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\ClienteMayorCantidadPublicacionesSinCalificar.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\Filtro.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedoresMayorCantidadProductosNoVendidos.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedorMayorCalificacion.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\EstadisticasDominio\VendedorMayorFacturacion.cs" />

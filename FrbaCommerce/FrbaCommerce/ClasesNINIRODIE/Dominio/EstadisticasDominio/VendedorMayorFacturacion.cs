@@ -8,11 +8,13 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio.EstadisticasDominio
     class VendedorMayorFacturacion
     {
         public String nombre { get; set; }
+        public String tipo { get; set; }
         public Decimal total { get; set; }
 
-        public VendedorMayorFacturacion(String name, Decimal totall)
+        public VendedorMayorFacturacion(String name, String type, Decimal totall)
         {
             nombre = name;
+            tipo = type;
             total = totall;
         }
     }
