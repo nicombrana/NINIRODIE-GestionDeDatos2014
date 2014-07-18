@@ -63,8 +63,11 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         public List<Compra> BuscarComprasHechasAlUsuario(Decimal codigoUsuario, int cantidad)
         {
             var query = String.Format(@"SELECT TOP {1} * FROM NINIRODIE.COMPRA WHERE COMP_PUBLICACION_ID " +
-                "IN (SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{0}') " +
+                "IN (SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{0}' AND " +
+                "PUB_PUBLICACION_ID NOT IN (SELECT ITEM_PUBLICACION_ID FROM NINIRODIE.ITEM " +
+                "WHERE ITEM_PUBLICACION_ID = COMP_PUBLICACION_ID AND ITEM_CANTIDAD = COMP_CANTIDAD))" +
                 "ORDER BY COMP_FECHA ASC", codigoUsuario, cantidad);
+
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.COMPRA");
 

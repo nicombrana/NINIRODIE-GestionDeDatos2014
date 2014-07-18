@@ -17,6 +17,8 @@ namespace FrbaCommerce.Facturar_Publicaciones
         Decimal codigoUsuario;
         TipoFactura tipoFacturacion;
         List<Facturable> Facturables = new List<Facturable>();
+        Factura factura = new Factura();
+        MediosPago medioPago = new MediosPago();
 
         public Facturar(Decimal codigoUser, TipoFactura tipoFacturacion)
         {
@@ -28,6 +30,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
             this.RenombrarComprarOfertar();
             this.compraOfertaGrilla.DataSource = new List<Facturable>();
             this.compraOfertaGrilla.Columns["codigoFacturable"].Visible = false;
+            this.compraOfertaGrilla.Columns["facturaId"].Visible = false;
             this.compraOfertaGrilla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MessageBox.Show("Debe ingresar una cantidad a Facturar", "Atención", MessageBoxButtons.OK);
         }
@@ -59,7 +62,7 @@ namespace FrbaCommerce.Facturar_Publicaciones
                 {"Efectivo", "Tarjeta de Débito", "Tarjeta de Crédito" };
             this.formaPagoComboBox.Refresh();
         }
-
+        //Revisar
         private void PopularGrillaComprasOfertas()
         {
             var cantidad = int.Parse(this.cantidadTextBox.Text);
@@ -94,8 +97,10 @@ namespace FrbaCommerce.Facturar_Publicaciones
             if (Facturables.Count < cantidad)
                 this.compraOfertaGrilla.DataSource = Facturables;
             else
-                this.compraOfertaGrilla.DataSource = Facturables.GetRange(0, cantidad - 1);
-
+            {
+                Facturables = Facturables.GetRange(0, cantidad);
+                this.compraOfertaGrilla.DataSource = Facturables;
+            }
             this.compraOfertaGrilla.Refresh();
         }
 
@@ -115,7 +120,58 @@ namespace FrbaCommerce.Facturar_Publicaciones
 
         private void facturarBoton_Click(object sender, EventArgs e)
         {
+            this.ObtenerDatosMediosPago();
+            this.AlmacenarFacturables();
 
+            MessageBox.Show("Se ha realizado la facturación correctamente.\n" +
+                "Su número de factura es el " + factura.id_fatcura.ToString() + "."
+                , "Informe", MessageBoxButtons.OK);
+
+            this.Close();
+        }
+
+        private void ObtenerDatosMediosPago()
+        {
+            String formaPago = (String)this.formaPagoComboBox.SelectedItem;
+            medioPago.descripcion = formaPago;
+            if (formaPago != "Efectivo")
+            {
+                new FormaDePago(medioPago).ShowDialog(this);
+            }
+            else
+                medioPago.pagoId = 1;
+        }
+
+        private void AlmacenarFacturables()
+        {
+            factura.id_fatcura = RepositorioFactura.Instance.ProximoCodigo();
+            factura.comprador = this.codigoUsuario;
+            factura.pagada = false;
+            Decimal total = 0;
+            
+            if (medioPago.pagoId == 1)
+                factura.medios_de_pago = 1;
+            else
+                RepositorioFactura.Instance.AlmacenarMedioPago(medioPago);
+
+            factura.medios_de_pago = medioPago.pagoId;
+
+            RepositorioFactura.Instance.AlmacenarFactura(factura);
+
+            foreach (Facturable facturable in Facturables)
+            {
+                facturable.facturaId = factura.id_fatcura;
+                ItemFactura item = new ItemFactura(facturable.cantidad, facturable.montoPorUnidad,
+                    facturable.facturaId, facturable.publicacionId);
+
+                RepositorioFactura.Instance.GuardarItem(item);
+
+                total += (facturable.cantidad * facturable.montoPorUnidad);
+            }
+
+            factura.total = total;
+
+            RepositorioFactura.Instance.ActualizarMontoFactura(factura);
         }
 
         private void buscarBoton_Click(object sender, EventArgs e)

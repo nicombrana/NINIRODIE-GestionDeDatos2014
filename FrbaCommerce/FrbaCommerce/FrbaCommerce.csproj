@@ -398,6 +398,7 @@
     <Compile Include="ClasesNINIRODIE\Dominio\Funcionalidad.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\ItemFactura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Logeador.cs" />
+    <Compile Include="ClasesNINIRODIE\Dominio\MediosPago.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\ModoApertura.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Oferta.cs" />
     <Compile Include="ClasesNINIRODIE\Dominio\Pausada.cs" />
@@ -484,6 +485,12 @@
     </Compile>
     <Compile Include="Commerce.Designer.cs">
       <DependentUpon>Commerce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\FormaDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturar Publicaciones\FormaDePago.Designer.cs">
+      <DependentUpon>FormaDePago.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturar Publicaciones\TipoFactura.cs" />
     <Compile Include="Generar Publicacion\BuscarPublicacion.cs">
@@ -715,6 +722,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturar Publicaciones\Facturar.resx">
       <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar Publicaciones\FormaDePago.resx">
+      <DependentUpon>FormaDePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Publicacion\BuscarPublicacion.resx">
       <DependentUpon>BuscarPublicacion.cs</DependentUpon>

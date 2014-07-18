@@ -8,14 +8,14 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
     {
         public Decimal id_fatcura { get; set; }
         public Decimal comprador { get; set; }
-        public String medios_de_pago { get; set; }
+        public Decimal medios_de_pago { get; set; }
         public bool pagada { get; set; }
         public DateTime fecha { get; set; }
         public Decimal total { get; set; }
 
         public Factura() { }
 
-        public Factura(Decimal id, Decimal compradorId, String medios_Pago, 
+        public Factura(Decimal id, Decimal compradorId, Decimal medios_Pago, 
             bool estaPaga, DateTime date, Decimal totall) : this()
         {
             this.id_fatcura = id;

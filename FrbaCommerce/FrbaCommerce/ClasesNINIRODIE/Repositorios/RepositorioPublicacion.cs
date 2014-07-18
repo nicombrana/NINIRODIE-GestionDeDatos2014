@@ -222,8 +222,9 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
         {
             var query = String.Format(@"SELECT TOP {1} * FROM NINIRODIE.PUBLICACION " +
                 "WHERE PUB_VENDEDOR = '{0}' AND PUB_PUBLICACION_ID NOT IN " +
-                "(SELECT ITEM_PUBLICACION_ID FROM NINIRODIE.ITEM WHERE ITEM_FACTURA_ID = NULL)",
-                codigoUsuario, cantidad);
+                "(SELECT ITEM_PUBLICACION_ID FROM NINIRODIE.ITEM WHERE ITEM_MONTO = " +
+                "(SELECT VIS_PRECIO FROM NINIRODIE.VISIBILIDAD WHERE VIS_VISIBILIDAD_CODIGO " +
+                "= PUB_VISIBILIDAD_CODIGO))", codigoUsuario, cantidad);
 
             var publicaciones = this.BuscarPublicaciones(query);
 

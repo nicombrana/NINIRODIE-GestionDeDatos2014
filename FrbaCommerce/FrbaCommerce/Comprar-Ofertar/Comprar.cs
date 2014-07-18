@@ -100,7 +100,16 @@ namespace FrbaCommerce.Comprar_Ofertar
                     this.GenerarCompra(cantidad);
 
                     compra.cod_compra = RepositorioCompra.Instance.ObtenerCodigoCompra(compra);
+                    /*
+                    Decimal porcentaje = RepositorioVisibilidad.Instance.ObtenerMontoAPagarParaPublicacion(publicacionAComprar.visibilidad_codigo);
 
+                    var montoAFacturarPorCompra = porcentaje * publicacionAComprar.precio;
+
+                    ItemFactura item = new ItemFactura(compra.cantidad, montoAFacturarPorCompra,
+                        publicacionAComprar.publicacion_id);
+
+                    RepositorioFactura.Instance.GuardarItem(item);
+                    */
                     MessageBox.Show("Su compra ha sido llevada a cabo satisfactoriamente.\n" +
                         "Su código de compra es el " + compra.cod_compra.ToString() + "." +
                         "\nContactese con el vendedor para arreglar los\n" +

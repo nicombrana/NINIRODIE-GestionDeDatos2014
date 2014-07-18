@@ -75,7 +75,10 @@ namespace FrbaCommerce.ClasesNINIRODIE.Repositorios
                 "(SELECT PUB_PUBLICACION_ID FROM NINIRODIE.PUBLICACION WHERE PUB_VENDEDOR = '{1}') " +
                 "GROUP BY OF_SUBASTA_ID, OF_MONTO, OF_FECHA, OF_COMPRADOR, " +
                 "OF_OFERTA_ID) OFERTA1 WHERE OFERTA1.OF_MONTO = (SELECT MAX(OF_MONTO) FROM NINIRODIE.OFERTAS " +
-                "WHERE OF_SUBASTA_ID = OFERTA1.OF_SUBASTA_ID) ORDER BY OF_FECHA ASC", cantidad, codigoUsuario);
+                "WHERE OF_SUBASTA_ID = OFERTA1.OF_SUBASTA_ID) AND OFERTA1.OF_SUBASTA_ID NOT IN " +
+                "(SELECT ITEM_PUBLICACION_ID FROM NINIRODIE.ITEM WHERE ITEM_PUBLICACION_ID = OFERTA1.OF_SUBASTA_ID) " +
+                "ORDER BY OF_FECHA ASC", cantidad, codigoUsuario);
+
 
             DataRowCollection dataRow = SQLUtils.EjecutarConsultaSimple(query, "NINIRODIE.OFERTAS");
 

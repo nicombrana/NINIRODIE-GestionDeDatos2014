@@ -10,6 +10,7 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
         public Decimal codigoFacturable { get; set; }
         public Decimal publicacionId { get; set; }
         public Decimal sujetoActivo { get; set; }
+        public Decimal facturaId { get; set; }
         public Decimal montoPorUnidad { get; set; }
         public Decimal cantidad { get; set; }
         public DateTime fecha { get; set; }
@@ -29,6 +30,13 @@ namespace FrbaCommerce.ClasesNINIRODIE.Dominio
             : this(publicacion, comprador, montoAPagar, cantidadAFacturar, fechaFacturacion)
         {
             codigoFacturable = id;
+        }
+
+        public Facturable(Decimal facturaCodigo, Decimal id, Decimal publicacion, Decimal comprador, Decimal montoAPagar,
+            Decimal cantidadAFacturar, DateTime fechaFacturacion)
+            : this(id, publicacion, comprador, montoAPagar, cantidadAFacturar, fechaFacturacion)
+        {
+            facturaId = facturaCodigo;
         }
     }
 }
